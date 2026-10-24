@@ -1,0 +1,27 @@
+{
+ "name": "gs-wap",
+ "request_url": "https://wap.gamersky.com/review/",
+ "opts": {
+  "mobile": true
+ },
+ "status": 404,
+ "final_url": "https://wap.gamersky.com/review/",
+ "headers": {
+  "date": "Sat, 24 Oct 2026 05:24:06 GMT",
+  "content-type": "text/html; charset=utf-8",
+  "content-length": "2491",
+  "connection": "keep-alive",
+  "cache-control": "private",
+  "server": "Microsoft-IIS/10.0",
+  "set-cookie": "ASP.NET_SessionId=4q0xtlbv3bndi1adjj1kgzfv; path=/; HttpOnly; SameSite=Lax",
+  "x-aspnetwebpages-version": "3.0",
+  "x-aspnet-version": "4.0.30319",
+  "x-powered-by": "ASP.NET",
+  "vary": "Accept-Encoding",
+  "x-ser": "i50490_c29970, i2719680_c29582",
+  "x-cache": "MISS from i2719680_c29582(cloudsvr)"
+ },
+ "bytes": 2491,
+ "md5": "4b6bd7ad1683bd3f2db8920859584f74",
+ "elapsed": "0:00:01.392294"
+}

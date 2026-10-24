@@ -1,0 +1,4 @@
+gs-list 200 131822 https://www.gamersky.com/review/ 
+gs-list-f1 200 33941 https://www.gamersky.com/review/202302/1565900.shtml 
+gs-list-f2 200 36549 https://www.gamersky.com/review/202301/1561545.shtml 
+gs-wap 404 2491 https://wap.gamersky.com/review/ 

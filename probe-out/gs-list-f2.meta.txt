@@ -1,0 +1,25 @@
+{
+ "name": "gs-list-f2",
+ "request_url": "https://www.gamersky.com/review/202301/1561545.shtml",
+ "opts": {},
+ "status": 200,
+ "final_url": "https://www.gamersky.com/review/202301/1561545.shtml",
+ "headers": {
+  "date": "Sat, 24 Oct 2026 05:24:03 GMT",
+  "content-type": "text/html",
+  "content-length": "15408",
+  "connection": "keep-alive",
+  "cache-control": "no-cache",
+  "content-encoding": "gzip",
+  "vary": "Accept-Encoding",
+  "server": "Microsoft-IIS/10.0",
+  "x-powered-by": "ASP.NET",
+  "access-control-allow-headers": "Content-Type, api_key, Authorization",
+  "access-control-allow-origin": "*",
+  "x-ser": "i2282299_c26763, i89830_c26665, i1932523_c23621",
+  "x-cache": "HIT from i89830_c26665(cloudsvr)"
+ },
+ "bytes": 36549,
+ "md5": "698b88a4324c21965685b1af6ef0fb61",
+ "elapsed": "0:00:00.105528"
+}
