@@ -1,0 +1,25 @@
+{
+ "name": "gs-a2",
+ "request_url": "https://www.gamersky.com/news/202610/2231855.shtml",
+ "opts": {},
+ "status": 200,
+ "final_url": "https://www.gamersky.com/news/202610/2231855.shtml",
+ "headers": {
+  "date": "Sat, 24 Oct 2026 05:25:33 GMT",
+  "content-type": "text/html",
+  "content-length": "15435",
+  "connection": "keep-alive",
+  "cache-control": "no-cache",
+  "content-encoding": "gzip",
+  "vary": "Accept-Encoding",
+  "server": "Microsoft-IIS/10.0",
+  "x-powered-by": "ASP.NET",
+  "access-control-allow-headers": "Content-Type, api_key, Authorization",
+  "access-control-allow-origin": "*",
+  "x-ser": "i1983043_c23631, i2315447_c28195, i2543405_c29318",
+  "x-cache": "HIT from i1983043_c23631(cloudsvr)"
+ },
+ "bytes": 35202,
+ "md5": "600f6cc4f475dddb2bd41e755ac22cb6",
+ "elapsed": "0:00:01.820261"
+}
