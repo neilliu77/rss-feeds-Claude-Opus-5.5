@@ -37,7 +37,7 @@ class Cache:
     def __init__(self, path: str):
         self.path = path
         self.items: dict[str, Item] = {}
-        self.failures: dict[str, int] = {}
+        self.failures: dict[str, dict] = {}
         if os.path.exists(path):
             with open(path, encoding="utf-8") as f:
                 raw = json.load(f)
@@ -53,7 +53,9 @@ class Cache:
     def prune(self, keep: int) -> None:
         keepers = self.sorted_items()[:keep]
         self.items = {i.link: i for i in keepers}
-        self.failures = {k: v for k, v in self.failures.items() if v < 50}
+        # forget links that are no longer on the list page after many attempts
+        self.failures = {k: v for k, v in self.failures.items()
+                         if (v.get("n", 0) if isinstance(v, dict) else v) < 50}
 
     def save(self) -> None:
         os.makedirs(os.path.dirname(self.path), exist_ok=True)

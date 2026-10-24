@@ -88,13 +88,17 @@ def run_source(src, http: Http) -> dict:
             log.info("   + %s", title[:80])
         except Exception as ex:  # noqa
             errors += 1
-            n = cache.failures.get(e.link, 0) + 1
-            cache.failures[e.link] = n
-            log.warning("   ! article failed (%d): %s -> %s: %s", n, e.link, type(ex).__name__, str(ex)[:200])
+            prev = cache.failures.get(e.link)
+            n = (prev.get("n", 0) if isinstance(prev, dict) else int(prev or 0)) + 1
+            reason = f"{type(ex).__name__}: {str(ex)[:150]}"
+            cache.failures[e.link] = {"n": n, "error": reason}
+            log.warning("   ! article failed (%d): %s -> %s", n, e.link, reason)
             if not old and n >= MAX_FAILURES_BEFORE_PARTIAL and e.title:
                 content, thumb = src.build_content(e, Article(content=src.partial_content(e)))
                 cache.items[e.link] = Item(link=e.link, title=e.title, content=content, date=iso(e.date),
                                            first_seen=now, author=e.author, thumb=thumb, partial=True)
+    current = {e.link for e in entries}
+    cache.failures = {k: v for k, v in cache.failures.items() if k in current}
     cache.prune(src.keep)
     cache.save()
     write_feed(src, cache)
