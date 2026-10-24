@@ -1,6 +1,0 @@
-gs-a1 200 35128 https://www.gamersky.com/news/202610/2232095.shtml 
-gs-a2 200 35202 https://www.gamersky.com/news/202610/2231855.shtml 
-gs-a3 200 28118 https://www.gamersky.com/news/202610/2233663.shtml 
-gs-img-noref 200 20244 https://imgs.gamersky.com/upimg/new_preview/2026/10/23/origin_b_202610231111201038.png 
-gs-img-ino 403 207 https://imgs.gamersky.com/upimg/new_preview/2026/10/23/origin_b_202610231111201038.png 
-gs-img-wsrv 200 32173 https://wsrv.nl/?url=https%3A%2F%2Fimgs.gamersky.com%2Fupimg%2Fnew_preview%2F2026%2F10%2F23%2Forigin_b_202610231111201038.png&w=640&output=jpg&q=85 

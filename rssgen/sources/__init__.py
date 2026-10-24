@@ -1,5 +1,6 @@
 """The list of feeds this repository builds. Feed files are written to feeds/<id>.xml."""
 from .gameres import GameResList
+from .gamersky import GamerskyReviews
 from .huxiu import HuxiuCollection
 from .jamesclear import JamesClear321
 from .riot import RiotNews
@@ -18,4 +19,5 @@ ALL_SOURCES = [
     ThePaperTag("thepaper-tag-1909025", "1909025", "澎湃新闻 · 游戏论", "澎湃新闻·思想市场「游戏论」专栏全文"),
     WordPressSite("kmhgame", "https://www.kmhgame.com/", "软件技术分享 (kmhgame)", "关于电子游戏的方方面面"),
     JamesClear321(),
+    GamerskyReviews(),
 ]

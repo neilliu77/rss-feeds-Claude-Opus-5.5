@@ -1,7 +1,0 @@
-# name | url | options
-gs-a1 | https://www.gamersky.com/news/202610/2232095.shtml | follow=href="((?:https?:)?//www\.gamersky\.com/news/202610/2232095_\d+\.shtml)" | nfollow=2
-gs-a2 | https://www.gamersky.com/news/202610/2231855.shtml
-gs-a3 | https://www.gamersky.com/news/202610/2233663.shtml
-gs-img-noref | https://imgs.gamersky.com/upimg/new_preview/2026/10/23/origin_b_202610231111201038.png | plain
-gs-img-ino | https://imgs.gamersky.com/upimg/new_preview/2026/10/23/origin_b_202610231111201038.png | plain | referer=https://www.inoreader.com/
-gs-img-wsrv | https://wsrv.nl/?url=https%3A%2F%2Fimgs.gamersky.com%2Fupimg%2Fnew_preview%2F2026%2F10%2F23%2Forigin_b_202610231111201038.png&w=640&output=jpg&q=85 | plain | referer=https://www.inoreader.com/
