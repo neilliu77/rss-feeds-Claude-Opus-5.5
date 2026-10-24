@@ -1,0 +1,65 @@
+name: Update RSS feeds
+
+on:
+  schedule:
+    # every 3 hours (times are UTC); GitHub may start scheduled runs a few minutes late
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['rssgen/**', 'requirements.txt', '.github/workflows/update-feeds.yml']
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-feeds
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build feeds
+        run: python -m rssgen
+
+      - name: Save feeds to the repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feeds cache
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          git commit -q -m "Update feeds"
+          for i in 1 2 3; do
+            git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" || true
+            if git push -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Keep the schedule active
+        # GitHub pauses scheduled workflows in repositories without activity for 60 days.
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/update-feeds.yml/enable"
