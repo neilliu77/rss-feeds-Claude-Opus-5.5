@@ -1,0 +1,23 @@
+name: Diagnostics (temporary)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/diag.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask the WebSub hub what it knows about our feeds
+        run: |
+          for f in gamersky-review kmhgame; do
+            u="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/$f.xml"
+            code=$(curl -sS -o body.html -w '%{http_code}' --get --data-urlencode "hub.url=$u" https://pubsubhubbub.appspot.com/topic-details || echo ERR)
+            text=$(python3 -c "import re,html; t=open('body.html',encoding='utf-8',errors='replace').read(); t=re.sub(r'(?s)<(script|style).*?</\1>','',t); t=re.sub(r'<[^>]+>',' ',t); t=html.unescape(re.sub(r'\s+',' ',t)); print(t[:3500])")
+            echo "::notice title=topic-details $f HTTP $code::$text"
+          done
