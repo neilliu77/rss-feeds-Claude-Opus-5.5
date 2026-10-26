@@ -22,9 +22,13 @@ for site, src in TESTS.items():
     for v in VARIANTS:
         url = f"https://wsrv.nl/?url={quote(src, safe='')}{v}"
         try:
-            r = requests.get(url, timeout=90, headers={"Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"})
-            im = Image.open(io.BytesIO(r.content))
-            rows.append(f"[{v or 'no params'}] HTTP {r.status_code} {r.headers.get('content-type')} {len(r.content)//1024}KB {im.size[0]}x{im.size[1]} frames={getattr(im, 'n_frames', 1)}")
+            r = requests.get(url, timeout=90)
+            head = f"[{v or 'no params'}] HTTP {r.status_code} {r.headers.get('content-type')} {len(r.content)//1024}KB"
+            try:
+                im = Image.open(io.BytesIO(r.content))
+                rows.append(f"{head} {im.size[0]}x{im.size[1]} frames={getattr(im, 'n_frames', 1)}")
+            except Exception:
+                rows.append(f"{head} body={r.content[:160]!r}")
         except Exception as e:
             rows.append(f"[{v or 'no params'}] failed {type(e).__name__} {str(e)[:80]}")
     print(f"::notice title={site}::" + " ;; ".join(rows), flush=True)
