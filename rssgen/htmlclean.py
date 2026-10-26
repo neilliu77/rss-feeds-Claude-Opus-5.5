@@ -36,10 +36,20 @@ PLACEHOLDER_RE = re.compile(
     r"^data:|about:blank|blank\.(gif|png|jpg)|placeholder|loading[^/]*\.(gif|svg|png)|lazy[^/]*\.(gif|png|svg)"
     r"|spacer\.gif|grey\.gif|pixel\.(gif|png)|transparent\.(gif|png)|1x1\.", re.I)
 INVALID_XML_RE = re.compile("[\x00-\x08\x0b\x0c\x0e-\x1f￾￿\ud800-\udfff]")
-# Public image cache that fetches without a Referer header, so hotlink-protected images load in RSS readers.
-# Content images are converted to WebP (much smaller than re-encoded PNG); n=-1 keeps GIF animations.
+# Public image cache (wsrv.nl) that fetches without a Referer header, so hotlink-protected images load in
+# RSS readers. Still images are converted to WebP (smaller); n=-1 keeps every frame of animated images.
 IMG_PROXY = "https://wsrv.nl/?url={url}&n=-1&output=webp&q=85"
+# GIFs stay GIFs: every reader and app plays animated GIFs, not all of them play animated WebP. If the proxy
+# can't process a very large GIF it redirects to `default` (the first frame as a still image) instead of
+# showing a broken image.
+GIF_PROXY = "https://wsrv.nl/?url={url}&n=-1&default={fallback}"
+STILL_PROXY = "https://wsrv.nl/?url={url}&output=webp&q=85"
 THUMB_PROXY = "https://wsrv.nl/?url={url}&w=640&output=jpg&q=85"
+GIF_RE = re.compile(r"\.gif(?:$|[?#&])|[?&]wx_fmt=gif|[/_]mmbiz_gif/|//imggif\.", re.I)
+
+
+def is_gif(url: str | None) -> bool:
+    return bool(url and GIF_RE.search(url))
 
 
 def xml_safe(s: str) -> str:
@@ -65,9 +75,14 @@ def proxied(url: str | None, proxy_hosts=(), thumb: bool = False) -> str | None:
     if not url or not proxy_hosts or url.startswith(("https://wsrv.nl/", "https://images.weserv.nl/")):
         return url
     host = (urlsplit(url).hostname or "").lower()
-    if any(host == h or host.endswith("." + h) for h in proxy_hosts):
-        return (THUMB_PROXY if thumb else IMG_PROXY).format(url=quote(url, safe=""))
-    return url
+    if not any(host == h or host.endswith("." + h) for h in proxy_hosts):
+        return url
+    q = quote(url, safe="")
+    if thumb:
+        return THUMB_PROXY.format(url=q)
+    if is_gif(url):
+        return GIF_PROXY.format(url=q, fallback=quote(STILL_PROXY.format(url=q), safe=""))
+    return IMG_PROXY.format(url=q)
 
 
 def _best_from_srcset(srcset: str) -> str | None:

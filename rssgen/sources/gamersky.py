@@ -58,6 +58,12 @@ class GamerskyReviews(Source):
             return None
         for t in node.select("p.appGameBuyCardIframe, #pe100_page_contentpage, .gs_comm_content_bot_fun"):
             t.decompose()
+        # GIFs: data-src / data-small point to "small_xxx.gif", a single still frame shown until you click.
+        # The real animation is "origin_xxx.gif" in data-origin (also data-large / sourceimageurl).
+        for img in node.select("img"):
+            origin = img.get("data-origin") or img.get("data-large") or img.get("sourceimageurl")
+            if origin and ((img.get("data-pictype") or "").lower() == "gif" or ".gif" in origin.lower()):
+                img.attrs = {"src": origin, "alt": img.get("alt", "")}
         for t in node.select("div.title1, div.title2"):
             t.name = "h3"
         return node
