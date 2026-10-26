@@ -13,6 +13,8 @@ SAMPLES = {
 }
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36"}
 
+RESULTS = {}
+
 def probe(label, url, referer=None):
     h = dict(UA)
     if referer:
@@ -27,7 +29,8 @@ def probe(label, url, referer=None):
             info += f" | not an image ({type(e).__name__})"
     except Exception as e:
         info = f"failed: {e}"
-    print(f"::notice title={label}::{info}", flush=True)
+    site, _, variant = label.partition(" ")
+    RESULTS.setdefault(site, []).append(f"[{variant}] {info}")
 
 for site, src in SAMPLES.items():
     q = quote(src, safe="")
@@ -35,3 +38,7 @@ for site, src in SAMPLES.items():
     probe(f"{site} original+inoreader-referer", src, "https://www.inoreader.com/")
     probe(f"{site} wsrv webp (current)", f"https://wsrv.nl/?url={q}&n=-1&output=webp&q=85")
     probe(f"{site} wsrv keep-format", f"https://wsrv.nl/?url={q}&n=-1")
+
+# GitHub keeps at most 10 annotations per step, so emit one per site
+for site, rows in RESULTS.items():
+    print(f"::notice title={site}::" + " ;; ".join(rows), flush=True)
