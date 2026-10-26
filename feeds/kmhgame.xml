@@ -6,6 +6,7 @@
     <description>关于电子游戏的方方面面</description>
     <language>zh-CN</language>
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
     <lastBuildDate>Mon, 26 Oct 2026 00:14:29 GMT</lastBuildDate>
     <item>

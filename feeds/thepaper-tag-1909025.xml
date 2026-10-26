@@ -6,6 +6,7 @@
     <description>澎湃新闻·思想市场「游戏论」专栏全文</description>
     <language>zh-CN</language>
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/thepaper-tag-1909025.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
     <lastBuildDate>Sat, 22 Aug 2026 03:48:13 GMT</lastBuildDate>
     <image>

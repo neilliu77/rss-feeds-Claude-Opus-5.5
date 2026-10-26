@@ -6,6 +6,7 @@
     <description>Developer updates and dev diaries from the VALORANT team.</description>
     <language>en</language>
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/valorant-dev.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
     <lastBuildDate>Mon, 14 Sep 2026 13:00:00 GMT</lastBuildDate>
     <image>
