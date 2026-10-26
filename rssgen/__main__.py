@@ -130,8 +130,11 @@ def main(argv=None) -> int:
         return 2
     http = Http()
     statuses = [run_source(src, http) for src in selected]
+    checked_at = iso(now_utc())
+    for s in statuses:
+        s["checked_at"] = checked_at  # recorded every run, so the repository always shows the last check
 
-    # status file (only stable fields, so unchanged runs produce no git diff)
+    # status file: one entry per feed, including when it was last checked
     status_path = os.path.join(ROOT, "feeds", "status.json")
     previous = {}
     if os.path.exists(status_path):
