@@ -2,8 +2,9 @@ name: Update RSS feeds
 
 on:
   schedule:
-    # every 3 hours (times are UTC); GitHub may start scheduled runs a few minutes late
-    - cron: '23 */3 * * *'
+    # every hour (UTC). GitHub may delay or skip a scheduled run when its servers are busy,
+    # so checking hourly keeps the gaps short.
+    - cron: '23 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -36,6 +37,7 @@ jobs:
         run: python -m rssgen
 
       - name: Save feeds to the repository
+        id: save
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -46,15 +48,23 @@ jobs:
             echo "Nothing new."
             exit 0
           fi
+          changed=$(git diff --cached --name-only -- 'feeds/*.xml' | tr '\n' ' ')
           git commit -q -m "Update feeds"
           for i in 1 2 3; do
             git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" || true
             if git push -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"; then
+              echo "changed=${changed}" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             sleep 10
           done
           exit 1
+
+      - name: Notify Inoreader right away (WebSub)
+        # only when a feed got new articles; waits for GitHub's file cache, then pings the hub
+        if: steps.save.outputs.changed != ''
+        continue-on-error: true
+        run: python -m rssgen.websub ${{ steps.save.outputs.changed }}
 
       - name: Keep the schedule active
         # GitHub pauses scheduled workflows in repositories without activity for 60 days.

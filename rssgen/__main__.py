@@ -8,7 +8,7 @@ import os
 import sys
 import time
 
-from .feed import Cache, Item, build_rss
+from .feed import Cache, Item, build_rss, feed_base_url
 from .htmlclean import text_of
 from .net import Http
 from .sources import ALL_SOURCES
@@ -18,15 +18,6 @@ from .util import iso, now_utc
 log = logging.getLogger("rssgen")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAX_FAILURES_BEFORE_PARTIAL = 3
-
-
-def feed_base_url() -> str:
-    base = os.environ.get("FEED_BASE_URL")
-    if base:
-        return base.rstrip("/") + "/"
-    repo = os.environ.get("GITHUB_REPOSITORY", "neilliu77/rss-feeds-Claude-Opus-5.5")
-    branch = os.environ.get("GITHUB_REF_NAME", "main")
-    return f"https://raw.githubusercontent.com/{repo}/{branch}/"
 
 
 def write_feed(src, cache: Cache) -> None:

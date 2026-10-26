@@ -16,6 +16,20 @@ NS_MEDIA = "http://search.yahoo.com/mrss/"
 NS_DC = "http://purl.org/dc/elements/1.1/"
 NSMAP = {"atom": NS_ATOM, "media": NS_MEDIA, "dc": NS_DC}
 
+# WebSub hub announced in every feed. Readers such as Inoreader subscribe to it and then receive new
+# articles as soon as we ping the hub (see rssgen/websub.py), instead of waiting for their next poll.
+HUBS = ("https://pubsubhubbub.appspot.com/",)
+
+
+def feed_base_url() -> str:
+    """Public base URL of the repository files (the feed addresses people subscribe to)."""
+    base = os.environ.get("FEED_BASE_URL")
+    if base:
+        return base.rstrip("/") + "/"
+    repo = os.environ.get("GITHUB_REPOSITORY", "neilliu77/rss-feeds-Claude-Opus-5.5")
+    branch = os.environ.get("GITHUB_REF_NAME", "main")
+    return f"https://raw.githubusercontent.com/{repo}/{branch}/"
+
 
 @dataclass
 class Item:
@@ -89,6 +103,8 @@ def build_rss(*, title: str, link: str, description: str, language: str, self_ur
     _sub(ch, "description", description or title)
     _sub(ch, "language", language)
     _sub(ch, f"{{{NS_ATOM}}}link", href=self_url, rel="self", type="application/rss+xml")
+    for hub in HUBS:
+        _sub(ch, f"{{{NS_ATOM}}}link", href=hub, rel="hub")
     _sub(ch, "generator", "rssgen (GitHub Actions)")
     newest = max((i.date or i.first_seen or "" for i in items), default="")
     if newest:
