@@ -8,7 +8,396 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Tue, 27 Oct 2026 03:47:44 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 13:45:39 GMT</lastBuildDate>
+    <item>
+      <title>Cursor／Codex 第一次开 Agent：Cmd+I 与 codex 命令＋权限怎么设</title>
+      <link>https://www.kmhgame.com/cursor-codex-di-yi-ci-kai-agent-cmd-i-yu-codex-ming-ling/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/cursor-codex-di-yi-ci-kai-agent-cmd-i-yu-codex-ming-ling/</guid>
+      <pubDate>Tue, 27 Oct 2026 13:45:39 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>Cursor：打开文件夹后按 Cmd／Ctrl+I 开 Agent；官方建议先让它解释代码库再做小改动。Codex CLI：安装后在项目目录运行 <code>codex</code>，用 ChatGPT 登录，并用 <code>/permissions</code> 设边界。产品 UI 易变，步骤以当前官方文档与界面为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/cursor-codex-agent-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li><strong>Cursor Agent</strong>：侧栏 Agent；macOS <code>Cmd+I</code>，Windows／Linux <code>Ctrl+I</code>（<a href="https://cursor.com/help/getting-started/first-project">Your first project</a>、<a href="https://cursor.com/docs/agent/overview">Agent overview</a>）。</li>
+<li><strong>第一次任务（官方示例）</strong>：先问 “Explain this codebase…” 找入口与模块，再做小范围改动；用 diff 审阅，不要的改动可拒绝（<a href="https://cursor.com/docs/get-started/quickstart">Quickstart</a>）。</li>
+<li><strong>Cursor 运行模式</strong>：Settings → Agents → Approvals &amp; Execution；多数人可用 <strong>Auto-review</strong>（允许列表立即跑、可沙箱的 shell 进沙箱、其余交分类器）。另有 Allowlist、Run Everything（<a href="https://cursor.com/docs/agent/security/run-modes">Run Modes</a>）。<strong>证据强度：官方文档；菜单文案以当前客户端为准。</strong></li>
+<li><strong>Codex CLI 安装（macOS／Linux 官方）</strong>：<code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code>，进入仓库后运行 <code>codex</code>，首次选 Sign in with ChatGPT（<a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI</a>、<a href="https://github.com/openai/codex">openai/codex</a>）。</li>
+<li><strong>Codex 边界</strong>：会话内 <code>/permissions</code> 选择何时可改文件／跑命令；另有 <code>/init</code> 生成 AGENTS.md（同上 Learn 文档）。</li>
+<li><strong>共同安全习惯</strong>：改前用 Git 建检查点；第一轮任务写清“只改哪些路径／不要碰什么”；Cloud Agents／网页代理与本地权限模型不同（Cursor 文档写明 Cloud Agents 不走本地 Run Modes）。</li>
+<li>证据强度总评：③ <strong>优先送事实核查</strong>——快捷键与设置路径已对照 2026-10-27 抓取的官方文档，但仍可能随版本漂移。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>仓库刚 clone 下来，你想让 Agent“顺手改一下”，结果它扫全仓、改测试、装依赖，diff 长到不想看。第一次开 Agent，目标应是：<strong>建立可控回路</strong>——它读得懂结构，你审得动改动，权限不会默认“一切自行”。</p>
+<p>下文分 Cursor 桌面端与 OpenAI Codex CLI 两条入门线。二者都是“能改文件、能跑命令的编码代理”，但安装、登录与审批 UI 不同。<strong>菜单名、默认模式以你本机当前版本为准。</strong></p>
+<h3>路线 A：Cursor 第一次开 Agent</h3>
+<p><strong>证据强度：高（官方 Help／Docs，核验日 2026-10-27）；UI 仍可能变。</strong></p>
+<ol>
+<li>安装并登录 Cursor，然后 <strong>File → Open Folder</strong> 打开目标项目（<a href="https://cursor.com/help/getting-started/first-project">Your first project</a>）。  </li>
+<li>打开 Agent 面板：<code>Cmd+I</code>（Mac）或 <code>Ctrl+I</code>（Windows／Linux）。  </li>
+<li><strong>第一轮只读理解</strong>（官方 Quickstart 示例意译／可英文原文照发）：</li>
+</ol>
+<pre><code>Explain this codebase. Point me to the main entry points, key modules,
+and anything I should read before making changes.</code></pre>
+<ol>
+<li><strong>第二轮小改动</strong>：把范围写死，例如 “只在 <code>src/settings/</code> 增加暗色模式开关，不改 API，不改依赖版本”。官方示例句式是直接下任务（如 Add a dark mode toggle…），但入门更稳的是附加路径约束。  </li>
+<li><strong>审 diff</strong>：Agent 边做边应用编辑；在 diff 视图检查，拒绝不需要的改动。复杂探索可用对话时间线上的 <strong>Checkpoints</strong> 回滚文件状态（<a href="https://cursor.com/docs/agent/overview">Agent overview</a>）；长期版本仍以 Git 为准。  </li>
+<li><strong>补上下文</strong>：输入 <code>@文件</code> 或 <code>@目录</code> 指向关键路径。  </li>
+<li><strong>设审批（强烈建议第一天就看）</strong> </li>
+</ol>
+<p>   Settings → Agents → Approvals &amp; Execution：  </p>
+<p>   – <strong>Auto-review</strong>：已知安全调用少打断；shell 尽量进沙箱；其余经分类器。官方称对多数人是“最有用且相对稳妥”的设置。  </p>
+<p>   – <strong>Allowlist</strong>：只自动跑你列出的动作。  </p>
+<p>   – <strong>Run Everything</strong>：全部自动——官方定位是接受风险、零提示。  </p>
+<p>   另有 Browser／删文件／工作区外写文件等独立保护项。详见 <a href="https://cursor.com/docs/agent/security/run-modes">Run Modes</a>。  </p>
+<ol>
+<li>可选：浏览器 <a href="https://cursor.com/agents">cursor.com/agents</a> 跑 Cloud Agents——文档写明其不使用本地 Run Modes。</li>
+</ol>
+<h3>路线 B：Codex CLI 第一次开 Agent</h3>
+<p><strong>证据强度：高（OpenAI Learn／GitHub README，核验日 2026-10-27）。</strong></p>
+<ol>
+<li><strong>安装</strong>（macOS／Linux 官方独立安装器）：</li>
+</ol>
+<pre><code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code></pre>
+<p>Windows 请用官方 PowerShell 安装脚本（见 <a href="https://github.com/openai/codex">GitHub openai/codex</a> README）。亦可用 <code>npm i -g @openai/codex</code> 或 Homebrew cask，以文档当前推荐为准。</p>
+<ol>
+<li>进入项目目录，运行 <code>codex</code>。首次选择 <strong>Sign in with ChatGPT</strong>（或其他界面提供的登录方式）。Help Center 说明 Codex 可随 ChatGPT 套餐使用，额度因档位而异（<a href="https://help.openai.com/en/articles/11369540-getting-started-with-codex">Using Codex with your ChatGPT plan</a>）。  </li>
+<li><strong>第一任务</strong>：<code>Tell me about this project</code>（Learn 文档示例），或：</li>
+</ol>
+<pre><code>codex "explain this codebase"</code></pre>
+<ol>
+<li>再给一个<strong>可回滚的小任务</strong>。官方 prompting 示例会先 <code>git init</code> 再让它生成单文件；真实仓库里更稳妥的是：你自己先 <code>git status</code>／建分支，再让它改。  </li>
+<li><strong>权限</strong>：在会话中用 <code>/permissions</code> 查看沙箱与可写根、选择何时免询问。用 <code>/init</code> 生成 <code>AGENTS.md</code> 写项目惯例。用 <code>/model</code> 切换模型与推理力度（<a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI</a>）。  </li>
+<li>需要网页现状时，文档提到可用搜索相关开关／flag（如 <code>--search</code>）；以你安装版本的 <code>--help</code> 为准。</li>
+</ol>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：第一小时禁止“顺便重构”。</strong> 官方与社区实践都偏向：先解释 → 再窄改 → 再扩大。  </li>
+<li><strong>诀窍：完成定义写进提示。</strong> 例如“改完运行 <code>npm test</code>；失败则修复到绿；不要升级 major 依赖”。  </li>
+<li><strong>反例：一上来 Run Everything／过度宽松 permissions。</strong> 省掉的点击，可能换成一次难回滚的全仓格式化或危险 shell。  </li>
+<li><strong>反例：无 Git 就让 Agent 大改。</strong> Cursor Checkpoints 不等于远程备份；Codex 文档也建议任务前后做 Git 检查点。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿是<strong>第一次打开</strong>的对照入门，不是 IDE 全功能手册，也不评测谁更强。  </li>
+<li>企业策略、团队强制 Run Mode、SSO、数据留存未展开。  </li>
+<li>快捷键、设置路径、默认模式：<strong>以产品当前界面与官方文档为准</strong>；若与本文不一致，以你客户端内文档链接为准。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Your first project｜Cursor Help｜https://cursor.com/help/getting-started/first-project｜核验 2026-10-27  </li>
+<li>Quickstart｜Cursor Docs｜https://cursor.com/docs/get-started/quickstart｜核验 2026-10-27  </li>
+<li>Cursor Agent｜https://cursor.com/docs/agent/overview｜核验 2026-10-27  </li>
+<li>Run Modes｜https://cursor.com/docs/agent/security/run-modes｜核验 2026-10-27（含 Auto-review／沙箱／Cloud Agents 不适用说明）  </li>
+<li>Codex CLI｜ChatGPT Learn｜https://learn.chatgpt.com/docs/codex/cli｜核验 2026-10-27  </li>
+<li>openai/codex README｜https://github.com/openai/codex｜核验 2026-10-27  </li>
+<li>Using Codex with your ChatGPT plan｜OpenAI Help｜https://help.openai.com/en/articles/11369540-getting-started-with-codex  </li>
+<li>Codex prompting_guide（仓库内示例）｜https://github.com/openai/codex/blob/main/codex-cli/examples/prompting_guide.md  </li>
+<li>本文说明：并列表述两条产品的“第一次”路径；强调审批与窄任务；<strong>凡 UI 文案均标“以当前界面为准”</strong>。未把某一版本的截图按钮坐标写成永久事实。未证实的第三方“隐藏快捷键”已删。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/cursor-codex-agent-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>Claude「先约束再需求」提示词骨架：角色→边界→任务→验收</title>
+      <link>https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/</guid>
+      <pubDate>Tue, 27 Oct 2026 13:41:17 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>先写清角色、硬边界与完成定义，再写具体需求；用 XML／小标题分区。Anthropic 官方强调把输出格式与约束写清楚，并用标签分隔指令与材料；社区则常把“不要碰什么”提前，避免模型先用力过猛再返工。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-prompt-skeleton-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方原则：把 Claude 当成“缺上下文的新同事”；<strong>输出格式与约束要写具体</strong>；步骤用编号列表（<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Prompting best practices</a>）。</li>
+<li>官方结构建议：用 <strong>XML 标签</strong>区分 instructions／context／examples／输入，降低串味（同上；亦见 <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">effective context engineering</a> 对分区标题的讨论）。</li>
+<li>官方纠偏：部分场景更有效的是 <strong>告诉它要做什么</strong>，而不是只堆 “Don’t …”；否定约束过长可能反而把禁忌推到注意力中心（官方 “Control the format of responses”；社区亦有负面约束实验讨论，如 <a href="https://www.reddit.com/r/PromptEngineering/comments/1suh2nh/negative_constraints_dont_do_x_can_throw_x_into/">r/PromptEngineering</a>）。</li>
+<li>可抄顺序：<strong>角色与场景 → 硬约束（范围／安全／禁止）→ 任务需求 → 输入材料 → 输出格式 → 验收标准／不确定时怎么办</strong>。</li>
+<li>落地位置：单次聊天可整段粘贴；重复项目请把稳定约束放进 <strong>Project instructions</strong>（见同日《Claude 建第一个 Project》）。</li>
+<li>证据强度：骨架为官方原则＋公开创作者习惯的编译模板，<strong>不是</strong> Anthropic 具名产品功能；效果因模型版本与任务而异。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你丢一句“帮我写个方案／改段代码”，模型开始发挥：扩 scope、改口吻、发明数据。返工时你才补“别用表格”“别编链接”“别动测试”。<strong>先约束再需求</strong>，是把这些闸门挪到第一屏。</p>
+<h3>可抄骨架（通用）</h3>
+<p>把方括号换成你的内容；不需要的整节可删，但建议至少保留「硬约束」「任务」「验收」。</p>
+<pre><code>&lt;role&gt;
+你是【角色】，服务对象是【读者】。
+&lt;/role&gt;
+
+&lt;constraints&gt;
+- 范围：只做【…】；不要做【…】。
+- 事实：不确定就写“不确定”；禁止编造链接、数字、引语。
+- 风格：【例如：短句、中文弯引号、不用鸡汤】。
+- 安全／合规：【例如：不输出密钥；不给违法操作步骤】。
+&lt;/constraints&gt;
+
+&lt;task&gt;
+【用祈使句写清楚要交付什么】
+&lt;/task&gt;
+
+&lt;context&gt;
+【背景、截止时间、受众、已有决定】
+&lt;/context&gt;
+
+&lt;input&gt;
+【粘贴原文／规格／代码；长文放前面】
+&lt;/input&gt;
+
+&lt;output_format&gt;
+- 结构：【例如：结论≤80字 → 要点3–7条 → 正文】
+- 禁用：【例如：禁止 Markdown 表格／禁止 emoji】
+&lt;/output_format&gt;
+
+&lt;acceptance&gt;
+完成后自检：
+1) 是否触碰 &lt;constraints&gt;？
+2) 是否缺少验收项【…】？
+3) 若信息不足，先列【需要我补充的问题】再动笔。
+&lt;/acceptance&gt;</code></pre>
+<h3>可跟做：三分钟填一版（写周报例）</h3>
+<pre><code>&lt;role&gt;你是团队周报编辑，读者是没空读长文的主管。&lt;/role&gt;
+&lt;constraints&gt;
+- 只用我提供的子弹；缺数据写“待补”，禁止编造完成率。
+- 全文≤400字；不要励志结尾。
+&lt;/constraints&gt;
+&lt;task&gt;把下面子弹压成周报。&lt;/task&gt;
+&lt;input&gt;
+（粘贴子弹）
+&lt;/input&gt;
+&lt;output_format&gt;
+1) 本周结论一句话 2) 三项进展 3) 两项风险 4) 下周一只做一件事
+&lt;/output_format&gt;
+&lt;acceptance&gt;若子弹互相矛盾，先指出矛盾再写正文。&lt;/acceptance&gt;</code></pre>
+<p>编码场景可把 <code></code> 写成“只改列出的文件、不改 CI、不添加新依赖”，并与 Cursor／Codex 的路径约束一起用（工具层审批仍要开，提示词代替不了权限）。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：约束要短、可执行。</strong> “写得专业一点”太虚；“禁止使用‘赋能／闭环／抓手’”更可检。官方也建议：给同事看提示词，对方若看不懂，模型也容易偏。  </li>
+<li><strong>诀窍：解释“为什么”比干骂有效。</strong> 官方例：与其只写 NEVER use ellipses，不如说明将用于 TTS，模型更会泛化。  </li>
+<li><strong>诀窍：稳定规则进 Project，变动需求留在聊天。</strong> 避免每条消息重复贴两千字宪法。  </li>
+<li><strong>反例：否定清单开到二十条。</strong> 官方倾向“说要做什么”；社区负面约束实验亦提示“Don’t X”可能把 X 推到输出中心——改为“输出必须是连贯段落”往往更稳。  </li>
+<li><strong>反例：约束与需求互相打架。</strong> 例如既要求“尽量详尽”又要求“不超过100字”；先删冲突再发送。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>骨架适合<strong>写作、分析、改文档、窄范围改代码</strong>；不保证数学证明或实时新闻正确。  </li>
+<li>长文档任务：官方建议<strong>长材料放提示前部</strong>，问题与指令放后；多文档用 <code></code> 类标签包裹。  </li>
+<li>代理／工具调用场景另有“默认行动／先别改文件”等系统提示块（见同一 best practices 文 Tool use 节）；与聊天写作骨架分开配置。  </li>
+<li>模型世代更新后，个别旧提示（过度催促用工具、过长验收集）可能过触发；以你当前模型的官方 prompting 页为准。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Prompting best practices｜Anthropic／Claude Docs｜https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices｜核验 2026-10-27  </li>
+<li>Effective context engineering for AI agents｜Anthropic｜https://www.anthropic.com/research/effective-context-engineering-for-ai-agents  </li>
+<li>Prompt engineering overview｜https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview  </li>
+<li>社区讨论（负面约束效应，非官方结论）：https://www.reddit.com/r/PromptEngineering/comments/1suh2nh/negative_constraints_dont_do_x_can_throw_x_into/  </li>
+<li>编码侧公开习惯（CLAUDE.md／任务结构等综述）：Reddit r/ClaudeCode 等线索帖，如 https://www.reddit.com/r/ClaudeCode/comments/1rtizvs/whats_your_goto_prompt_structure_for_claude_code/  </li>
+<li>本文说明：将官方“写清约束／XML 分区／正向说明目标”编译成可抄中文骨架，并标明这是工作流习惯而非产品开关；增补与 Project instructions 的分工；未宣称某模板在全基准上涨点。未证实的“必涨 30%”类营销句已删（官方长上下文“query at end”实验数字仅作阅读背景，未写入正文承诺）。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-prompt-skeleton-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>微软向约6万员工开自愿离职通道，报道称Xbox在列</title>
+      <link>https://www.kmhgame.com/wei-ruan-xiang-yue-6-wan-yuan-gong-kai-zi-yuan-li-zhi-tong/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/wei-ruan-xiang-yue-6-wan-yuan-gong-kai-zi-yuan-li-zhi-tong/</guid>
+      <pubDate>Tue, 27 Oct 2026 13:40:34 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>微软于2026年10月26日推出自愿离职要约（VEO），发言人称约6万人符合资格；The Verge援引知情人士称Xbox在列，官方博文未点名任何业务线。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/ms-veo-xbox-cover-1024x537.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>2026年10月26日，微软首席人事官艾米·科尔曼（Amy Coleman）发文推出 Voluntary Exit Offer（VEO），面向加拿大、印度、英国、美国 participating organizations 内 level 70 and below 的 eligible employees；限时、自愿，含财务支持与 career planning resources。</li>
+<li>微软发言人对 Business Insider 确认：约6万员工符合本次要约资格（约合全球约22.3万员工的逾四分之一）；符合资格≠已离职，接受与否由员工自行决定。</li>
+<li>The Verge（Emma Roth、Tom Warren）援引知情人士称：AI experiences、Copilot、CoreAI、Windows + Devices、Xbox、finance、HR 等在列；cloud + AI、MicrosoftAI、CELA 部分参与；marketing、commercial business、discovery and quantum、security 不参与。微软官方博文未点名 Xbox 或任何业务线。</li>
+<li>内部 HRweb（The Verge 见过）写明：本次要约不基于年龄、司龄或绩效；公司称未来或在有业务与人力需求时再考虑 VEO。</li>
+<li>与今年早些时候面向约9000人、美区年龄与司龄合计≥70的 Voluntary Retirement Program 不同；数月前另有约4800人裁员，主要影响 Xbox 与商业销售（媒体转述）。</li>
+<li>Fortune 报道称 Xbox CEO 阿莎·夏尔马（Asha Sharma）仍在规划新一轮裁员（转述，非已发生事件）；近周另有海伦·蒋（Helen Chiang）离任 Xbox COO、Arkane Lyon 咨询期延至约12月13日等动向，与本次 VEO 无直接官方绑定。</li>
+</ul>
+<h2>正文</h2>
+<p>2026年10月26日，微软官方博客刊出首席人事官艾米·科尔曼（Amy Coleman）致员工说明：公司推出新的 Voluntary Exit Offer（VEO），给 participating organizations 内符合资格、且可能正考虑离开公司的员工“一个在支持下完成过渡的新选择”，同时也给参与组织“另一种按变化调整人力的方式”。科尔曼写道，这建立在今年早些时候 Voluntary Retirement Program 的经验之上，并强调“creating greater flexibility and, where possible, more ways for employees to shape their next chapter”。</p>
+<p>官方口径写得很清楚：要约面向加拿大、印度、英国、美国 participating teams 中 level 70 and below 的 eligible employees；限时、自愿；部分组织提供、部分不提供，参与与否“varies based on each business’s priorities, customer commitments and workforce needs”。符合资格者将在数小时内收到邮件，查看个人要约详情。博文全文<strong>未点名 Xbox，也未点名任何具体业务线</strong>。</p>
+<p>数字方面，微软发言人对 Business Insider 确认约6万员工符合资格。The Verge 同日报道写的是“up to 60,000 employees”，并给出微软全球员工约22.3万的背景。Business Insider 另据其审阅的要约称：美区买断条款与公司标准 severance 对齐，并按 level、地点、tenure 个性化；eligible 员工大致有至12月初决定、年末离场的时间窗口（以个人邮件与当地条款为准）。发言人还表示，目前没有再推一轮 buyout 的计划。这与 The Verge 所见 HRweb“未来或再考虑 VEO”的表述并不矛盾，前者说的是“此刻没有下一轮计划”，后者留的是政策开口。</p>
+<p>游戏业最关心的一句来自匿名源。The Verge 援引 sources familiar with the situation 称：AI experiences、Copilot、CoreAI、Windows + Devices、Xbox、finance、HR 等团队员工符合自愿离职要约资格；cloud + AI、MicrosoftAI 与 CELA（corporate, external, and legal affairs）部分参与；marketing、commercial business、discovery and quantum、security 不参与。GamesIndustry.biz（Vikki Blake）同日转述了上述名单。<strong>上述 Xbox 在列的说法目前仅见于媒体援引的知情人士，并非微软官方确认；写“公司已把 Xbox 列入 VEO”会超出口径。</strong></p>
+<p>背景上，数月前微软曾裁员约4800人，媒体报道称主要影响 Xbox 与商业销售。今年早些时候的 Voluntary Retirement 则约面向9000人，美区门槛是年龄与司龄合计≥70，与本次“不看年龄、司龄、绩效”的 VEO 机制不同。Fortune 另报道称 Xbox CEO 阿莎·夏尔马（Asha Sharma）还在规划新一轮裁员；此为转述，勿写成已经落地。近几日的人事与工作室新闻可作为轻背景：海伦·蒋（Helen Chiang）于2026年10月23日离任 Xbox COO（微软拒评个人人事；Eurogamer 有关“违反政策”的说法未经独立核实）；Arkane Lyon 的劳工咨询期据微软对 PC Gamer 等回应延长约一个月至约12月13日，公司称仍在探索包括为《Marvel’s Blade》寻找伙伴在内的选项，<strong>尚未宣布关停</strong>。这些事件与本次 VEO 时间接近，但官方未将它们写成同一方案的组成部分。</p>
+<p>成本与 AI 投入是多数外媒解读时的大背景：微软近年在云与 AI 基建上开支巨大，年内又经历多轮控员。可以说公司在“控本、调结构”的压力下推出自愿通道；但不宜写成“因为 AI 所以 Xbox 被裁”。名单本身未经官方点名，接受人数也尚未公布，因果链条留有余地更稳妥。对 Xbox 员工与关注者而言，眼下能核实的是：有一条限时自愿通道开了；谁在列，目前仍主要靠匿名源报道；最终走多少人，要等员工决定窗口关闭之后才有答案。</p>
+<h2>【来源与编译】</h2>
+<ul>
+<li>原文标题：Introducing a Voluntary Exit Offer</li>
+<li>署名：Amy Coleman（EVP &amp; Chief People Officer）</li>
+<li>出版方：Microsoft Blog</li>
+<li>链接：https://blogs.microsoft.com/blog/2026/10/26/introducing-a-voluntary-exit-offer/</li>
+<li>日期：2026-10-26</li>
+</ul>
+<p>交叉核对与增补：</p>
+<ul>
+<li>The Verge，Emma Roth &amp; Tom Warren，2026-10-26，https://www.theverge.com/tech/1018666/microsoft-expands-buyouts-60000-employees-eligible：“约6万符合资格”、参与/不参与团队名单（含 Xbox）、全球约22.3万员工、约4800裁员背景、HRweb 表述；<strong>Xbox 在列仅来自本文匿名源，官方博文未点名。</strong></li>
+<li>GamesIndustry.biz，Vikki Blake，2026-10-26，https://www.gamesindustry.biz/xbox-staff-among-up-to-60000-microsoft-employees-offered-voluntary-exit：转述 Verge，游戏业视角交叉。</li>
+<li>Business Insider，Ashley Stewart，2026-10-26，https://www.businessinsider.com/microsoft-is-offering-buyouts-read-the-memo-2026-10 与 https://www.businessinsider.com/microsoft-employee-buyout-offer-2026-10：发言人确认约6万符合资格、美区条款与标准 severance 对齐、决定窗口至约12月初；<strong>发言人未确认 Xbox 在列。</strong></li>
+<li>The Verge，Helen Chiang 离任，2026-10-23，https://www.theverge.com/news/1018037/xbox-chief-operating-officer-helen-chiang-departure：轻背景；Eurogamer“违反政策”说法未独立核实，微软拒评。</li>
+<li>Arkane Lyon 咨询期延长：微软对 PC Gamer 等回应，延期约一个月至约12月13日，仍在找买家/伙伴完成 Marvel’s Blade；勿写成已关停。</li>
+</ul>
+<p>本文为多源编译。保留官方 VEO 机制与发言人“约6万符合资格”表述；Xbox 名单一律标明为媒体援引知情人士／报道称；未将 AI 投入写成对 Xbox 裁员的已证实因果；未把 Fortune 所谓“新一轮裁员规划”写成已发生；未采信未经核实的 Chiang 解职原因传闻。核验日：2026-10-27（Asia/Shanghai）。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/ms-veo-xbox-cover-1024x537.webp"/>
+    </item>
+    <item>
+      <title>Claude 建第一个 Project：免费最多5个，知识库与指令怎么分</title>
+      <link>https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/</guid>
+      <pubDate>Tue, 27 Oct 2026 13:37:11 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>在 claude.ai/projects 点 “+ New Project”，起名即可开聊。稳定规则进 Project instructions，事实材料进知识库；聊天之间默认不共享上下文，除非写入知识库。免费账户最多5个项目。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-first-project-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>入口：<a href="https://claude.ai/projects">claude.ai/projects</a>；左侧悬停也可点 “Projects”（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">Claude Help Center</a>，核验约 2026-10 下旬）。</li>
+<li>可用性：Help Center 写明 <strong>所有用户（含免费）可用 Projects</strong>；<strong>免费用户最多创建 5 个项目</strong>。</li>
+<li>创建三步：+ New Project → 名称与描述（<strong>注意：名称／描述 Claude 读不到</strong>）→ 在项目内开聊。</li>
+<li>知识库：项目主页右侧 “+” 上传文档／文本／代码；该内容会进入<strong>本项目内所有聊天</strong>的上下文。</li>
+<li>项目指令：点 “Set project instructions”，写行为与回复规则并保存；对该项目内聊天生效。</li>
+<li>关键坑：项目内聊天之间<strong>不会</strong>自动共享对话内容，除非你把信息放进知识库（官方原文 Note）。</li>
+<li>证据强度：步骤与限额来自 Claude Help Center 一手；付费档 RAG 扩容、Team 共享等以账户可见功能为准。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>同一主题聊了十几轮，新开对话又要重新贴背景、重申语气。Projects 要解决的就是这种“冷启动”：把材料和规矩固定在一个容器里，新聊天自带上下文。</p>
+<p>Anthropic 在 2024-06-25 产品文 <a href="https://www.anthropic.com/news/projects">Collaborate with Claude on Projects</a> 里把方向说成：为聊天配上策展过的知识，并可用自定义指令约束口吻与角色。之后产品向更多档位放开；<strong>当前以 Help Center 为准：免费也可用，上限五个。</strong></p>
+<h3>可跟做：建第一个项目</h3>
+<ol>
+<li><strong>打开 Projects</strong> </li>
+</ol>
+<p>   浏览器登录 Claude 后访问 <a href="https://claude.ai/projects">claude.ai/projects</a>，或悬停左侧点 “Projects”。</p>
+<ol>
+<li><strong>新建</strong> </li>
+</ol>
+<p>   右上角 “+ New Project”。填写名称与描述。Help Center 明确：<strong>Claude 不会读取名称和描述</strong>——它们只方便你辨认，真正生效的是知识库与 instructions。</p>
+<ol>
+<li><strong>（Team／Enterprise）可见性</strong> </li>
+</ol>
+<p>   可选仅自己与受邀者，或（管理员允许时）对组织开放。个人免费／Pro 常见路径是先保持私有。</p>
+<ol>
+<li><strong>写入项目指令（建议先于狂传文件）</strong> </li>
+</ol>
+<p>   打开 “Set project instructions”，用短条目写清：角色、读者、输出格式、硬性“不要做”的边界、不确定时如何处理。保存后，该项目内聊天都会带上这些规则。</p>
+<ol>
+<li><strong>上传知识库</strong> </li>
+</ol>
+<p>   右侧知识库点 “+”，上传当前任务真正需要的文档、摘录或代码。宁可少而新，也不要一次倒进过期的整盘备份。付费计划在知识接近上下文上限时，官方称会自动启用 RAG 以扩大容量（Help Center）；免费档勿默认有同等扩容。</p>
+<ol>
+<li><strong>在项目里开第一聊</strong> </li>
+</ol>
+<p>   直接提问或布置任务。若要把旧的独立聊天挪进来：聊天名旁下拉 → “Add to project”。</p>
+<ol>
+<li><strong>记忆（若界面有 Memory）</strong> </li>
+</ol>
+<p>   Help Center：各项目有独立 memory；可在项目页关闭 “Use account memory” 以免与账户级记忆搅在一起。单项聊天也可在发送前于 “+” 菜单关掉 Memory。以你账户当前开关为准。</p>
+<h3>可抄工作流（第一个项目怎么填）</h3>
+<p>把第一个项目想成<strong>一条重复出现的工作流</strong>，而不是“我的全部人生”：</p>
+<figure><table><thead><tr><th>放哪里</th><th>放什么</th><th>不放什么</th></tr></thead><tbody><tr><td>Project instructions</td><td>口吻、读者、格式、禁止项、完成定义</td><td>会每周大变的事实细节</td></tr><tr><td>知识库文件</td><td>风格指南、接口约定、当前决策纪要、样例</td><td>互相矛盾的旧版、无关大文件</td></tr><tr><td>单次聊天</td><td>本周具体任务、临时粘贴</td><td>指望它自动传到下次聊天</td></tr></tbody></table></figure>
+<p>社区里常见共识（如 Reddit r/ClaudeAI 经验帖 <a href="https://www.reddit.com/r/ClaudeAI/comments/1u92t33/8_things_about_claude_projects_that_took_me_too/">8 things about Claude Projects…</a> 等讨论综述）：一个项目钉住一个窄目的；instructions 写短、写硬规则；知识库保持“当前有效”；对话乱了就新开聊天，项目容器仍在。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：名称／描述当标签，不当上下文。</strong> 官方已写明 Claude 读不到；别把关键约束只写在描述里。  </li>
+<li><strong>诀窍：重复犯错就改 instructions，而不是每轮骂它。</strong> 把失败模式收成一条“下次禁止／必须”。  </li>
+<li><strong>反例：建一个叫“工作”的巨型项目。</strong> 材料互相打架时，模型会在冲突来源间游移；不如拆成“周报”“客服话术”“某产品说明”等小项目（免费档总共五个，更要省着用，用完可归档 Archive）。  </li>
+<li><strong>反例：以为同项目聊天自动互通。</strong> 官方 Note：除非写入知识库，聊天之间不共享上下文。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿讲的是 <strong>claude.ai 网页 Projects（Chat 侧）</strong>。另有 Claude Code／Cowork 等产品线里的 “project” 概念（本地文件夹、云线程等），入口与字段不同，勿混用步骤。  </li>
+<li>共享、权限、组织级开关仅 Team／Enterprise 相关。  </li>
+<li>删除／归档规则见 Help Center：归档不重置分享权限；删除归档项目前须先 Unarchive。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>How can I create and manage projects?｜Claude Help Center｜https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects｜核验约 2026-10 下旬（Updated over a week ago）  </li>
+<li>Collaborate with Claude on Projects｜Anthropic｜https://www.anthropic.com/news/projects｜2024-06-25（产品方向；限额以现行 Help Center 为准）  </li>
+<li>Intro to Projects｜Claude Academy｜https://academy.claude.com/tutorials/intro-to-projects  </li>
+<li>社区经验综述：https://www.reddit.com/r/ClaudeAI/comments/1u92t33/8_things_about_claude_projects_that_took_me_too/ 等（用户心得，非官方承诺）  </li>
+<li>本文说明：按现行 Help Center 编译可跟做步骤；标明免费5个上限与“名称不可读”等易忽略点；未把 2024 年“仅 Pro／Team”旧口径写成现状。Code／Cowork 项目未展开。界面以产品当前界面为准。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-first-project-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>打开 grok.com 五分钟完成注册与第一问：13岁门槛与可核验提示</title>
+      <link>https://www.kmhgame.com/da-kai-grok-com-wu-fen-zhong-wan-cheng-zhu-ce-yu-di-yi-wen/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/da-kai-grok-com-wu-fen-zhong-wan-cheng-zhu-ce-yu-di-yi-wen/</guid>
+      <pubDate>Tue, 27 Oct 2026 13:32:25 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>打开 grok.com 或官方 App，可先免登录试用；要跨设备同步对话需用 X 或邮箱登录。官方要求确认年满13岁；13–17岁须监护人同意。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-first-ask-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>入口：网页 <a href="https://grok.com/">grok.com</a>；亦可下载 iOS／Android 官方 Grok App（见 <a href="https://x.ai/grok">x.ai/grok</a>）。</li>
+<li>登录：可用 X 账号或邮箱；登录一次后对话、设置与订阅可跨端同步（<a href="https://docs.x.ai/grok/overview">docs.x.ai/grok/overview</a>，文档标注更新约 2026-10-10）。</li>
+<li>年龄门槛（官方）：须确认至少13岁；13–17岁须监护人许可并同意条款（<a href="https://x.ai/legal/faq">x.ai/legal/faq</a>，Consumer FAQs，标注日期 2025-05-12）。</li>
+<li>费用口径：可免费起步；付费档提高额度。自助价目页当前列出 Free $0、Plus $8／月、Premium $30／月、Super $100／月、Ultra $200／月等（<a href="https://x.ai/pricing">x.ai/pricing</a>，核验日 2026-10-27；含税与地区可用性以登录后页面为准）。</li>
+<li>第一问建议：带时间范围＋要求列出处，例如“过去24小时 X 上关于××的主流说法，分事实／传闻，并给链接”。</li>
+<li>证据强度：注册路径与年龄／数据条款来自 xAI 官方文档与 FAQ；界面按钮文案可能随版本微调，以当前产品界面为准。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你只想先问一句“这事网上现在怎么说”，却卡在账号、额度、要不要绑 X。Grok 的最短路径其实很短：先打开，再决定要不要登录。</p>
+<h3>可跟做：从打开到第一问</h3>
+<ol>
+<li><strong>打开入口</strong> </li>
+</ol>
+<p>   浏览器访问 <a href="https://grok.com/">grok.com</a>，或按 <a href="https://x.ai/grok">x.ai/grok</a>“Get started”说明安装 iOS／Android App。官方写明网页与 App 都可免费试用。</p>
+<ol>
+<li><strong>决定是否登录</strong> </li>
+</ol>
+<p>   – 未登录：部分地区可直接聊，但 FAQ 写明未认证会话结束后数据通常不为你保留；且在部分地区（FAQ 写明不含 EU／UK）未登录时可能无法选择退出模型训练。  </p>
+<p>   – 要跨设备接上历史、订阅与设置：用 <strong>X 或邮箱</strong>登录（<a href="https://docs.x.ai/grok/overview">Welcome to Grok</a>）。  </p>
+<p>   – Cursor 与 Grok 可能共用 xAI 登录页，页面品牌看起来像 Grok 属预期；登录不等于强制购买 Grok 订阅才能用 Cursor（<a href="https://docs.x.ai/x-subscription/sign-in">Why does signing in look different?</a>，约 2026-10-11）。</p>
+<ol>
+<li><strong>年龄与监护</strong> </li>
+</ol>
+<p>   使用前确认你满足官方年龄要求：至少13岁；未成年人须监护人同意（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）。本稿不讨论绕过年龄门槛的做法。</p>
+<ol>
+<li><strong>看一眼数据开关（建议登录后立刻做）</strong> </li>
+</ol>
+<p>   – 网页：Settings → Data → “Improve the Model” 等项，决定内容是否用于训练。  </p>
+<p>   – App：Settings → Data Controls。  </p>
+<p>   – 需要不入历史／不参与训练的会话：可用 Private Chat（幽灵图标）；FAQ 称 Private Chat 内容不用于训练，且会在约30天内从系统删除（法律／安全等例外除外）。出处同上 FAQ。</p>
+<ol>
+<li><strong>发第一问（可直接复制改关键词）</strong></li>
+</ol>
+<pre><code>主题：【填写】
+时间范围：过去 24 小时（或你指定的窗口）
+请：
+1) 用要点概括主流说法；
+2) 把“已有公开来源支撑”和“仅为传闻／单一帖子”分开；
+3) 每条给可点击的原文链接；
+4) 不确定就写“不确定”，不要编链接。</code></pre>
+<p>Grok 官方强调它可检索公开 X 帖与实时网页，并提醒输出可能有幻觉，用前须自行核验（FAQ “Does Grok make mistakes?”）。第一问就要求“分事实／传闻＋给链接”，比“随便聊聊××”更容易暴露编造链接。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：第一问就绑定“可核验格式”。</strong> 官方自己承认会幻觉；把“列链接／标不确定”写进首条提示，比事后追问“你确定吗”省一轮。  </li>
+<li><strong>诀窍：地区与套餐以登录后页面为准。</strong> FAQ 写“Depending on your location, limited free access and paid subscription plans… are available”。不要根据二手截图认定本国一定有某档。  </li>
+<li><strong>反例：未登录就塞隐私材料。</strong> 未登录时部分地区无法退出训练；敏感内容应登录后关训练或开 Private Chat，并避免在提示里贴证件号、密钥。  </li>
+<li><strong>反例：把 X 内 Grok 与 grok.com 账务混为一谈。</strong> X 上使用 Grok 受 X 条款约束；订阅／退款路径也按购买渠道（网页／Apple／Google／X）分流（见 <a href="https://docs.x.ai/grok/faq">docs.x.ai/grok/faq</a>）。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>注册／登录最短路径、年龄口径、数据开关、第一条可核验提问</strong>。不覆盖企业 API、Grok Bot 云端队友、Imagine 视频额度细则。  </li>
+<li>付费数字引自 <a href="https://x.ai/pricing">x.ai/pricing</a> 核验日快照；促销、税费、地区下架可能导致差异。  </li>
+<li>实时检索适合“现在大家在说什么”；不适合把模型输出当法庭证据或未经核验的新闻通稿。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Welcome to Grok｜SpaceXSI Docs｜https://docs.x.ai/grok/overview｜文档页标注 Last updated: October 10, 2026  </li>
+<li>Grok 产品页｜https://x.ai/grok｜核验日 2026-10-27  </li>
+<li>Consumer FAQs｜SpaceXSI｜https://x.ai/legal/faq｜页面标注 May 12, 2025（年龄、训练、Private Chat、幻觉等）  </li>
+<li>Pricing｜https://x.ai/pricing｜核验日 2026-10-27（价目为当日公开页；非历史合约）  </li>
+<li>FAQ – Grok Website / Apps｜https://docs.x.ai/grok/faq｜核验日 2026-10-27（周额度池、登录排障等）  </li>
+<li>Why does signing in look different?｜https://docs.x.ai/x-subscription/sign-in｜约 2026-10-11  </li>
+<li>本文说明：中文编译入门路径并增补“第一问可核验模板”；未实测全部地区可用性；未把第三方博客的“每日条数”写成官方配额（官方公开页强调 weekly usage pool／Limited，无统一公开“每日N条”固定数字）。界面文案以产品当前界面为准。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-first-ask-cover-1024x576.webp"/>
+    </item>
     <item>
       <title>Switch／Switch 2 家长控制：主机设置、手机App、账户侧购买限制怎么分工</title>
       <link>https://www.kmhgame.com/switch-switch-2-jia-zhang-kong-zhi-zhu-ji-she-zhi-shou-ji/</link>
@@ -1558,206 +1947,6 @@ https://www.unrealengine.com/news/2026-epic-ai-megajam?lang=zh-CN</p>]]></descri
 <hr/>
 <p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/YOEw4oqPUS9_cVwx46_Gsg?nwr_flag=1">查看原文</a>。</p>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-b57ab53426-0-767x489.webp"/>
-    </item>
-    <item>
-      <title>AI 加反编译，游戏行业正在进入混沌时代</title>
-      <link>https://www.kmhgame.com/ai-jia-fan-bian-yi-you-xi-hang-ye-zheng-zai-jin-ru-hun-dun/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ai-jia-fan-bian-yi-you-xi-hang-ye-zheng-zai-jin-ru-hun-dun/</guid>
-      <pubDate>Thu, 22 Oct 2026 02:02:31 GMT</pubDate>
-      <dc:creator>Big White Horse</dc:creator>
-      <category>游戏评测</category>
-      <description><![CDATA[<p>Steam 的每个商店页最下面都有一行字。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-f57534b798-0.webp"/></figure>
-<p>在截图、评测、配置要求、语言支持、标签之后，靠近整个页面的底部。它告诉你这款游戏有没有用生成式 AI，用了的话，用在什么地方。2024 年 1 月起，开发者上架时需要回答这个问题。美术、音频、叙事文本、本地化、宣传素材都算，幕后写代码可以豁免。</p>
-<p>以前这行字并没有太多人关注。</p>
-<p>现在却不一样了。</p>
-<p>10 月初，一个网名叫 seeeeew 的人在 Bluesky 上发了一条推广。插件是他一年前做的，这届新品节前他又拿出来推了一次，开头是一句话：厌倦了在新品节期间把页面往下拉去找 AI 披露吗？</p>
-<p>插件的名字叫 AI Warning for Steam。装上之后，打开任何一个商店页，如果这款游戏申报过 AI 使用，屏幕中间会直接弹出一个框，把页面其余部分模糊掉。你不点掉它，什么都看不见。</p>
-<p>商店记录里，这个插件创建于 2025 年 10 月，装它的有一万人，评分 4.19。他另外做了 Firefox 版和一段可以在任意浏览器里跑的脚本，那边五千多人，功能都是一样的。</p>
-<p>Kotaku 有位作者装了这个插件，然后去逛新品节。他点开主页推荐的 16 款，10 款弹出了警告。于是这么写道：</p>
-<p>这就像跳进一片 AI 垃圾的海洋，一直在往下沉，把我看新品节的兴致全浇灭了。</p>
-<p>而今年10月的新品节，目前有 7050 款可玩的 demo。去年十月那届是 2,960 款，三年前则不到1000。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-b4c17d8e36-1.webp"/></figure>
-<p>AI带来了生产力，也降低了抄袭门槛</p>
-<p>今年八月有个人在网上发了一段视频。</p>
-<p>他叫 Nas Nakarus，工作室叫 Studio Bitdot，和 Polden Publishing 合作。视频里的东西简单到一句话能说完：一堆干草，五百万根，里面藏着一根针，你要把它找出来。针是真的针，草是一根一根模拟的，你可以拨开、翻动、把整堆弄塌。</p>
-<p>这段视频在八月下旬传开，播放量几千万，Steam 上的测试报名很快过了两万。这在独立游戏里是很少见的数字，尤其对一个还没做出来的东西。</p>
-<p>游戏叫《Needle In A Haystack Simulator》，发售窗口写着 2026 年第四季度。也就是说，八月底的时候，这个游戏还不存在，只有一段视频和一堆等着玩的人。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-f1bdd92d1b-2.webp"/></figure>
-<p>不到一个月，Steam 上冒出了至少十四款”干草堆里找针”的游戏。《A Needle In A Haystack》，《Story of The Needle In A Haystack》，名字绕来绕去，指向同一个东西。为了应对这些，游戏在自己的图片中还贴上了ORIGINAL（原创）的标记，虽然谁都知道这毫无用处。</p>
-<p>动作最快的是 NoGlyph。它九月二十日放出免费试玩，九天之后上架，5.99 美元，草堆加到一千万根，最多六个人联机一起找。</p>
-<p>就在最近，又一款类似的游戏上架了。《A Game About Needle In A Haystack》，开发商 Little Field Studios，比 NoGlyph 贵一美元。</p>
-<p>第二天，NoGlyph 在 Steam 上发了一篇指控，说这一款抄了它的代码。具体到：13 个类，类名一模一样，比如 HayDomeRenderer 和 HayExcavationCollider。超过一半的函数逐字节相同，一共 39 个方法，指令级一致。最要命的是报错信息原封不动留着，其中一条指向一个叫 “Needle in a Haystack/Hay Dome Procedural” 的 shader，而这个 shader 在 Little Field 的工程里根本不存在。</p>
-<p>一个人写代码，不会把别人工程里的报错提示一起搬过来。当天深夜，Little Field 推了个补丁，把那些代码擦了。</p>
-<p>Steam 的评论区没有同情 NoGlyph。有人说这是报应，因为 NoGlyph 本来就是蹭 Nas 的。</p>
-<p>NoGlyph 放试玩版那天是9月20日。9天之后，它变成了一件卖 5.99 美元的商品。而 Nas 从发那段视频到那天，已经过了一个月。</p>
-<p>Pro Gamer 和 Brindlesum 写过这9天是怎么发生的。Unity 打包出来的 Assembly-CSharp.dll 只要不做混淆，就能反编译成能读的源码，喂给 Claude 这类助手，让它把整套物理系统搬进一个新壳子。这活以前得一个逆向团队干几天到几周，现在一个人、一个订阅、几个小时。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-2d66467bdd-3.webp"/></figure>
-<p>图：近期推出的REA显然会进一步加速这个过程。</p>
-<p>有人会说，这是门槛降低之后必然发生的事。是，而且不是第一次。</p>
-<p>2017 年 Steam 取消绿光、改成 Direct，门槛变成 100 美元。三个月后，Valve 一天下架了 173 款游戏，全部来自一家叫 Silicon Echo 的工作室群。</p>
-<p>做法是从 Unity 素材商店买现成的模型、动画、代码，拼成一款能跑的东西，换个皮再上一款。Valve 内部的说法是”假游戏”。其中一家发行商两个月发了 86 款，占那两个月 Steam 新游总数的十分之一。</p>
-<p>那批人就是当年的 AI。同样的门槛，同样的垃圾潮，同样的抱怨。Steam作为平台可以静观其变，只在必要的时候稍微清理。</p>
-<p>玩家的变化也非常有意思，他们现在关注的是如何在这么多游戏中找到不是AI做的。</p>
-<p>r/Steam 上有个帖子，标题就是”能不能给我一个隐藏 AI 游戏的选项”，1.4 万个赞。最高票的回复是：AI 正在让我放弃一辈子的爱好，因为我既没时间也没精力去筛这堆垃圾。我恨这个。</p>
-<p>今年前九个半月，Steam 上每三款新游戏里就有一款在商店页承认自己用过 AI。游戏媒体已经开始做另一件事，《GamingBible》出了一份清单，标题是”10 款不是 AI 拼出来的试玩”，措辞是”据我们所知”。媒体在替平台做人工认证，这个活儿过去不存在。</p>
-<p>常有人拿另一组数反驳：带 AI 的游戏好评率中位数接近九成。可这组数的分母是”有评分的游戏”。芬兰开发者 Sulka Haro 查了五万多款，结论是带 AI 披露的游戏里，将近三成连一条评测都没有。</p>
-<p>所以能说的不是”AI 游戏不差”，是有人愿意评分的那些，评价不差。</p>
-<p>让我们换个角度，其实垃圾游戏一直非常多，只不过以前大部分都没有被上传到Steam这样的销售渠道。</p>
-<p>每个学做游戏的人，第一款东西基本都是垃圾：一个方块在平台上跳，一个球在滚，一个从教程里抄下来的打飞机。做的人知道它烂，玩的人也知道，有这个行业以来一直没变过。itch.io 上就是这个景象，没人抱怨，因为 itch 被当作展板而存在。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-2588540d23-4.webp"/></figure>
-<p>七月的 GMTK 是全世界最大的 Game Jam，收了一万多份投稿，48 小时做完，绝大多数按商业标准都不成立。没人要求它们成立。这东西的产出从来不是游戏，是”一个人能不能在两天里把东西交付出来”这件事的证明。</p>
-<p>同样一批练习作，放在 itch.io 上是练习，放在 Steam上是多少就有些“污染”了。可以想象一下这样一个场景：当你走进一家大型超市，发现无牌、自营、大牌汽水杂乱的堆放在一起，别说购买了，可能都会有赶紧离开的想法。</p>
-<p>正因为如此，一些团队正在试图退出新品节。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-ec1751fab9-5.webp"/></figure>
-<p>《酒鬼女神的酒诡》在十月中旬宣布取消新品节的公开试玩，改成抽选制封测，离原定上线还有一周多。外媒和同行的分析指向同一个逻辑：demo 一放出去，拆包、反编译、交给模型，几天之内就能在别的地方看见一个能跑的版本，而原版要等到12月。</p>
-<p>差不多同时，做过《夜勤人》的 Digital Sun 把《ReVamp》的首次公开测试缩成了 Discord 内测。一个有 50 万愿望单，一个有过成功作品，做的是同一个动作。</p>
-<p>Roblox 上还有更直接的。一位创作者在独立游戏《Escape the Walls》公开演示后 24 小时内做出了克隆，素材来源是一条视频。他后来自己说了过程：Claude 把所有活都干了，我就坐在椅子上看着。</p>
-<p>这或许是一种预演：开发者开始不放demo，不参加新品节，不发开发日志，不做抢先体验。玩家会失去试玩，开发者会失去反馈，媒体会失去素材。</p>
-<p>法律解决不了这个。玩法不受版权保护，这是版权法故意的，保护表达，不保护思想。所以照搬玩法自古合法，抄代码才违法。AI 没移动这条线，它只是把执行成本打到了接近零。</p>
-<p>恐怕接下来的，还真是一个游戏行业的混沌时代了。</p>
-<hr/>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/Fr9VzqS2hSCdt3vZPZQY_A?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-f57534b798-0.webp"/>
-    </item>
-    <item>
-      <title>《皇牌空战 8：希孚之翼》：它能成为系列新巅峰吗？</title>
-      <link>https://www.kmhgame.com/huang-pai-kong-zhan-8-xi-fu-zhi-yi-ta-neng-cheng-wei-xi-lie/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/huang-pai-kong-zhan-8-xi-fu-zhi-yi-ta-neng-cheng-wei-xi-lie/</guid>
-      <pubDate>Sun, 18 Oct 2026 03:59:07 GMT</pubDate>
-      <dc:creator>Big White Horse</dc:creator>
-      <category>游戏评测</category>
-      <description><![CDATA[<p>《皇牌空战 8：希孚之翼》承接前作的势头 —— 正是前作在 2019 年让这个系列重获生机。本作还深度挖掘系列积淀已久的机制与主题：僚机、宏大任务区域、令人难忘的宿敌，打造出堪称系列巅峰、也是全系列最优秀的作品之一。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-2432059a30-0.webp"/></figure>
-<p>你的祖国遭到入侵，在一场与索托阿精锐 “暗影中队” 的缠斗中，你和 “希孚之翼” 并肩作战。希孚之翼是 FCU 的民间传奇英雄，而你渐渐发现，这位人物更多是传说故事，而非真实存在的活人。之后你接过他的身份，成为新一代 “希孚之翼”，维系战争的希望之火。</p>
-<p>皇牌空战系列向来不缺少围绕战争、政治及其对世界影响的故事，但《希孚之翼》将这一主题推向新的层次，重点刻画你的僚机，以及航空母舰 “持久号” 上的全体船员。总计超过 30 个任务，你在这支规模有限的舰队上，和一众幸存飞行员结成小队，所有人都期盼冲突迎来终结。从己方的小丑中队、姊妹部队女王中队，到敌方王牌，再到持久号舰上人员，角色阵容丰富，个个令人印象深刻。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-87110104f6-1-768x432.webp"/></figure>
-<p>故事依旧存在少许瑕疵：部分剧情需要玩家随意按按键才能推进；开篇，前代希孚飞行员科佩的灵魂向你倾诉的桥段，叙事渲染略显刻意。但凭借全新第一人称视角，聚焦中队同伴与舰上人员，本作剧情依旧大放异彩。当你熟悉这些飞行员，亲眼见证他们的挣扎之后，再和他们一同在天际浴血奋战，任务里的重大瞬间会带给你更强的冲击。</p>
-<p>每一个任务的目标与流程都设计得极为精妙。万代的皇牌空战开发团队给玩家安排了各式各样的挑战，完成度十分亮眼。 某一关，你飞越广袤沙漠，摧毁敌方战略储备能源、弹药库与停机坪，一步步削弱入侵者的战争资源；另一关，你高速低空冲向岛屿，规避雷达探测；数个任务过后，你又要尾随巨型货运飞机，依靠凝结尾迹追踪目标 —— 雷达干扰会掩盖它们的精确位置。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-095b055d8e-2.webp"/></figure>
-<p>游戏拥有数量庞大的战机与武器，每一架驾驶手感都十分出色。战机相比《皇牌空战 7》手感会更厚重，而这份厚重恰到好处。在高过载机动转弯时，你能真切感受到自己正驾驭着数吨钢铁，以超音速强行调转机头。你可以同时携带两件特殊武器，这让配装自由度更高，每一次出击都能在机库中拥有更多选择。我个人依旧偏爱 F‑35C，但其余机型同样乐趣十足。其中有一段操作 A‑10 攻击机的特殊关卡，和其他满是导弹追逐的任务形成鲜明对比，游玩体验格外有趣。</p>
-<p>敌人的攻击手段远不止导弹。耳机里会频繁响起 “轨道炮警告”：索托阿的陆地战列舰以及其他陆海军单位，让地面敌军带来巨大威胁。索托阿的 “月之辉”，我方中队称其为 “暗影中队”，同样是一大亮点。战机漆黑涂装，进入战场时会在公共频道高呼口号，再搭配高超空中机动，暗影中队不断将你的驾驶技术逼向极限。击败月之辉的王牌飞行员，是我作为虚拟飞行员不断成长、获得成就感的重要来源。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-3628759435-3.webp"/></figure>
-<p>多人模式的内容更进一步，既适合追求高分的玩家，也支持和其他真人玩家进行狗斗对战。多人游玩主要模式为：四机小队比拼分数，可以和友方中队协同作战，也可以和敌方中队对抗。最大亮点是紧急出击任务：会不定期开放给全体玩家，对抗诸如巨鸟之类的皇牌空战系列巨型超级兵器。多人模式底子很不错，未来还有更新拓展的空间。但大量菜单操作、刷取战机升级素材、外观氪金内容，时常打断游玩节奏，这点不尽人意。</p>
-<p>《皇牌空战 8：希孚之翼》完美诠释了，为什么玩家始终热爱这个系列。精彩的战役模式，众多值得反复游玩的关卡；扣人心弦的角色与故事、流畅的飞行操控、热血的空中缠斗，还有无数超音速冲刺激战的名场面。本作证明这个系列绝非过时古董，《希孚之翼》跻身系列顶尖水准，反复游玩依旧乐趣无穷。</p>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/R3wExg1fRW-5rbdZJapdDA?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-2432059a30-0-768x432.webp"/>
-    </item>
-    <item>
-      <title>你的简历去哪了：我们把秋招做成卡牌的游戏</title>
-      <link>https://www.kmhgame.com/ni-de-jian-li-qu-na-le-wo-men-ba-qiu-zhao-zuo-cheng-ka-pai/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ni-de-jian-li-qu-na-le-wo-men-ba-qiu-zhao-zuo-cheng-ka-pai/</guid>
-      <pubDate>Sat, 17 Oct 2026 03:33:42 GMT</pubDate>
-      <dc:creator>Big White Horse</dc:creator>
-      <category>行业杂谈</category>
-      <description><![CDATA[<blockquote>
-<p>你投出去的简历，最后都会进一个叫”人才库”的地方。这个库里有 40 万份。</p>
-</blockquote>
-<p>凌晨一点，你在招聘 App 里点下”投递”。屏幕上落下一张卡片，标题是”简历已送达”。</p>
-<p>这是《游戏人招聘模拟器》里最常见的一张事件卡。我们最近vibe了这个个网页小游戏，你扮演一个正在秋招的应届生，每天只做一件事：点”投递”，然后看着这一周投出去的简历，变成几张卡片，一张一张掉在屏幕上。</p>
-<p>长按识别二维码，就能开启秋招之旅</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-eb0fec1ade-0.webp"/></figure>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-773be7154f-1.webp"/></figure>
-<h3>第一张卡通常不算坏消息，只是很安静：简历被查看了，停留 0.3 秒，”HR 大概滚了三屏，看到「个人技能」就关了”。然后没有下文。游戏不解释中间发生了什么，它只是把结果打出来。</h3>
-<p>第二张卡叫”进入人才库”，它顺便告诉你这个库的规模——40 万份简历。再下一张叫”你在池子里的位置”，把你放进一堆编号中间。</p>
-<p>真正让人停一下的是”泡池子”。简历进入待定池，系统说 7-15 个工作日回复，然后补一句——是工作日，不是自然日。”你分得清，但没用。”另一张直接写”在池子里待了多久”，答案是 21 天。</p>
-<p>这些卡几乎都不需要解释。它们不是段子，是把一句我们听过很多次的话，原样打印出来，再配一个表情。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-049f2a5959-2.webp"/></figure>
-<p>投递久了，你会开始主动去问。游戏里有一张卡叫”你：您好，请问简历有进展吗”，对话的另一头，HR 的回复只有两个字：（已读）。还有一张叫”转发给 3 位同事”：3人已读，0人回复。</p>
-<p>沉默是这套系统里最常见的回应。但为什么沉默比拒绝更让人难受？拒绝好歹给了个结果，已读不给。</p>
-<p>偶尔也会有别人的消息。一张叫”同门上岸了”的卡上写着：秋招群有人晒 offer，”双非拿到某厂 SP，年包38万”，群里200人，97条”恭喜”。</p>
-<p>如果运气好一点，沉默会被打断——面试邀请来了。游戏在这里的处理很克制：”您的简历已通过初筛，请于本周五 14:00 参加线上笔试。””你读了三遍，确认不是广告。”</p>
-<p>面试也不全是好消息。有一场约在线上，面试官说”请用 3 分钟介绍你的职业规划”，讲到第 40 秒，页面弹出提示：网络异常，本场面试已结束。还有入职前的背调，要求身份证正反面、学信网、成绩单、征信报告、无犯罪记录证明——游戏的旁白是”你只想投个简历”。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-4bb6816ff6-3.webp"/></figure>
-<p>到了给 offer 的阶段，卡片反而更扎人。为什么越接近终点，这些卡越狠？因为一旦到了谈钱，数字就没法再模糊了。</p>
-<p>一张卡叫”Offer 比实习还低”：左边是你实习时的日薪折算，8000元；右边是这份 offer 的月薪，6800元。另一张是 HR 的原话：”这个岗位今年没有涨薪预算，不过平台很好，你能学到很多。”月薪比你实习时还低800元。</p>
-<p>还有”大小周”。面试官问你能不能接受高强度，你回答可以，旁白写的是”你也不知道自己为什么这么说”。这大概是整款游戏里最诚实的一句。</p>
-<p>我不是没想过它是不是把话说得太狠。做这款游戏的时候，我们把这些句子对了一遍——不少素材整理自求职者发在网上的聊天记录和招聘帖。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-534b708705-4.webp"/></figure>
-<p>游戏里有一条叫”心态”的暗线。每天投递会消耗心态，坏消息扣一点，偶尔的好消息补一点。心态见底，这一局就结束了。</p>
-<p>这也是它和普通”抽卡模拟器”不一样的地方：你抽到的不是稀有度，是你还能撑几天。一局通常打到90天左右，结局分 S 到 D（S 最好，D 最差）。S 级的名字叫”上岸了”，描述只有一句——你只是把自己，从 40 万份里，挪到了那一份里。</p>
-<p>但为什么它要给”关掉所有招聘 App”也留一个结局？因为秋招里本来就有这样的结果。那张结局卡上写的是：有些仗不用打完，也知道结果。</p>
-<p>游戏里还有一张卡，叫”改第 17 版简历”，文件名叫 final_final_真的final。它不在结局里，只是每天都会出现一次。</p>
-<p>凌晨一点的投递，第二天还会再来一次。游戏里你可以随时重开；现实里，那版 final_final_真的final，也还躺在桌面上。</p>
-<hr/>
-<p>最后，长按识别二维码，就能开启秋招之旅</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-37dcfb201f-5.webp"/></figure>
-<p>或者点击阅读原文也可以哦</p>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s?__biz=MzA3NjQzMzYxMw==&amp;mid=2650641599&amp;idx=1&amp;sn=100929faf21fa08fba01260fc12b0f04&amp;chksm=86623dc3b4194e4ae1d84e82abdae56718af60f6a5c86b8d39bcb7d0ed8cd50714740e9ab059#rd">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-eb0fec1ade-0.webp"/>
-    </item>
-    <item>
-      <title>贝尔蒙特家族新女主登场，你觉得能超越老恶魔城吗？</title>
-      <link>https://www.kmhgame.com/bei-er-meng-te-jia-zu-xin-nyu-zhu-deng-chang-ni-jue-de-neng/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/bei-er-meng-te-jia-zu-xin-nyu-zhu-deng-chang-ni-jue-de-neng/</guid>
-      <pubDate>Fri, 16 Oct 2026 01:27:32 GMT</pubDate>
-      <dc:creator>Big White Horse</dc:creator>
-      <category>游戏设计</category>
-      <description><![CDATA[<p>恶魔城系列已经沉寂多年，而《贝尔蒙特的诅咒》以炽热的激情让该系列重获新生。如今有成百上千款独立游戏都借鉴了科乐美这款哥特风吸血鬼狩猎作品，这也给发行商带来巨大压力 —— 新作必须配得上这份源远流长的系列遗产。科乐美交出了一份出人意料却效果出众的答卷：携手新开发团队邪恶帝国工作室。该团队最为人熟知的作品便是深受恶魔城启发的《死亡细胞》。本作带来全新视角、全新主角，玩法打磨也十分出色。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-8c2e121e34-0.webp"/></figure>
-<p>罗丝・贝尔蒙特与父亲特雷弗被召唤至深陷超自然灾难的巴黎。罗丝迫切想要证明自己，一方面希望赢得父亲的认可 ——23 年前正是特雷弗斩杀了德古拉；另一方面，她要为自己被诅咒侵蚀的手臂复仇，这份来自德古拉的诅咒，是从逝去的母亲身上遗传而来。故事的基础设定很不错，虽然剧情不算错综复杂，但罗丝的人物成长线有不少令人印象深刻的高光时刻。</p>
-<p>对于新玩家而言，《贝尔蒙特的诅咒》完全可以独立游玩；不过从剧情时间线来说，本作是《恶魔城 3》的续作，网飞动画《恶魔城》前两季就改编自这部原作。某种意义上，它更像是动画的续作而非旧游戏的续篇。美术风格与人物设计带有鲜明的动画质感，部分配音演员也回归出演。能看到老角色以全新面貌登场，尤其见证他们将接力棒交到罗丝手中，体验十分美妙。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-e987e6ec97-1.webp"/></figure>
-<p>这份传承最出彩的载体，是罗丝已故母亲西法留给她的一副塔罗牌，也是我在本作中最喜欢的机制。每一张牌都是特殊容器，能够容纳巴黎一众强者的力量，无论敌友。在追踪目标时，罗丝可以从周遭收集线索，助力狩猎对手或是在战斗中战胜他们。这类调查玩法，游戏前期只是中规中矩的线性流程，到后期则变成横跨整张地图的隐秘任务。追寻最后几张塔罗牌的创意任务，是我整段游戏流程里最喜爱的部分。</p>
-<p>找到目标之后，罗丝可以吸收他们的灵魂封入塔罗牌，之后便能和这些灵魂对话。原本孤独的冒险旅程，就此变得如同结伴远行一般；一众敌友的灵魂就好似坐在后座，随时会开口发表看法。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-fb6c86f8cc-2.webp"/></figure>
-<p>每张卡牌还会解锁一项法术，涵盖火球、魔法十字架，乃至可以把敌人石化的冲击波。卡牌附带诸多 “仁慈之举” 成就，完成后可以强化对应法术。完成条件五花八门，诸如 “该法术累计使用 20 次”“击杀 44 具骷髅” 或是 “找遍钟楼全部房间”。这套系统给了你充分理由去尝试那些你本不会使用的技能，尤其到游戏后期能力选择繁多的时候体验更佳。我好几次，都是为了刷成就升级，才彻底喜欢上某一个法术。</p>
-<p>聊到战斗，本作的动作表现堪称惊艳。罗丝身手轻盈，随着解锁新能力会变得愈发敏捷，到游戏终局，她已是所向披靡的战斗旋风。游戏设有六大武器类别，各类提供增益效果的遗物，再加上整套塔罗卡牌，玩家面对战斗拥有极为丰富的构筑选择。我经常切换配装，甚至会在战斗中途调整，来应对眼前的敌人。战斗难度足够让人集中精神，但又不会遥不可及；容错友好的存档点设计，也避免反复死亡带来的挫败感。德古拉一众爪牙所化身的 BOSS，战斗设计新颖激烈，也是本作一大亮点。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-cfdf40b870-3.webp"/></figure>
-<p>我通关用时 16 小时，完成度达到 92%。拿到新的移动能力后，我总忍不住回到旧区域，探索此前无法抵达的地方，而游戏也总会给我丰厚回报。游戏内藏有二十余把武器、生命与魔力的升级，还有大量高规模的可选区域。我已经迫不及待重返游戏，向着 100% 完成度发起挑战。</p>
-<p>《贝尔蒙特的诅咒》有力诠释了恶魔城为何拥有如此深远的影响力：世界观饱满、战斗紧张刺激，地图遍布秘密。本作既向系列旧作致敬，又为这个 IP 注入全新活力，让我对系列的未来满怀期待。</p>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/28OmzGOizarTUi0ssq1VpQ?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-8c2e121e34-0.webp"/>
-    </item>
-    <item>
-      <title>这人做了款通关要 500 小时的游戏，还造了一门编程语言</title>
-      <link>https://www.kmhgame.com/zhe-ren-zuo-le-kuan-tong-guan-yao-500-xiao-shi-de-you-xi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/zhe-ren-zuo-le-kuan-tong-guan-yao-500-xiao-shi-de-you-xi/</guid>
-      <pubDate>Thu, 15 Oct 2026 01:45:49 GMT</pubDate>
-      <dc:creator>Big White Horse</dc:creator>
-      <category>游戏评测</category>
-      <description><![CDATA[<h1>一个方格棋盘，一个小人，一块挡路的石头。把石头推开，人走过去，这一关就完了。推错了方向，石头顶进墙角，只能重来。简而言之，《沉星之序》里1400多个谜题都是这么玩的。</h1>
-<p>这是乔纳森·布洛（Jonathan Blow）的第三款游戏，前两款是 2008 年的《时空幻境》和 2016 年的《见证者》，中间隔了十年。中文玩家管他叫”吹哥”。这十年做出来的东西，按他本人的估算，正常速度通关要 250 小时，把所有谜题解完要 500 小时；而他上一款《见证者》，通关大约是 25 小时。</p>
-<p>发售之后有玩家算过自己的进度：试玩版 105 关，他磨了六个多小时；正式版打到 20 小时，才推到第 185 关。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-3ae97c5eba-0.webp"/></figure>
-<p>游戏从头到尾不给任何提示。没有弹窗解释某个角色能干什么，没有提示按钮，连”按方向键移动”这句话都没有。第一关就是把棋盘推到你面前，然后等着你自己看出规则来。</p>
-<p>关卡铺在四个方向。往北是一队搬运工：战士能把箱子推出去，盗贼能拉着箱子往后退，巫师可以和面前的东西换个位置（他也能和队友换）。往东是一片海，海上有岛，一个商人靠在镜子里的倒影上岛：他站在镜子前，棋盘另一处照出他的像，他和那个像对调。往南你得往水里扔石头，一块一块垫出一条路。往西，宝石给发光装置供电。</p>
-<p>但这四个世界的规则，并不全是他自己想出来的。它们来自四款已经存在的免费小游戏：《Mirror Isles》和《Skipping Stones to Lonely Homes》出自 Alan Hazelden，《Heroes of Sokoban》出自 Jonah Ostroff，《Promesst》系列出自 Sean Barrett。布洛征得原作者同意，把这四套机制重新实现，装进同一个游戏，再让它们两两相撞。官方给游戏写的简介里，管它叫”游戏设计超级对撞机”。</p>
-<p>就这么撞出了1400多个关卡。四个世界各自走到头，会出现一批金色的房间把它们连起来，本来互不相干的规则开始咬合，镜子、石头、宝石、推和拉同时出现在一张棋盘上。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-efaaaf7440-1.webp"/></figure>
-<p>布洛 1971 年生在南加州。中学时在学校一台 VIC-20 上第一次碰编程，父母看他有兴趣，给他买了台 TRS-80，他照着 RadioShack 的练习册学 BASIC。高中在 Commodore 64 上写游戏，有几个是学着《夺宝奇兵》和《吃豆人》做的。</p>
-<p>1989 年他进伯克利，同时修计算机和英语，读了五年，差一个学期没毕业就走了。1996 年他在奥克兰跟人合伙开公司，最多时十四个人，2000 年倒在互联网泡沫里。”我们破产了，之后几年我整个人都是废的。但那就是我变成一个好程序员的方式。”</p>
-<p>之后他做外包，参与过《奇异世界：蒙克的奥德赛》《杀出重围：隐形战争》《神偷：致命阴影》。2004 年底，他做出《时空幻境》的原型，自己掏了十八万美元，2008 年发售。这款游戏让他成了百万富翁，这笔钱他一分没留，全投进了下一款。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-4563ec2d7a-2.webp"/></figure>
-<p>《见证者》做了七年，2016 年 1 月发售，首周收入超过五百万美元。之后就是这个十年。</p>
-<p>按布洛自己的说法，他一开始打算做的东西比《见证者》小得多，估摸着两三年能完。做到第五年，他发现自己只完成了一半。</p>
-<p>“我遇到了一个选择。”他后来说，”你放弃你的梦想，把它砍小。我们都见过被砍小的游戏，它们通常有点让人失望。我想做一个让人失望的东西吗？不，我不想。我想走到底。”</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-17e821b99b-3.webp"/></figure>
-<p>《见证者》是用 C++ 写的。布洛对这门语言的不满，在七年开发里一点点攒起来，最后攒成了自己去写一门。他管现代 C++ 叫”一门糟糕的语言”。</p>
-<p>这门语言叫 Jai。他从 2014 年开始设计，做完《见证者》之后，它成了 Thekla 这家公司的主要工作。十二年过去，Jai 一直闭源，只对少数受邀的用户开放，编译器到现在还停在 beta 阶段。用它写出来的《沉星之序》，八万行代码的编译时间不到一秒（一个中等规模的 C++ 项目完整重编一次，通常要十几分钟）。</p>
-<p>Jai 的几条规矩，每一条都在针对 C++：不许有异常，不许有构造函数和析构函数在你没要求的时候跑，不许有隐式内存分配。这几条指向的是同一件事，让代码里不要有藏起来的行为。</p>
-<p>它连构建系统都省了，Makefile 和 CMake 都不需要，构建脚本本身就是 Jai 代码。</p>
-<p>游戏发售后不久，Thekla 会把引擎作为开源项目免费放出去，Jai 语言跟在其后，同样免费。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-d38d4f3346-4.webp"/></figure>
-<p>就在《沉星之序》发售的同一周，Steam 十月新品节的报名作品数是 8237 款，接近去年同期的三倍。据第三方统计，2026 年前九个半月上线的新游里，主动申报了 AI 内容的占了三分之一。</p>
-<p>《沉星之序》的制作流程里没有 AI。”它完全没有进入我们的管线。”布洛承认 AI 是一项进步，也是一项有趣的技术。对那些”效率提高十倍”的说法，他反问回去：如果你说你效率提高了十倍，而且已经过去三年，那你本来应该做出三十年的工作量。那个三十年的产出在哪儿？</p>
-<p>他担心的还有另外一件事：以后会不会没多少人会写代码了。年轻创作者可能太依赖 AI 去生成代码，而不是自己去啃那些”奇怪的符号”。”如果 AI 其实做不了所有事，那会写程序的人可能不够做出好东西。”</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-67390018e4-5.webp"/></figure>
-<p>那四款被重新实现的免费游戏里，有两款出自同一个人。去年 12 月，Alan Hazelden 在社交平台上公开表示要和布洛保持距离，理由是布洛在政治与社会议题上的一些立场；另外两位原作者 Sean Barrett 和 Jonah Ostroff 也做了类似的表态。</p>
-<p>布洛没有公开回应这些批评。他说他选择坐下来专心做游戏。”玩家想从开发者那里得到的是好游戏。他们不想看我们争论，尤其是互相争论政治立场。”</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-f3f4ba67f6-6.webp"/></figure>
-<p>10 月 9 日《沉星之序》在 Steam、Switch 2 和 PS5 同时解锁。当天 B 站首页被推箱子刷屏，初见实况、全收集攻略、无解说纯享版同时在更新。微博上玩家的反应很一致，都在拿自己的脑子开玩笑：”沉星之序打了十小时，让我觉得自己像个智力 8 的蛮子。””打了一天，脑子要长出来了。”</p>
-<p>上线当天的峰值同时在线是 4634 人，到了周末涨到 7651。Steam 上的好评率 97%，差评大多落在操作手感和优化上。首发同时上架了三个组合包，和《动物井》《喵喵的结合》以及原声带捆绑，打包九折。</p>
-<p>媒体那边的分数拉得很开。Shacknews 给了满分，评语是它”精准地先让你觉得自己蠢得离谱，再让你觉得自己聪明得不得了”。Screen Rant、Noisy Pixel、Metro 都在 9 分上下。另一头，GameSpot 给 8 分，标题叫《巨大，成也巨大，败也巨大》；Push Square 给了 6 分，评测人的原话是，谜题一堆一堆压上来，他越玩越累。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-400b730636-7.webp"/></figure>
-<p>Kotaku 那篇有两处观察很具体。一是叙事：评测人玩了十个小时之后说，那些剧情和角色她一个都没记住，她”只是在那儿推箱子”。二是可读性：游戏里有个衣柜，穿上能改变女王的斗篷颜色、换一套能力，但斗篷从紫色变成蓝色，一眼分辨不出来，她有好几个场景是靠猜的。第二点听着像挑刺，其实是硬伤，因为这类游戏的每一步都建立在”你确定自己看到的是什么”上。</p>
-<p>她还在结尾给读者指了另一条路：如果你要的只是几款好的推箱子，那四款原版游戏就在浏览器里，免费，随时能开，唯一的劣势是没上 Switch 2。四个世界分开看，都能在那四款免费游戏里找到原型；《沉星之序》在这些原型之上加的，是让它们撞在同一张棋盘上。</p>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/uBBHkzPzEUkBQ5sPqVJHHw?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/wx-3ae97c5eba-0-767x432.webp"/>
     </item>
   </channel>
 </rss>
