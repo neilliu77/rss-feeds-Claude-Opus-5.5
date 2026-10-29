@@ -8,7 +8,342 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Thu, 29 Oct 2026 08:50:36 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 12:31:42 GMT</lastBuildDate>
+    <item>
+      <title>Claude 工具调用／自动化：什么时候不该开</title>
+      <link>https://www.kmhgame.com/claude-gong-ju-diao-yong-zi-dong-hua-shen-me-shi-hou-bu-gai/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-gong-ju-diao-yong-zi-dong-hua-shen-me-shi-hou-bu-gai/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:31:42 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>金融、医疗、法律与无人值守场景勿开宽权自动化。先窄连接器与手动批准；computer use 最后才考虑，演示权限用完收回。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-tools-when-not-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>Cowork／工具风险框架：影响几乎取决于 <strong>可读范围</strong> 与 <strong>可写动作</strong>；写工具（发消息、删文件、点击屏幕、下单）风险更高，高利害场景要人盯（<a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely">Use Claude Cowork safely</a>，核验日 2026-10-29）。</li>
+<li>Computer use（让 Claude 直接操作屏幕）<strong>没有</strong>介于模型与桌面应用之间的沙箱；会截屏理解界面；投资／加密货币类应用默认受限，但仍可能越界（<a href="https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork">Let Claude use your computer in Cowork</a>）。</li>
+<li>官方强烈不建议用 computer use 处理：金融账户与投资、法律文书、医疗健康、含他人个人信息的应用（同上｜What to avoid）。</li>
+<li>审批模式：敏感文件／账户／站点、第一次用的工具或站点、发消息／下单等难撤销动作 → 切到 <strong>Manually approve</strong>；“Skip all approvals”下安全筛查不拦动作（Cowork safely｜Match your oversight）。</li>
+<li>计划任务（scheduled）：无人值守时不要安排访问敏感文件、代发消息、购物等；先从摘要类低风险任务练（同上｜scheduled tasks）。</li>
+<li>工具选择顺序（Cowork）：有连接器先用连接器 → 其次内置／Chrome 浏览器 → 最后才屏幕点击；屏幕路径更慢、更易错（Computer use 文）。</li>
+<li>证据强度：何时不该开的清单来自 Anthropic Help Center 一手；具体开关路径随“Chat／Cowork 合一”改版，<strong>以当前 Settings 界面为准（待核）</strong>。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>演示视频里，Claude 自己打开表格、回邮件、在浏览器里填表，看起来像多雇了一个人不睡觉。你把同样开关开到“自动批准＋computer use＋宽文件夹权限”，下一次它就可能在你去倒水时点到不该点的按钮，或把邮件里的注入指令当成你的话。工具调用首先要判断<strong>这会儿该不该把方向盘递出去</strong>，其次才谈熟不熟练。</p>
+<p>下文按官方安全文整理一张“不该开／该降权”清单，并给可抄的配置纪律。覆盖 Claude Desktop 上的 Cowork／computer use／连接器与审批；API Computer Use 工具仅作旁证。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（Cowork safely＋Computer use Help Center，核验日 2026-10-29）；设置菜单文案标待核。</strong></p>
+<ol>
+<li><strong>先问两个问题再碰开关</strong> </li>
+</ol>
+<p>   – 这次任务失败或被劫持，最坏会丢什么？（钱、数据、声誉、合规）  </p>
+<p>   – Claude 为完成任务，最少需要读哪些文件夹／站点／邮箱？  </p>
+<p>   答不清就先用普通聊天＋你自己复制粘贴，不要开自动化。</p>
+<ol>
+<li><strong>默认降权表（可当检查清单）</strong></li>
+</ol>
+<figure><table><thead><tr><th>场景</th><th>建议</th><th>依据口径</th></tr></thead><tbody><tr><td>银行／证券／加密／支付</td><td><strong>不要</strong>开 computer use；相关 App 进 blocklist</td><td>What to avoid；默认封锁投资类</td></tr><tr><td>医疗／健康门户、他人隐私</td><td><strong>不要</strong>开；关掉可见窗口</td><td>官方强烈不建议</td></tr><tr><td>法律合同定稿、对外发函</td><td>人工批准每步；或不用自动发送类连接器</td><td>难撤销＋你承担责任</td></tr><tr><td>第一次用的站点／插件／MCP</td><td>Manually approve；不装来路不明扩展</td><td>新工具＋注入面</td></tr><tr><td>计划任务／你不在场</td><td>只做摘要汇编类；禁代发、禁购物、禁宽文件权限</td><td>scheduled tasks 专节</td></tr><tr><td>宽目录＝整盘文档</td><td>改成专用工作文件夹</td><td>Be selective about file access</td></tr><tr><td>已有 Gmail／Drive／Slack 连接器</td><td>优先连接器，别让它“点屏幕操作同一应用”</td><td>工具优先级</td></tr></tbody></table></figure>
+<ol>
+<li><strong>必须自动化时的“窄开”顺序</strong> </li>
+</ol>
+<p>   1) 只开完成任务所需的<strong>一个</strong>连接器；  </p>
+<p>   2) 文件夹只挂专用目录；  </p>
+<p>   3) 审批选 Manually approve 或至少保留 Automatically approve（仍有动作筛查），<strong>避免</strong> Skip all approvals；  </p>
+<p>   4) computer use 仅在无连接器、且任务低利害时再开；  </p>
+<p>   5) 敏感 App 预先加入 blocklist。</p>
+<ol>
+<li><strong>可抄开场约束（发给 Cowork 的任务说明）</strong></li>
+</ol>
+<pre><code>权限边界：
+- 只读：【文件夹或站点】
+- 允许写／发送：无（或列出唯一允许的目标）
+- 若任务需要扩大权限：先停下来问我
+- 遇到登录墙、支付页、验证码、转账确认：一律交给我
+不要：删除文件、修改权限、安装软件、向通讯录群发</code></pre>
+<ol>
+<li><strong>演示 ≠ 量产</strong> </li>
+</ol>
+<p>   演示可以临时扩大权限给你看“能力边界”；量产配置应收回：关 computer use、收回整盘目录、计划任务暂停不用的条目。官方强调：你仍对 Claude 代行的发布、购买、数据改动负责（Your responsibility）。</p>
+<ol>
+<li><strong>API／自建代理旁证（开发向）</strong> </li>
+</ol>
+<p>   Anthropic 平台文档建议：独立低权限虚拟机、避免暴露账号密码、网络允许名单、对有真实世界后果的操作要求人类确认；提示注入防护分类器可关但不适合无人值守（<a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool">Computer use tool</a>）。消费端用户把这句话翻译成：别在日常电脑上用“全自动＋宽权限”跑高利害流程。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：连接器能做的，就不要 computer use。</strong> 官方自己写：Slack 走连接器只要数秒，走屏幕又慢又易错。  </li>
+<li><strong>诀窍：盯模式，不盯每一条底层命令。</strong> 安全文建议看“是否访问了你没提的文件／站点、范围是否爬升”；不对就停任务。  </li>
+<li><strong>诀窍：一 App 授权可能牵出另一 App。</strong> 邮件里点开链接可能弹出浏览器——即使你没单独批准浏览器可见性。  </li>
+<li><strong>反例：开着 Skip all approvals 去清理收件箱。</strong> 注入邮件是经典攻击面。  </li>
+<li><strong>反例：把“会拒绝转账”的训练护栏当成保险。</strong> 官方写明护栏不是绝对，不能替代 blocklist。  </li>
+<li><strong>反例：演示用的全盘权限过夜不收。</strong> 次日计划任务仍可能在你离席时跑。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>何时不该启用／应降权 Claude 的工具调用、computer use、宽审批与计划任务</strong>。不提供绕过官方安全控制的方法，也不保证某一地区功能开关永久一致。  </li>
+<li>Team／Enterprise 的 computer use 可用性、组织级关闭网页搜索等，以管理员设置与 Help Center 当前说明为准。  </li>
+<li>“Chat 与 Cowork 合一”改版后，部分菜单路径可能不同——<strong>文中路径标待核，以你客户端 Settings 为准</strong>。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Use Claude Cowork safely｜Claude Help Center｜https://support.claude.com/en/articles/13364135-use-claude-cowork-safely｜核验日 2026-10-29（读写工具、审批模式、计划任务、浏览器、MCP、责任）  </li>
+<li>Let Claude use your computer in Cowork｜https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork｜核验日 2026-10-29（无沙箱、截屏、禁止场景、工具优先级、blocklist）  </li>
+<li>Computer use tool｜Anthropic Docs｜https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool｜核验日 2026-10-29（API 安全建议；旁证）  </li>
+<li>本文说明：编译“何时不该开／如何降权”清单；区分演示与量产；<strong>未提供绕过安全控制的步骤</strong>；UI 路径标待核。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-tools-when-not-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>Grok 看图提问入门：上传、怎么问、适用边界</title>
+      <link>https://www.kmhgame.com/grok-kan-tu-ti-wen-ru-men-shang-chuan-zen-me-wen-shi-yong/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/grok-kan-tu-ti-wen-ru-men-shang-chuan-zen-me-wen-shi-yong/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:27:17 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>Grok 可上传图片做视觉理解。+ 或拖拽上传后，先让它复述可见内容再下任务；看不清就直说，结论须人眼核对。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-vision-ask-basics-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>消费端能力口径：Consumer FAQ 写明 Grok 可做 <strong>image and video understanding</strong>，并可上传文档分析；也可输入照片并请求编辑（<a href="https://x.ai/legal/faq">Consumer FAQs</a>，May 12, 2025）。</li>
+<li>上传入口（官网／App FAQ）：聊天输入旁 <strong>+</strong>，或网页拖拽；可一次多文件（网页约最多约 100 个、Android 约 20 个等，<strong>以当前界面为准</strong>）（<a href="https://docs.x.ai/grok/faq">FAQ – Grok Website / Apps｜Files &amp; Data</a>，核验日 2026-10-29）。</li>
+<li>图像格式（消费端 FAQ）：JPEG／JPG、PNG、WebP、HEIC、BMP 等；GIF／SVG 因平台而异。多数文件（含图像）单文件约 <strong>150 MB</strong> 量级——<strong>限额随平台／套餐可能变化，以报错提示为准</strong>（同上）。</li>
+<li>看图技巧（官方 Tips）：高分辨率更佳（偏好 ≥1000×1000）；大文档可拆块；可自然提问如“描述图片并修复附件里的代码”（同上）。</li>
+<li>开发者侧旁证（可迁移提问习惯）：Image Understanding 支持公网 URL 或 base64；单图约 <strong>20 MiB</strong>（API 文档限额，<strong>不等于</strong>消费端 150MB 口径）；支持 jpg／png（<a href="https://docs.x.ai/developers/model-capabilities/images/understanding">Image Understanding</a>，核验日 2026-10-29）。</li>
+<li>官方同时提醒：Grok 可能幻觉，用前须自行核验（Consumer FAQs｜Does Grok make mistakes?）。</li>
+<li>证据强度：上传与格式来自 docs.x.ai grok FAQ；能力表述来自 legal FAQ；API 尺寸为旁证。消费端按钮名／免费额度标待核。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>屏幕上有一张报错截图、一张活动流程图、或一张几乎拍糊的白板。你把图丢给 Grok，希望它读出红字、还原步骤、或解释坐标轴。看图提问的价值在<strong>图内信息有没有被正确读出</strong>，不在回答写得像不像分析报告。</p>
+<p>下文给一条入门路径：怎么传、怎么问、怎么核、什么场景别硬上。覆盖 grok.com 与官方 App 的聊天上传；Imagine 生图／视频是另一条产品线，本稿不讲“生成”，只讲“理解已有图”。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（xAI Consumer FAQ＋Grok Website/Apps FAQ＋Image Understanding 文档，核验日 2026-10-29）；额度与部分按钮名待核。</strong></p>
+<ol>
+<li><strong>打开会聊天的入口并上传图</strong> </li>
+</ol>
+<p>   使用 <a href="https://grok.com/">grok.com</a> 或官方 iOS／Android App。在输入框旁点 <strong>+</strong> 选图，或网页直接拖拽／粘贴。等界面确认附件就绪再发送。多图对比时，官方允许一条消息带多文件；先传齐再问“这些图的共同点是什么”。</p>
+<ol>
+<li><strong>把“看图任务”写清楚（可复制改）</strong></li>
+</ol>
+<pre><code>请基于我上传的图片作答（不要用训练记忆编造图里没有的文字／数字）。
+任务：
+1) 先用 3–5 条描述你实际看到的内容（布局、文字、图表类型）；
+2) 再回答：【你的具体问题】；
+3) 图中看不清／被裁切／模糊的部分，标“不可辨认”，禁止猜测填满；
+4) 若需要我提供原图更高清版本或局部裁切，直接说。
+输出语言：中文。</code></pre>
+<ol>
+<li><strong>按图类选提问角度</strong></li>
+</ol>
+<figure><table><thead><tr><th>图类</th><th>可问</th><th>易翻车</th></tr></thead><tbody><tr><td>报错／设置截图</td><td>红字原文、可能原因、下一步点击路径（须声明“以你界面为准”）</td><td>把通用教程当成你这台设备的实况</td></tr><tr><td>图表／仪表盘</td><td>轴含义、极值、趋势；要求复述图例</td><td>外推图外未给出的结论</td></tr><tr><td>流程图／架构图</td><td>节点与箭头关系；缺失边</td><td>补画你没上传的子系统</td></tr><tr><td>证件／账单／聊天记录</td><td><strong>默认不要传</strong>；若必须，打码后再问版式问题</td><td>隐私外泄与错误识别姓名账号</td></tr><tr><td>实物照片</td><td>可见部件、磨损、铭牌是否可读</td><td>品牌鉴定当司法鉴定</td></tr></tbody></table></figure>
+<ol>
+<li><strong>与“检索”分开用</strong> </li>
+</ol>
+<p>   看图解决的是<strong>这张像素里有什么</strong>；网页／X 检索解决的是<strong>外面现在怎么说</strong>。需要“这张海报对应哪场官方活动”时：先让模型读出海报文字与日期，再开检索核官网——不要假设看图模式已经联网搜过（是否同时检索以当前会话实际工具调用为准，待核）。</p>
+<ol>
+<li><strong>人工复核三步（约 1–3 分钟）</strong> </li>
+</ol>
+<p>   – <strong>对字</strong>：关键数字、报错码、人名是否与图一致。  </p>
+<p>   – <strong>对域</strong>：结论是否超出图可见范围。  </p>
+<p>   – <strong>对敏</strong>：若图含隐私，删除对话或改用 Private Chat（见 FAQ 数据控制）；分享链接会公开可见。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先逼它“复述看见了什么”，再下任务。</strong> 复述阶段就能发现读错轴、看串列。  </li>
+<li><strong>诀窍：糊图先裁切／重拍关键区域。</strong> 官方偏好较高分辨率；局部清晰图往往比整张远景有用。  </li>
+<li><strong>诀窍：多图时说明阅读顺序。</strong> “先左后右／先图1后图2”，减少张冠李戴。  </li>
+<li><strong>反例：把看图答案直接当财务／医疗／法律结论。</strong> FAQ 要求 carefully consider and verify。  </li>
+<li><strong>反例：上传未打码的他人证件或完整聊天记录“让它总结吵架谁对”。</strong> 隐私与误判双重风险。  </li>
+<li><strong>反例：把 API 文档的 20MiB 限额写进消费端教程当唯一数字。</strong> 消费端 FAQ 写的是约 150MB 量级且可能随平台变化；两套口径分开写。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>消费端上传图片做理解／分析的入门问法与核验</strong>。不覆盖 Grok Imagine 生成与水印政策细则、企业 API 计价、也不保证某一免费档每日看图条数。  </li>
+<li>视频理解、音频转写在 FAQ 有提及但质量“variable”；需要稳定字幕时另选专用工具。  </li>
+<li>套餐、周用量池、是否同时启用检索：<strong>以登录后 Settings → Usage 与当前界面为准（待核）</strong>。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Consumer FAQs｜SpaceXSI｜https://x.ai/legal/faq｜May 12, 2025（image／video understanding；上传文档；幻觉与核验）  </li>
+<li>FAQ – Grok Website / Apps｜Files &amp; Data｜https://docs.x.ai/grok/faq｜核验日 2026-10-29（+ 上传、格式、约 150MB、多文件、看图技巧）  </li>
+<li>Image Understanding｜SpaceXSI Docs｜https://docs.x.ai/developers/model-capabilities/images/understanding｜核验日 2026-10-29（API：URL／base64、约 20MiB、jpg／png；作旁证）  </li>
+<li>Pricing／Usage｜https://x.ai/pricing 与 App Settings → Usage｜额度以登录后为准  </li>
+<li>本文说明：区分消费端看图与 API 限额、区分理解与 Imagine 生成、区分看图与检索；<strong>未编造每日免费看图条数</strong>；UI／额度标待核。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-vision-ask-basics-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>Codex／Cursor：只改指定文件、别乱扫全仓的下法</title>
+      <link>https://www.kmhgame.com/codex-cursor-zhi-gai-zhi-ding-wen-jian-bie-luan-sao-quan/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/codex-cursor-zhi-gai-zhi-ding-wen-jian-bie-luan-sao-quan/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:21:40 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>防 Agent 乱改全仓：提示写死允许／禁止路径，用 @文件收窄，就近 AGENTS／globs 约束，再用 git diff 验收。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/codex-scope-path-contract-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>Codex 启动时会组装指令链：全局 <code>~/.codex/AGENTS.md</code>（或 override）＋从仓库根走到<strong>当前工作目录</strong>路径上的各层 <code>AGENTS.md</code>／<code>AGENTS.override.md</code>；更靠近当前目录的内容排在后面、优先覆盖；合并体积默认约 <strong>32 KiB</strong> 封顶（<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md</a>，核验日 2026-10-29）。</li>
+<li>Codex <strong>不会</strong>继续往当前目录<strong>以下</strong>的子树自动加载 AGENTS.md——工作目录选错，包级规则可能根本进不了提示（官方 discovery；社区 monorepo 实测作旁证）。</li>
+<li>Cursor：可用根／子目录 <code>AGENTS.md</code>，或 <code>.cursor/rules/*.mdc</code> 的 <code>globs</code> 把规则绑到路径；也可用 Always／Intelligent／Manual／@规则（<a href="https://cursor.com/docs/rules">Cursor Docs｜Rules</a>，核验日 2026-10-29）。</li>
+<li>聊天侧：用 <strong>@文件／@文件夹</strong>（或先打开目标文件再开 Agent）把上下文钉在相关路径；规则正文里的 <code>@模板文件</code> 是“需要时再读”，<strong>不会</strong>整文件内联进提示（Cursor Docs）。</li>
+<li>可抄硬约束句式：<code>只修改：…</code>；<code>禁止修改／创建：…</code>；<code>需要读但不要改：…</code>；完成后列变更文件清单。</li>
+<li>证据强度：AGENTS 发现顺序与 32KiB、Cursor globs／嵌套 AGENTS 来自官方文档；“乱扫全仓”反例来自社区踩坑归纳（二手），非单一产品错误码。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你只想改 <code>src/utils/date.ts</code> 里一个时区 bug，Agent 却去“顺手”改了 lint 配置、重写了相邻模块的导出，再跑一遍全仓格式化。diff 刷屏，review 成本比手改还高。编码代理的价值在<strong>收窄作用域</strong>，不在展示它能摸到多少文件。</p>
+<p>下文给一条可跟做下法：提示写死路径 → 上下文用 @／打开文件钉住 → 规则文件就近放置 → git 验收。覆盖 Codex（含文档所述 CLI／TUI）与 Cursor Agent；具体按钮文案以当前界面为准。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（Codex AGENTS 官方＋Cursor Rules 官方，核验日 2026-10-29）；UI 入口名标待核。</strong></p>
+<ol>
+<li><strong>开干前先选对工作目录（Codex）</strong> </li>
+</ol>
+<p>   官方：指令链从仓库根<strong>走到当前工作目录为止</strong>。在 monorepo 里要改 <code>packages/api</code>，先 <code>cd packages/api</code> 再启动，或使用文档中的 <code>--cd</code> 类方式（以当前 CLI 帮助为准），让该包的 <code>AGENTS.md</code> 进入合并结果。站在仓库根却指望深层包规则自动生效，容易落空。</p>
+<ol>
+<li><strong>首条提示写成“变更合同”（可直接复制）</strong></li>
+</ol>
+<pre><code>目标：【一句话】
+只允许修改这些路径：
+- path/a.ts
+- path/b.ts
+禁止修改／创建：
+- package.json、锁文件、CI 配置、无关包
+可以只读、不要改：
+- path/types.ts（查类型用）
+完成定义：
+1) 列出实际改动的文件；
+2) 说明每个文件为什么必须改；
+3) 跑【项目里已有的最小检查命令】；
+4) 若发现范围外也要动才能过检查——先停下来问我，不要擅自扩大。</code></pre>
+<ol>
+<li><strong>用 @ 与打开文件收窄“看见什么”</strong> </li>
+</ol>
+<p>   在 Cursor／同类 Agent 聊天里 <code>@</code> 目标文件或文件夹，避免只丢一句“修一下登录”。Cursor 文档写明：规则里的 <code>@文件</code> 提示 Agent <strong>需要时再读</strong>，内容默认不内联；必须始终在上下文的短约束，直接写进规则正文或首条提示。</p>
+<ol>
+<li><strong>把“别乱动”写进就近的规则文件</strong> </li>
+</ol>
+<p>   – <strong>Codex</strong>：仓库根写共享约定；包目录写窄规则；临时强覆盖用同级 <code>AGENTS.override.md</code>。控制根文件体积，避免占满 32KiB 把深层规则挤掉。  </p>
+<p>   – <strong>Cursor</strong>：对散落路径用 <code>.mdc</code>＋<code>globs</code>（如 <code>packages/api/**/*.ts</code>，<code>alwaysApply: false</code>）；对整包习惯，用该包下 <code>AGENTS.md</code> 并在该作用域开聊。官方建议规则短、可执行，风格类重复问题交给 linter，不要把整本 style guide 贴进提示。</p>
+<ol>
+<li><strong>可抄 AGENTS 片段（放在你正在改的包下）</strong></li>
+</ol>
+<pre><code>## 变更边界
+- 默认只改用户在提示里点名的路径。
+- 未经确认不要改：构建配置、共享类型大爆炸式重命名、其他 package。
+- 需要额外文件才能修完时：先列出拟改路径并等待确认。</code></pre>
+<ol>
+<li><strong>验收：git 是法官</strong> </li>
+</ol>
+<p> <code>git status</code>／<code>git diff --stat</code> 对照“允许列表”。多出来的文件：回滚或拆成第二次、带新合同的对话。不要在同一条已经跑偏的线程里继续“再顺手修一下”。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：允许列表＋禁止列表一起写。</strong> 只写“请小改”模型仍可能扩 scope；路径级禁止更硬。  </li>
+<li><strong>诀窍：嵌套 AGENTS 用放置表达作用域。</strong> 官方与社区共识：规则属于哪个目录，就放在哪个目录，少写“如果在前端则……”长条件句。  </li>
+<li><strong>诀窍：Cursor globs 规则在未命中文件时等于未加载。</strong> 需要“一进包就生效”，用该包 <code>AGENTS.md</code> 或 <code>alwaysApply</code>（团队策略另议）。  </li>
+<li><strong>反例：根目录塞 20KB 百科再指望包级规则生效。</strong> Codex 合并有字节上限，根文件过大可能截断后续层。  </li>
+<li><strong>反例：空仓开 Agent 说“优化整个项目”。</strong> 无路径合同＝默许全仓扫描与大范围写入。  </li>
+<li><strong>反例：把格式化／全量 lint 当 Agent 完成定义。</strong> 官方 Cursor 建议：格式与 lint 交给 CI／本地工具；Agent 完成定义应绑在行为与测试上（与上篇规则踩坑一致）。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>用提示路径合同、AGENTS／Rules 就近作用域、@ 文件收窄、git 验收</strong>来降低乱改全仓概率。不保证某一 Agent 版本永不越权；沙箱／审批开关另见终端命令类选题。  </li>
+<li>Codex 与 Cursor 的发现规则相近但不完全同一实现；Claude Code 默认读 <code>CLAUDE.md</code> 而非 <code>AGENTS.md</code>（第三方对照，移植时改文件名）。  </li>
+<li>UI 中的 Exact 菜单名、云端 Agent 是否同等尊重本地 AGENTS：<strong>以当前产品界面与文档为准（待核）</strong>。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Custom instructions with AGENTS.md｜ChatGPT Learn／Codex｜https://learn.chatgpt.com/docs/agent-configuration/agents-md｜核验日 2026-10-29（发现顺序、override、32KiB、工作目录）  </li>
+<li>Rules｜Cursor Docs｜https://cursor.com/docs/rules｜核验日 2026-10-29（Project Rules、globs、AGENTS.md 嵌套、@ 引用不内联、最佳实践）  </li>
+<li>Monorepos: scoping instructions to a subtree｜dsplce.co｜https://dsplce.co/agentic-engineering/core/monorepos｜二手实测旁证（Codex 不加载 cwd 以下；Cursor globs 行为）  </li>
+<li>本文说明：中文编译“路径合同＋就近规则＋git 验收”；社区 monorepo 文仅作旁证；<strong>未把第三方博客的按钮坐标写成官方事实</strong>；UI 标待核。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/codex-scope-path-contract-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>Claude 长文档超限：分块上传与项目知识库的可跟做路径</title>
+      <link>https://www.kmhgame.com/claude-zhang-wen-dang-chao-xian-fen-kuai-shang-chuan-yu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-zhang-wen-dang-chao-xian-fen-kuai-shang-chuan-yu/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:17:08 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>长文档别一次塞满聊天。按章拆块进 Project 知识库；付费档近上限自动 RAG；提问点名文件与页码。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-longdoc-chunk-rag-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>聊天上传：单文件最大约 500MB、单聊最多约 20 个文件；PDF 最多约 1000 页（<a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude">Upload files to Claude</a>，Updated July 23, 2026）。</li>
+<li>项目知识库（Project files）：单文件约 30MB；文件数不设死上限，但<strong>抽取后的总内容须落在上下文窗口内</strong>（同上）。</li>
+<li>付费档（Pro／Max／Team／Enterprise）在项目知识接近上下文上限时，会<strong>自动启用 RAG</strong>（检索增强生成）：不一次装进全部，只检索相关片段，官方称容量可扩至约 <strong>10×</strong>（<a href="https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects">RAG for projects</a>，September 10, 2026）。</li>
+<li>官方写明：大文件可考虑<strong>拆成更小段落</strong>再上传；非 PDF 多为文本抽取，内嵌图通常不可视读（Upload files｜Tips）。</li>
+<li>PDF：≤100 页可分析文字与图表等视觉元素；101–1000 页仅文本；超过 1000 页无法上传（同上）。</li>
+<li>同项目聊天之间<strong>默认不共享</strong>对话内容，除非写入知识库（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How can I create and manage projects?</a>）。</li>
+<li>证据强度：限额／RAG／分块提示来自 Claude Help Center 一手；具体 UI 进度条与按钮文案以当前 claude.ai 界面为准（待核）。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你把一份 200 页产品说明书、三年会议纪要和一摞竞品 PDF 一起丢进对话，进度条拉满，模型开始丢章节、串版本号，或者直接报上下文不够。问题往往不在“会不会读”，而在<strong>一次塞进多少、放在哪、怎么点名要哪一段</strong>。</p>
+<p>下文给一条可跟做路径：先分块，再进项目知识库；付费档靠自动 RAG 扩容；提问时约束文件名与页码。覆盖 claude.ai 网页 Projects／聊天上传；Code／API 计费细节不展开。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（Help Center Upload／RAG／Projects，核验日 2026-10-29）；界面控件名标待核。</strong></p>
+<ol>
+<li><strong>先分清“单次聊天附件”还是“项目知识库”</strong> </li>
+</ol>
+<p>   – <strong>单次聊天</strong>：适合一次性核对；上限约 20 个文件／500MB／文件。聊完材料不自动进下次对话。  </p>
+<p>   – <strong>项目知识库</strong>：放在项目主页右侧 Files／“+”；对该项目内<strong>所有聊天</strong>生效。单文件约 30MB；总数受抽取文本与上下文约束。需要反复引用的长文档，优先进知识库。</p>
+<ol>
+<li><strong>按“可检索单元”拆块（官方建议的落地版）</strong> </li>
+</ol>
+<p>   Help Center 对大文档写：consider dividing them into smaller sections。实务可抄：</p>
+<figure><table><thead><tr><th>拆法</th><th>怎么命名</th><th>适用</th></tr></thead><tbody><tr><td>按章／节</td><td><code>手册-03-安装.md</code>／<code>手册-07-故障排查.pdf</code></td><td>说明书、政策</td></tr><tr><td>按时间</td><td><code>纪要-2026Q3.pdf</code></td><td>会议／周报合集</td></tr><tr><td>按主题</td><td><code>竞品-A-定价摘录.txt</code></td><td>调研包</td></tr><tr><td>按页窗</td><td><code>白皮书-p1-80.pdf</code>、<code>白皮书-p81-160.pdf</code></td><td>超长 PDF</td></tr></tbody></table></figure>
+<p>原则：<strong>一块一个主题</strong>；文件名写进人能读懂的关键词（RAG 文档也建议 clear, descriptive filenames）。</p>
+<ol>
+<li><strong>付费档：接近上限时让 RAG 接手，不要硬塞</strong> </li>
+</ol>
+<p>   官方：知识接近上下文上限时自动开 RAG，用“项目知识搜索”只取相关片段，容量可到约 10×；界面会出现 RAG 启用提示（具体样式以当前界面为准）。你需要做的是：把<strong>当前有效</strong>材料放进同一项目，提问时点名文件。免费档勿默认有同等 RAG 扩容（RAG 文写明付费计划可用）。</p>
+<ol>
+<li><strong>可抄提问模板（改关键词即可）</strong></li>
+</ol>
+<pre><code>范围：只使用知识库中的【文件名1】【文件名2】；
+若相关内容不在这两份里，写“知识库未覆盖”，禁止用训练记忆补全。
+任务：【摘要／对照／抽取表格／找矛盾点】
+输出：
+1) 结论要点（每条旁标注文件名＋页码或章节标题）；
+2) 不确定／冲突单独列出；
+3) 未引用的文件不要假装读过。</code></pre>
+<ol>
+<li><strong>超长 PDF 的页码纪律</strong> </li>
+</ol>
+<p>   指页时用<strong>阅读器显示的 PDF 页码</strong>，不是印刷页脚（官方 Tips）。101 页以上默认只按文本处理，别指望它“看见图上的红框标注”。</p>
+<ol>
+<li><strong>上下文仍紧时的人工减负</strong> </li>
+</ol>
+<p>   付费聊天在开启 code execution 等条件下，官方称可自动摘要较早轮次以腾出空间（<a href="https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans">Context window</a>）；工具与连接器也会占额度。长文档任务：关掉用不到的 connectors；项目 instructions 写短；过期文件从知识库删掉，而不是叠一层“新版＋旧版”。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：知识库放“当前有效集”，聊天放“本周任务”。</strong> 同项目聊天不互通，除非写入知识库——官方 Note。想让下次还记得的结论，另存成短摘录再上传。  </li>
+<li><strong>诀窍：RAG 开了也要点名文件。</strong> 官方最佳实践：提问时可 reference specific documents by name，缩小检索面。  </li>
+<li><strong>诀窍：矛盾材料先隔离。</strong> 两版政策并排放进同一知识库，模型容易和稀泥；用文件名标 <code>现行</code>／<code>废止-勿用</code>，或拆成两个项目。  </li>
+<li><strong>反例：把整仓网盘镜像灌进一个项目。</strong> 即使付费 RAG 扩容，噪声多时检索也会捞偏；宁可少而新。  </li>
+<li><strong>反例：免费档按“10× RAG”规划材料量。</strong> RAG for projects 写明付费计划；免费以上下文硬上限为准。  </li>
+<li><strong>反例：一次聊天贴 20 个大附件还要求“逐页对照”。</strong> 先拆任务：一聊一章，或改走项目知识库＋分轮提问。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>claude.ai 长文档超限时的分块、项目知识库、付费 RAG、点名引用提问</strong>。不覆盖企业私有知识库产品名、API 向量库自建、也不保证某一模型永久固定为 200K／1M。  </li>
+<li>上下文窗口随模型与产品线（Chat／Code／Cowork）变化，以 Help Center 当前表为准；文中未实测全部档位与地区。  </li>
+<li>Google Drive 等连接器有额外导出上限与格式转换（另文）；本稿默认本地上传。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Upload files to Claude｜Claude Help Center｜https://support.claude.com/en/articles/8241126-upload-files-to-claude｜July 23, 2026（聊天／项目文件限额；PDF 页数；大文档分块提示）  </li>
+<li>Retrieval augmented generation (RAG) for projects｜https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects｜September 10, 2026（付费档自动 RAG；约 10×；最佳实践）  </li>
+<li>What are projects?｜https://support.claude.com/en/articles/9517075-what-are-projects｜核验日 2026-10-29  </li>
+<li>How can I create and manage projects?｜https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects｜核验日 2026-10-29（知识库跨聊天；聊天不互通）  </li>
+<li>How large is the context window on paid Claude plans?｜https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans｜核验日 2026-10-29（窗口表；自动摘要；工具占上下文）  </li>
+<li>Intro to Projects｜Claude Academy｜https://academy.claude.com/courses/claude-101/introduction-to-projects  </li>
+<li>本文说明：中文编译“分块＋知识库＋RAG 提问”工作流；<strong>未编造未公开的精确 token 条数／按钮坐标</strong>；免费／付费差异按官方标明；UI 以当前界面为准。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-longdoc-chunk-rag-cover-1024x576.webp"/>
+    </item>
     <item>
       <title>《影之刃零》开局怎么上手：难度怎么选、杀气怎么管、武器要不要急着强化</title>
       <link>https://www.kmhgame.com/ying-zhi-ren-ling-kai-ju-zen-me-shang-shou-nan-du-zen-me/</link>
@@ -1505,212 +1840,6 @@
 <li>本文说明：中文答案型“预告拆解”；严格区分片中可见与评价；售价／发售窗口不展开；未使用生成式配图。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-11min-gameplay-cover-616x353.webp"/>
-    </item>
-    <item>
-      <title>《影之刃零》国区268元起：标准/豪华差在哪、预购送什么</title>
-      <link>https://www.kmhgame.com/ying-zhi-ren-ling-guo-qu-268-yuan-qi-biao-zhun-hao-hua-cha/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-guo-qu-268-yuan-qi-biao-zhun-hao-hua-cha/</guid>
-      <pubDate>Wed, 28 Oct 2026 01:04:34 GMT</pubDate>
-      <category>发布游戏</category>
-      <description><![CDATA[<p>《影之刃零》国区数字标准版268元、豪华版328元（Steam／PS／TapTap本轮已核店页）；预购可提前解锁“聚宝盆”与“传承”，豪华版再加两套外观及设定集、音乐集。</p>
-
-<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1Hmuv68EWW"></iframe></div>
-
-<h2>要点</h2>
-<ul>
-<li>国区数字价：官方预购口径称各平台国区统一为标准版268元、豪华版328元；本轮店页已核：Steam 国区、PlayStation 国区、TapTap PC 均为 ¥268／¥328。Epic／WeGame 本轮未复验店页价签，仅可依官方“国区统一”表述。港区 PS 为 HK$328／HK$398，不得写成268／328。</li>
-<li>预购奖励（两版共通、可提前解锁）：饰品“聚宝盆”（意识尘埃掉落率 +10%）、外观“传承”；官网与商店均写明也可通过游戏进程获得。</li>
-<li>豪华版额外内容：专属外观“武林传说”“机械魔躯”（英文：Wulin Legend、Blood-Steel Form），以及游戏内特典设定集、特典音乐集（OST）。</li>
-<li>预购开启日：官网新闻标注 2026-08-12，当时同步开放 PS5、Steam、Epic Games Store 预购入口。</li>
-<li>美区对照（非国区结算价）：PlayStation US / Steam 美区标准版约 59.99 美元，数字豪华版约 69.99 美元；英国 Steam 约 £49.99 / £59.99，欧元区约 €59.99 / €69.99。</li>
-<li>另有全球限量 20000 套、售价 1199 元的实体收藏版礼盒（盒内为 WeGame 数字豪华兑换码等周边，不是 PS5 光盘）；与数字两档是不同 SKU。</li>
-</ul>
-<h2>正文</h2>
-<p>国区玩家先看两行价，但不要写成“全渠道统一实测价”。TapTap 官方预购帖写明各平台国区统一售价：数字标准版268元、数字豪华版328元。本轮（2026-10-28）店页已对上的渠道：Steam 国区 Web API（AppID 4115450，cc=cn）返回 ¥268.00／¥328.00、无折扣；PlayStation 国区概念页标准版268.00元、豪华版328.00元；TapTap PC 商品页同样可见268／328。Epic、WeGame 本轮店页价签未直接打开（Epic 曾遇拦截、WeGame 为 SPA），若提价只跟官方“国区统一”并注明未复验。港区 PlayStation 为 HK$328／HK$398，与人民币268／328不是同一档。官网中文预购模块把两档称作“基础版 / 豪华版”，内容与商店“标准 / 数字豪华”对应。</p>
-<p>预购特典不绑死在豪华版上。官网与 PlayStation、Steam 预购说明一致：现在预购即可提前获得饰品“聚宝盆”（英文 Treasure Basin，说明为意识尘埃／Remnant Dust 掉落率 +10%）和外观“传承”（Legacy）。关键限定语是“提前解锁”——上述内容也可在游戏进程里拿到，不等于永久独占。</p>
-<p>豪华版多出来的是外观与资料向附件。中文官网列出专属外观“武林传说”“机械魔躯”，以及游戏内特典设定集、特典音乐集。PlayStation 英文页对应为 Wulin Legend、Blood-Steel Form、Digital Artbook、Digital Soundtrack；并写明预购豪华版仍可拿到预购奖励。没有一手资料显示豪华版含额外主线章节或数值成长包，差价主要落在外观与数字周边。</p>
-<p>海外与港区标价只作对照，结算以各区商店为准。美区 PS 与 Steam 常见标价为标准 59.99 美元、豪华 69.99 美元；SteamDB 等第三方价表显示英区约 £49.99 / £59.99，欧元区约 €59.99 / €69.99。港区 PS 为 HK$328／HK$398。国区人民币 268／328 与上述外币／港币档不是简单汇率换算，必须分渠道、分地区写。</p>
-<p>还要和“实体收藏版礼盒”划清边界。IT之家等报道称灵游坊推出全球限量 20000 套、定价 1199 元的收藏礼盒，内含 WeGame 数字豪华兑换码与周边，不是 2027 年才上市的 PS5 光盘。想只买数字游玩，看 268／328 两档即可；礼盒是另一条 SKU。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>官网中文预购模块（基础版／豪华版内容清单）：https://pbz.s-game.com/zh-CN/</li>
-<li>官网新闻 PRE-ORDER BEGINS，2026-08-12：https://pbz.s-game.com/en-US/news/pre-orders-now-available/</li>
-<li>Steam 国区 Web API appdetails（4115450，cc=cn）：标准 ¥268、豪华 ¥328；核验 2026-10-28</li>
-<li>PlayStation 国区：标准版 268.00 元、豪华 328.00 元；https://store.playstation.com/zh-hans-cn/concept/10017620</li>
-<li>TapTap 官方预购帖（国区统一268／328）与商品页：https://www.taptap.cn/app/358885</li>
-<li>PlayStation 港区（HK$328／HK$398，非人民币268／328）：https://store.playstation.com/zh-hans-hk/concept/10017620</li>
-<li>PlayStation US：标准 $59.99、预购与 Deluxe 说明；https://www.playstation.com/en-us/games/phantom-blade-zero/</li>
-<li>IT之家，2026-08-12，国区 268／328 与预购开启：https://www.ithome.com/0/988/620.htm</li>
-<li>IT之家，2026-08-14，收藏礼盒 1199 元／限量 20000 套：https://www.ithome.com/0/989/594.htm</li>
-</ul>
-<p>本文核对国区价与版本差：已核 Steam／PS／TapTap；Epic／WeGame 跟官方国区统一口径并注明未复验店页；港区另标。海外价仅作对照；礼盒与光盘分述。未写评分与玩法评测。核验日：2026-10-28（Asia/Shanghai）。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-pricing-cover-1024x578.webp"/>
-    </item>
-    <item>
-      <title>《影之刃零》10月29日10时开服：PS5与四渠道PC同步</title>
-      <link>https://www.kmhgame.com/ying-zhi-ren-ling-10-yue-29-ri-10-shi-kai-fu-ps5-yu-si-qu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-10-yue-29-ri-10-shi-kai-fu-ps5-yu-si-qu/</guid>
-      <pubDate>Wed, 28 Oct 2026 00:59:11 GMT</pubDate>
-      <category>发布游戏</category>
-      <description><![CDATA[<p>《影之刃零》2026年10月29日10:00（Asia/Shanghai）开启，首发PS5与PC（Steam/Epic/WeGame/TapTap）。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-release-cover-1024x537.webp"/></figure>
-<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1AHnB6NEhM"></iframe></div>
-
-<h2>要点</h2>
-<ul>
-<li>正式开启时刻：2026年10月29日10:00（Asia/Shanghai）；全球按统一解锁点换算，美西为10月28日19:00 PDT，美东为同日22:00 EDT。</li>
-<li>首发平台：PlayStation 5（含PS5 Pro Enhanced标注）；PC 同时覆盖 Steam、Epic Games Store、WeGame、TapTap。</li>
-<li>研发与发行均为 S-GAME（Steam 页写作 S-GAME Studio / S-GAME Publishing）；引擎为虚幻引擎5。</li>
-<li>Steam 国区商店页计划发行日期显示为“2026年10月28日”，与北京时间10月29日10时同一解锁点，并非另开一档。</li>
-<li>官网 schema 与中文站均标注发售日 2026-10-29、平台为 PlayStation 5 与 PC；主机首发未见 Xbox。</li>
-<li>预下载已于2026年10月27日10:00（Asia/Shanghai）开放；PS5 实体光碟官方称2027年推出，与数字首发分开。</li>
-</ul>
-<h2>正文</h2>
-<p>要回答“什么时候能玩、在哪玩”，先看官方统一时刻。S-GAME 官网中文页把发售日期写在首页：2026/10/29。最终预告与多家媒体转述的官方口径进一步钉死为当天 10:00（Asia/Shanghai）全平台解锁。GamesRadar+ 按同一解锁点换算了主要时区：美西 10月28日19:00 PDT、美东同日22:00 EDT、英国 10月29日02:00 GMT。对上海读者而言，记住“29日上午10点”即可；对北美玩家，解锁落在28日晚间。</p>
-<p>平台清单同样以官网与商店页交叉核对。官网 VideoGame schema 只列 PlayStation 5 与 PC。PC 侧，IT之家等转述灵游坊口径，以及各商店上架情况，指向四条数字渠道：Steam、Epic Games Store、WeGame、TapTap。PlayStation 美国与中国商店页均已上架数字版，并标注 PS5 Pro Enhanced。截至本稿核验，未见 Xbox 主机首发条目。</p>
-<p>Steam 页容易让人误会。国区 <code>appdetails</code> 返回的计划发行日期是“2026年10月28日”，英文页也写 Oct 28, 2026，倒计时按 Steam 解锁点走。这与北京时间 10月29日10:00 是同一全球开启窗口，只是商店按当地日历日显示。写发售新闻时应同时给出“北京时间日期+时刻”和“Steam 显示日期”，避免读者以为 PC 早一天独占。</p>
-<p>厂商信息保持短句。Steam 商店页开发者为 S-GAME Studio、发行商为 S-GAME Publishing；中文介绍写“由灵游坊自主研发及发行”，虚幻5。甄子丹相关监制与动捕、国区定价、预下载容量等另文展开，本稿只锁时间与平台。</p>
-<p>实体与数字要分开记。数字版随 10月29日开启；PS5 实体光碟官方在最终预告口径中称 2027 年推出，首发当天买不到光盘。预下载节点是 10月27日10:00（Asia/Shanghai），详情见同题预下载专稿。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>官网中文站：影之刃零，https://pbz.s-game.com/zh-CN/ ，发售日 2026/10/29；schema <code>releaseDate</code> 2026-10-29，<code>gamePlatform</code> PlayStation 5 / PC；核验 2026-10-28（Asia/Shanghai）</li>
-<li>Steam 国区商店 / Web API appdetails（AppID 4115450）：计划日期“2026年10月28日”，开发 S-GAME Studio，发行 S-GAME Publishing；https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/</li>
-<li>PlayStation（US）：Release 10/29/2026，Publisher S-GAME Publishing；https://www.playstation.com/en-us/games/phantom-blade-zero/</li>
-<li>GamesRadar+，Will Sawyer，2026-10-27，全球时区换算与预载说明：https://www.gamesradar.com/games/action-rpg/phantom-blade-zero-release-date-time/</li>
-<li>IT之家，2026-09-18，平台清单含 Steam / Epic / WeGame / TapTap：https://www.ithome.com/1/003/920.htm</li>
-</ul>
-<p>本文为多源核对的答案型硬新闻。时刻与平台以官网及商店页为准；Steam“10月28日”按时区解释，不写成提前发售；未写入玩法评分。核验日：2026-10-28（Asia/Shanghai）。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-release-cover-1024x537.webp"/>
-    </item>
-    <item>
-      <title>《影之刃零》媒体怎么说：战斗高分共识，剧情与杂兵有分歧</title>
-      <link>https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/</guid>
-      <pubDate>Wed, 28 Oct 2026 00:59:11 GMT</pubDate>
-      <category>发布游戏</category>
-      <description><![CDATA[<p>媒体普遍给《影之刃零》高分：战斗与Boss获赞，剧情与杂兵难度常被点名；本篇只汇总一手评测，不抄Steam墙。</p>
-<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1AHnB6NEhM"></iframe></div>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-media-scores-cover-616x353.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>IGN（国际）9/10</strong>（Travis Northup，更新 2026-10-26）：约 50 小时通关；称战斗“最满意、调校最好的之一”，Boss 与武器切换机制出色；批评剧情堆术语与闪回、隐形墙与几何卡死、个别场景帧率不稳。</li>
-<li><strong>IGN 中国 10/10</strong>（Charles Young，更新 2026-10-26，基于 PC 评测码）：肯定武侠电影般攻防节奏、杀气系统、武器/影之武装体量与多结局；缺点写过场面部表情偏僵，并称评测版 bug／优化问题厂商确认正式版修复。</li>
-<li><strong>GamesRadar+ 4.5/5</strong>（Luke Kemp，刊载 2026-10-26）：称战斗“看起来和打起来一样好”，武器设计与紧凑关卡是买点；减分点为叙事不一致、发售前仍有小 bug。Steam 评测墙另摘作 9/10——<strong>本文不以该墙为准</strong>，分数只采刊载页 <strong>4.5/5</strong>，不换算。</li>
-<li><strong>GameSpot 8/10（Great）</strong>（Richard Wakeling，2026-10-25）：武侠式攻防同框、武器与场景美学获赞；明确批评主线难跟、杂兵过易导致拖沓，Boss 战才是高光。</li>
-<li><strong>Wccftech 10/10</strong>（Francesco De Meo，2026-10-25）：称本世代顶尖动作 RPG、GOTY 竞争者；激赏杀气／换武循环与武器差异；亦承认开局术语过载、英配偏僵、希望可选敌人重生以便练刀。</li>
-<li>共识与分歧（事实归纳，非本站评分）：共识是<strong>战斗手感与 Boss／武器</strong>；分歧集中在<strong>叙事清晰度、杂兵挑战、几何／技术毛刺</strong>。IGN 国际与 IGN 中国分数不同，读者应分开看待。</li>
-</ul>
-<h2>正文</h2>
-<p>解禁后的英文与中文正式评测，并不是同一张“Steam 商店评测摘句墙”。本篇逐家打开原文，只记分数、平台线索与可核对结论；发售时刻与国区定价留给产经线。</p>
-<p>IGN 国际给了 <strong>9/10</strong>。Travis Northup 写自己打了约 <strong>50 小时</strong>：战斗上手极快，弹反与闪避很快形成肌肉记忆；几十种武器各有招式，换主武器还能回“架势／杀气”类资源，逼你轮换而非锁死一把刀；八张地图藏支线与可错过任务（含甄子丹相关金面人支线）。减分写得很具体——故事术语与时间线跳跃过多；角色常卡几何、隐形墙导致坠落；他自称近 200 次死亡里约一半与环境有关；另有一张图帧率明显差。总评仍是“很久以来玩过最好的动作之一”，但把爽感与毛刺分开写了。</p>
-<p>IGN 中国是另一条线：<strong>10/10</strong>，作者 Charles Young，基于 <strong>PC</strong> 评测码，更新同日（2026-10-26）。它把杀气从“纯体力”改成可主动打出杀气连招的资源，并强调蓝光／红光提示下的精准防／闪；武器与影之武装合计写到约 55（含铸魂变体），升级与技能可回退；体量上普通难度通关存档超 30 小时、Steam 游玩超 55 小时。优点列挑战但不折磨、武侠电影手感、主支线有情绪、多结局；缺点写过场脸部略僵。分数高于国际站，读者不要混成“IGN 一律满分”。</p>
-<p>GamesRadar+ 刊载页为 <strong>4.5/5</strong>（页内 ratingValue:4.5；2026-10-26）。Luke Kemp 开篇就撇清“这不是魂like”，把核心归到武侠传统与功夫朋克美学；称战斗是“看起来和打起来一样好”的少数例子，30 把常规武器几乎都可错过且性状不同，影之武装兼战斗与开路。批评侧是叙事时好时坏、笔记与“记忆之花”过多，以及发售前卡场景等小 bug。Steam 评测墙另摘作 9/10，<strong>不作一手、亦不换算进正文分数</strong>。</p>
-<p>GameSpot 给了 <strong>8/10</strong>，栏目 verdict 标 <strong>Great</strong>（2026-10-25）。Richard Wakeling 把武侠片里“攻防同时发生”的观感写进机制：轻／重攻击可随时切防御，部分攻击会自动卸力；杀气（Sha-Chi）管格挡与重击，换武瞬间回气。好评集中在 Boss 与武器花样；差评更尖锐——故事难跟、难共情，<strong>普通敌人过易</strong>，和 Boss 的刺激落差本身变成问题。这是本轮英文稿里分数带最明显“保留意见”的一家。</p>
-<p>Wccftech 打出 <strong>10/10</strong>（2026-10-25，PC）。Francesco De Meo 用“放下手柄还想立刻再开”当满分标准，把杀气循环比作需要同时管攻防的舞蹈，并细写多把主武器的风险收益差异；Boss 数量写“逾 50”、多数独特。保留意见包括开局术语过载、英配别扭、希望有敌人重生选项以便练武器——但不足以拉低总评。它与 IGN 中国同属满分档，论证侧重武器与动作循环，而非叙事感动。</p>
-<p>把五家叠在一起看：高分几乎都砸在<strong>战斗节奏、武器差异、Boss 设计</strong>上；分歧砸在<strong>叙事是否跟得上、杂兵是否无聊、几何／性能毛刺严不严重</strong>。本站不另打分。若只看 Steam 摘句墙，会漏掉 GameSpot 对杂兵的保留，也会把 IGN 国际 9 与 IGN 中国 10 糊成一句。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>IGN（国际）评测：Travis Northup，《Phantom Blade Zero Review》，Posted 2026-10-26，https://www.ign.com/articles/phantom-blade-zero-review （9/10；同文区域镜像 https://sea.ign.com/phantom-blade-zero/250932/phantom-blade-zero-review）</li>
-<li>IGN 中国评测：Charles Young，《〈影之刃零〉游戏评测：10 分》，更新 2026-10-26，https://www.ign.com.cn/phantom-blade-zero/63609/ying-zhi-ren-ling-you-xi-ping-ce-10-fen-ign-zhong-guo （10/10，PC）</li>
-<li>GamesRadar+ 评测：Luke Kemp，刊载 2026-10-26，https://www.gamesradar.com/games/action-rpg/phantom-blade-zero-review/ （刊载页 4.5/5）</li>
-<li>GameSpot 评测：Richard Wakeling，2026-10-25，https://www.gamespot.com/reviews/phantom-blade-zeros-combat-is-so-good-you-wont-care-the-story-makes-no-sense/ （8/10，Great）</li>
-<li>Wccftech 评测：Francesco De Meo，2026-10-25，https://wccftech.com/review/phantom-blade-zero-review-one-of-the-best-action-rpgs-of-the-generation-and-a-real-game-of-the-year-2026-contender/ （10/10）</li>
-<li>核对说明：以上均 WebFetch 打开原文；<strong>未</strong>以 Steam 商店评测摘句墙为唯一依据；分数歧义处以各刊页面为准；聚合站 Metacritic／OpenCritic 数字随时间变动，本文不单列。</li>
-<li>核对日期：2026-10-28（Asia/Shanghai）</li>
-<li>本文说明：中文答案型汇总；引述压缩为可核结论；发售／定价不展开；非本站试玩。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-media-scores-cover-616x353.webp"/>
-    </item>
-    <item>
-      <title>Cursor／Codex 第一次开 Agent：Cmd+I 与 codex 命令＋权限怎么设</title>
-      <link>https://www.kmhgame.com/cursor-codex-di-yi-ci-kai-agent-cmd-i-yu-codex-ming-ling/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/cursor-codex-di-yi-ci-kai-agent-cmd-i-yu-codex-ming-ling/</guid>
-      <pubDate>Tue, 27 Oct 2026 13:45:39 GMT</pubDate>
-      <category>AI</category>
-      <description><![CDATA[<p>Cursor：打开文件夹后按 Cmd／Ctrl+I 开 Agent；官方建议先让它解释代码库再做小改动。Codex CLI：安装后在项目目录运行 <code>codex</code>，用 ChatGPT 登录，并用 <code>/permissions</code> 设边界。产品 UI 易变，步骤以当前官方文档与界面为准。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/cursor-codex-agent-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Cursor Agent</strong>：侧栏 Agent；macOS <code>Cmd+I</code>，Windows／Linux <code>Ctrl+I</code>（<a href="https://cursor.com/help/getting-started/first-project">Your first project</a>、<a href="https://cursor.com/docs/agent/overview">Agent overview</a>）。</li>
-<li><strong>第一次任务（官方示例）</strong>：先问 “Explain this codebase…” 找入口与模块，再做小范围改动；用 diff 审阅，不要的改动可拒绝（<a href="https://cursor.com/docs/get-started/quickstart">Quickstart</a>）。</li>
-<li><strong>Cursor 运行模式</strong>：Settings → Agents → Approvals &amp; Execution；多数人可用 <strong>Auto-review</strong>（允许列表立即跑、可沙箱的 shell 进沙箱、其余交分类器）。另有 Allowlist、Run Everything（<a href="https://cursor.com/docs/agent/security/run-modes">Run Modes</a>）。<strong>证据强度：官方文档；菜单文案以当前客户端为准。</strong></li>
-<li><strong>Codex CLI 安装（macOS／Linux 官方）</strong>：<code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code>，进入仓库后运行 <code>codex</code>，首次选 Sign in with ChatGPT（<a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI</a>、<a href="https://github.com/openai/codex">openai/codex</a>）。</li>
-<li><strong>Codex 边界</strong>：会话内 <code>/permissions</code> 选择何时可改文件／跑命令；另有 <code>/init</code> 生成 AGENTS.md（同上 Learn 文档）。</li>
-<li><strong>共同安全习惯</strong>：改前用 Git 建检查点；第一轮任务写清“只改哪些路径／不要碰什么”；Cloud Agents／网页代理与本地权限模型不同（Cursor 文档写明 Cloud Agents 不走本地 Run Modes）。</li>
-<li>证据强度总评：③ <strong>优先送事实核查</strong>——快捷键与设置路径已对照 2026-10-27 抓取的官方文档，但仍可能随版本漂移。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>仓库刚 clone 下来，你想让 Agent“顺手改一下”，结果它扫全仓、改测试、装依赖，diff 长到不想看。第一次开 Agent，目标应是：<strong>建立可控回路</strong>——它读得懂结构，你审得动改动，权限不会默认“一切自行”。</p>
-<p>下文分 Cursor 桌面端与 OpenAI Codex CLI 两条入门线。二者都是“能改文件、能跑命令的编码代理”，但安装、登录与审批 UI 不同。<strong>菜单名、默认模式以你本机当前版本为准。</strong></p>
-<h3>路线 A：Cursor 第一次开 Agent</h3>
-<p><strong>证据强度：高（官方 Help／Docs，核验日 2026-10-27）；UI 仍可能变。</strong></p>
-<ol>
-<li>安装并登录 Cursor，然后 <strong>File → Open Folder</strong> 打开目标项目（<a href="https://cursor.com/help/getting-started/first-project">Your first project</a>）。  </li>
-<li>打开 Agent 面板：<code>Cmd+I</code>（Mac）或 <code>Ctrl+I</code>（Windows／Linux）。  </li>
-<li><strong>第一轮只读理解</strong>（官方 Quickstart 示例意译／可英文原文照发）：</li>
-</ol>
-<pre><code>Explain this codebase. Point me to the main entry points, key modules,
-and anything I should read before making changes.</code></pre>
-<ol>
-<li><strong>第二轮小改动</strong>：把范围写死，例如 “只在 <code>src/settings/</code> 增加暗色模式开关，不改 API，不改依赖版本”。官方示例句式是直接下任务（如 Add a dark mode toggle…），但入门更稳的是附加路径约束。  </li>
-<li><strong>审 diff</strong>：Agent 边做边应用编辑；在 diff 视图检查，拒绝不需要的改动。复杂探索可用对话时间线上的 <strong>Checkpoints</strong> 回滚文件状态（<a href="https://cursor.com/docs/agent/overview">Agent overview</a>）；长期版本仍以 Git 为准。  </li>
-<li><strong>补上下文</strong>：输入 <code>@文件</code> 或 <code>@目录</code> 指向关键路径。  </li>
-<li><strong>设审批（强烈建议第一天就看）</strong> </li>
-</ol>
-<p>   Settings → Agents → Approvals &amp; Execution：  </p>
-<p>   – <strong>Auto-review</strong>：已知安全调用少打断；shell 尽量进沙箱；其余经分类器。官方称对多数人是“最有用且相对稳妥”的设置。  </p>
-<p>   – <strong>Allowlist</strong>：只自动跑你列出的动作。  </p>
-<p>   – <strong>Run Everything</strong>：全部自动——官方定位是接受风险、零提示。  </p>
-<p>   另有 Browser／删文件／工作区外写文件等独立保护项。详见 <a href="https://cursor.com/docs/agent/security/run-modes">Run Modes</a>。  </p>
-<ol>
-<li>可选：浏览器 <a href="https://cursor.com/agents">cursor.com/agents</a> 跑 Cloud Agents——文档写明其不使用本地 Run Modes。</li>
-</ol>
-<h3>路线 B：Codex CLI 第一次开 Agent</h3>
-<p><strong>证据强度：高（OpenAI Learn／GitHub README，核验日 2026-10-27）。</strong></p>
-<ol>
-<li><strong>安装</strong>（macOS／Linux 官方独立安装器）：</li>
-</ol>
-<pre><code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code></pre>
-<p>Windows 请用官方 PowerShell 安装脚本（见 <a href="https://github.com/openai/codex">GitHub openai/codex</a> README）。亦可用 <code>npm i -g @openai/codex</code> 或 Homebrew cask，以文档当前推荐为准。</p>
-<ol>
-<li>进入项目目录，运行 <code>codex</code>。首次选择 <strong>Sign in with ChatGPT</strong>（或其他界面提供的登录方式）。Help Center 说明 Codex 可随 ChatGPT 套餐使用，额度因档位而异（<a href="https://help.openai.com/en/articles/11369540-getting-started-with-codex">Using Codex with your ChatGPT plan</a>）。  </li>
-<li><strong>第一任务</strong>：<code>Tell me about this project</code>（Learn 文档示例），或：</li>
-</ol>
-<pre><code>codex "explain this codebase"</code></pre>
-<ol>
-<li>再给一个<strong>可回滚的小任务</strong>。官方 prompting 示例会先 <code>git init</code> 再让它生成单文件；真实仓库里更稳妥的是：你自己先 <code>git status</code>／建分支，再让它改。  </li>
-<li><strong>权限</strong>：在会话中用 <code>/permissions</code> 查看沙箱与可写根、选择何时免询问。用 <code>/init</code> 生成 <code>AGENTS.md</code> 写项目惯例。用 <code>/model</code> 切换模型与推理力度（<a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI</a>）。  </li>
-<li>需要网页现状时，文档提到可用搜索相关开关／flag（如 <code>--search</code>）；以你安装版本的 <code>--help</code> 为准。</li>
-</ol>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：第一小时禁止“顺便重构”。</strong> 官方与社区实践都偏向：先解释 → 再窄改 → 再扩大。  </li>
-<li><strong>诀窍：完成定义写进提示。</strong> 例如“改完运行 <code>npm test</code>；失败则修复到绿；不要升级 major 依赖”。  </li>
-<li><strong>反例：一上来 Run Everything／过度宽松 permissions。</strong> 省掉的点击，可能换成一次难回滚的全仓格式化或危险 shell。  </li>
-<li><strong>反例：无 Git 就让 Agent 大改。</strong> Cursor Checkpoints 不等于远程备份；Codex 文档也建议任务前后做 Git 检查点。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿是<strong>第一次打开</strong>的对照入门，不是 IDE 全功能手册，也不评测谁更强。  </li>
-<li>企业策略、团队强制 Run Mode、SSO、数据留存未展开。  </li>
-<li>快捷键、设置路径、默认模式：<strong>以产品当前界面与官方文档为准</strong>；若与本文不一致，以你客户端内文档链接为准。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li>Your first project｜Cursor Help｜https://cursor.com/help/getting-started/first-project｜核验 2026-10-27  </li>
-<li>Quickstart｜Cursor Docs｜https://cursor.com/docs/get-started/quickstart｜核验 2026-10-27  </li>
-<li>Cursor Agent｜https://cursor.com/docs/agent/overview｜核验 2026-10-27  </li>
-<li>Run Modes｜https://cursor.com/docs/agent/security/run-modes｜核验 2026-10-27（含 Auto-review／沙箱／Cloud Agents 不适用说明）  </li>
-<li>Codex CLI｜ChatGPT Learn｜https://learn.chatgpt.com/docs/codex/cli｜核验 2026-10-27  </li>
-<li>openai/codex README｜https://github.com/openai/codex｜核验 2026-10-27  </li>
-<li>Using Codex with your ChatGPT plan｜OpenAI Help｜https://help.openai.com/en/articles/11369540-getting-started-with-codex  </li>
-<li>Codex prompting_guide（仓库内示例）｜https://github.com/openai/codex/blob/main/codex-cli/examples/prompting_guide.md  </li>
-<li>本文说明：并列表述两条产品的“第一次”路径；强调审批与窄任务；<strong>凡 UI 文案均标“以当前界面为准”</strong>。未把某一版本的截图按钮坐标写成永久事实。未证实的第三方“隐藏快捷键”已删。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/cursor-codex-agent-cover-1024x576.webp"/>
     </item>
   </channel>
 </rss>
