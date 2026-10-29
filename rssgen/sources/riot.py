@@ -11,7 +11,7 @@ from urllib.parse import urljoin
 
 from ..htmlclean import youtube_embed, youtube_id
 from ..util import next_data, walk
-from .base import Article, Entry, Source, absolute, escape, page_meta, parse_date, readability_content, soup_of
+from .base import Article, Entry, Source, absolute, escape, page_meta, parse_date, readability_content
 
 SKIP_BLADES = ("riotbar", "card", "carousel", "promo", "footer", "newsletter", "navigation", "cta", "related",
                "social", "share", "rso")
@@ -211,5 +211,3 @@ class RiotNews(Source):
         return Article(title=entry.title, content=self.clean(content, entry.link), date=entry.date,
                        thumb=entry.thumb)
 
-
-__all__ = ["RiotNews", "soup_of"]

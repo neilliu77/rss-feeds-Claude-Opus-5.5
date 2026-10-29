@@ -2,8 +2,8 @@ name: Update RSS feeds
 
 on:
   schedule:
-    # every hour (UTC). GitHub may delay or skip a scheduled run when its servers are busy,
-    # so checking hourly keeps the gaps short.
+    # planned every hour (UTC). GitHub delays or skips scheduled runs when it is busy;
+    # in practice this repository gets about 4-6 runs a day.
     - cron: '23 * * * *'
   workflow_dispatch:
   push:

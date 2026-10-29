@@ -87,38 +87,6 @@ def next_data(html: str) -> dict | None:
         return None
 
 
-def json_after(text: str, marker: str) -> Any:
-    """Decode the JSON value that follows ``marker`` and an optional '=' (e.g. window.__INITIAL_STATE__)."""
-    start = 0
-    while True:
-        i = text.find(marker, start)
-        if i < 0:
-            return None
-        k = i + len(marker)
-        while k < len(text) and text[k] in " \t\r\n=:":
-            k += 1
-        if k < len(text) and text[k] in "{[":
-            obj = _raw_decode(text, k)
-            if obj is not None:
-                return obj
-        start = i + len(marker)
-
-
-def _raw_decode(text: str, k: int) -> Any:
-    dec = json.JSONDecoder()
-    try:
-        return dec.raw_decode(text, k)[0]
-    except json.JSONDecodeError:
-        pass
-    end = text.find("</script>", k)
-    chunk = text[k:end if end > 0 else None]
-    chunk = re.sub(r"(?<=[:\[,])\s*undefined\s*(?=[,}\]])", "null", chunk)
-    try:
-        return dec.raw_decode(chunk)[0]
-    except json.JSONDecodeError:
-        return None
-
-
 def ld_json(html: str) -> list:
     """Return all parsed <script type="application/ld+json"> blocks."""
     out = []
