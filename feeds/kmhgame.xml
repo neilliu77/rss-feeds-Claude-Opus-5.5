@@ -8,7 +8,213 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Thu, 29 Oct 2026 01:12:38 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 08:50:36 GMT</lastBuildDate>
+    <item>
+      <title>《影之刃零》开局怎么上手：难度怎么选、杀气怎么管、武器要不要急着强化</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-kai-ju-zen-me-shang-shou-nan-du-zen-me/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-kai-ju-zen-me-shang-shou-nan-du-zen-me/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:50:36 GMT</pubDate>
+      <category>发布游戏</category>
+      <description><![CDATA[<p>开局先管三件事：难度可中途改、杀气靠切武回气、强化材料可回退。交叉评测与社区整理，非本站实机通关。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-beginner-cover-616x353.webp"/></figure>
+<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1KqnD6kEL9"></iframe></div>
+
+<h2>要点</h2>
+<ul>
+<li><strong>难度</strong>：可中途切换（GameSpot、游民可核）。一周目可先偏低档，觉得手感起来再加码；「六十六天」多家写为通关后／二周目挑战，不必开局硬选。</li>
+<li><strong>杀气（Sha-Chi）</strong>：同时管重击与按住格挡；轻攻／闪避本身不耗（游民）。槽空会破防；敌我也各有一条。完美格挡／正确应对红蓝光可削敌方杀气并回自己的气（UCG、游民）。</li>
+<li><strong>切武器＝回气</strong>：双主武器槽之间切换会回满或大幅回杀气（UCG、Wccftech、GameSpot、IGN）；另有评测（A9VG）提到换武带冷却。换武本身进战斗循环。</li>
+<li><strong>强化别囤死</strong>：武器升级材料可回退／重铸（IGN、GameSpot、游民、UCG）。捡到新刀可以试，不必等“完美一把”才投料。</li>
+<li><strong>探索辅助（轻提）</strong>：路上铃铛可敲。游民写死后在上次敲过的铃铛处复活，敌人不刷新；社区 Wiki 另整理敲钟与区域快移，标交叉。</li>
+<li><strong>本稿边界</strong>：不写通关路线、隐藏结局条件与“最优配装”；无本站实机时长背书，以解禁后评测可核表述为主，社区 Wiki 仅交叉。</li>
+</ul>
+<h2>正文</h2>
+<p>第一小时最容易踩的坑，是把难度、杀气和投料想成一次性生死题：难度一选定终身，杀气当普通体力硬扛，材料全砸进开局那把刀。解禁后评测里反复出现的，是能改、能回气、能退料这三条。</p>
+<p><strong>难度：先能打顺，再往上拧。</strong> GameSpot 写明可在流程中切换难度；作者本人就在普通流程里在困难与中等之间来回调，杂兵太软就抬、Boss 卡就降。游民文字评测更直接建议一周目前两章先选简单档，资源与输出跟上来后再逐步抬高。UCG 在「逆天者」下约 33 小时通关，IGN 国际则全程最高难。两边都能打完，说明档位是体验旋钮。社区 Wiki／PBZERO 整理的中文档名常见写法是「入阵者／破局者／逆天者」，另有「六十六天」；游民与 A9VG 等把「六十六天」写成通关后或二周目才认真碰的限命挑战。GameSpot 正文只写到三档可切换，与「四档含解锁挑战」的社区说法不完全同框。本稿以“可中途改、一周目不必锁死最高难”为准，档位中英文对照留给社区整理，不升格官方手册。</p>
+<p><strong>杀气：当预算来管。</strong> UCG 图文把杀气写成同时支付强力进攻与普通格挡的资源：槽空就破防，硬直变大，挨打也更疼；敌方同样有一条，打空才是处决窗口。游民补了一句容易被习惯类魂的人忽略的规则：闪避与轻攻击本身不耗杀气，连续按住格挡与打出有效杀伤才会烧自己的槽。Wccftech、GameSpot 与 IGN 国际则从另一侧拧紧同一螺丝：切换已装备的另一把主武器，会把杀气补回来（表述有“完全回满／瞬间回气”之别，机制方向一致）。另有评测（A9VG）提到换武带冷却，开局练习时勿当成无脑轮换键。于是开局练习顺序很具体。先盯双方杀气条看什么在掉、什么在回；再练格挡／弹反／闪避各自吃什么招；切武留给“气见底或要换节奏”的瞬间，别只在背包里换时装。游民还提醒：若把本作当被动弹反坐牢来玩，大概率会吃瘪；主动压制、尽快削空对方杀气，才更贴这套规则。</p>
+<p><strong>武器：要强化，但别当成单行道。</strong> 商店与评测都写明主武器体量在三十把量级，双主武器＋影之武装是标准负载。强化会抬数值，也常解锁招式或形态（UCG、Wccftech）。更关键的开局口径是回退：IGN 写投入武器升级的点数很容易收回再分配；GameSpot 写材料可退、不必锁死一套；游民写升到一定等级前可无损回退，更高档回退也有材料通路且供给不紧；社区 Wiki 则整理「重铸」把等级清零并全额返还材料。交叉之后的可执行建议只有一句：开局捡到顺手或奇怪的刀，可以投料试手感；打得别扭就回退换下一把，把「切武回气」练进肌肉记忆，比死磕“当前最优一把”省事。本稿不列武器梯队，也不写具体 Boss 克制表。</p>
+<p>把三件事收成开局清单：难度先选能打顺的一档并记住菜单里能改；进第一块正式区域后盯杀气，把切武当成回气键；材料敢花，也敢收回。想听战斗口述，可看文首所嵌 UCG 评测片（约 11 分钟）；更长的机制展开可对照游民评测片 BV1gTHG6kEQb（约 21 分钟）。设定向“这游戏玩什么”、预告里看得见什么，本站已有另稿；本稿只答第一小时决策。</p>
+<h2>【来源与编译】</h2>
+<ul>
+<li>UCG 图文评测（杀气／切武回气／30 把武器／逆天者约 33h，2026-10-26）：https://www.bilibili.com/opus/1263297628648505353</li>
+<li>UCG 视频评测 BV1KqnD6kEL9（约 10:56，UP UCG_Official）：https://www.bilibili.com/video/BV1KqnD6kEL9/</li>
+<li>游民文字评测（杀气规则／难度可调／材料回退／铃铛复活，2026-10-26）：https://www.gamersky.com/news/202610/2234516.shtml</li>
+<li>游民视频评测 BV1gTHG6kEQb（约 20:50，交叉备选）：https://www.bilibili.com/video/BV1gTHG6kEQb/</li>
+<li>IGN 国际评测（换武回架势类资源、武器升级点可重分配，Travis Northup，2026-10-26）：https://www.ign.com/articles/phantom-blade-zero-review</li>
+<li>GameSpot 评测（Sha-Chi、切武回气、材料可退、难度可中途切换，Richard Wakeling，2026-10-25）：https://www.gamespot.com/reviews/phantom-blade-zeros-combat-is-so-good-you-wont-care-the-story-makes-no-sense/</li>
+<li>Wccftech 评测（杀气攻防一体、切武完全回杀气、武器升级可重置，Francesco De Meo，2026-10-25）：https://wccftech.com/review/phantom-blade-zero-review-one-of-the-best-action-rpgs-of-the-generation-and-a-real-game-of-the-year-2026-contender/</li>
+<li>社区 Wiki《第一次上手》（难度／煞气／钟／重铸；标 2026-09-30 发售前整理，仅交叉）：https://phantom-blade-0.wiki/zh-cn/guide/how-to-play/</li>
+<li>PBZERO Wiki 新手战斗基础（自标发售前整理＋媒体交叉，2026-10-28 更新）：https://pbz-phantombladezero.wiki/zh-hans/guides/beginner</li>
+<li>A9VG 评测（难度可切换、六十六天通关后解锁，交叉，2026-10）：https://www.a9vg.com/article/246021</li>
+<li>厂商口径旁证：S-GAME／灵游坊（Steam／评测署名）</li>
+<li>核对日期：2026-10-29（Asia/Shanghai）</li>
+<li>本文说明：答案型编译，压缩开局决策三点；无本站实机通关背书；社区 Wiki 与评测冲突处以评测可核表述为准；未写通关／隐藏路线剧透与最优配装；未使用生成式配图。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-beginner-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》开分后怎么看：MC 88、OpenCritic 89，Steam 多半好评</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-kai-fen-hou-zen-me-kan-mc-88-opencritic/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-kai-fen-hou-zen-me-kan-mc-88-opencritic/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:41:36 GMT</pubDate>
+      <category>发布游戏</category>
+      <description><![CDATA[<p>发售后聚合分偏高：MC 88、OpenCritic 89（推荐96%）；Steam 简中多半好评。差评侧常见进不去／着色器等，属用户评，勿与媒体分混读。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-scores-cover-616x353.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li><strong>Metacritic 媒体分 88</strong>（Generally Favorable；页示基于 <strong>44</strong> 家 critic；约 98% Positive／2% Mixed）。同页另有约 40 家档 87、约 45 家档 88 的分平台行，<strong>以总览 88／44 家为准</strong>。<strong>User Score 仍为 tbd</strong>：页示须满 4 条用户评，且自 <strong>2026-10-30 12:00 PST</strong> 起才开放撰写；本稿不编造用户分。</li>
+<li><strong>OpenCritic</strong>：Top Critic Average <strong>89</strong>；Critics Recommend <strong>96%</strong>；页示档位 <strong>Mighty</strong>，样本 <strong>54</strong> 家 critic（meta 描述可核）。玩家分仍未开齐（页示 Player Rating 须满 20 条）。</li>
+<li><strong>Steam 简中用户评（店铺评）</strong>：国区简中店页 tooltip「您语言的 <strong>2,467</strong> 篇用户评测中有 <strong>77%</strong> 为好评」→ 文案等级 <strong>多半好评</strong>（核验 2026-10-29 16:23 Asia/Shanghai）。数字滑动快，以复开店页为准。</li>
+<li><strong>近期差评高频点（用户评／店铺评，非官方声明）</strong>：发售当日早间游民快照写，差评里多见<strong>无法进入游戏</strong>、<strong>漫长着色器编译</strong>、<strong>SteamAPI 初始化／检测失败</strong>；社区简中差评抽样亦见序章后<strong>闪退</strong>、启动耗时过长等表述。另有一部分差评指向打击感／键位／Boss 机制，属体验分歧，与“进不去”技术向分开看。</li>
+<li>口径：本稿只答<strong>聚合分 + Steam 用户评</strong>；单家媒体长摘见已上「<a href="https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/">媒体怎么说</a>」（6108）。厂商 <strong>S-GAME／灵游坊</strong>。</li>
+</ul>
+<h2>正文</h2>
+<p>解禁期各家自制分已经铺过一轮；发售日更常被追问的，是聚合站落到哪一档，以及 Steam 墙现在写什么。三组数字来源不同，<strong>不要捏成一个“总分”</strong>。</p>
+<p>Metacritic 游戏页当前 <strong>Metascore 88</strong>，标注 <strong>Generally Favorable</strong>，基于 <strong>44</strong> 家 critic（Positive 约 43、Mixed 1、Negative 0）。同页还能看到约 40 家对应 87、约 45 家对应 88 的分平台摘要，读者若只截一张图，容易和总览打架。本稿以总览 <strong>88／44 家</strong>为准。用户侧仍写 <strong>tbd</strong>：未满 4 条可展示的用户评，且页面写明自 <strong>2026-10-30 12:00pm PST</strong> 起才开放写评。在此之前任何“MC 用户分”都属误传。</p>
+<p>OpenCritic 与 MC 同属媒体聚合，算法与样本池不同。页示 <strong>Top Critic Average 89</strong>，<strong>Critics Recommend 96%</strong>，档位 <strong>Mighty</strong>，meta 描述写经 <strong>54</strong> 家 critic 评测。Player Rating 仍未开放展示（须满 20 条）。和 Metacritic 一样，这是<strong>媒体向</strong>分数，不能直接等价成 Steam 好评率。</p>
+<p>Steam 国区简中店页（<code>l=schinese&amp;cc=cn</code>）截至 <strong>2026-10-29 16:23（Asia/Shanghai）</strong> 复开：简体中文评测 tooltip 为「您语言的 <strong>2,467</strong> 篇用户评测中有 <strong>77%</strong> 为好评」，摘要文案 <strong>多半好评</strong>。这是<strong>用户评／店铺评</strong>，样本量与百分比每小时都可能跳；早前游民 11:18 快照曾写全语言约 255／79%，不能拿来冒充此刻店页。英文界面另见“你的语言”样本（本轮英页约 541／85%、Very Positive），与简中墙不是同一列，比较时写清语言过滤。</p>
+<p>差评侧要把技术向和口味向拆开读。发售当日游民首批评测快照（当时全语言仅数百级）已写：差评里不少人报<strong>进不去</strong>、<strong>着色器编译极长</strong>、<strong>SteamAPI 相关启动失败</strong>。上述归纳来自店页／社区用户评与二手报道，勿当作官方事故通报。社区简中差评页抽样（有用／最新各翻页）里，仍能看到着色器／启动耗时、序章后闪退等说法；同时“打击感飘”“键位难改”“Boss 投技／视野干扰”等体验槽也占一截。前者更像首发日登录洪峰下的可复现故障叙事，后者更接近动作游戏口味分裂。店页好评侧仍大量写战斗与 Boss，和 6108 媒体共识同向；读墙时把技术向差评与口味向差评分开看，别只截“多半好评”四个字。</p>
+<p>单家媒体 9／10、10／10 一类自制分，以及中文区评测片论点，不在本稿展开。需要逐家摘句仍回 6108；本稿只把 MC／OC／Steam 三块钉在可复开的 URL 与核验时刻上。</p>
+<h2>【来源与编译】</h2>
+<ul>
+<li>Metacritic：《Phantom Blade Zero》，https://www.metacritic.com/game/phantom-blade-zero/ （Metascore 88／Generally Favorable／44 critic；User Score tbd，页示 2026-10-30 12:00pm PST 起可写评）</li>
+<li>OpenCritic：《Phantom Blade Zero》，https://opencritic.com/game/19914/phantom-blade-zero （Top Critic Average 89；Critics Recommend 96%；Mighty；54 critics）</li>
+<li>Steam 国区简中商店：https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/?l=schinese&amp;cc=cn （简中 2,467 篇／77%／多半好评；AppID 4115450）</li>
+<li>差评现象二手对照（非终值、非官方声明）：游民《Steam首批评价多半好评》，2026-10-29 11:18，https://www.gamersky.com/news/202610/2236740.shtml （写差评多见无法进入／着色器编译／SteamAPI）；游民《Steam版无法进入游戏？》，2026-10-29 10:35，https://www.gamersky.com/news/202610/2236819.shtml （SteamAPI 初始化失败之社区反馈）</li>
+<li>社区简中差评抽样：Steam Community negativereviews（schinese，toprated／mostrecent），https://steamcommunity.com/app/4115450/negativereviews/?filterLanguage=schinese （用户评原文；不升格官方）</li>
+<li>站内已上对照：6108「媒体怎么说」https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/ （单家媒体摘句；本稿不重写）</li>
+<li>核对说明：数字以交稿前复开页为准；未混写媒体自制分与聚合分；未把用户评升格为官方故障声明；厂商口径 S-GAME／灵游坊；未主嵌 BV1Hmuv68EWW／BV1AHnB6NEhM。</li>
+<li>核验时刻：2026-10-29 16:23（Asia/Shanghai）</li>
+<li>本文说明：答案型口碑续报；非本站试玩打分。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-scores-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》中文区评测视频怎么看：游民 9.8 与 UCG 9.3 说了什么</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-zhong-wen-qu-ping-ce-shi-pin-zen-me-kan/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-zhong-wen-qu-ping-ce-shi-pin-zen-me-kan/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:33:17 GMT</pubDate>
+      <category>发布游戏</category>
+      <description><![CDATA[<p>中文区完整评测片里，游民自制9.8、UCG自制9.3偏高；通关向亦有“又爱又恨”与最多八分玩后感谈优化与手感保留。分数为媒体自制，勿与聚合分混读。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-review-videos-cover-616x353.webp"/></figure>
+<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1gTHG6kEQb"></iframe></div>
+
+<h2>要点</h2>
+<ul>
+<li><strong>游民星空官方自制 9.8</strong>（BV1gTHG6kEQb，约 20:50，解禁 2026-10-26；播放约 95 万）：标题即“游民评测9.8分：人间正道是沧桑”。文字对照同日刊出：一周目约 36.5 小时、收集率 97%；最大长板写战斗——连续挡反、鬼步、敌我共用杀气；近 30 把主武器与上百种处决；亦坦白作者是系列粉丝，并点出过场音画不同步、个别关卡掉帧等。</li>
+<li><strong>UCG_Official 自制 9.3</strong>（BV1KqnD6kEL9，约 10:56，同日；播放约 27 万）：图文对照标题“酣畅淋漓 意犹未尽”。逆天者难度约 33 小时通关；褒杀气攻防、30 把武器与切武回气、Boss 差异；扣分侧写能力锁折返挫败、过场衔接生硬、卡地形与评测版 BUG（文称多数已反馈修复）。</li>
+<li><strong>挑剔／保留向（中文通关测评）游戏动力ATK</strong>（BV1VpnU65ENh，约 19:05，解禁日；播放约 52 万）：标题“又爱又‘恨’”；同源文字测评明确“不能给满分”。爱在拼刀与构筑；恨在中端机优化与过场卡顿、敌人卡空气墙、天赋洗点不灵活、后期小怪与部分 Boss 机制消磨耐心。可作高分片对照，勿当成媒体低分。</li>
+<li><strong>发售日玩后感自称“最多八分”</strong>：二指导玩游戏 BV1bHsZ66EAs（约 2:37，2026-10-29；播放约 3.5 万），简介写“客观说下不足”；同日另有怪蜀黍 BV12Asf6kEi4（约 3:49）标题直指打击感与建模不满。二者为短片感想，<strong>非</strong>游民／UCG 同级长评测，分数仅作争议向对照。</li>
+<li>口径提醒：以上均为各家／创作者<strong>自制分或标题自评</strong>；Metacritic／OpenCritic／Steam 用户评另篇处理。厂商为 <strong>S-GAME／灵游坊</strong>。相对已上「<a href="https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/">媒体怎么说</a>」（6108 文字媒体摘句）与「<a href="https://www.kmhgame.com/ying-zhi-ren-ling-11-fen-zhong-shi-ji-yu-gao-li-kan-de-jian/">11 分钟实机预告拆解</a>」（6117），本稿入口是<strong>中文区完整评测视频</strong>。</li>
+</ul>
+<h2>正文</h2>
+<p>想先看完整视频再决定买不买，中文区解禁后最常被点开的长片之一，是游民星空官方的 <strong>BV1gTHG6kEQb</strong>。片长约 <strong>20:50</strong>，UP「游民星空官方」，解禁当日（2026-10-26）上线，标题写明自制 <strong>9.8</strong>。简介开场把“杰出、卓越且独一无二”和灵游坊 3A 级投入、制作人个人风格绑在一起——这是游民自己的语气，不是本站评分。</p>
+<p>把视频与同日游民文字评测交叉，能核到的论点大致落在这几块：战斗被写成最大长板——按住防御可消耗杀气做连续挡反，红／蓝光窗口用鬼步化解强招并回气；杀气是敌我双方共用的战斗资源，清空一方会陷入危险，逻辑更接近格斗里的斗气博弈，而非被动弹反坐牢。武器写到近 30 把主武器各有模组，处决动画“上百种”。叙事与探索侧，文字写 8 张宽线性地图、支线靠书信与记忆花瓣织网，并强调“并非类魂”、建议主动压制。保留意见同样写在纸面上：作者开篇叠甲承认自己是梁其伟与《雨血》系列粉丝；硬件上提到个别关卡掉帧、帧生成输入延迟，以及送测版过场音画不同步——并称多数问题可后续更新，但仍不愿略过。一周目数据写 <strong>36.5 小时、97% 收集率</strong>。本站不另打分，只提示：9.8 是游民自制分，读时把“粉丝自白”与“机制描述”分开看。</p>
+<p>备选短一点的完整评测片，是 <strong>UCG_Official</strong> 的 <strong>BV1KqnD6kEL9</strong>（约 <strong>10:56</strong>，同日解禁，播放约 27 万）。视频标题与 B 站图文专栏均标自制 <strong>9.3</strong>，三位编辑个人分德雷克 9.4／静言 9.0／津秋 9.5。图文可核要点：杀气同时管进攻连招与普通格挡，空槽破防；切武器可回满杀气并取消前后摇；主武器写 30 把，影之武装兼战斗与开路；Boss 有蓝光精防、红光闪避与更反直觉的黑光。美中不足写得直白——影之武装当“能力锁”导致中期四处碰壁；过场与场景交互生硬、边角易卡死；评测版遇过不触发仇恨、音画不同步等 BUG，文称已反馈且多数修复。UCG 整体仍落在“瑕不掩瑜、酣畅淋漓”，和游民同属高分档，但扣分清单更偏工业细节与探索压力。</p>
+<p>高分不是中文区唯一声音。解禁日另有一条通关向长片：<strong>游戏动力ATK</strong> 的 <strong>BV1VpnU65ENh</strong>（约 <strong>19:05</strong>，播放约 52 万），标题就是“又爱又‘恨’”。网易同源文字测评（2026-10-27）可交叉：作者写 30 小时、325 次死亡、坏结局通关，称其好到超越自己见过的国产游戏，但<strong>明确不能满分</strong>。“爱”仍砸在杀气拼刀、武器／影之武装构筑与支线地图体量；“恨”则落到可核槽点——中端配置（文举例 5060Ti 档）2K 全高掉帧与过场卡顿；敌人卡地形／空气墙；天赋只能整树洗点；后期怪物重复与部分 Boss 机制消磨耐心。这是高赞通关片里把保留意见写满的一条，适合跟游民／UCG 对照看，避免只听 9.8／9.3。</p>
+<p>发售日（2026-10-29）短片感想更尖锐，但体量与背书弱于上列长评测：二指导玩游戏 <strong>BV1bHsZ66EAs</strong>（约 2:37）标题与简介自称“最多八分”、谈不足；怪蜀黍的生活与游戏 <strong>BV12Asf6kEi4</strong>（约 3:49）标题直写后悔购入、打击感与建模不满。本轮能核的是页端标题／UP／时长／发布时间，<strong>未</strong>将其升格为与游民同级的分制评测；剧透与具体战例从略。若只想看机制结论，仍以游民长片为主入口，UCG 与 ATK 作正反补充即可。</p>
+<p>设定与玩法一句话可参见已上「<a href="https://www.kmhgame.com/ying-zhi-ren-ling-wan-shen-me-gong-fu-peng-ke-liu-shi-liu/">《影之刃零》玩什么</a>」（6106）；英文与 IGN 中国等文字摘句见「<a href="https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/">媒体怎么说</a>」（6108）。本稿不展开 Metacritic／OpenCritic／Steam 墙。</p>
+<p>主嵌（游民星空官方｜约 20:50｜自制 9.8）：  </p>
+<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1gTHG6kEQb"></iframe></div>
+<p>备选（UCG_Official｜约 10:56｜自制 9.3）：  </p>
+<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1KqnD6kEL9"></iframe></div>
+<p>挑剔／保留向（游戏动力ATK｜约 19:05｜又爱又恨，不给满分）：  </p>
+<div><iframe allowfullscreen="true" frameborder="no" src="https://player.bilibili.com/player.html?page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=0&amp;bvid=BV1VpnU65ENh"></iframe></div>
+<h2>【来源与编译】</h2>
+<ul>
+<li>游民视频：BV1gTHG6kEQb，《影之刃零》游民评测9.8分：人间正道是沧桑，UP 游民星空官方，时长约 20:50，发布 2026-10-26 08:00（Asia/Shanghai），https://www.bilibili.com/video/BV1gTHG6kEQb/ （B 站 API 核 UP／时长／标题／播放量级）</li>
+<li>游民文字评测：同题《游民评测9.8：人间正道是沧桑》，2026-10-26 08:00，https://www.gamersky.com/news/202610/2234516.shtml （交叉一周目 36.5h／97% 收集、杀气／鬼步、保留意见）</li>
+<li>UCG 视频：BV1KqnD6kEL9，9.3|酣畅淋漓 意犹未尽《影之刃零》评测【UCG】，UP UCG_Official，时长约 10:56，发布 2026-10-26 08:00（Asia/Shanghai），https://www.bilibili.com/video/BV1KqnD6kEL9/</li>
+<li>UCG 图文：同题专栏，2026-10-26，https://www.bilibili.com/opus/1263297628648505353 （交叉 9.3、杀气／武器／能力锁／BUG）</li>
+<li>游戏动力ATK 视频：BV1VpnU65ENh，打通了《影之刃零》之后，我对它又爱又“恨”！，UP 游戏动力ATK，时长约 19:05，发布 2026-10-26 08:00（Asia/Shanghai），https://www.bilibili.com/video/BV1VpnU65ENh/</li>
+<li>ATK 文字对照：江湖由心不由己｜《影之刃零》测评，网易号转载标注来源游戏动力ATK，2026-10-27，https://www.163.com/dy/article/LA780JBN0526Q3CJ.html （交叉“不能满分”、优化／卡墙／后期重复等“恨”点）</li>
+<li>发售日玩后感（争议向短片，非长评测）：BV1bHsZ66EAs，二指导玩游戏，《影之刃零》玩后感，最多八分！客观说下游戏不足！，约 2:37，发布 2026-10-29 13:24（Asia/Shanghai），https://www.bilibili.com/video/BV1bHsZ66EAs/ ；BV12Asf6kEi4，怪蜀黍的生活与游戏，标题含后悔购入／打击感／建模，约 3:49，发布 2026-10-29 12:17（Asia/Shanghai），https://www.bilibili.com/video/BV12Asf6kEi4/</li>
+<li>站内已上对照（不重写）：6108 媒体文字摘句 https://www.kmhgame.com/ying-zhi-ren-ling-mei-ti-zen-me-shuo-zhan-dou-gao-fen-gong/ ；6117 官方 11 分钟预告拆解 https://www.kmhgame.com/ying-zhi-ren-ling-11-fen-zhong-shi-ji-yu-gao-li-kan-de-jian/ ；6106 玩什么 https://www.kmhgame.com/ying-zhi-ren-ling-wan-shen-me-gong-fu-peng-ke-liu-shi-liu/</li>
+<li>核对说明：未以官方预告片作主嵌；未写入 Metacritic／OpenCritic／Steam 用户评数字；厂商口径 S-GAME／灵游坊；视频论点以可打开的标题／简介／文字对照为准，未通看字幕的段落不编造。</li>
+<li>核对日期：2026-10-29（Asia/Shanghai）</li>
+<li>本文说明：答案型中文评测视频导读；非本站试玩打分。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-review-videos-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>Steam「即将推出」页怎么发：审核周期、100美元Direct与愿望单怎么积</title>
+      <link>https://www.kmhgame.com/steam-ji-jiang-tui-chu-ye-zen-me-fa-shen-he-zhou-qi-100-mei/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/steam-ji-jiang-tui-chu-ye-zen-me-fa-shen-he-zhou-qi-100-mei/</guid>
+      <pubDate>Thu, 29 Oct 2026 03:30:27 GMT</pubDate>
+      <category>发布游戏</category>
+      <description><![CDATA[<p>Steam新作上架前：每应用100美元Direct费（不可退款；达至少1000美元Adjusted Gross Revenue后可回收）、Coming Soon至少两周；商店页可见即可加愿望单。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/steam-direct-checklist-cover-516x516.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>Steam Direct：每款新应用（app）须支付 <strong>100美元（或等值货币）</strong> 费用；费用本身 <strong>不可退款</strong>，但产品在 Steam 商店或应用内购累计至少 <strong>1000美元 Adjusted Gross Revenue</strong> 后，可在后续结算中 <strong>回收（recoup）</strong>，并在月度报表中单列。</li>
+<li>支付限制：可用 Steam 支持的当地付款方式，<strong>不可用 Steam 钱包余额</strong>；仅 Steamworks 合作方内具有 <strong>Admin</strong> 权限的用户可购买；付费后 app credit 挂在付款人账号上，也只能由付款人激活。</li>
+<li>Coming Soon（即将推出）页：新作正式发售前，<strong>必须</strong>先有可见的 Coming Soon 页，且至少上线 <strong>两周</strong>；Valve 建议你准备好公开谈论作品时再发页。</li>
+<li>审核节奏：完成 “Your Store Presence” 清单后点 “Mark As Ready For Review”；文档写明：请至少提前 <strong>7个工作日</strong> 提交审核，以便在你希望页面对外可见的日期前完成审核。审核通过后，需再点绿色 “Post as Coming Soon” 才会公开。</li>
+<li>愿望单起点：商店页 <strong>对玩家可见</strong> 后即可加愿望单；同一时刻也会启用 Community Hub。正式发售（或 Early Access）时，Steam 会向当时仍挂愿望单的用户发邮件和/或移动推送。</li>
+<li>折扣通知门槛：对愿望单用户发折扣提醒，通常要求折扣 <strong>≥20%</strong>、至少覆盖价格最低的那档 package，且折扣时长 <strong>超过8小时</strong>；同一 appID 的邮件通知存在约 <strong>1–2周</strong> 冷却（旺季可能更长）。</li>
+<li>Demo 提醒：关联免费 Demo 公开后，开发者可在 Demo 上线后 <strong>两周内</strong> 自行点一次按钮，向愿望单用户发一次 Demo 可用通知。</li>
+</ul>
+<h2>正文</h2>
+<p>对多数准备把游戏送上 Steam 的团队，上架前要按顺序走完三条硬规矩：<strong>先付 Direct、再上 Coming Soon、页面对外可见后才开始积愿望单</strong>。下面按 Steamworks 现行文档，把费用、时间窗与操作顺序收成一份可勾选的清单。政策以文档原文为准，税率与地区细则另循当地顾问意见。</p>
+<h3>1. 先解决 Steam Direct 费用与 app credit</h3>
+<p>无论是首次入驻 Steamworks，还是老开发者再开新应用，文档口径是：每希望在 Steam 分发的 <strong>新 app</strong>，支付 <strong>100美元（或等值货币）</strong> 的 Steam Direct Fee。首次入驻时，这笔费用会嵌在数字化入驻流程里，付款走 Steam 商店支持的支付方式，再回到 Steamworks 继续填表。</p>
+<p>老开发者购买额外 app credit 时，同样可用当地支持的付款方式，但 <strong>排除 Steam 钱包资金</strong>。另有两道权限门：只有现有 Steamworks 合作方里具备 <strong>Admin</strong> 权限的人能付这笔钱；付完后 credit 挂在付款人 Steam 账号上，<strong>也只能由付款人激活</strong>。Steamworks 首页在权限足够时会出现绿色购买按钮。</p>
+<p>回收规则要写清，避免和“退款”混用：文档写明费用 <strong>not refundable（不可退款）</strong>，但会在产品于 Steam 商店或应用内购达到至少 <strong>1000美元 Adjusted Gross Revenue</strong> 之后，于后续付款中 <strong>recoupable（可回收）</strong>，并在月度报表里作为单独行项目显示。若入金被拒付、退款或判定欺诈，销售分成与费用回收都可能被扣留。Valve 还可能按国家规定对 Direct Fee 征收 VAT、GST 等消费税；发票开给付款时登录的个人账号，且不能对同一笔交易开双发票——代公司垫付时，实务上常见做法是走费用报销。</p>
+<p>付费前建议再读一遍 Steam 内容规则与分发协议：Direct 只解决“你有资格提交这款应用”，不保证审核通过或商店曝光。</p>
+<h3>2. 准备 Coming Soon 页：素材、审核、两周窗</h3>
+<p>Coming Soon 页的作用很直白：在正式发售前给玩家一个可学习、可讨论、可加愿望单的落点。文档要求新作必须先有 Coming Soon 页，且 <strong>至少上线两周</strong> 才能发售。</p>
+<p>Timing 上，Valve 的建议是：准备好对外公开谈论游戏时再发页。若发页后美术方向与核心功能还要大改，早期愿望单用户可能对最终成片感到困惑；反过来，文档也写明：只要游戏不变脸太狠，提前很久挂页似乎没有明显坏处——提前两年加愿望单的人，购买意愿未必弱于临发售前两周才加的人。</p>
+<p>开通门槛按清单走：</p>
+<ol>
+<li>在 Steamworks 点 “Create New App…”，按产品落地页清单完成准备。</li>
+<li>“Your Store Presence” 一节全部完成（品牌图、文案描述，理想情况下还有实机预告片）。</li>
+<li>点顶部 “Mark As Ready For Review”，让 Valve 开始审页。文档写明：请至少提前 <strong>7 个工作日</strong> 提交审核，对应你希望页面 live 的日期。</li>
+<li>审核通过后，再点绿色 <strong>“Post as Coming Soon”</strong>，页面才对公众显示为即将推出。</li>
+</ol>
+<p>页面对外可见后有两件即时结果：Community Hub 启用；玩家可以开始加愿望单。发售日点下 release 后，Steam 会自动给当时愿望单上的用户发邮件。发售日期在商店页上的显示精度可自行控制，细则见 Release Dates 文档。</p>
+<h3>3. 愿望单：从“页可见”开始积，通知有门槛</h3>
+<p>Wishlists 文档的核心句几乎就是整条漏斗的开关：<strong>只要游戏在 Steam 上有对公众可见的商店页，玩家就可以把游戏加入愿望单。</strong> 上架前，这是把外宣流量收成可触达名单的主容器；上架后，它继续在折扣、Demo、Early Access 转正式版等节点触发提醒。</p>
+<p>当前文档描述的主要触发包括：</p>
+<ul>
+<li><strong>正式发售或 Early Access 上线</strong>：当时挂在愿望单上的用户会收到邮件和/或移动推送。若先 Early Access、再转 Full Release，转正时会再发一轮。</li>
+<li><strong>促销折扣</strong>：通常需折扣 <strong>达到或高于 20%</strong>，至少作用于该游戏价格最低的那档 package，且折扣持续 <strong>超过 8 小时</strong>。只打折豪华版、不打折普通版，不会触发愿望单折扣邮件。若邮件因故延误超过一周，系统可能停止重试发送。</li>
+<li><strong>关联 Demo</strong>：免费 Demo 公开后，开发者可在 Demo 上线后两周内，回到 Demo 应用落地页点一次按钮，向愿望单用户发 <strong>一次</strong> Demo 可用通知。</li>
+</ul>
+<p>通知还有冷却与权限边界：同一 appID 在约 <strong>两周</strong> 内已向某用户发过相关邮件时，用户会进入冷却，FAQ 也写作 <strong>1–2 周</strong>，大促等高流量期可能延长；用户须验证邮箱，且可在账号里关闭部分邮件类型——因此愿望单人数 ≠ 可触达收件人数。愿望单数据在 Sales &amp; Activation Reports 的 Wishlists 区按日更新（可看到前一日），也可按地区拆分。</p>
+<p>Valve 在 Best Practices 里写得最狠的三条其实很朴素：尽早（在你准备好时）挂 Coming Soon；发售后继续运营，别发完就走人；大促或活动后再回看愿望单曲线，用增减判断哪类曝光真正有效。另有一句常被误解的澄清：<strong>没有</strong>“愿望单必须达到某个最低数量，Steam 才开始给游戏曝光”的门槛。</p>
+<h3>4. 可勾选的上架前顺序（压缩版）</h3>
+<ol>
+<li>确认 Admin 账号可付费 → 支付 100 美元 Direct → 激活 app credit。  </li>
+<li>备齐商店页素材与描述（+ 预告片更稳）→ 完成 Store Presence 清单。  </li>
+<li>按计划 live 日前请至少提前 <strong>7 个工作日</strong> 提交审核 → 通过后点 “Post as Coming Soon”。  </li>
+<li>确保 Coming Soon <strong>至少满两周</strong> 再点正式发售；期间用外宣把流量导向该页积愿望单。  </li>
+<li>发售 / Early Access / Demo / ≥20% 且超 8 小时的折扣节点，按文档预期愿望单通知；不要把愿望单数直接换算成销量公式。</li>
+</ol>
+<p>整条链路里，费用解决的是“你有没有资格开这款 app”，Coming Soon 解决的是“玩家有没有地方了解并收藏”，愿望单解决的是“发售与促销时你能不能自动敲一下还在意的人”。三步都写在 Steamworks 公开文档里；具体按钮文案、报表字段若与后台 UI 有出入，以你账号可见的 Steamworks 界面与文档更新为准。</p>
+<h2>【来源与编译】</h2>
+<ul>
+<li>原文标题：Steam Direct Fee  </li>
+</ul>
+<p>  出版方：Steamworks Documentation / Valve  </p>
+<p>  链接：<a href="https://partner.steamgames.com/doc/gettingstarted/appfee">https://partner.steamgames.com/doc/gettingstarted/appfee</a> </p>
+<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
+<ul>
+<li>原文标题：Coming Soon  </li>
+</ul>
+<p>  出版方：Steamworks Documentation / Valve  </p>
+<p>  链接：<a href="https://partner.steamgames.com/doc/store/coming_soon">https://partner.steamgames.com/doc/store/coming_soon</a> </p>
+<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
+<ul>
+<li>原文标题：Wishlists  </li>
+</ul>
+<p>  出版方：Steamworks Documentation / Valve  </p>
+<p>  链接：<a href="https://partner.steamgames.com/doc/marketing/wishlist">https://partner.steamgames.com/doc/marketing/wishlist</a> </p>
+<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
+<p>本文据上述三篇 Steamworks 英文文档整理为中文操作清单，保留官方数字与条件（100美元费用、1000美元 Adjusted Gross Revenue 回收、Coming Soon 至少两周、审核建议提前至少7个工作日、折扣≥20%且超8小时、邮件约1–2周冷却等）。未编造审核通过率、平均愿望单转化率或未在上述文档出现的地区定价。税务、银行信息与费用回收入账细节以 Steamworks/结算报表及当地顾问意见为准；文档若日后修订，以 partner.steamgames.com 现行页为准。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/steam-direct-checklist-cover-516x516.webp"/>
+    </item>
     <item>
       <title>“当时真的难到让人崩溃”：《超英派遣中心》上线后的一年</title>
       <link>https://www.kmhgame.com/dang-shi-zhen-de-nan-dao-rang-ren-beng-kui-chao-ying-pai/</link>
@@ -1505,305 +1711,6 @@ and anything I should read before making changes.</code></pre>
 <li>本文说明：并列表述两条产品的“第一次”路径；强调审批与窄任务；<strong>凡 UI 文案均标“以当前界面为准”</strong>。未把某一版本的截图按钮坐标写成永久事实。未证实的第三方“隐藏快捷键”已删。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/cursor-codex-agent-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Claude「先约束再需求」提示词骨架：角色→边界→任务→验收</title>
-      <link>https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/</guid>
-      <pubDate>Tue, 27 Oct 2026 13:41:17 GMT</pubDate>
-      <category>AI</category>
-      <description><![CDATA[<p>先写清角色、硬边界与完成定义，再写具体需求；用 XML／小标题分区。Anthropic 官方强调把输出格式与约束写清楚，并用标签分隔指令与材料；社区则常把“不要碰什么”提前，避免模型先用力过猛再返工。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-prompt-skeleton-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方原则：把 Claude 当成“缺上下文的新同事”；<strong>输出格式与约束要写具体</strong>；步骤用编号列表（<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Prompting best practices</a>）。</li>
-<li>官方结构建议：用 <strong>XML 标签</strong>区分 instructions／context／examples／输入，降低串味（同上；亦见 <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">effective context engineering</a> 对分区标题的讨论）。</li>
-<li>官方纠偏：部分场景更有效的是 <strong>告诉它要做什么</strong>，而不是只堆 “Don’t …”；否定约束过长可能反而把禁忌推到注意力中心（官方 “Control the format of responses”；社区亦有负面约束实验讨论，如 <a href="https://www.reddit.com/r/PromptEngineering/comments/1suh2nh/negative_constraints_dont_do_x_can_throw_x_into/">r/PromptEngineering</a>）。</li>
-<li>可抄顺序：<strong>角色与场景 → 硬约束（范围／安全／禁止）→ 任务需求 → 输入材料 → 输出格式 → 验收标准／不确定时怎么办</strong>。</li>
-<li>落地位置：单次聊天可整段粘贴；重复项目请把稳定约束放进 <strong>Project instructions</strong>（见同日《Claude 建第一个 Project》）。</li>
-<li>证据强度：骨架为官方原则＋公开创作者习惯的编译模板，<strong>不是</strong> Anthropic 具名产品功能；效果因模型版本与任务而异。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你丢一句“帮我写个方案／改段代码”，模型开始发挥：扩 scope、改口吻、发明数据。返工时你才补“别用表格”“别编链接”“别动测试”。<strong>先约束再需求</strong>，是把这些闸门挪到第一屏。</p>
-<h3>可抄骨架（通用）</h3>
-<p>把方括号换成你的内容；不需要的整节可删，但建议至少保留「硬约束」「任务」「验收」。</p>
-<pre><code>&lt;role&gt;
-你是【角色】，服务对象是【读者】。
-&lt;/role&gt;
-
-&lt;constraints&gt;
-- 范围：只做【…】；不要做【…】。
-- 事实：不确定就写“不确定”；禁止编造链接、数字、引语。
-- 风格：【例如：短句、中文弯引号、不用鸡汤】。
-- 安全／合规：【例如：不输出密钥；不给违法操作步骤】。
-&lt;/constraints&gt;
-
-&lt;task&gt;
-【用祈使句写清楚要交付什么】
-&lt;/task&gt;
-
-&lt;context&gt;
-【背景、截止时间、受众、已有决定】
-&lt;/context&gt;
-
-&lt;input&gt;
-【粘贴原文／规格／代码；长文放前面】
-&lt;/input&gt;
-
-&lt;output_format&gt;
-- 结构：【例如：结论≤80字 → 要点3–7条 → 正文】
-- 禁用：【例如：禁止 Markdown 表格／禁止 emoji】
-&lt;/output_format&gt;
-
-&lt;acceptance&gt;
-完成后自检：
-1) 是否触碰 &lt;constraints&gt;？
-2) 是否缺少验收项【…】？
-3) 若信息不足，先列【需要我补充的问题】再动笔。
-&lt;/acceptance&gt;</code></pre>
-<h3>可跟做：三分钟填一版（写周报例）</h3>
-<pre><code>&lt;role&gt;你是团队周报编辑，读者是没空读长文的主管。&lt;/role&gt;
-&lt;constraints&gt;
-- 只用我提供的子弹；缺数据写“待补”，禁止编造完成率。
-- 全文≤400字；不要励志结尾。
-&lt;/constraints&gt;
-&lt;task&gt;把下面子弹压成周报。&lt;/task&gt;
-&lt;input&gt;
-（粘贴子弹）
-&lt;/input&gt;
-&lt;output_format&gt;
-1) 本周结论一句话 2) 三项进展 3) 两项风险 4) 下周一只做一件事
-&lt;/output_format&gt;
-&lt;acceptance&gt;若子弹互相矛盾，先指出矛盾再写正文。&lt;/acceptance&gt;</code></pre>
-<p>编码场景可把 <code></code> 写成“只改列出的文件、不改 CI、不添加新依赖”，并与 Cursor／Codex 的路径约束一起用（工具层审批仍要开，提示词代替不了权限）。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：约束要短、可执行。</strong> “写得专业一点”太虚；“禁止使用‘赋能／闭环／抓手’”更可检。官方也建议：给同事看提示词，对方若看不懂，模型也容易偏。  </li>
-<li><strong>诀窍：解释“为什么”比干骂有效。</strong> 官方例：与其只写 NEVER use ellipses，不如说明将用于 TTS，模型更会泛化。  </li>
-<li><strong>诀窍：稳定规则进 Project，变动需求留在聊天。</strong> 避免每条消息重复贴两千字宪法。  </li>
-<li><strong>反例：否定清单开到二十条。</strong> 官方倾向“说要做什么”；社区负面约束实验亦提示“Don’t X”可能把 X 推到输出中心——改为“输出必须是连贯段落”往往更稳。  </li>
-<li><strong>反例：约束与需求互相打架。</strong> 例如既要求“尽量详尽”又要求“不超过100字”；先删冲突再发送。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>骨架适合<strong>写作、分析、改文档、窄范围改代码</strong>；不保证数学证明或实时新闻正确。  </li>
-<li>长文档任务：官方建议<strong>长材料放提示前部</strong>，问题与指令放后；多文档用 <code></code> 类标签包裹。  </li>
-<li>代理／工具调用场景另有“默认行动／先别改文件”等系统提示块（见同一 best practices 文 Tool use 节）；与聊天写作骨架分开配置。  </li>
-<li>模型世代更新后，个别旧提示（过度催促用工具、过长验收集）可能过触发；以你当前模型的官方 prompting 页为准。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li>Prompting best practices｜Anthropic／Claude Docs｜https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices｜核验 2026-10-27  </li>
-<li>Effective context engineering for AI agents｜Anthropic｜https://www.anthropic.com/research/effective-context-engineering-for-ai-agents  </li>
-<li>Prompt engineering overview｜https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview  </li>
-<li>社区讨论（负面约束效应，非官方结论）：https://www.reddit.com/r/PromptEngineering/comments/1suh2nh/negative_constraints_dont_do_x_can_throw_x_into/  </li>
-<li>编码侧公开习惯（CLAUDE.md／任务结构等综述）：Reddit r/ClaudeCode 等线索帖，如 https://www.reddit.com/r/ClaudeCode/comments/1rtizvs/whats_your_goto_prompt_structure_for_claude_code/  </li>
-<li>本文说明：将官方“写清约束／XML 分区／正向说明目标”编译成可抄中文骨架，并标明这是工作流习惯而非产品开关；增补与 Project instructions 的分工；未宣称某模板在全基准上涨点。未证实的“必涨 30%”类营销句已删（官方长上下文“query at end”实验数字仅作阅读背景，未写入正文承诺）。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-prompt-skeleton-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>微软向约6万员工开自愿离职通道，报道称Xbox在列</title>
-      <link>https://www.kmhgame.com/wei-ruan-xiang-yue-6-wan-yuan-gong-kai-zi-yuan-li-zhi-tong/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/wei-ruan-xiang-yue-6-wan-yuan-gong-kai-zi-yuan-li-zhi-tong/</guid>
-      <pubDate>Tue, 27 Oct 2026 13:40:34 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>微软于2026年10月26日推出自愿离职要约（VEO），发言人称约6万人符合资格；The Verge援引知情人士称Xbox在列，官方博文未点名任何业务线。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/ms-veo-xbox-cover-1024x537.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>2026年10月26日，微软首席人事官艾米·科尔曼（Amy Coleman）发文推出 Voluntary Exit Offer（VEO），面向加拿大、印度、英国、美国 participating organizations 内 level 70 and below 的 eligible employees；限时、自愿，含财务支持与 career planning resources。</li>
-<li>微软发言人对 Business Insider 确认：约6万员工符合本次要约资格（约合全球约22.3万员工的逾四分之一）；符合资格≠已离职，接受与否由员工自行决定。</li>
-<li>The Verge（Emma Roth、Tom Warren）援引知情人士称：AI experiences、Copilot、CoreAI、Windows + Devices、Xbox、finance、HR 等在列；cloud + AI、MicrosoftAI、CELA 部分参与；marketing、commercial business、discovery and quantum、security 不参与。微软官方博文未点名 Xbox 或任何业务线。</li>
-<li>内部 HRweb（The Verge 见过）写明：本次要约不基于年龄、司龄或绩效；公司称未来或在有业务与人力需求时再考虑 VEO。</li>
-<li>与今年早些时候面向约9000人、美区年龄与司龄合计≥70的 Voluntary Retirement Program 不同；数月前另有约4800人裁员，主要影响 Xbox 与商业销售（媒体转述）。</li>
-<li>Fortune 报道称 Xbox CEO 阿莎·夏尔马（Asha Sharma）仍在规划新一轮裁员（转述，非已发生事件）；近周另有海伦·蒋（Helen Chiang）离任 Xbox COO、Arkane Lyon 咨询期延至约12月13日等动向，与本次 VEO 无直接官方绑定。</li>
-</ul>
-<h2>正文</h2>
-<p>2026年10月26日，微软官方博客刊出首席人事官艾米·科尔曼（Amy Coleman）致员工说明：公司推出新的 Voluntary Exit Offer（VEO），给 participating organizations 内符合资格、且可能正考虑离开公司的员工“一个在支持下完成过渡的新选择”，同时也给参与组织“另一种按变化调整人力的方式”。科尔曼写道，这建立在今年早些时候 Voluntary Retirement Program 的经验之上，并强调“creating greater flexibility and, where possible, more ways for employees to shape their next chapter”。</p>
-<p>官方口径写得很清楚：要约面向加拿大、印度、英国、美国 participating teams 中 level 70 and below 的 eligible employees；限时、自愿；部分组织提供、部分不提供，参与与否“varies based on each business’s priorities, customer commitments and workforce needs”。符合资格者将在数小时内收到邮件，查看个人要约详情。博文全文<strong>未点名 Xbox，也未点名任何具体业务线</strong>。</p>
-<p>数字方面，微软发言人对 Business Insider 确认约6万员工符合资格。The Verge 同日报道写的是“up to 60,000 employees”，并给出微软全球员工约22.3万的背景。Business Insider 另据其审阅的要约称：美区买断条款与公司标准 severance 对齐，并按 level、地点、tenure 个性化；eligible 员工大致有至12月初决定、年末离场的时间窗口（以个人邮件与当地条款为准）。发言人还表示，目前没有再推一轮 buyout 的计划。这与 The Verge 所见 HRweb“未来或再考虑 VEO”的表述并不矛盾，前者说的是“此刻没有下一轮计划”，后者留的是政策开口。</p>
-<p>游戏业最关心的一句来自匿名源。The Verge 援引 sources familiar with the situation 称：AI experiences、Copilot、CoreAI、Windows + Devices、Xbox、finance、HR 等团队员工符合自愿离职要约资格；cloud + AI、MicrosoftAI 与 CELA（corporate, external, and legal affairs）部分参与；marketing、commercial business、discovery and quantum、security 不参与。GamesIndustry.biz（Vikki Blake）同日转述了上述名单。<strong>上述 Xbox 在列的说法目前仅见于媒体援引的知情人士，并非微软官方确认；写“公司已把 Xbox 列入 VEO”会超出口径。</strong></p>
-<p>背景上，数月前微软曾裁员约4800人，媒体报道称主要影响 Xbox 与商业销售。今年早些时候的 Voluntary Retirement 则约面向9000人，美区门槛是年龄与司龄合计≥70，与本次“不看年龄、司龄、绩效”的 VEO 机制不同。Fortune 另报道称 Xbox CEO 阿莎·夏尔马（Asha Sharma）还在规划新一轮裁员；此为转述，勿写成已经落地。近几日的人事与工作室新闻可作为轻背景：海伦·蒋（Helen Chiang）于2026年10月23日离任 Xbox COO（微软拒评个人人事；Eurogamer 有关“违反政策”的说法未经独立核实）；Arkane Lyon 的劳工咨询期据微软对 PC Gamer 等回应延长约一个月至约12月13日，公司称仍在探索包括为《Marvel’s Blade》寻找伙伴在内的选项，<strong>尚未宣布关停</strong>。这些事件与本次 VEO 时间接近，但官方未将它们写成同一方案的组成部分。</p>
-<p>成本与 AI 投入是多数外媒解读时的大背景：微软近年在云与 AI 基建上开支巨大，年内又经历多轮控员。可以说公司在“控本、调结构”的压力下推出自愿通道；但不宜写成“因为 AI 所以 Xbox 被裁”。名单本身未经官方点名，接受人数也尚未公布，因果链条留有余地更稳妥。对 Xbox 员工与关注者而言，眼下能核实的是：有一条限时自愿通道开了；谁在列，目前仍主要靠匿名源报道；最终走多少人，要等员工决定窗口关闭之后才有答案。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：Introducing a Voluntary Exit Offer</li>
-<li>署名：Amy Coleman（EVP &amp; Chief People Officer）</li>
-<li>出版方：Microsoft Blog</li>
-<li>链接：https://blogs.microsoft.com/blog/2026/10/26/introducing-a-voluntary-exit-offer/</li>
-<li>日期：2026-10-26</li>
-</ul>
-<p>交叉核对与增补：</p>
-<ul>
-<li>The Verge，Emma Roth &amp; Tom Warren，2026-10-26，https://www.theverge.com/tech/1018666/microsoft-expands-buyouts-60000-employees-eligible：“约6万符合资格”、参与/不参与团队名单（含 Xbox）、全球约22.3万员工、约4800裁员背景、HRweb 表述；<strong>Xbox 在列仅来自本文匿名源，官方博文未点名。</strong></li>
-<li>GamesIndustry.biz，Vikki Blake，2026-10-26，https://www.gamesindustry.biz/xbox-staff-among-up-to-60000-microsoft-employees-offered-voluntary-exit：转述 Verge，游戏业视角交叉。</li>
-<li>Business Insider，Ashley Stewart，2026-10-26，https://www.businessinsider.com/microsoft-is-offering-buyouts-read-the-memo-2026-10 与 https://www.businessinsider.com/microsoft-employee-buyout-offer-2026-10：发言人确认约6万符合资格、美区条款与标准 severance 对齐、决定窗口至约12月初；<strong>发言人未确认 Xbox 在列。</strong></li>
-<li>The Verge，Helen Chiang 离任，2026-10-23，https://www.theverge.com/news/1018037/xbox-chief-operating-officer-helen-chiang-departure：轻背景；Eurogamer“违反政策”说法未独立核实，微软拒评。</li>
-<li>Arkane Lyon 咨询期延长：微软对 PC Gamer 等回应，延期约一个月至约12月13日，仍在找买家/伙伴完成 Marvel’s Blade；勿写成已关停。</li>
-</ul>
-<p>本文为多源编译。保留官方 VEO 机制与发言人“约6万符合资格”表述；Xbox 名单一律标明为媒体援引知情人士／报道称；未将 AI 投入写成对 Xbox 裁员的已证实因果；未把 Fortune 所谓“新一轮裁员规划”写成已发生；未采信未经核实的 Chiang 解职原因传闻。核验日：2026-10-27（Asia/Shanghai）。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/ms-veo-xbox-cover-1024x537.webp"/>
-    </item>
-    <item>
-      <title>Claude 建第一个 Project：免费最多5个，知识库与指令怎么分</title>
-      <link>https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/</guid>
-      <pubDate>Tue, 27 Oct 2026 13:37:11 GMT</pubDate>
-      <category>AI</category>
-      <description><![CDATA[<p>在 claude.ai/projects 点 “+ New Project”，起名即可开聊。稳定规则进 Project instructions，事实材料进知识库；聊天之间默认不共享上下文，除非写入知识库。免费账户最多5个项目。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-first-project-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>入口：<a href="https://claude.ai/projects">claude.ai/projects</a>；左侧悬停也可点 “Projects”（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">Claude Help Center</a>，核验约 2026-10 下旬）。</li>
-<li>可用性：Help Center 写明 <strong>所有用户（含免费）可用 Projects</strong>；<strong>免费用户最多创建 5 个项目</strong>。</li>
-<li>创建三步：+ New Project → 名称与描述（<strong>注意：名称／描述 Claude 读不到</strong>）→ 在项目内开聊。</li>
-<li>知识库：项目主页右侧 “+” 上传文档／文本／代码；该内容会进入<strong>本项目内所有聊天</strong>的上下文。</li>
-<li>项目指令：点 “Set project instructions”，写行为与回复规则并保存；对该项目内聊天生效。</li>
-<li>关键坑：项目内聊天之间<strong>不会</strong>自动共享对话内容，除非你把信息放进知识库（官方原文 Note）。</li>
-<li>证据强度：步骤与限额来自 Claude Help Center 一手；付费档 RAG 扩容、Team 共享等以账户可见功能为准。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>同一主题聊了十几轮，新开对话又要重新贴背景、重申语气。Projects 要解决的就是这种“冷启动”：把材料和规矩固定在一个容器里，新聊天自带上下文。</p>
-<p>Anthropic 在 2024-06-25 产品文 <a href="https://www.anthropic.com/news/projects">Collaborate with Claude on Projects</a> 里把方向说成：为聊天配上策展过的知识，并可用自定义指令约束口吻与角色。之后产品向更多档位放开；<strong>当前以 Help Center 为准：免费也可用，上限五个。</strong></p>
-<h3>可跟做：建第一个项目</h3>
-<ol>
-<li><strong>打开 Projects</strong> </li>
-</ol>
-<p>   浏览器登录 Claude 后访问 <a href="https://claude.ai/projects">claude.ai/projects</a>，或悬停左侧点 “Projects”。</p>
-<ol>
-<li><strong>新建</strong> </li>
-</ol>
-<p>   右上角 “+ New Project”。填写名称与描述。Help Center 明确：<strong>Claude 不会读取名称和描述</strong>——它们只方便你辨认，真正生效的是知识库与 instructions。</p>
-<ol>
-<li><strong>（Team／Enterprise）可见性</strong> </li>
-</ol>
-<p>   可选仅自己与受邀者，或（管理员允许时）对组织开放。个人免费／Pro 常见路径是先保持私有。</p>
-<ol>
-<li><strong>写入项目指令（建议先于狂传文件）</strong> </li>
-</ol>
-<p>   打开 “Set project instructions”，用短条目写清：角色、读者、输出格式、硬性“不要做”的边界、不确定时如何处理。保存后，该项目内聊天都会带上这些规则。</p>
-<ol>
-<li><strong>上传知识库</strong> </li>
-</ol>
-<p>   右侧知识库点 “+”，上传当前任务真正需要的文档、摘录或代码。宁可少而新，也不要一次倒进过期的整盘备份。付费计划在知识接近上下文上限时，官方称会自动启用 RAG 以扩大容量（Help Center）；免费档勿默认有同等扩容。</p>
-<ol>
-<li><strong>在项目里开第一聊</strong> </li>
-</ol>
-<p>   直接提问或布置任务。若要把旧的独立聊天挪进来：聊天名旁下拉 → “Add to project”。</p>
-<ol>
-<li><strong>记忆（若界面有 Memory）</strong> </li>
-</ol>
-<p>   Help Center：各项目有独立 memory；可在项目页关闭 “Use account memory” 以免与账户级记忆搅在一起。单项聊天也可在发送前于 “+” 菜单关掉 Memory。以你账户当前开关为准。</p>
-<h3>可抄工作流（第一个项目怎么填）</h3>
-<p>把第一个项目想成<strong>一条重复出现的工作流</strong>，而不是“我的全部人生”：</p>
-<figure><table><thead><tr><th>放哪里</th><th>放什么</th><th>不放什么</th></tr></thead><tbody><tr><td>Project instructions</td><td>口吻、读者、格式、禁止项、完成定义</td><td>会每周大变的事实细节</td></tr><tr><td>知识库文件</td><td>风格指南、接口约定、当前决策纪要、样例</td><td>互相矛盾的旧版、无关大文件</td></tr><tr><td>单次聊天</td><td>本周具体任务、临时粘贴</td><td>指望它自动传到下次聊天</td></tr></tbody></table></figure>
-<p>社区里常见共识（如 Reddit r/ClaudeAI 经验帖 <a href="https://www.reddit.com/r/ClaudeAI/comments/1u92t33/8_things_about_claude_projects_that_took_me_too/">8 things about Claude Projects…</a> 等讨论综述）：一个项目钉住一个窄目的；instructions 写短、写硬规则；知识库保持“当前有效”；对话乱了就新开聊天，项目容器仍在。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：名称／描述当标签，不当上下文。</strong> 官方已写明 Claude 读不到；别把关键约束只写在描述里。  </li>
-<li><strong>诀窍：重复犯错就改 instructions，而不是每轮骂它。</strong> 把失败模式收成一条“下次禁止／必须”。  </li>
-<li><strong>反例：建一个叫“工作”的巨型项目。</strong> 材料互相打架时，模型会在冲突来源间游移；不如拆成“周报”“客服话术”“某产品说明”等小项目（免费档总共五个，更要省着用，用完可归档 Archive）。  </li>
-<li><strong>反例：以为同项目聊天自动互通。</strong> 官方 Note：除非写入知识库，聊天之间不共享上下文。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿讲的是 <strong>claude.ai 网页 Projects（Chat 侧）</strong>。另有 Claude Code／Cowork 等产品线里的 “project” 概念（本地文件夹、云线程等），入口与字段不同，勿混用步骤。  </li>
-<li>共享、权限、组织级开关仅 Team／Enterprise 相关。  </li>
-<li>删除／归档规则见 Help Center：归档不重置分享权限；删除归档项目前须先 Unarchive。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li>How can I create and manage projects?｜Claude Help Center｜https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects｜核验约 2026-10 下旬（Updated over a week ago）  </li>
-<li>Collaborate with Claude on Projects｜Anthropic｜https://www.anthropic.com/news/projects｜2024-06-25（产品方向；限额以现行 Help Center 为准）  </li>
-<li>Intro to Projects｜Claude Academy｜https://academy.claude.com/tutorials/intro-to-projects  </li>
-<li>社区经验综述：https://www.reddit.com/r/ClaudeAI/comments/1u92t33/8_things_about_claude_projects_that_took_me_too/ 等（用户心得，非官方承诺）  </li>
-<li>本文说明：按现行 Help Center 编译可跟做步骤；标明免费5个上限与“名称不可读”等易忽略点；未把 2024 年“仅 Pro／Team”旧口径写成现状。Code／Cowork 项目未展开。界面以产品当前界面为准。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/claude-first-project-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>打开 grok.com 五分钟完成注册与第一问：13岁门槛与可核验提示</title>
-      <link>https://www.kmhgame.com/da-kai-grok-com-wu-fen-zhong-wan-cheng-zhu-ce-yu-di-yi-wen/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/da-kai-grok-com-wu-fen-zhong-wan-cheng-zhu-ce-yu-di-yi-wen/</guid>
-      <pubDate>Tue, 27 Oct 2026 13:32:25 GMT</pubDate>
-      <category>AI</category>
-      <description><![CDATA[<p>打开 grok.com 或官方 App，可先免登录试用；要跨设备同步对话需用 X 或邮箱登录。官方要求确认年满13岁；13–17岁须监护人同意。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-first-ask-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>入口：网页 <a href="https://grok.com/">grok.com</a>；亦可下载 iOS／Android 官方 Grok App（见 <a href="https://x.ai/grok">x.ai/grok</a>）。</li>
-<li>登录：可用 X 账号或邮箱；登录一次后对话、设置与订阅可跨端同步（<a href="https://docs.x.ai/grok/overview">docs.x.ai/grok/overview</a>，文档标注更新约 2026-10-10）。</li>
-<li>年龄门槛（官方）：须确认至少13岁；13–17岁须监护人许可并同意条款（<a href="https://x.ai/legal/faq">x.ai/legal/faq</a>，Consumer FAQs，标注日期 2025-05-12）。</li>
-<li>费用口径：可免费起步；付费档提高额度。自助价目页当前列出 Free $0、Plus $8／月、Premium $30／月、Super $100／月、Ultra $200／月等（<a href="https://x.ai/pricing">x.ai/pricing</a>，核验日 2026-10-27；含税与地区可用性以登录后页面为准）。</li>
-<li>第一问建议：带时间范围＋要求列出处，例如“过去24小时 X 上关于××的主流说法，分事实／传闻，并给链接”。</li>
-<li>证据强度：注册路径与年龄／数据条款来自 xAI 官方文档与 FAQ；界面按钮文案可能随版本微调，以当前产品界面为准。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你只想先问一句“这事网上现在怎么说”，却卡在账号、额度、要不要绑 X。Grok 的最短路径其实很短：先打开，再决定要不要登录。</p>
-<h3>可跟做：从打开到第一问</h3>
-<ol>
-<li><strong>打开入口</strong> </li>
-</ol>
-<p>   浏览器访问 <a href="https://grok.com/">grok.com</a>，或按 <a href="https://x.ai/grok">x.ai/grok</a>“Get started”说明安装 iOS／Android App。官方写明网页与 App 都可免费试用。</p>
-<ol>
-<li><strong>决定是否登录</strong> </li>
-</ol>
-<p>   – 未登录：部分地区可直接聊，但 FAQ 写明未认证会话结束后数据通常不为你保留；且在部分地区（FAQ 写明不含 EU／UK）未登录时可能无法选择退出模型训练。  </p>
-<p>   – 要跨设备接上历史、订阅与设置：用 <strong>X 或邮箱</strong>登录（<a href="https://docs.x.ai/grok/overview">Welcome to Grok</a>）。  </p>
-<p>   – Cursor 与 Grok 可能共用 xAI 登录页，页面品牌看起来像 Grok 属预期；登录不等于强制购买 Grok 订阅才能用 Cursor（<a href="https://docs.x.ai/x-subscription/sign-in">Why does signing in look different?</a>，约 2026-10-11）。</p>
-<ol>
-<li><strong>年龄与监护</strong> </li>
-</ol>
-<p>   使用前确认你满足官方年龄要求：至少13岁；未成年人须监护人同意（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）。本稿不讨论绕过年龄门槛的做法。</p>
-<ol>
-<li><strong>看一眼数据开关（建议登录后立刻做）</strong> </li>
-</ol>
-<p>   – 网页：Settings → Data → “Improve the Model” 等项，决定内容是否用于训练。  </p>
-<p>   – App：Settings → Data Controls。  </p>
-<p>   – 需要不入历史／不参与训练的会话：可用 Private Chat（幽灵图标）；FAQ 称 Private Chat 内容不用于训练，且会在约30天内从系统删除（法律／安全等例外除外）。出处同上 FAQ。</p>
-<ol>
-<li><strong>发第一问（可直接复制改关键词）</strong></li>
-</ol>
-<pre><code>主题：【填写】
-时间范围：过去 24 小时（或你指定的窗口）
-请：
-1) 用要点概括主流说法；
-2) 把“已有公开来源支撑”和“仅为传闻／单一帖子”分开；
-3) 每条给可点击的原文链接；
-4) 不确定就写“不确定”，不要编链接。</code></pre>
-<p>Grok 官方强调它可检索公开 X 帖与实时网页，并提醒输出可能有幻觉，用前须自行核验（FAQ “Does Grok make mistakes?”）。第一问就要求“分事实／传闻＋给链接”，比“随便聊聊××”更容易暴露编造链接。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：第一问就绑定“可核验格式”。</strong> 官方自己承认会幻觉；把“列链接／标不确定”写进首条提示，比事后追问“你确定吗”省一轮。  </li>
-<li><strong>诀窍：地区与套餐以登录后页面为准。</strong> FAQ 写“Depending on your location, limited free access and paid subscription plans… are available”。不要根据二手截图认定本国一定有某档。  </li>
-<li><strong>反例：未登录就塞隐私材料。</strong> 未登录时部分地区无法退出训练；敏感内容应登录后关训练或开 Private Chat，并避免在提示里贴证件号、密钥。  </li>
-<li><strong>反例：把 X 内 Grok 与 grok.com 账务混为一谈。</strong> X 上使用 Grok 受 X 条款约束；订阅／退款路径也按购买渠道（网页／Apple／Google／X）分流（见 <a href="https://docs.x.ai/grok/faq">docs.x.ai/grok/faq</a>）。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>注册／登录最短路径、年龄口径、数据开关、第一条可核验提问</strong>。不覆盖企业 API、Grok Bot 云端队友、Imagine 视频额度细则。  </li>
-<li>付费数字引自 <a href="https://x.ai/pricing">x.ai/pricing</a> 核验日快照；促销、税费、地区下架可能导致差异。  </li>
-<li>实时检索适合“现在大家在说什么”；不适合把模型输出当法庭证据或未经核验的新闻通稿。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li>Welcome to Grok｜SpaceXSI Docs｜https://docs.x.ai/grok/overview｜文档页标注 Last updated: October 10, 2026  </li>
-<li>Grok 产品页｜https://x.ai/grok｜核验日 2026-10-27  </li>
-<li>Consumer FAQs｜SpaceXSI｜https://x.ai/legal/faq｜页面标注 May 12, 2025（年龄、训练、Private Chat、幻觉等）  </li>
-<li>Pricing｜https://x.ai/pricing｜核验日 2026-10-27（价目为当日公开页；非历史合约）  </li>
-<li>FAQ – Grok Website / Apps｜https://docs.x.ai/grok/faq｜核验日 2026-10-27（周额度池、登录排障等）  </li>
-<li>Why does signing in look different?｜https://docs.x.ai/x-subscription/sign-in｜约 2026-10-11  </li>
-<li>本文说明：中文编译入门路径并增补“第一问可核验模板”；未实测全部地区可用性；未把第三方博客的“每日条数”写成官方配额（官方公开页强调 weekly usage pool／Limited，无统一公开“每日N条”固定数字）。界面文案以产品当前界面为准。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/grok-first-ask-cover-1024x576.webp"/>
     </item>
   </channel>
 </rss>
