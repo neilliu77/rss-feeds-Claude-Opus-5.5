@@ -8,7 +8,61 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Sat, 31 Oct 2026 04:03:37 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 16:04:20 GMT</lastBuildDate>
+    <item>
+      <title>Roblox 一边报 Top100 超八成用 AI，一边承认研究员 agent 误爬成人 3D 站</title>
+      <link>https://www.kmhgame.com/roblox-yi-bian-bao-top100-chao-ba-cheng-yong-ai-yi-bian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/roblox-yi-bian-bao-top100-chao-ba-cheng-yong-ai-yi-bian/</guid>
+      <pubDate>Sat, 31 Oct 2026 16:04:20 GMT</pubDate>
+      <category>AI</category>
+      <description><![CDATA[<p>2026 年 10 月最后几天，Roblox 的 AI 故事自己撞上了自己。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/roblox-scrape-ai-cover-1024x651.webp"/></figure>
+<p>一边是股东信里的公司自报：<strong>按时长计的 Top100 体验里，超八成在过去一个月用 AI 工具加速了创作</strong>；自然语言造游工具 Build 试用户超过 50 万，已发布超过 7 万款。</p>
+<p>另一边，据 Game Developer 2026 年 10 月 28 日报道，Roblox 发言人承认：一名研究员搭建的 AI agent “未按预期运行”，现已下线；所获数据“未用于任何用途，包括训练任何 AI 模型”。另据 Open3DLab 10 月 30 日技术详文（站方日志），该 agent 从 Open3DLab 及其姐妹站完整拷贝约 145.5GB 公开 3D 资产（1027 个文件／712 个项目），其中成人向约 62.6GB。</p>
+<p>两条线隔着不到两天见报。一个在讲渗透，一个在讲失误。放在同一家公司身上，读起来并不顺。</p>
+
+<h2>公司自报的“渗透”，到底量到了什么？</h2>
+<p>数字来自 Roblox 2026 年第三季度股东信（SEC 披露），GamesBeat 同日做了转述。口径要先写清：这里说的“渗透”，是公司内部数据，按参与时长排名的 Top100，看过去一个月是否用过 AI 工具加速创作——既非独立实验室抽测，也非“几乎全由 AI 生成”的占比。</p>
+<p>据股东信，自 2023 年 12 月 Studio Assistant 上线以来，公司一直在推 AI 加速创作。到这份信发布前的一个月，<strong>按时长计的 Top100 里，超八成用过 AI 工具加速</strong>。</p>
+<p>自第二季度起，头部创作者在 AI 工具上的时长约翻了三倍（统计范围含 Build、Studio Assistant，以及经 MCP 接入的外部模型）；Studio MCP 服务器日活用户近五倍增长。MCP（Model Context Protocol，模型上下文协议）是开放标准，用来让 Claude、Cursor、VS Code 一类助手直接连进 Roblox Studio。</p>
+<p>自然语言造游工具 Build 仍在少数市场做 alpha（新西兰、新加坡、塞尔维亚、泰国）。股东信称：逾 50 万用户试用过，已发布逾 7 万款体验；十月里，上云日均资产上传量环比约翻三倍。</p>
+<p>第三季度里，几乎全靠 AI 做出的《Break and Steal an Egg》与《Huss Valley》，都曾冲进按同时在线人数计的 Top20。CEO 大卫・巴斯祖基（David Baszucki）在股东信主题句里把话说得很满——大意是：AI 正在从根本上重塑游戏业，从想法到可玩的时间正在被压出一个台阶（非逐字引语，系信首与 AI 段主题的合并意译）。</p>
+<p>这些数字本身并不含糊。含糊的是解释空间。公司自报的口径是“用 AI 加速”；它并不等于“AI 做完了整作”。Build 仍限区；MCP 日活近五倍，基数并未公开。把“超八成 Top100”读成“平台已被 AI 接管”，会比原文多走出一步。</p>
+<h2>145.5GB 是怎么掉进日志里的？</h2>
+<p>几乎同一周，另一条线从站方日志里翻出来。</p>
+<p>Open3DLab 管理员 Salaryman 先发文指认：有爬虫自称属于 Roblox，在三站（Open3DLab、SFMLab、SmutBase）上批量下载。10 月 28 日，Game Developer 拿到 Roblox 发言人声明：一名研究员搭了 AI agent，去“收集公开可得的 3D 资产”，却“错误地”爬到了 Open3DLab；agent “未按预期运行”，现已下线；所获数据“未用于任何用途，包括训练任何 AI 模型”。公司称会加强此类 agent 的构建与审查。</p>
+<p>站方随后放出技术详文（日志口径，非第三方取证）。关键数字如下：三站合计完整拷贝 1027 个文件、712 个项目，体积约 145.5GB。按站方统计，SmutBase 全为成人向，再加 SFMLab 中标注成人的项目，成人侧约 62.6GB，约占下载总量的 43%。</p>
+<p>User-Agent 写作 <code>trellis2-data-sourcing/1.0 (3D foundation model research; …@roblox.com)</code>——站方特意说明，这与微软开源的 TRELLIS.2 项目无公开关联，名字含义不明。请求来自 AWS 上单一 IP；爬虫先取了 robots.txt，随后仍请求了 robots.txt 禁止的下载页；过程约两天，中间有三次暂停（一次长达约八小时），每次恢复后又从列表头部重试。</p>
+<p>Salaryman 的判断很直白：日志看不出 agent 在按成人标记做筛选——它跳过的项目与取走的项目，在许可、分类、成人标记上分布相近；真正拖慢它的，是站方免费下载服务器的 503 限流。他强调，Open3DLab 并不认为 Roblox 创作者存心去捞成人内容；“但问题正在这里：据我们的日志，似乎没人检查过。”</p>
+<h2>“未按预期运行”，站方并不买账</h2>
+<p>Roblox 的声明把事件框成失误：agent 偏航、已下线、数据未进训练。对一家以未成年人用户闻名的平台，这句话的分量很重——它同时在否认最坏的那条路径：成人资产已经写进面向儿童生态的生成模型。</p>
+<p>Open3DLab 技术详文把这句话放回日志对照，并不买账。站方写道：他们无从核验文件是否已删除、是否另有副本；对媒体的一纸声明，不是可复核证据。</p>
+<p>他们也难以把“未按预期运行”与下列观察对齐——逐步探站后切到脚本化全量翻页；取过 robots.txt 却仍请求禁爬下载页；覆盖含成人站在内的三站项目页；在 503 后反复重试；运行约两天并多次暂停再启。站方提出的问题也简单：agent 本该收集什么？怎样落到这些站上？“未按预期”在工程上具体指什么？数据何时删除、有无二次拷贝？</p>
+<p>两边的材料层级不同，不宜单边采信。一边是公司对媒体的事后定性；一边是站方自有服务器日志与解读。能同时写进正文、且双方大致不打架的，只有这几句：有过一次面向公开 3D 资产的 agent 采集；体量约 145.5GB；官方称未用于任何用途含训练；agent 已下线。至于“忽略 robots.txt／服务条款”，那是站方日志口径；“mistake／未按预期运行”，是 Roblox 口径——并列即可，不必替任何一方补齐动机。</p>
+<p>成人向表述也该停在这里。下载含成人资产，是站方数字；官方否认训练使用，是公司声明。中间缺的是可核验的删除与审计链条。把它写成“模型已被毒化”，会比现有材料多走出一步。</p>
+<h2>增长在承压，管理层还在押生成式 AI</h2>
+<p>10 月 30 日，Game Developer 将这份财报读成：增长承压，公司仍重押生成式 AI 以求补回；股东信本身则把同比回落解释为对 2025 年高基数的跨越，并单列 AI 创作为战略叙事。</p>
+<p>据股东信，第三季度日活用户（DAU）约 1.38 亿，同比约降 9%，环比约升 12%；参与时长近 340 亿小时，同比约降 15%，环比约升 17%。公司把同比回落解释为对 2025 年高基数的跨越。营收约 16 亿美元，同比约增 16%；预订额约 17 亿美元，同比约降 12%，但仍超过指引上沿。</p>
+<p>据 Game Developer 报道，管理层相信生成式 AI 能补上用户侧的部分颓势——同一篇文章也回扣了误爬一事：发言人将之定性为失误，并重申内容不会用于训练。</p>
+<p>把三条线并排放：创作端公司自报渗透在加速；用户端同比时长与日活承压；数据 sourcing 端刚公开一次 agent 偏航。巴斯祖基对外仍强调分发、发现、经济与安全，才是“人人都能做游戏”之后真正稀缺的东西。这话在股东信里自洽——内容爆炸之后，平台要比拼的是筛选与信任。麻烦在于，信任叙事最怕的，恰恰是 sourcing 环节先在日志里露馅。</p>
+<h2>反方也说得通：渗透不等于失控，失误也不等于清白</h2>
+<p>对创作渗透那条线，最稳妥的反方其实来自数字本身的边界。公司自报的是“用 AI 加速”，统计窗口是过去一个月、按时长的 Top100；Build 仍在少数市场；MCP 近五倍增长没有公开基数；“几乎全 AI”冲进 Top20 的个例，说明上限，不说明中位数。玩家与开发者圈里对 AI 的抵触并未消失——GamesBeat 也承认这一点——只是 Roblox 的数据读起来像：至少在这套工具栈里，头部创作者已经在用，或懒得计较。</p>
+<p>对误爬那条线，反方同样成立，只是方向不同。若采信 Roblox，这是一次已叫停、未入库的 agent 失误，加强审查之后可以收束。若采信 Open3DLab，关键落在流程：面向儿童向平台的研究 agent，为何能指到含成人站的域名集合，并在取过 robots.txt 之后继续要禁爬下载页？站方并不反 AI，也不主张用更强硬的版权把公共资源封死；他们反对的是“公地被当成采石场”——先拿走，解释后补。</p>
+<p>两种读法盯着同一组日志和同一份声明：一方看见可控事故，一方看见行业默认的先后顺序。现有公开材料，还撑不起“已毒化模型”的结论；也撑不起“一切无事、无需追问删除与审计”的结论。</p>
+<h2>财报周里的两张面孔</h2>
+<p>同一家公司，在财报周里先后交出两张面孔：一张在股东信里报 AI 创作渗透，一张在行业媒体声明里承认研究员 agent 偏航。数字各自能回溯——Top100 超八成、Build 逾 50 万试用户、145.5GB、成人侧约 62.6GB、DAU 同比约降 9%——但把它们缝成同一个故事时，接缝处还露着空气。</p>
+<p>空气里缺的是可核验的 sourcing 边界：agent 准许去哪、谁在跑之前看过目标站清单、下线之后数据如何证明未进任何管线。创作渗透可以继续报；误爬可以继续定性为失误。两边要同时成立，终究得靠比声明更硬的东西。</p>
+<hr/>
+<p><strong>【来源】</strong></p>
+<ul>
+<li>Roblox，Q3 2026 Shareholder Letter（SEC，2026-10-29）：<a href="https://www.sec.gov/Archives/edgar/data/1315098/000162828026068235/ex991-q32026earningsshar.htm">https://www.sec.gov/Archives/edgar/data/1315098/000162828026068235/ex991-q32026earningsshar.htm</a></li>
+<li>GamesBeat，<em>Roblox says more than 80% of its top 100 games used AI to accelerate creation</em>（2026-10-29）：<a href="https://gamesbeat.com/roblox-says-more-than-80-of-its-top-100-games-used-ai-to-accelerate-creation/">https://gamesbeat.com/roblox-says-more-than-80-of-its-top-100-games-used-ai-to-accelerate-creation/</a></li>
+<li>Game Developer，<em>Roblox confirms no adult content used in AI training after scraping Open3DLab data</em>（2026-10-28）：<a href="https://www.gamedeveloper.com/business/roblox-confirms-no-adult-content-used-in-ai-training-after-scraping-open3dlab-data">https://www.gamedeveloper.com/business/roblox-confirms-no-adult-content-used-in-ai-training-after-scraping-open3dlab-data</a></li>
+<li>Open3DLab / Salaryman，<em>The Roblox scraper: technical details</em>（2026-10-30）：<a href="https://open3dlab.com/news/the-roblox-scraper-technical-details/">https://open3dlab.com/news/the-roblox-scraper-technical-details/</a></li>
+<li>Game Developer，<em>Roblox growth slumps but the company is betting big on AI to compensate</em>（2026-10-30）：<a href="https://www.gamedeveloper.com/business/roblox-growth-slumps-but-the-company-is-betting-big-on-ai-to-compensate">https://www.gamedeveloper.com/business/roblox-growth-slumps-but-the-company-is-betting-big-on-ai-to-compensate</a></li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/roblox-scrape-ai-cover-800x509.webp"/>
+    </item>
     <item>
       <title>《影之刃零》悲泣溪谷／血色森林全收集：合链导读（游民原文）</title>
       <link>https://www.kmhgame.com/ying-zhi-ren-ling-bei-qi-xi-gu-xue-se-sen-lin-quan-shou-ji/</link>
@@ -1801,84 +1855,6 @@ FORMAT：
 <li>本文说明：答案型中文评测视频导读；非本站试玩打分。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/pbz-review-videos-cover-616x353.webp"/>
-    </item>
-    <item>
-      <title>Steam「即将推出」页怎么发：审核周期、100美元Direct与愿望单怎么积</title>
-      <link>https://www.kmhgame.com/steam-ji-jiang-tui-chu-ye-zen-me-fa-shen-he-zhou-qi-100-mei/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/steam-ji-jiang-tui-chu-ye-zen-me-fa-shen-he-zhou-qi-100-mei/</guid>
-      <pubDate>Thu, 29 Oct 2026 03:30:27 GMT</pubDate>
-      <category>发布游戏</category>
-      <description><![CDATA[<p>Steam新作上架前：每应用100美元Direct费（不可退款；达至少1000美元Adjusted Gross Revenue后可回收）、Coming Soon至少两周；商店页可见即可加愿望单。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/10/steam-direct-checklist-cover-516x516.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>Steam Direct：每款新应用（app）须支付 <strong>100美元（或等值货币）</strong> 费用；费用本身 <strong>不可退款</strong>，但产品在 Steam 商店或应用内购累计至少 <strong>1000美元 Adjusted Gross Revenue</strong> 后，可在后续结算中 <strong>回收（recoup）</strong>，并在月度报表中单列。</li>
-<li>支付限制：可用 Steam 支持的当地付款方式，<strong>不可用 Steam 钱包余额</strong>；仅 Steamworks 合作方内具有 <strong>Admin</strong> 权限的用户可购买；付费后 app credit 挂在付款人账号上，也只能由付款人激活。</li>
-<li>Coming Soon（即将推出）页：新作正式发售前，<strong>必须</strong>先有可见的 Coming Soon 页，且至少上线 <strong>两周</strong>；Valve 建议你准备好公开谈论作品时再发页。</li>
-<li>审核节奏：完成 “Your Store Presence” 清单后点 “Mark As Ready For Review”；文档写明：请至少提前 <strong>7个工作日</strong> 提交审核，以便在你希望页面对外可见的日期前完成审核。审核通过后，需再点绿色 “Post as Coming Soon” 才会公开。</li>
-<li>愿望单起点：商店页 <strong>对玩家可见</strong> 后即可加愿望单；同一时刻也会启用 Community Hub。正式发售（或 Early Access）时，Steam 会向当时仍挂愿望单的用户发邮件和/或移动推送。</li>
-<li>折扣通知门槛：对愿望单用户发折扣提醒，通常要求折扣 <strong>≥20%</strong>、至少覆盖价格最低的那档 package，且折扣时长 <strong>超过8小时</strong>；同一 appID 的邮件通知存在约 <strong>1–2周</strong> 冷却（旺季可能更长）。</li>
-<li>Demo 提醒：关联免费 Demo 公开后，开发者可在 Demo 上线后 <strong>两周内</strong> 自行点一次按钮，向愿望单用户发一次 Demo 可用通知。</li>
-</ul>
-<h2>正文</h2>
-<p>对多数准备把游戏送上 Steam 的团队，上架前要按顺序走完三条硬规矩：<strong>先付 Direct、再上 Coming Soon、页面对外可见后才开始积愿望单</strong>。下面按 Steamworks 现行文档，把费用、时间窗与操作顺序收成一份可勾选的清单。政策以文档原文为准，税率与地区细则另循当地顾问意见。</p>
-<h3>1. 先解决 Steam Direct 费用与 app credit</h3>
-<p>无论是首次入驻 Steamworks，还是老开发者再开新应用，文档口径是：每希望在 Steam 分发的 <strong>新 app</strong>，支付 <strong>100美元（或等值货币）</strong> 的 Steam Direct Fee。首次入驻时，这笔费用会嵌在数字化入驻流程里，付款走 Steam 商店支持的支付方式，再回到 Steamworks 继续填表。</p>
-<p>老开发者购买额外 app credit 时，同样可用当地支持的付款方式，但 <strong>排除 Steam 钱包资金</strong>。另有两道权限门：只有现有 Steamworks 合作方里具备 <strong>Admin</strong> 权限的人能付这笔钱；付完后 credit 挂在付款人 Steam 账号上，<strong>也只能由付款人激活</strong>。Steamworks 首页在权限足够时会出现绿色购买按钮。</p>
-<p>回收规则要写清，避免和“退款”混用：文档写明费用 <strong>not refundable（不可退款）</strong>，但会在产品于 Steam 商店或应用内购达到至少 <strong>1000美元 Adjusted Gross Revenue</strong> 之后，于后续付款中 <strong>recoupable（可回收）</strong>，并在月度报表里作为单独行项目显示。若入金被拒付、退款或判定欺诈，销售分成与费用回收都可能被扣留。Valve 还可能按国家规定对 Direct Fee 征收 VAT、GST 等消费税；发票开给付款时登录的个人账号，且不能对同一笔交易开双发票——代公司垫付时，实务上常见做法是走费用报销。</p>
-<p>付费前建议再读一遍 Steam 内容规则与分发协议：Direct 只解决“你有资格提交这款应用”，不保证审核通过或商店曝光。</p>
-<h3>2. 准备 Coming Soon 页：素材、审核、两周窗</h3>
-<p>Coming Soon 页的作用很直白：在正式发售前给玩家一个可学习、可讨论、可加愿望单的落点。文档要求新作必须先有 Coming Soon 页，且 <strong>至少上线两周</strong> 才能发售。</p>
-<p>Timing 上，Valve 的建议是：准备好对外公开谈论游戏时再发页。若发页后美术方向与核心功能还要大改，早期愿望单用户可能对最终成片感到困惑；反过来，文档也写明：只要游戏不变脸太狠，提前很久挂页似乎没有明显坏处——提前两年加愿望单的人，购买意愿未必弱于临发售前两周才加的人。</p>
-<p>开通门槛按清单走：</p>
-<ol>
-<li>在 Steamworks 点 “Create New App…”，按产品落地页清单完成准备。</li>
-<li>“Your Store Presence” 一节全部完成（品牌图、文案描述，理想情况下还有实机预告片）。</li>
-<li>点顶部 “Mark As Ready For Review”，让 Valve 开始审页。文档写明：请至少提前 <strong>7 个工作日</strong> 提交审核，对应你希望页面 live 的日期。</li>
-<li>审核通过后，再点绿色 <strong>“Post as Coming Soon”</strong>，页面才对公众显示为即将推出。</li>
-</ol>
-<p>页面对外可见后有两件即时结果：Community Hub 启用；玩家可以开始加愿望单。发售日点下 release 后，Steam 会自动给当时愿望单上的用户发邮件。发售日期在商店页上的显示精度可自行控制，细则见 Release Dates 文档。</p>
-<h3>3. 愿望单：从“页可见”开始积，通知有门槛</h3>
-<p>Wishlists 文档的核心句几乎就是整条漏斗的开关：<strong>只要游戏在 Steam 上有对公众可见的商店页，玩家就可以把游戏加入愿望单。</strong> 上架前，这是把外宣流量收成可触达名单的主容器；上架后，它继续在折扣、Demo、Early Access 转正式版等节点触发提醒。</p>
-<p>当前文档描述的主要触发包括：</p>
-<ul>
-<li><strong>正式发售或 Early Access 上线</strong>：当时挂在愿望单上的用户会收到邮件和/或移动推送。若先 Early Access、再转 Full Release，转正时会再发一轮。</li>
-<li><strong>促销折扣</strong>：通常需折扣 <strong>达到或高于 20%</strong>，至少作用于该游戏价格最低的那档 package，且折扣持续 <strong>超过 8 小时</strong>。只打折豪华版、不打折普通版，不会触发愿望单折扣邮件。若邮件因故延误超过一周，系统可能停止重试发送。</li>
-<li><strong>关联 Demo</strong>：免费 Demo 公开后，开发者可在 Demo 上线后两周内，回到 Demo 应用落地页点一次按钮，向愿望单用户发 <strong>一次</strong> Demo 可用通知。</li>
-</ul>
-<p>通知还有冷却与权限边界：同一 appID 在约 <strong>两周</strong> 内已向某用户发过相关邮件时，用户会进入冷却，FAQ 也写作 <strong>1–2 周</strong>，大促等高流量期可能延长；用户须验证邮箱，且可在账号里关闭部分邮件类型——因此愿望单人数 ≠ 可触达收件人数。愿望单数据在 Sales &amp; Activation Reports 的 Wishlists 区按日更新（可看到前一日），也可按地区拆分。</p>
-<p>Valve 在 Best Practices 里写得最狠的三条其实很朴素：尽早（在你准备好时）挂 Coming Soon；发售后继续运营，别发完就走人；大促或活动后再回看愿望单曲线，用增减判断哪类曝光真正有效。另有一句常被误解的澄清：<strong>没有</strong>“愿望单必须达到某个最低数量，Steam 才开始给游戏曝光”的门槛。</p>
-<h3>4. 可勾选的上架前顺序（压缩版）</h3>
-<ol>
-<li>确认 Admin 账号可付费 → 支付 100 美元 Direct → 激活 app credit。  </li>
-<li>备齐商店页素材与描述（+ 预告片更稳）→ 完成 Store Presence 清单。  </li>
-<li>按计划 live 日前请至少提前 <strong>7 个工作日</strong> 提交审核 → 通过后点 “Post as Coming Soon”。  </li>
-<li>确保 Coming Soon <strong>至少满两周</strong> 再点正式发售；期间用外宣把流量导向该页积愿望单。  </li>
-<li>发售 / Early Access / Demo / ≥20% 且超 8 小时的折扣节点，按文档预期愿望单通知；不要把愿望单数直接换算成销量公式。</li>
-</ol>
-<p>整条链路里，费用解决的是“你有没有资格开这款 app”，Coming Soon 解决的是“玩家有没有地方了解并收藏”，愿望单解决的是“发售与促销时你能不能自动敲一下还在意的人”。三步都写在 Steamworks 公开文档里；具体按钮文案、报表字段若与后台 UI 有出入，以你账号可见的 Steamworks 界面与文档更新为准。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：Steam Direct Fee  </li>
-</ul>
-<p>  出版方：Steamworks Documentation / Valve  </p>
-<p>  链接：<a href="https://partner.steamgames.com/doc/gettingstarted/appfee">https://partner.steamgames.com/doc/gettingstarted/appfee</a> </p>
-<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
-<ul>
-<li>原文标题：Coming Soon  </li>
-</ul>
-<p>  出版方：Steamworks Documentation / Valve  </p>
-<p>  链接：<a href="https://partner.steamgames.com/doc/store/coming_soon">https://partner.steamgames.com/doc/store/coming_soon</a> </p>
-<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
-<ul>
-<li>原文标题：Wishlists  </li>
-</ul>
-<p>  出版方：Steamworks Documentation / Valve  </p>
-<p>  链接：<a href="https://partner.steamgames.com/doc/marketing/wishlist">https://partner.steamgames.com/doc/marketing/wishlist</a> </p>
-<p>  核验日期：2026-10-29（Asia/Shanghai）</p>
-<p>本文据上述三篇 Steamworks 英文文档整理为中文操作清单，保留官方数字与条件（100美元费用、1000美元 Adjusted Gross Revenue 回收、Coming Soon 至少两周、审核建议提前至少7个工作日、折扣≥20%且超8小时、邮件约1–2周冷却等）。未编造审核通过率、平均愿望单转化率或未在上述文档出现的地区定价。税务、银行信息与费用回收入账细节以 Steamworks/结算报表及当地顾问意见为准；文档若日后修订，以 partner.steamgames.com 现行页为准。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/10/steam-direct-checklist-cover-516x516.webp"/>
     </item>
   </channel>
 </rss>
