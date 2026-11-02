@@ -6,7 +6,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "lol-dev",
@@ -15,16 +15,16 @@
   "error": null,
   "items": 20,
   "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "gameres-25",
   "title": "GameRes 游资网 · 策划",
   "ok": true,
   "error": null,
-  "items": 23,
-  "newest": "2026-10-29T01:28:00Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "items": 24,
+  "newest": "2026-10-29T09:55:00Z",
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "thepaper-tag-1909025",
@@ -33,7 +33,7 @@
   "error": null,
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "kmhgame",
@@ -41,8 +41,8 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-02T00:06:03Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "newest": "2026-11-02T03:00:20Z",
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "jamesclear-3-2-1",
@@ -51,7 +51,7 @@
   "error": null,
   "items": 16,
   "newest": "2026-10-29T13:00:00Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "checked_at": "2026-11-02T07:45:51Z"
  },
  {
   "id": "gamersky-review",
@@ -60,6 +60,6 @@
   "error": null,
   "items": 18,
   "newest": "2026-10-28T08:36:58Z",
-  "checked_at": "2026-11-02T00:52:20Z"
+  "checked_at": "2026-11-02T07:45:51Z"
  }
 ]
