@@ -6,7 +6,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "lol-dev",
@@ -15,25 +15,25 @@
   "error": null,
   "items": 20,
   "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "gameres-25",
   "title": "GameRes 游资网 · 策划",
   "ok": true,
   "error": null,
-  "items": 25,
-  "newest": "2026-11-03T01:07:00Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "items": 28,
+  "newest": "2026-11-04T01:15:00Z",
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "thepaper-tag-1909025",
   "title": "澎湃新闻 · 游戏论",
-  "ok": true,
-  "error": null,
+  "ok": false,
+  "error": "list: FetchError: Failed to perform, curl: (28) Connection timed out after 30001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "kmhgame",
@@ -41,8 +41,8 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-03T04:17:51Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "newest": "2026-11-04T02:43:19Z",
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "jamesclear-3-2-1",
@@ -51,7 +51,7 @@
   "error": null,
   "items": 16,
   "newest": "2026-10-29T13:00:00Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "checked_at": "2026-11-04T06:42:35Z"
  },
  {
   "id": "gamersky-review",
@@ -60,6 +60,6 @@
   "error": null,
   "items": 18,
   "newest": "2026-10-28T08:36:58Z",
-  "checked_at": "2026-11-03T23:29:50Z"
+  "checked_at": "2026-11-04T06:42:35Z"
  }
 ]

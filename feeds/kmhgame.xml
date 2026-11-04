@@ -8,7 +8,696 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Tue, 03 Nov 2026 04:17:51 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 02:43:19 GMT</lastBuildDate>
+    <item>
+      <title>Claude vs Codex：同一段“修 flaky 测试”提示谁更省回合</title>
+      <link>https://www.kmhgame.com/claude-vs-codex-tong-yi-duan-xiu-flaky-ce-shi-ti-shi-shui/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-vs-codex-tong-yi-duan-xiu-flaky-ce-shi-ti-shi-shui/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:43:19 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>省回合＝少人肉粘贴，或一次可验证完成。交互追 flake 偏 Claude Code；清单清楚出 PR 偏 Codex exec。差在闭环非品牌。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-vs-codex-flaky-rounds-cover-800x450.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li><strong>同一提示骨架可两边共用</strong>：任务＝修 flaky（CI 变绿不算完）＋失败用例＋复现命令＋连续 N 次全绿＋先分类再改＋禁止无证据加 timeout／删断言／无条件 retry／skip。</li>
+<li><strong>省回合的定义（本稿）</strong>：①少“人把终端输出粘回聊天”的来回；②一次交付满足完成定义（含复跑记录）；口头“应该好了”不算。</li>
+<li><strong>交互多轮“跑→看→改→再跑”</strong>：带终端闭环的 Claude Code／同类 Agent，通常更少人肉粘贴回合（第三方中：<a href="https://sdet.qa/blog/claude-code-vs-cursor-vs-codex-test-automation-2026/">sdet.qa 对照</a>、<a href="https://dev.to/yureki_lab/how-i-killed-63-flaky-tests-in-one-week-with-claude-code-5-lessons-29m0">DEV 案例</a>）。</li>
+<li><strong>已有失败清单＋沙箱＋完成定义、要一次性可审 PR</strong>：Codex <code>exec</code>／非交互批量稳定化更省“开会式回合”（同 sdet.qa：Codex 适合界定清楚的批量／异步 PR）。</li>
+<li><strong>证据强度</strong>：产品形态差异＝官方能力＋第三方综述（中高）；相对“谁更省”＝编译对照（中高）；<strong>无本室秒数／回合数字 benchmark，勿当成跑分</strong>。</li>
+<li>第三方共识：先做 repro harness，先分类，先要证据（<a href="https://junctionpanel.dev/blog/flaky-test-fix-with-ai-agents/">Junction</a>；DEV 文）。</li>
+<li>套餐是否含 Claude Code／Codex、具体按钮名＝<strong>待核</strong>。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>CI 上有一条红一阵绿一阵的测试。你把失败日志丢进聊天，模型回“试试加长 timeout”。你本地跑两次碰巧全绿，以为修好了；合并后再红。另一条路：先写死复现命令与“连续 15 次全绿才算完”，再让 agent 自跑、自改，并贴复跑摘要。</p>
+<p>争论“Claude 还是 Codex 更聪明”之前，先对齐<strong>省回合</strong>指什么：少来回，还是一次可验证完成。工具闭环不同，同一提示的成本差在粘贴次数与是否等异步 PR，不在口号。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：提示骨架与禁令＝编译可跟做（中高）；工具选型＝第三方用例／综述（中）＋产品形态（中高）；无实验室跑分。</strong></p>
+<h4>1. 共用提示骨架（先复制再填空）</h4>
+<pre><code>任务：修 flaky，不是让 CI 变绿就算完。
+失败测试：【文件 + 用例名】
+复现命令：【精确命令】
+完成定义：连续 N 次（建议 10–15）全绿才算修完；贴出每次结果摘要。
+流程：
+1) 先只分析：回归 vs flaky vs 基建；
+2) 确认能复现再改；
+3) 最小补丁；
+4) 按完成定义复跑。
+禁止：无证据加长 timeout；删断言；无条件 retry；skip；改生产逻辑却声称只改了测试（除非证据证明是产品 bug 并说明）。
+输出：根因分类｜改动 diff 摘要｜复跑记录｜仍不确定项。</code></pre>
+<p>建议另备 <code>./scripts/repro.sh   [N]</code>：只有连续 N 次通过才退出 0。DEV 案例把“STABLE”写成可执行完成定义，比“请修复 flaky”可证伪得多。</p>
+<h4>2. 对照表：同一骨架下的回合成本</h4>
+<figure><table><thead><tr><th>维度</th><th>Claude Code／带终端闭环的 Claude Agent</th><th>Claude 对话（无自跑终端）</th><th>Codex CLI（交互）／<code>codex exec</code>（非交互）</th><th>证据</th></tr></thead><tbody><tr><td>典型闭环</td><td>agent 自跑测→读失败→改→再跑</td><td>你跑测，把输出贴回对话</td><td>交互可批命令；exec 适合一次任务出改动／PR 向交付</td><td>中高（产品形态）／中（第三方）</td></tr><tr><td>人肉粘贴回合</td><td>通常更少（输出留在同一会话）</td><td>往往最多（每轮依赖你粘日志）</td><td>交互中等；exec 把多轮收成“提交任务→审 diff”</td><td>编译对照（中高）</td></tr><tr><td>适合题型</td><td>根因未清、需多轮追 shared state／顺序依赖</td><td>已有完整日志、只需讨论假设</td><td>失败清单已清且禁令／验收写死，要可审批量补丁</td><td>sdet.qa／Junction／DEV（中）</td></tr><tr><td>“省回合”怎么省</td><td>少粘贴；人盯判断点（删测？改产品？）</td><td>省的是工具切换，不省粘贴</td><td>省开会式来回：一次看 diff＋复跑记录</td><td>定义见上，非秒数榜</td></tr><tr><td>风险</td><td>仍可能 bump timeout／过度 mock（须写进禁止项）</td><td>易在未复现时“口头修好”</td><td>异步／非交互时若完成定义含糊，回来一包无效绿</td><td>DEV 反例（中）</td></tr></tbody></table></figure>
+<p>读表时记住：sdet.qa 写明交互追 flake 偏 Claude Code 闭环；界定清楚的批量稳定化／异步 PR 偏 Codex。这是<strong>工作流契合</strong>，不是 SWE-bench 冠亚军声明。</p>
+<h4>3. 两条可跟做开跑协议（编译对照，非本室实测）</h4>
+<p><strong>A. 交互追单条／一小簇 flake（偏 Claude Code）</strong></p>
+<ol>
+<li>仓库内打开 Claude Code（或文档所述同等终端 Agent）；权限保持可跑测试、改测试／相关文件需你方审批习惯。  </li>
+<li>粘贴上方骨架；把“复现命令”换成真实一行，例如 <code>pnpm vitest run tests/flaky.spec.ts -t "saves draft"</code>。  </li>
+<li>要求第一步<strong>只输出分类</strong>（回归／flaky／基建），附是否能在隔离命令下复现；未复现则升到整文件／整包（DEV 文的 escalation）。  </li>
+<li>你确认分类后，再允许最小补丁；完成定义未满足前不得宣称修好。  </li>
+<li>人审 diff：有无删测；有无无条件 retry；有无把 I/O 换成空 mock。</li>
+</ol>
+<p><strong>B. 清单批量稳定化（偏 Codex exec／非交互）</strong></p>
+<ol>
+<li>先准备：失败列表（文件＋用例名）、统一 <code>repro.sh</code>、AGENTS／提示里写死禁止项与 N 次全绿。  </li>
+<li>对单条或一小批：</li>
+</ol>
+<pre><code>codex exec --sandbox workspace-write "$(cat &lt;&lt;'PROMPT'
+【粘贴同一提示骨架，填入本批失败列表】
+只改与本批相关的测试／必要生产修复；每条附根因分类与 repro 摘要。
+PROMPT
+)"</code></pre>
+<ol>
+<li>回来只审三件事：diff 是否最小；复跑记录是否观察值；不确定项是否单列。  </li>
+<li>根因未清、需要你盯着 bisection 时，把该条打回协议 A，别强迫 exec “一次猜中”。</li>
+</ol>
+<p>沙箱旗标与审批以现行 Codex 文档为准；入门勿默认全放行（衔接本室终端审批篇）。</p>
+<h4>4. 把“省回合”写进完成定义的一句话</h4>
+<p>可贴在提示末尾：</p>
+<pre><code>回合成本约束：你可自行复跑；不要让我为了同一失败日志来回粘贴。
+若缺权限或缺工具，列出最小阻塞项后停止。
+未达到连续 N 次全绿：状态=未完成，禁止用“看起来稳定”收束。</code></pre>
+<p>省回合的杠杆在<strong>完成定义＋禁止项＋可复现脚本</strong>。模型品牌换了，这三样不换，差距会小很多。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先 harness，后编辑。</strong> DEV：无验证手段时，agent 的“修复”常是假绿。  </li>
+<li><strong>诀窍：先分类再修。</strong> Junction：跳过分类容易改症状。  </li>
+<li><strong>诀窍：禁止项写进文件或提示。</strong> “不要盲目加 timeout”比事后骂一句有效。  </li>
+<li><strong>诀窍：产品 bug 与测试脆皮分开收口。</strong> 真 bug 可改生产逻辑，但必须在输出里标明证据。  </li>
+<li><strong>反例：以一次绿或 CI rerun 当完成。</strong> 与 flaky 定义打架。  </li>
+<li><strong>反例：无清单就对 Codex 说“把仓库 flaky 都修了”。</strong> 范围无限，异步回来也难审。  </li>
+<li><strong>反例：在无终端闭环的纯对话里假装省回合。</strong> 粘贴成本仍在你身上。  </li>
+<li><strong>反例：用假想的“平均少 3.2 轮”做选题结论。</strong> 本稿不做这类数字。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿是<strong>同一提示下修 flaky 的工具闭环对照与可跟做协议</strong>，不是模型智商总榜，也不是本室 benchmark。  </li>
+<li>Claude 网页对话与 Claude Code、Cursor 内 Agent、Codex TUI／exec：按钮名与套餐可用性随版本变，<strong>待核</strong>。  </li>
+<li>不覆盖：在 CI 里无人值守自动开 PR 的完整平台搭建（可另稿）；也不鼓励为绿而删覆盖。  </li>
+<li>第三方文中的“63 条／一周”等数字属于原作者环境，<strong>不得外推为本室或读者仓库指标</strong>。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li><a href="https://dev.to/yureki_lab/how-i-killed-63-flaky-tests-in-one-week-with-claude-code-5-lessons-29m0">How I Killed 63 Flaky Tests…｜repro harness、分类、禁 bump timeout</a></li>
+<li><a href="https://junctionpanel.dev/blog/flaky-test-fix-with-ai-agents/">Flaky Test Fixes With AI Agents｜先证据再改、分类失败类型</a></li>
+<li><a href="https://sdet.qa/blog/claude-code-vs-cursor-vs-codex-test-automation-2026/">Claude Code vs Cursor vs Codex for Test Automation｜闭环追 flake vs 批量／异步 PR</a></li>
+<li>官方能力背景（形态，非 flaky 专文）：<a href="https://learn.chatgpt.com/docs/non-interactive-mode">Codex non-interactive</a>；Claude Code 以 Anthropic／Claude 产品页与帮助中心现行说明为准</li>
+<li>本室衔接：<a href="https://www.kmhgame.com/san-gong-ju-dui-zhao-xie-ji-shu-shuo-ming-wen-dang-shui/">三工具对照：写技术说明文档谁更稳</a>；<a href="https://www.kmhgame.com/codex-cong-ling-da-yi-ge-xiao-jue-ben-de-duan-dao-duan-shi/">Codex：从零搭一个小脚本的端到端示范</a>；<a href="https://www.kmhgame.com/codex-duo-wen-jian-chong-gou-shi-ru-he-xie-qing-wan-cheng/">Codex：多文件重构时如何写清完成定义</a></li>
+<li>本文说明：<strong>编译对照／可跟做协议</strong>；未跑本室回合计次；表中相对优劣为工作流判断（证据中高），禁止读成官方 SLA。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-vs-codex-flaky-rounds-cover-800x450.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》通关后与二周目：继承与新内容入口（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-tong-guan-hou-yu-er-zhou-mu-ji-cheng-yu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-tong-guan-hou-yu-er-zhou-mu-ji-cheng-yu/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:41:38 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>任意难度通关、片尾字幕播完后，用铃铛传到枷笼山人偶囚室，与虚空交谈即可开二周目。任务进度、地图探索、关键道具与可用天数会重置；当前装备（饰品、武器、影之武装）、读物与技巧保留。通关另解锁六十六天难度（仅66条命，用尽即永久死亡，按最高难度）以及按结局开的特殊服装。站内六十六天稿专讲扣天与 Buff；本稿只作通关后／NG+总入口。细节以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-ngplus-cover-616x353.webp"/></figure>
+<ul>
+<li>站内六十六天机制：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-liu-shi-liu-tian-si-wang-ji-zhi-kou-tian/">六十六天死亡机制</a></li>
+<li>站内真结局入口：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-zhen-jie-ju-zen-me-kai-hu-xin-mi-mi-wu/">真结局怎么开</a></li>
+<li>站内白金路线：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-bai-jin-zen-me-zuo-si-bu-lu-xian-yu-yi/">白金怎么做</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》通关后及二周目内容介绍 影之刃零有新游戏+吗，作者 Game8 English，来源：Game8 English，责任编辑：铁皮豆豆眼，2026-11-03</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202611/2240005.shtml">游民星空《影之刃零》通关后及二周目内容介绍</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书；原文含严重剧透提示</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-ngplus-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>Codex：AGENTS.md 最小可行模板：写什么、别写什么</title>
+      <link>https://www.kmhgame.com/codex-agents-md-zui-xiao-ke-xing-mu-ban-xie-shen-me-bie-xie/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/codex-agents-md-zui-xiao-ke-xing-mu-ban-xie-shen-me-bie-xie/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:36:40 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>Codex 开工会读 AGENTS.md。短而准的 Map／约定／验收／边界，比长而虚的“最佳实践”管用；/init 只是脚手架，要改成团队真实命令。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-agents-md-minimal-cover-800x450.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>发现顺序（官方）：全局 <code>~/.codex</code>（<code>AGENTS.override.md</code> 优先于 <code>AGENTS.md</code>）→ 从项目根走到 cwd，每层最多一个文件（同样 override 优先）→ 更近的盖更远的；合并受 <code>project_doc_max_bytes</code> 约束，默认 32KiB（<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md</a>）。</li>
+<li><code>/init</code> 可脚手架起步，但必须改成仓库真实的 build／test／lint（<a href="https://learn.chatgpt.com/guides/best-practices">Best practices</a>）。</li>
+<li>宜写入：repo layout；怎么跑项目；build／test／lint；工程约定与 do-not；完成定义与如何验证。重复犯错再加规则；太大则主文件精简并引用任务专文。</li>
+<li>别写：空泛 “best practices”；单次任务需求；整份 CI 配置复制；模糊“写干净代码”。</li>
+<li>最小可行四块可抄：Map／Working agreements／Verification／Boundaries；子目录用 <code>AGENTS.override.md</code> 覆盖特殊命令或禁区。</li>
+<li>证据强度：发现顺序与字节上限＝官方文档（高）；模板措辞＝本室编译可跟做（中高）；Cookbook 的 harness／PLANS 等是进阶可选，不必塞进最小文件。</li>
+<li>衔接：昨日<a href="https://www.kmhgame.com/codex-cong-ling-da-yi-ge-xiao-jue-ben-de-duan-dao-duan-shi/">《Codex 从零搭小脚本》</a>提过 <code>/init</code>；本稿专讲写什么、别写什么。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你在空仓或旧仓里敲了 <code>/init</code>，得到一份看起来很全的 <code>AGENTS.md</code>。里面常有目录树感想，夹一句“写干净代码”，再塞半页像 README 摘要的段落。下次任务一开，模型仍问你怎么跑测试，或自创一套与 CI 无关的命令。</p>
+<p>有文件不等于有约束。真正起作用的是里面装了什么。官方说法直白：短而准胜过长而虚；把能复用的工作约定写进去，把单次需求留在提示里（<a href="https://learn.chatgpt.com/guides/best-practices">Best practices</a>、<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md</a>）。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（ChatGPT Learn AGENTS／Best practices）；模板正文＝编译可跟做（中高）。</strong></p>
+<h4>1. 先弄清它怎么“发现”文件</h4>
+<p>Codex 开工读 instruction chain（每次 run／TUI 会话起头重建），顺序是：</p>
+<ol>
+<li><strong>全局</strong>：<code>CODEX_HOME</code>（默认 <code>~/.codex</code>）里，有 <code>AGENTS.override.md</code> 就用它，否则用 <code>AGENTS.md</code>；这一层只取第一个非空文件。</li>
+<li><strong>项目</strong>：从 Git 根（找不到根则只看 cwd）往下走到当前目录；每一层先找 <code>AGENTS.override.md</code>，再 <code>AGENTS.md</code>，再配置里的 fallback 名；<strong>每层最多收一个文件</strong>。</li>
+<li><strong>合并</strong>：从根拼到近处，空行连接；越靠近 cwd 的内容越靠后，相当于覆盖。</li>
+<li><strong>体积</strong>：合计触达 <code>project_doc_max_bytes</code>（默认 32KiB）就停；太大就拆到子目录或抬高上限，别把主文件写成百科。</li>
+</ol>
+<p>自检命令（官方 Verify 思路）：</p>
+<pre><code>codex --ask-for-approval never "Summarize the current instructions."
+codex --cd services/payments --ask-for-approval never "Show which instruction files are active."</code></pre>
+<h4>2. <code>/init</code> 之后立刻改三处</h4>
+<p><code>/init</code> 适合“有文件可改”，不适合“原样当规范”。脚手架生成后至少核对：</p>
+<ul>
+<li>测试／lint／build 命令是否与本仓 README／CI 一致（例如真实是 <code>pnpm test</code>，别留着示例 <code>npm test</code>）。</li>
+<li>do-not 是否写到你真正怕的误伤：force-push、改密钥、动生产配置。抽象美德条目可删。</li>
+<li>有没有把“这次只修登录页”这类<strong>单次任务</strong>写进永久文件。</li>
+</ul>
+<h4>3. 最小可行模板（可抄，中英可混）</h4>
+<p>放到仓库根的 <code>AGENTS.md</code>。命令改成你的真实占位：</p>
+<pre><code># AGENTS.md
+
+## Map
+- App entry: `src/`（业务）
+- Tests: `tests/` 或 `**/*.test.ts`（按仓改）
+- Scripts: `package.json` scripts；CI 真相以 `.github/workflows/` 为准，这里只摘要命令
+- Docs for agents: `docs/agents/`（任务专文；主文件保持短）
+
+## Working agreements
+- Package manager: `pnpm`（安装依赖优先用它）
+- After JS/TS edits: run `pnpm lint` then `pnpm test`
+- Prefer smallest diff; do not reformat unrelated files
+- New production dependency: ask before adding
+- Public behavior change: update the nearest README／docs note in the same PR when applicable
+
+## Verification
+- “Done” means: the user-stated verification commands were actually run, and observed output is pasted（do not mark planned commands as passed）
+- Default checks when user did not override:
+  1. `pnpm lint`
+  2. `pnpm test`
+  3. `git diff --stat` summarized in the reply
+- If a check cannot run（missing tool／env）: stop and say what is missing; do not invent green results
+
+## Boundaries
+- Do not: `git push --force`；rewrite history；commit secrets；edit files outside the workspace without asking
+- Do not: bump timeouts／delete assertions／add unconditional retries to “make CI green” unless the task explicitly allows and evidence is shown
+- Do not: treat this file as a dumping ground for one-off ticket requirements（put those in the prompt）
+- Secrets: never print tokens；never copy `.env` contents into chat logs</code></pre>
+<p>全局默认可放 <code>~/.codex/AGENTS.md</code>（个人口味：偏好的包管理器、确认后再加依赖）。临时全局覆盖用 <code>~/.codex/AGENTS.override.md</code>，用完删掉即可恢复底稿。</p>
+<h4>4. 嵌套 override 何时用</h4>
+<p>适合：<strong>子树命令不同</strong>或<strong>禁区更严</strong>。例如支付服务：</p>
+<pre><code># services/payments/AGENTS.override.md
+
+## Working agreements
+- Use `make test-payments` instead of root `pnpm test`
+- Never rotate API keys without notifying the security channel
+
+## Boundaries
+- Do not modify shared billing feature flags without an explicit approval summary</code></pre>
+<p>同层若同时存在 <code>AGENTS.override.md</code> 与 <code>AGENTS.md</code>，<strong>只用 override</strong>（官方发现规则）。因此 override 应自洽，别假设“还会再读同层 AGENTS.md”。</p>
+<p>从该子目录启动时，链一般是：全局 → 根 <code>AGENTS.md</code> → 子目录 override。</p>
+<h4>5. 变长了怎么办</h4>
+<p>Best practices 的补丁策略：主文件继续短；规划说明、专项 review、架构说明分别链到 <code>docs/agents/*.md</code>，在 Map 里点名。Cookbook 里的 <code>PLANS.md</code>／<code>harness/build/</code> 适合长流程迭代，属于可选加厚，不是最小可行的必填项（<a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Cookbook iterating workflows</a>）。</p>
+<p>同一错误犯第二次：让 Codex 做简短 retrospective，再把<strong>可执行</strong>的一条规则写进 AGENTS，而不是再贴一段口号。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：命令写成可复制的一行。</strong> “跑一下测试”不如 <code>pnpm test --filter web</code>。  </li>
+<li><strong>诀窍：Verification 要求“贴观察输出”。</strong> 堵住把计划命令抄成“已通过”。  </li>
+<li><strong>诀窍：Boundaries 写具体动词。</strong> “别搞破坏”无效；写清 force-push、密钥与仓外路径。  </li>
+<li><strong>诀窍：重复摩擦才加规则。</strong> 文件越短，越容易被读完。  </li>
+<li><strong>反例：整份 CI YAML 粘进 AGENTS。</strong> 易超 32KiB，也易与 workflow 双源漂移。  </li>
+<li><strong>反例：堆 “follow best practices／write clean code”。</strong> 无法验证，占字节。  </li>
+<li><strong>反例：把当前 ticket 的验收写进仓库级文件。</strong> 下个任务会被错误约束。  </li>
+<li><strong>反例：子目录再放一份完整百科，与根文件重复。</strong> 用 override 只写差分。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>仓库级最小可行 AGENTS.md 写什么、别写什么</strong>，以及全局／嵌套 override 的官方发现顺序。  </li>
+<li>不覆盖：企业 SSO、云端 Codex Web 全流程、把 Cookbook 全套 harness 一次铺满（那是加厚玩法）。  </li>
+<li>UI 文案、套餐是否含 Codex CLI、字节上限默认值若产品变更，以现行 <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md</a> 与客户端为准（<strong>待核</strong>）。  </li>
+<li>模板里的 <code>pnpm lint</code>／<code>pnpm test</code> 是占位；照抄前必须换成仓库真相。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md｜发现顺序／override／32KiB／校验命令</a></li>
+<li><a href="https://learn.chatgpt.com/guides/best-practices">Best practices｜AGENTS 短而准、应写入项、/init 后编辑、变大则引用专文</a></li>
+<li><a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Iterating development workflows with Codex｜可选 harness／PLANS 与 AGENTS 分工</a></li>
+<li>本室衔接：<a href="https://www.kmhgame.com/codex-cong-ling-da-yi-ge-xiao-jue-ben-de-duan-dao-duan-shi/">Codex：从零搭一个小脚本的端到端示范</a>（/init 入门）；<a href="https://www.kmhgame.com/codex-duo-wen-jian-chong-gou-shi-ru-he-xie-qing-wan-cheng/">Codex：多文件重构时如何写清完成定义</a>；<code>2026-10-29-AI工具-Codex项目规则文件踩坑</code></li>
+<li>本文说明：编译最小可行四块模板与“别写”清单；<strong>未伪造某仓实测字节占用</strong>；命令名为占位，上线前按仓替换。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-agents-md-minimal-cover-800x450.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》湖心秘密／灭法面具位置：真结局前置（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-hu-xin-mi-mi-mie-fa-mian-ju-wei-zhi-zhen/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-hu-xin-mi-mi-mie-fa-mian-ju-wei-zhi-zhen/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:34:05 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>湖心秘密要集齐4枚灭法面具，分别来自炎茹、雷婷、蛊鹤与寒岁四场。游民按幻术琵琶→梦差幻境→四面具／红房子→护法四像镜写步骤；第4枚须推进红房子，与活人偶清道夫同场的寒岁才会给。站内真结局导读偏分支与截止点；本稿补面具与任务步骤位置，不重写结局表。步骤以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-miefa-cover-616x353.webp"/></figure>
+<ul>
+<li>站内真结局入口：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-zhen-jie-ju-zen-me-kai-hu-xin-mi-mi-wu/">真结局怎么开</a></li>
+<li>站内梅谷湖全收集：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-mei-gu-hu-quan-shou-ji-he-lian-dao-du-you/">梅谷湖全收集</a></li>
+<li>站内枷笼山全收集：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-jia-long-shan-quan-shou-ji-zhen-jie-ju-ke/">枷笼山全收集</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》湖心秘密任务及灭法面具位置攻略 灭法面具在哪，作者 Game8 English，来源：Game8 English，责任编辑：铁皮豆豆眼，2026-11-03</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202611/2240087.shtml">游民星空《影之刃零》湖心秘密任务及灭法面具位置攻略</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-miefa-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>Grok：用 Imagine／看图改提示时怎么少跑偏</title>
+      <link>https://www.kmhgame.com/grok-yong-imagine-kan-tu-gai-ti-shi-shi-zen-me-shao-pao-pian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/grok-yong-imagine-kan-tu-gai-ti-shi-shi-zen-me-shao-pao-pian/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:31:42 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>主体与构图已对时用 edits：先写改动，再 keep 同一主体／角度／裁切／道具。别把整段新 prompt 贴进编辑，也别只说 keep everything。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-imagine-edit-prompt-cover-800x450.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方划界：无图或主体错了用 <strong>generations</strong>；主体与布局已对、只改细节用 <strong>edits</strong>（<a href="https://docs.x.ai/developers/model-capabilities/images/prompting-guide">Image Prompting Guide</a>）。证据强度：高。</li>
+<li>Edit 写法：先写改动，再一句保持同一主体／角度／裁切／道具放置。例：Replace the metal watch strap… Keep the same wrist…。证据强度：高。</li>
+<li>反例（官方）：edit 开头 “keep everything” 几乎不动；把整段新 prompt 贴进 edit 会 restage，主体漂移。证据强度：高。</li>
+<li>生成提示顺序建议：Subject → Details → Art direction → Light → Color → Composition；主语先行，材质写清楚，少用长 avoid 列表。证据强度：高。</li>
+<li>Imagine Image 2.0（产品新闻）：magic wand 改指向区域；segmentation；背景移除；multi-ref 最多 5 张（<a href="https://x.ai/news/grok-imagine-image-2">Imagine Image 2.0</a>）。消费端按钮文案以 <a href="https://grok.com/imagine">grok.com/imagine</a> 当前界面为准（<strong>待核</strong>）。证据强度：新闻高；UI 现名＝待核。</li>
+<li>入门诀窍：一次改 1 个区域；改坏回上一张好图再改；锁角色／产品身份时明确 keep。证据强度：中（操作习惯，贴合官方“先改后 keep”）。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>表带颜色不对，你把昨晚那条“完美产品静物”整段生成提示又贴进编辑框，还加了半页氛围词。出来的图：手腕还在，表却换了款，背景多了一盏灯，道具变成“差不多”的另一套。官方文档把这种漂移写得很直：edit 里塞满新 prompt，等于重新搭景。</p>
+<p>Imagine 能生成也能改。少跑偏的分界线只有一句：<strong>主体与构图对不对</strong>。对，就 edits，先改后 keep；不对，或根本没图，就 generations，按固定骨架写清楚“拍的是什么”。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（xAI Image Prompting Guide＋Imagine Image 2.0 新闻）；消费端按钮现名与额度＝待核。</strong></p>
+<h4>1. 30 秒决策：重新生成还是编辑</h4>
+<figure><table><thead><tr><th>现状</th><th>选哪条</th><th>理由（官方口径压缩）</th></tr></thead><tbody><tr><td>还没有图</td><td>generations</td><td><code>/v1/images/generations</code>：从文本新建</td></tr><tr><td>主体错了／缺关键元件／数量不对</td><td>generations</td><td>编辑救不回“拍错对象”</td></tr><tr><td>主体与布局已对，只改 1–3 处细节</td><td>edits</td><td><code>/v1/images/edits</code>：先写改动再 keep</td></tr><tr><td>只想动某一指向区域</td><td>消费端区域工具（magic wand／segmentation 等，名称<strong>待核</strong>）</td><td>Image 2.0 新闻：改指向区域、其余不动</td></tr></tbody></table></figure>
+<p>系列图建议锁住 <code>aspect_ratio</code>（文档举例 3:2 适合多数照片）。分辨率与 quality 按任务钉死；生成 URL 可能临时，要留档时按文档取 <code>b64_json</code> 或自行保存 Imagine 输出。</p>
+<h4>2. 可抄“改提示”骨架（edits）</h4>
+<pre><code>【改动】把【具体物件／区域】从【现状】改成【目标：材质／颜色／形状】。
+【保持】同一主体；同一拍摄角度与裁切；同一道具位置与数量；背景与光位不变。
+禁止重写场景；禁止更换主体；禁止新增未点名的道具。</code></pre>
+<p>对照官方例：Replace the metal watch strap with a brown leather strap with cream stitching. Keep the same wrist, the same shirt cuff, the same angle, and the same desk.</p>
+<p>若某次改动没落上，<strong>换词指向部位</strong>，少重复空洞的“更真实”。文档例：指到切面里的土豆块、指到表带弯折处的褶皱。</p>
+<h4>3. 可抄“生成提示”骨架（generations）</h4>
+<p>按同一顺序写，系列里不要打乱：</p>
+<pre><code>【Subject】一句话：主体＋状态／形态＋承托物＋场景。
+【Details】可指认的材质与数量，以及入眼角度（只写一次，构图段用同一套词重复）。
+【Art direction】色块与两三个具名道具。
+【Light】光源与方向，软还是硬；高光与阴影长什么样；主体要读得清。
+【Color】主体色与背景色分开写。
+【Composition】裁切范围；什么被切出画外；哪里保持锐利。一幕一景。</code></pre>
+<p>短静物大约四到六句即可。少用长 avoid 列表；约束若保留，写成“只要一把不锈钢勺搁在碟上”这类正面描述。材质写“拉丝钢细横纹”，别只写“不要反光”。</p>
+<h4>3b. 系列图：锁比例，留提示底稿</h4>
+<p>同一系列里把 <code>aspect_ratio</code> 写死，生成提示按同一顺序复用，只改失败细节。文档提醒：生成链接可能临时，要归档就按接口取 <code>b64_json</code>，或在 Imagine 输出里自行存盘。下一张开改前，把“提示＋好图”成对放在手边，避免凭记忆口述上一版。</p>
+<h4>4. Image 2.0 区域工具怎么嵌进流程（一笔）</h4>
+<p>产品新闻写明：magic wand 改你指向的区域；segmentation 精选区域；背景移除导出透明底；multi-ref 单次最多 5 张参考。适合“主体已对、只动一块”的编辑回合。具体菜单文案，以及是否对所有地区／套餐开放：<strong>以 grok.com/imagine 与 App 当前界面为准（待核）</strong>。API 侧模型名示例为 <code>grok-imagine-image-2.0</code>。</p>
+<h4>5. 改坏以后：回好图，别在坏图上叠改</h4>
+<p>判断标准仍对照<strong>原始需求</strong>：主体是不是点名的那一个；点名元件是否可见且形态对；数量对不对；主体够不够亮、读不读得清。背景对但主体错，算失败。保存“提示＋图”成对；下一轮只改失败那一处，其余原文留下。连续叠在跑偏图上，漂移会放大。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：一次改一个区域。</strong> 表带一回合，背景一回合，道具再一回合，比一句里全改稳。  </li>
+<li><strong>诀窍：keep 写具体。</strong> “同一手腕／同一袖口／同一桌面”比“别乱改”可执行。  </li>
+<li><strong>诀窍：角色与产品锁身份。</strong> 需要同一个人或同一 SKU 时，keep 句里点名身份特征。  </li>
+<li><strong>诀窍：生成失败先查主语。</strong> 开篇若是情绪或胶片词，主体常变成替身。  </li>
+<li><strong>反例：edit 开头 “keep everything”。</strong> 官方：几乎不动。  </li>
+<li><strong>反例：把整段新生成 prompt 贴进 edit。</strong> 官方：restage，主体漂移，道具分身，近似物被换成“差不多”的另一个。  </li>
+<li><strong>反例：在坏图上连改五轮。</strong> 回上一张好图再改。  </li>
+<li><strong>反例：超长 avoid 清单。</strong> 模型容易忽略，还把预算花在不该出现的物件上。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>消费端／API 通用的生成 vs 编辑提示写法</strong>；不写未公开配额算法，不教绕过安全策略。  </li>
+<li>按钮文案、magic wand 等在 grok.com／App 的现名与入口：<strong>待核当前界面</strong>。  </li>
+<li>Arena 排名与新闻页营销表述仅作背景，不作为操作步骤依据。  </li>
+<li>商用素材仍须自行核商标、肖像与授权；模型可能出错。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li><a href="https://docs.x.ai/developers/model-capabilities/images/prompting-guide">Image Prompting Guide｜xAI Docs</a></li>
+<li><a href="https://x.ai/news/grok-imagine-image-2">Imagine Image 2.0｜xAI News</a></li>
+<li><a href="https://grok.com/imagine">grok.com/imagine｜消费端入口（UI 现名待核）</a></li>
+<li>本文说明：编译 generations／edits 分界与 edit“先改后 keep”，以及生成提示顺序与官方反例；Image 2.0 区域工具摘自产品新闻；消费端按钮文案与额度标待核；一次改一区域等为贴合官方口径的入门习惯（证据强度中）。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-imagine-edit-prompt-cover-800x450.webp"/>
+    </item>
+    <item>
+      <title>Claude：Artifacts 迭代改版——怎么让模型改“这一版”而不是重开炉灶</title>
+      <link>https://www.kmhgame.com/claude-artifacts-die-dai-gai-ban-zen-me-rang-mo-xing-gai/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-artifacts-die-dai-gai-ban-zen-me-rang-mo-xing-gai/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:27:55 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>钉死“这一版”：对话里点名改 artifact，或模板／高亮 “Edit with Claude”；提示写清改哪里＋结果＋必须保持不变。别说“重做更好看”。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-artifacts-iterate-this-version-cover-800x450.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>Artifact 在对话旁打开；能编辑，能回来再改，也能分享（<a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">What are artifacts…</a>）。证据强度：高。</li>
+<li>官方迭代路径四条：① 对话里请 Claude 改；② 模板类直接改（文档里打字，幻灯片里改字，设计画布上拖组件）；③ 文档／Markdown 高亮文本点 “Edit with Claude”，就地改而不必描述段落位置；④ 改更早的消息会分出另一版聊天及其自己的 artifacts，探索方向不丢原作。证据强度：高。</li>
+<li>多文件 Markdown：可在多个文件留编辑请求再一次提交，批量应用。证据强度：高。</li>
+<li>报错时找 “Try fixing with Claude”，把错误细节拷进新消息。证据强度：高。</li>
+<li>Legacy artifacts：2026-09-16 前聊天里做的仍可发布分享，但文档写不能再做新的 legacy 类；新模板体系（Docs／Slides／Design 等）以帮助中心与账号为准（<strong>待核</strong>档位差异）。证据强度：高（截止日与政策）；模板开放细节＝中／待核。</li>
+<li>Capabilities：需开启 Cloud code execution／Create and edit files（Settings &gt; Capabilities）。勿写死未核实的按钮坐标。证据强度：高。</li>
+<li>可抄提示骨架：改哪里＋具体改动＋必须保持不变＋禁止整页重写；一次改 1–2 点更稳（第三方习惯，证据强度：中）。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你已经花半小时把落地页或说明文档调到“八成对”。下一句却写成“重做一版更好看”。Claude 当真整页换主题，连组件顺序一起动，上一版的好段落蒸发。Artifact 窗口还在对话旁边，模型却当这是新订单。</p>
+<p>真正卡住的，是<strong>有没有把“这一版”钉死</strong>。帮助中心把编辑写得很直白：可以说话改，也可以在模板里动手改；文档还能高亮后点 “Edit with Claude”。缺的是你的约束句：改哪里，改成什么，以及哪些绝对不能动。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p><strong>证据强度：高（帮助中心 Edit and iterate／Fix errors／Capabilities）；一次改几点＝中（实践习惯）。模板档位差异标待核。</strong></p>
+<h4>1. 先确认能力开关（只做一次）</h4>
+<p>Artifacts 需要开启 <strong>Cloud code execution</strong>，以及文件创建／编辑能力（更新后的 Settings 布局里常写作 <strong>Create and edit files</strong>），路径在 Settings &gt; Capabilities（个人档）或 Organization settings &gt; Capabilities（Team／Enterprise）。没开时，别在提示里骂模型“不会出侧栏”——先对一下设置页。</p>
+<h4>2. 选定“改这一版”的入口（四选一，按素材类型）</h4>
+<figure><table><thead><tr><th>你手里的东西</th><th>优先入口</th><th>官方口径压缩</th></tr></thead><tbody><tr><td>任意已生成的 artifact</td><td>对话里直接说改点</td><td>Ask Claude to change the artifact</td></tr><tr><td>Docs／Slides／Design 等模板产物</td><td>在画布／页里直接改</td><td>文档打字；幻灯片改字；设计元素拖移</td></tr><tr><td>文档或 Markdown 某一段</td><td>高亮 → “Edit with Claude”</td><td>就地改，不必描述“第几段”</td></tr><tr><td>想试另一条方向又不想毁现稿</td><td>编辑更早的消息</td><td>分出另一版聊天＋自有 artifacts</td></tr></tbody></table></figure>
+<p>模板名称与是否对本账号默认开启，以帮助中心与当前界面为准（Docs／Slides／Design 文档写明多档可用；Dashboards／Motion 等有 beta 与计划限制，<strong>待核你的套餐</strong>）。本稿不展开模板广告表，只借它们说明：<strong>直接改画布，比口头“整页重做”更不容易跑偏</strong>。</p>
+<h4>3. 粘贴可抄提示骨架（对话改／高亮改通用）</h4>
+<pre><code>在当前 artifact 中，只改【位置／组件】：【具体改动】。
+必须保持不变：【清单：主题色／版式／已写好的段落／交互范围】。
+禁止重写整页／换主题／加新功能。
+改完用一句话列出实际改动；若无法就地改，说明原因。</code></pre>
+<p>一次只塞 <strong>1–2 个改点</strong>。十条愿望清单容易触发整页重组（实践习惯，证据强度：中）。需要改多处时，拆成两三个短回合，每回合验收一句“实际改了什么”。</p>
+<h4>3b. 改完先验收一句再开下一轮</h4>
+<p>官方要求你可以回来再改、再分享。实操上每回合结束让模型“用一句话列出实际改动”；对不上 invariants 就立刻停，不要叠下一条愿望。分享与导出（Word／PDF／PPT 等）等你满意这一版再做，避免把半成品链发出去。</p>
+<h4>4. 多文件 Markdown：先留请求，再一次提交</h4>
+<p>当 Claude 在多个 Markdown 文件里起草（例如技能包或插件说明），可以在几个文件里分别留下编辑请求，再统一发送。文件列表会显示各文件待处理条数；一次提交后批量应用。适合“目录＋正文＋示例”要一起拧紧口径的场合，仍建议每个文件的请求本身短、可验收。</p>
+<h4>5. 改坏了怎么回：分叉聊天，而不是幻想完整 Git</h4>
+<p>官方明确：编辑更早的消息会得到<strong>另一版聊天及其自己的 artifacts</strong>，用来探索方向且不丢原作。界面上的版本／历史选择器（若有）便于回看，<strong>不要当成完整 Git</strong>（未必有分支与 blame，精确 diff 也未必齐）。改崩了：回到上一句好结果所在的消息分支，或从 Artifacts 侧栏打开仍完好的那份，再按骨架小步改。</p>
+<h4>6. 报错：用官方修错按钮，少手抄堆栈</h4>
+<p>若 artifact 报错，在错误附近找 <strong>“Try fixing with Claude”</strong>。它会把错误细节拷进新消息；发送后让 Claude 诊断并尝试修复。官方也写明：成功不保证，有的错误还要继续排查。别只丢一句“修好它”——按钮已经帮你带上上下文。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先锁 invariants。</strong> “必须保持不变”比“请优化”管用。没有锁，模型合理猜测你要“更好看”，就会换主题。  </li>
+<li><strong>诀窍：能高亮就不口述坐标。</strong> 文档／Markdown 用 “Edit with Claude”，少写“第三个 H2 下面第二段”。  </li>
+<li><strong>诀窍：方向实验用消息分叉。</strong> 官方给了“另一版聊天＋自有 artifacts”；别在同一条主线上反复整页重写。  </li>
+<li><strong>诀窍：批量请求仍要短。</strong> 多文件一次提交省回合，但每条请求仍应可一句验收。  </li>
+<li><strong>反例：“重做一版更好看／更专业”。</strong> 等于授权整页重开炉灶。  </li>
+<li><strong>反例：一次塞十条改动。</strong> 改点互相打架时，模型常选择重排整页。  </li>
+<li><strong>反例：不写保持项。</strong> 主题色和导航，还有已定稿段落，最容易被顺手换掉。  </li>
+<li><strong>反例：把版本选择器当 Git。</strong> 回退靠分叉与完好副本，不靠想象中的完整版本库。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本稿覆盖：<strong>已有 artifact 时如何小步迭代“这一版”</strong>；不覆盖从零挑选模板的完整教程，也不写未核实的像素级按钮坐标。  </li>
+<li>Legacy（2026-09-16 前）仍可发布分享，但不能再做新的 legacy 类；新工作流以模板体系＋帮助中心为准。  </li>
+<li>Dashboards／Motion 等 beta 与企业默认开关：<strong>以账号与组织设置为准（待核）</strong>。  </li>
+<li>分享／复制他人已发布 artifact 时，帮助中心提醒只处理信任来源；本稿不展开安全清单以外的操作。</li>
+</ul>
+<h2>【来源与编译】</h2>
+<ul>
+<li><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">What are artifacts and how do I use them?｜Claude Help Center</a></li>
+<li>本文说明：编译“Edit and iterate／Fix errors／Capabilities／Legacy”为可跟做工作流与提示骨架；模板档位与 beta 开关标待核；一次改 1–2 点为实践习惯（证据强度中）；未写死按钮坐标与未核实 UI 文案。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-artifacts-iterate-this-version-cover-800x450.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》全影之武装获取：位置与属性入口（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-quan-ying-zhi-wu-zhuang-huo-qu-wei-zhi-yu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-quan-ying-zhi-wu-zhuang-huo-qu-wei-zhi-yu/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:24:57 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>影之武装要耗点数才出手，配不上会明显掉输出。游民从巨凶斧、羽弓、追命锁镰写到剑客召集令，约17件分页列属性与获取；例如悲泣溪谷驿站击败斧老大-彭猛可拿巨凶斧。站内尚无影之武装图鉴短导读，本稿只作位置与属性入口；步骤以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-yingwu-cover-616x353.webp"/></figure>
+<ul>
+<li>站内前期 Boss：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-qian-qi-boss-zen-me-guo-zhui-ming-suo/">前期Boss怎么过</a></li>
+<li>站内武器奇门：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-wu-qi-yu-qi-men-zen-me-pei-2-2-zen-me-dai/">武器与奇门怎么配</a></li>
+<li>互动地图总入口：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-quan-shou-ji-hu-dong-di-tu-zen-me-yong/">全收集互动地图怎么用</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》全影之武装获取攻略 影之武装位置及属性一览，作者 Wioud，来源：游民星空[原创]，责任编辑：Wioud，2026-10-29</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202610/2235541.shtml">游民星空《影之刃零》全影之武装获取攻略</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-yingwu-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》全武器获取方法：图鉴入口（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-quan-wu-qi-huo-qu-fang-fa-tu-jian-ru-kou/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-quan-wu-qi-huo-qu-fang-fa-tu-jian-ru-kou/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:17:01 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>武器绑着攻击模组与技能，是配装核心，获取路径却各不相同。游民从初始黑伤写到白山风雷剑，约16把分页列属性与获取（含残钢刃、亡命斩马刀、破军、灵蛇软剑等）。站内已有“哪把强”的类型最优与破军／斩马刀流派；本稿只答“哪里拿”，不重排梯队。获取与数值以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-wuqi-cover-616x353.webp"/></figure>
+<ul>
+<li>站内各类型最佳：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-ge-lei-xing-zui-jia-wu-qi-xuan-ze-dao-du/">各类型最佳武器选择</a></li>
+<li>站内武器奇门：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-wu-qi-yu-qi-men-zen-me-pei-2-2-zen-me-dai/">武器与奇门怎么配</a></li>
+<li>站内破军减伤流：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-po-jun-jian-shang-liu-chong-feng-ba-ti-yu/">破军减伤流</a></li>
+<li>站内血魔流斩马刀：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-xue-mo-liu-zhan-ma-dao-pei-zhuang-xi-xie/">血魔流斩马刀配装</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》全武器获取方法 全武器属性及获取方法，作者 Wioud，来源：游民星空[原创]，责任编辑：Wioud，2026-10-29</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202610/2235539.shtml">游民星空《影之刃零》全武器获取方法</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-wuqi-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》全钥匙获取位置：合链导读（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-quan-yao-shi-huo-qu-wei-zhi-he-lian-dao/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-quan-yao-shi-huo-qu-wei-zhi-he-lian-dao/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:10:30 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>每张图都有对不上号的锁门，得先找到对应钥匙。游民按悲泣溪谷、血色森林、陆家村、庞镇、正道大营五区分页写落点，例如悲泣侧的牢门钥匙、杀气塔相关钥匙、锈蚀的龙形钥匙等。区域全收集稿未必专列钥匙图鉴，本稿只作获取位置入口；点位以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-keys-cover-616x353.webp"/></figure>
+<ul>
+<li>站内悲泣／血色全收集：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-bei-qi-xi-gu-xue-se-sen-lin-quan-shou-ji/">悲泣溪谷／血色森林全收集</a></li>
+<li>站内陆家村全收集：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-lu-jia-cun-quan-shou-ji-yi-cuo-guo-he/">陆家村全收集／易错过</a></li>
+<li>互动地图总入口：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-quan-shou-ji-hu-dong-di-tu-zen-me-yong/">全收集互动地图怎么用</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》全钥匙获取位置说明 全钥匙获取教学，作者 Wioud，来源：游民星空[原创]，责任编辑：Wioud，2026-10-29</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202610/2235556.shtml">游民星空《影之刃零》全钥匙获取位置说明</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-keys-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>《影之刃零》全支线触发及完成：合链导读（游民攻略）</title>
+      <link>https://www.kmhgame.com/ying-zhi-ren-ling-quan-zhi-xian-chu-fa-ji-wan-cheng-he-lian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ying-zhi-ren-ling-quan-zhi-xian-chu-fa-ji-wan-cheng-he-lian/</guid>
+      <pubDate>Wed, 04 Nov 2026 02:01:51 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>《影之刃零》任务多按地图分章，多数支线要跨几章才能收尾。游民从“三面混沌”“血肉花”“凶斧”写到“舞狮尊主”，约30条分页列触发与完成；页上提醒：接了任务尽量先推到最近进度，拖太久有的会失败。站内已有分区易错过与区域全收集，本稿只作全支线总入口；步骤以游民原文为准。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-zhixian-cover-616x353.webp"/></figure>
+<ul>
+<li>站内悲泣易错过：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-bei-qi-xi-gu-yi-cuo-guo-ren-wu-shi-xiao/">悲泣溪谷易错过任务</a></li>
+<li>站内陆家村易错过：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-lu-jia-cun-quan-shou-ji-yi-cuo-guo-he/">陆家村全收集／易错过</a></li>
+<li>互动地图总入口：<a href="https://www.kmhgame.com/ying-zhi-ren-ling-quan-shou-ji-hu-dong-di-tu-zen-me-yong/">全收集互动地图怎么用</a></li>
+</ul>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《影之刃零》全支线触发及完成方法 全支线攻略，作者 Wioud，来源：游民星空[原创]，责任编辑：Wioud，2026-10-29</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202610/2236093.shtml">游民星空《影之刃零》全支线触发及完成方法</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youmin-zhixian-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>Kakao Games Q3连接营收约690.7亿韩元同比-45.8%，营业亏损约263.1亿</title>
+      <link>https://www.kmhgame.com/kakao-games-q3-lian-jie-ying-shou-yue-690-7-yi-han-yuan/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/kakao-games-q3-lian-jie-ying-shou-yue-690-7-yi-han-yuan/</guid>
+      <pubDate>Wed, 04 Nov 2026 01:28:00 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>Kakao Games连接Q3营收约690.7亿韩元同比-45.8%，营业亏损约263.1亿；公司称新作空窗拖累。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/kakao-games-q3-2026-cover-1024x768.webp"/></figure>
+<h2>关键财务数据表（据公正公示／IR 附录）</h2>
+<p>单位：百万韩元</p>
+<figure><table><thead><tr><th>项目</th><th>2026年3季度</th><th>同比</th><th>环比</th><th>2025年3季度</th><th>2026年2季度</th></tr></thead><tbody><tr><td>销售额</td><td>69,070</td><td>-45.81%</td><td>-7.93%</td><td>127,468</td><td>75,021</td></tr><tr><td>营业利益</td><td>-26,310</td><td>-383.06%</td><td>-14.26%</td><td>-5,447</td><td>-23,026</td></tr><tr><td>法人税费用扣除前继续事业利益</td><td>-21,904</td><td>亏损转换</td><td>+66.04%</td><td>10,950</td><td>-64,489</td></tr><tr><td>当期纯利益</td><td>-14,002</td><td>亏损转换</td><td>+75.42%</td><td>34,615</td><td>-56,956</td></tr><tr><td>支配企业所有者持分纯利益</td><td>-26,537</td><td>亏损转换</td><td>+45.87%</td><td>34,006</td><td>-49,026</td></tr></tbody></table></figure>
+<figure><table><thead><tr><th>项目</th><th>2026年1–9月累计</th><th>同比</th><th>2025年1–9月累计</th></tr></thead><tbody><tr><td>销售额</td><td>227,016</td><td>-38.00%</td><td>366,130</td></tr><tr><td>营业利益</td><td>-74,796</td><td>-182.23%</td><td>-26,502</td></tr><tr><td>法人税费用扣除前继续事业利益</td><td>-132,240</td><td>-130.93%</td><td>-57,264</td></tr><tr><td>当期纯利益</td><td>-110,461</td><td>-240.93%</td><td>-32,400</td></tr><tr><td>支配企业所有者持分纯利益</td><td>-105,519</td><td>-596.88%</td><td>-15,142</td></tr></tbody></table></figure>
+<p>分部营收（IR 实绩发表页，单位：亿韩元）</p>
+<figure><table><thead><tr><th>分部</th><th>2026年3Q</th><th>同比约</th><th>环比约</th><th>2025年3Q</th></tr></thead><tbody><tr><td>移动游戏</td><td>506</td><td>-40.3%</td><td>-4.0%</td><td>848</td></tr><tr><td>PC 游戏</td><td>185</td><td>-56.7%</td><td>-17.2%</td><td>427</td></tr><tr><td>合计（IR 摘要）</td><td>691</td><td>-45.8%</td><td>-7.9%</td><td>1,275</td></tr></tbody></table></figure>
+<p>约亿韩元速览（由百万韩元÷100）：销售额约 <strong>690.70</strong> 亿；营业亏损约 <strong>263.10</strong> 亿；当期净损约 <strong>140.02</strong> 亿；支配股东净损约 <strong>265.37</strong> 亿。精确核对以表内百万韩元为准。</p>
+<p>2026年11月4日，Kakao Games（科斯达克 293490）向金融监督院电子公示系统（<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261104900036">DART</a>）提交《连接财务表基准营业（暂定）实绩（公正公示）》，同日在公司 IR 资料室挂出 <a href="https://webofficial.kakaogames.com/live/web_official/file/20261104/0a2eeff75ab5a0b277e1aeefe7a9bd28.pdf">2026年3季度实绩发表资料</a>。期间为 <strong>2026年7月1日至2026年9月30日</strong>。数字是暂定值，外部监查人检讨后或有变动。对产经读者，这季读数很硬：连接销售额砍掉近一半，营业亏损继续扩大，当期纯利益由盈转亏。公司自己的归因也写得很直，新作空窗。</p>
+<p>连接销售额 69,070 百万韩元，约 690.7 亿韩元，同比减 45.81%，环比减 7.93%。营业利益 -26,310 百万，约亏损 263.1 亿；上年同期已是 -5,447 百万，同比增减率记 -383.06%，读成亏损扩大即可。法人税费用扣除前继续事业利益 -21,904 百万，上年同期还是盈利 10,950 百万。当期纯利益 -14,002 百万，约亏损 140.0 亿，上年同期盈利 34,615 百万。支配企业所有者持分纯利益 -26,537 百万，约亏损 265.4 亿，与合并当期纯利益的差额来自非支配持分。IR 附录损益表把营业费用写成 95,380 百万韩元。公正公示与 IR 附录以百万韩元为准；IR 摘要页常用亿韩元四舍五入（营收约 691、营业亏损约 263、净损约 140）。</p>
+<p>分部上，IR 摘要用亿韩元口径：移动 506 亿，同比约减 40.3%；PC 185 亿，同比约减 56.7%。移动侧，公司写国内《奥丁》等仍有贡献，但整体被新作空窗和既有作品自然下滑压住。PC 侧点名《绝地求生》处在促销淡季。两边加总对上 IR 摘要的 691 亿（百万韩元表是 69,070）。</p>
+<p>营业费用同比大约少了三成，支付手续费随销量下滑明显收缩。麻烦在结构，营销费从前一季约 35 亿抬到约 62 亿，环比约增 76.2%。IR 写明，这里面有《妖怪的世界》上线前的营销。营收继续往下走，营业亏损从二季度约 230 亿扩到约 263 亿，营业利益率掉到约 -38.1%。净损一侧，IR 提示前一季有一次性金融费用等因素，三季度净损数字收窄到约 140 亿。营业端仍在失血。</p>
+<p>前三季度累计销售额 227,016 百万韩元，约 2,270 亿，同比减 38.00%；累计营业利益 -74,796 百万；累计当期纯利益 -110,461 百万。从 2025年3季度起，公司已连续多个季度录得营业亏损，三季度只是把这条线再往下画了一格。</p>
+<p>往后看，公司把砝码放在新作与投资。IR 附录管线里，2026年4Q 有 XLGAMES 自研《上古世纪编年史》（PC／主机，全球）；2027年1Q 有 Lionheart 的《奥丁Q：女武神的召唤》（手游＋PC，韩国、日本及中国等）以及 Ocean Drive 的《God Save Birmingham》；2027年2Q 起排《妖怪的世界》全球版、《Chrono Odyssey》《上古世纪 S：自由海峡》等。IR 附录主表未拆开单机流水、区域 ARPU 与平台分成。</p>
+<p>发行与资本市场侧，这是一季存量下滑、新作还没进账、营销先垫上去的空窗季。四季度能不能把《妖怪的世界》等贡献做实，要看上线后留存与费用节奏；通期指引本次公正公示未单列修正表。金额以 DART 公正公示百万韩元为准，分部与费用结构对照公司 IR 实绩发表资料。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/kakao-games-q3-2026-cover-1024x768.webp"/>
+    </item>
+    <item>
+      <title>Remedy Q3营收3960万欧元同比+226%，《CONTROL Resonant》全球销量破百万</title>
+      <link>https://www.kmhgame.com/remedy-q3-ying-shou-3960-wan-ou-yuan-tong-bi-226-control/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/remedy-q3-ying-shou-3960-wan-ou-yuan-tong-bi-226-control/</guid>
+      <pubDate>Wed, 04 Nov 2026 01:25:00 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>Remedy Q3营收3960万欧元同比+226%，营业利润转正；《CONTROL Resonant》发售约三周、实体版上线当日公司称全球销量破100万套。全年营收与EBITDA展望据置。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/remedy-q3-2026-cover-800x450.webp"/></figure>
+<p>芬兰上市的 Remedy Entertainment 11月3日挂出第三季度<a href="https://investors.remedygames.com/files/documents/remedy-q3-2026-business-review.pdf">业务回顾</a>（未经审计）。7–9月营收 3960 万欧元，同比涨 226%；EBITDA 680 万欧元；营业利润 60 万欧元，上年同期亏 1640 万。全年展望没动，公司仍预计全年营收和 EBITDA 高于上年。</p>
+<p>账本背后是自发行新作《CONTROL Resonant》。9月24日数字版全球上线；10月15日实体版发售当天，公司宣布全球销量破 100 万套，距发售约三周，并称这是 Remedy 史上卖得最快的一款。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/remedy-q3-2026-cover-800x450.webp"/>
+    </item>
+    <item>
+      <title>在太空开黑心当铺，用老鼠屎炼纯水：这款独立游戏把玩家都逼成了奸商</title>
+      <link>https://www.kmhgame.com/zai-tai-kong-kai-hei-xin-dang-pu-yong-lao-shu-shi-lian-chun/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/zai-tai-kong-kai-hei-xin-dang-pu-yong-lao-shu-shi-lian-chun/</guid>
+      <pubDate>Wed, 04 Nov 2026 01:12:36 GMT</pubDate>
+      <category>游戏评测</category>
+      <description><![CDATA[<p>最近 Steam 上出现了一批 “赛博黑心店主”。</p>
+<p>他们每天蹲在锈迹斑斑的柜台后面，一边跟裹着工装的拾荒者对半砍价，一边把来路不明的赃物藏进保险柜最底层；嘴上说着 “这东西不值钱”，转头就翻三倍卖给黑市。最离谱的是，有人靠着从老鼠屎里提炼纯净水，硬生生在鱼龙混杂的空间站下城区，攒出了自己的商业帝国。</p>
+<p>这款让无数人沉迷 “当奸商” 的游戏，就是 10 月底上线的独立黑马《深空当铺：可能是偷的》。上线一周好评率稳在 97%，同时在线峰值冲到八万六，成了今年独立游戏圈最让人意外的一匹黑马。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-a69b813aef-0.webp"/></figure>
+<p>玩家能有多缺德？开发者都没想到</p>
+
+<h2>很多人刚进游戏的时候，都抱着 “正经做生意” 的想法。</h2>
+<p>毕竟主角设定就是个从垃圾带爬上来的拾荒者，贷了笔黑钱盘下这间小当铺，目标很朴素：赚够钱把铺子买下来，不用再每周给房东交涨个不停的房租。第一天开门，大部分人还守着底线：赃物不收，违禁品不碰，遇到形迹可疑的客人还会犹豫半天。</p>
+<p>然后第三周，他们就全破防了。</p>
+<p>房租每周涨百分之八，排污费、保护费接踵而至，老老实实收废品、卖日用品，连房租都凑不齐。于是玩家的底线开始一退再退：从 “小件赃物睁一只眼闭一只眼”，到 “有多少赃物收多少”，再到主动跟黑市搭线，做起了违禁品批发的生意。</p>
+<p>Steam 评论区最高赞的一句话精准概括了这个过程：“开局我想当个守法好公民，第三周我就成了下城区最大的赃物批发商。”</p>
+<p>玩家的创造力，永远在开发者意料之外。最出圈的 “邪道发家术”，是老鼠屎炼纯水。</p>
+<p>游戏里拾荒者开局会捡到很多 “太空鼠粪便”，本来只是个几乎没用的垃圾物品，卖不了几个钱。结果玩家发现，化学家技能点满之后，居然能从这些粪便里提取出纯净水 —— 成本几乎为零，提纯之后转手就是几十倍的利润。</p>
+<p>于是新手教程还没走完，大批玩家就蹲在店里疯狂收老鼠屎，靠一条 “粪便提纯” 的产业链完成了原始积累。后来开发者接受采访的时候被问到这件事，语气里全是苦笑：“本来只是想做个符合世界观的废料，谁知道他们能从里面炼出水来。”</p>
+<p>类似的邪道玩法还有不少。 比如治安队会伪装成顾客上门卖赃物钓鱼执法，老玩家早就练出了火眼金睛：不仅能一眼认出卧底，还能把价格压到地板价收完货，转头就去治安队举报拿赏金，两头吃。 比如有人专门做 “伪人生意”，只收失控 AI 改造体的赃物，靠低价收高价出赚差价，顺便跟反抗军搭线解锁稀有渠道。 还有人玩成了垄断寡头：水商开局囤光全城的净水片，等停水事件一出来翻五倍抛售；枪械匠偷偷在地下室造枪，绕开安检卖给地下势力。</p>
+<p>开发者本来设计了七八条正经经营路线，结果玩家硬生生玩出了几十种缺德流派。用社区里的话说：“正经生意哪有灰色地带赚钱啊。”</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-7d53c899cd-1.webp"/></figure>
+<p>这游戏本来是个爬塔游戏</p>
+<h2>《深空当铺》的诞生，说起来还有点 “半路出家” 的意思。</h2>
+<p>工作室 Questing Goose 的核心开发者贝宁（Bei Ning Pan），是个在微软 Xbox、育碧蒙特利尔、Eidos 都实习过的 “大厂过来人”。最开始他想做的根本不是经营游戏，而是一款叫《Space Looter》的回合制空间站爬塔游戏 —— 框架都搭得差不多了，他却越做越觉得别扭。</p>
+<p>“这么完整的一个空间站世界观，只用来打怪闯关卡，太浪费了。”</p>
+<p>转机来自一次旅途中的突发奇想：既然整个空间站的生态都做出来了，为什么不设一个柜台？让玩家站在柜台后面，跟形形色色的人打交道，隔着一张桌子博弈，好像比打怪有意思多了。</p>
+<p>受《请出示证件》和《13 号空间站》的启发，他干脆推翻了大半年的成果，转头做起了当铺经营。最开始就是他一个人单打独斗，写代码、调数值、画像素素材全包了，后来才陆续拉了 4 个美术、3 个音频，凑成了 8 个人的小团队。</p>
+<p>早期内测的日子并不好过。 最开始的版本玩法杂、交互糙，什么都想做一点，结果什么都不突出，外界关注度寥寥无几，团队一度觉得项目可能要胎死腹中。直到他们把所有冗余的东西砍掉，把核心循环收窄到 “鉴定 — 议价 — 风险决策” 这三件事上，游戏的手感才终于对了。</p>
+<p>Demo 上线之后的爆火，连他们自己都意外。本来只是放出去试试水，结果靠着玩家口口相传，没多久就攒了几万份试玩，好评率冲到了 98%。玩家天天在评论区催更，还有等不及的人直接动手做起了 Mod。</p>
+<p>最让贝宁印象深刻的，是玩家对 “风险” 的痴迷。 内测的时候他发现，玩家放着安稳的简单模式不玩，偏偏去冲最难的 “一穷二白” 开局 —— 房租涨得更快，治安队查得更严，开局还欠着高利贷。他本来以为是少数硬核玩家的爱好，后来才想明白：大家来玩当铺，本来就不是来体验安稳开店的。 于是正式版里，他干脆又加了一档更难的挑战模式，专门给喜欢作死的玩家准备；同时也加了个 “舒适模式”，关掉租金暴涨和随机搜查，给只想安安静静开店的人留了条路。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-1a0c46dd42-2.webp"/></figure>
+<h2>为什么开当铺，比打怪还上头？</h2>
+<h2>同类的经营游戏有很多，比它内容多、画面好的也不少，但很少有哪款，能把 “走钢丝的刺激感” 做得这么到位。</h2>
+<p>你在游戏里做的每一笔交易，本质上都是一次赌博。 裹着兜帽的客人推过来一块陨晶怀表，你得自己判断：这是真货还是假货？是拾荒者从残骸里摸的，还是偷了上层贵族的赃物？收了能赚多少？被查到了会有多大麻烦？ 没有标准答案。你可以稳扎稳打只收正经货物，赚得少但睡得香；也可以铤而走险收赃物，一次赚够半个月的房租，但可能第二天治安队就上门抄家。</p>
+<p>它和《请出示证件》的内核刚好反过来：同样是 “核查 — 判断” 的循环，后者是你在执行规则，前者是你在钻规则的空子。 当铺这个场景天生就带着灰色属性 —— 东西哪来的？不知道，也不能问。问了，生意就做不成了。“不问来路，只收现钱”，这是当铺的规矩，也是游戏最勾人的地方。</p>
+<p>更妙的是它的 “道德滑坡” 做得特别自然。 游戏从来不会跳出来教育你 “你变坏了”，也不会给你贴个善恶标签。它只会把账本甩在你面前：这周房租还差两千，你收不收这批赃物？ 第一次收的时候你可能还会犹豫，安慰自己 “就这一次”；第二次就熟练了；到后来你甚至会主动跟客人说 “下次有好货还找我”。 没有强制，没有说教，就是生存压力推着你，一步步滑向灰色地带。这种 “不知不觉就成了奸商” 的代入感，比任何刻意设计的道德选择题都戳人。</p>
+<p>细节也足够撑得起这份代入感。 游戏里两百多件可交易的物品，每件都有自己的造假破绽：有的要核对商标印刷，有的要看生产日期，有的要摸包装封条。玩到后期，玩家个个都成了鉴假大师，扫一眼就能看出东西对不对。 上门的客人也不是单纯的交易工具。落魄的上层贵族会装作镇定地变卖传家宝，反抗军成员会紧张地攥着怀里的违禁品，连治安队的卧底都会有细微的动作破绽。没有长篇大论的剧情，几句话、一个小动作，空间站下城区的众生相就立住了。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-a7aef5c2f1-3.webp"/></figure>
+<h2>最后</h2>
+<h2>这些年独立游戏圈总在焦虑 “工业化”，好像不做开放世界、不堆几十小时内容，就不好意思叫独立大作。 但《深空当铺》的爆火又一次证明：小团队的竞争力，从来不是跟大厂比体量。它没有惊艳的画质，没有宏大的世界观，甚至大部分时间你都只能对着一个柜台，但它把 “当铺老板” 这一件事，挖得足够深、做得足够有意思。</h2>
+<p>玩家想要的从来不是越来越大的地图，而是越来越有分量的选择。 是收了这笔赃物翻身，还是守着底线熬过去；是跟黑市同流合污，还是在夹缝里保持一点良心 —— 这些选择没有对错，却足够让你在关掉游戏之后，还能念叨两句 “上次要是没贪那批货就好了”。</p>
+<p>毕竟比起拯救世界的英雄，有时候，当个在底层挣扎的黑心当铺老板，反而更让人上头。</p>
+<hr/>
+<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/RrWFnLODUjcW6E2WuIe9Zg?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-a69b813aef-0.webp"/>
+    </item>
+    <item>
+      <title>itch.io 日新增游戏页约翻倍，下载与购买没跟上</title>
+      <link>https://www.kmhgame.com/itch-io-ri-xin-zeng-you-xi-ye-yue-fan-bei-xia-zai-yu-gou/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/itch-io-ri-xin-zeng-you-xi-ye-yue-fan-bei-xia-zai-yu-gou/</guid>
+      <pubDate>Wed, 04 Nov 2026 00:35:00 GMT</pubDate>
+      <category>AI</category>
+      <category>AI新闻</category>
+      <description><![CDATA[<p>近两个月 itch.io 日新增游戏页面大约翻了一倍；下载和购买没有跟着翻倍。店面正被生成式 AI 克隆页灌满。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/itch-io-pages-double-ai-clones-cover-1024x413.webp"/></figure>
+<p>2026 年 10 月末到 11 月初，<a href="https://bsky.app/profile/itch.io/post/3mz7vswlnbs23">itch.io 在 Bluesky</a> 贴出一张近 90 天的 game.create 曲线：八月附近日均大约三千页，十月末常过六千，图上峰值逼近八千。官方原话写得很干：“The number of game pages being created per-day has doubled in the past 2 months。”有人追问为什么，账号回 “take a guess”，再跟上哭脸和机器人表情。同一线程里它又补了一句：下载和购买的数量 “<em>has not</em> doubled”。</p>
+<p><a href="https://www.gamedeveloper.com/pc/number-of-game-pages-doubles-on-itch-io-as-ai-clones-flood-the-store">GameDeveloper 11 月 2 日的报道</a>把这条线写进标题：页面翻倍，AI 克隆淹店面。记者翻“最新游戏”列表，大量缩略图一眼能看出生成式 AI 痕迹。当时用 “No AI” 一筛，结果从约 177 万条掉到约 43 万条。披露栏在建页时会出现，但不填也能上架。</p>
+<p>平台的<a href="https://itch.io/docs/creators/quality-guidelines">内容创作者质量指南</a>仍要求如实勾选生成式 AI 披露，并把少人工的算法批量刷页，以及同一内容的大量变体，按垃圾邮件处理。规则挂了两年多；这次曲线先把“店面变吵、消费没涨”钉死了。随后几天平台又动过清库和搜索侧 “No AI” 筛选，那是另一篇的主线。</p>
+<p>Steam 侧同样在应付克隆潮。Valve 的公开建议仍偏“让作品更难被抄、多用社区功能站住”，没有改成守门人模式。itch 体量更小，却先把日增页与下载购买的错位摊到桌上。</p>
+<p>页多一倍，买单的人没有跟着翻倍。对还在 itch 发正式版的人来说，最新列表的噪音比两月前厚了一层。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/itch-io-pages-double-ai-clones-cover-1024x413.webp"/>
+    </item>
+    <item>
+      <title>Marvelous中間决算销售额约140.47亿日元同比-30.7%，营业利益约27.24亿通期予想据置</title>
+      <link>https://www.kmhgame.com/marvelous-zhong-jian-jue-suan-xiao-shou-e-yue-140-47-yi-ri/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/marvelous-zhong-jian-jue-suan-xiao-shou-e-yue-140-47-yi-ri/</guid>
+      <pubDate>Wed, 04 Nov 2026 00:05:00 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>Marvelous中間期销售额约140.47亿日元同比-30.7%、营业利益约27.24亿；归母中間净利已超通期预计，通期予想据置。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/marvelous-interim-2027-cover-1024x1448.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li><strong>窗口口径</strong>：本稿按日系决算短信写 <strong>2027年3月期第2四半期（中間期）</strong>，累计期间 <strong>2026年4月1日–2026年9月30日</strong>；披露日 <strong>2026年10月30日</strong>。勿与日历年 Q2 混读。</li>
+<li><strong>连结合计</strong>：销售额（売上高）<strong>14,047</strong> 百万日元（约 <strong>140.47</strong> 亿日元），同比 <strong>△30.7%</strong>；营业利益 <strong>2,724</strong> 百万（约 <strong>27.24</strong> 亿）；经常利益 <strong>2,920</strong> 百万（约 <strong>29.20</strong> 亿），同比 <strong>+666.7%</strong>；归属于母公司股东的中間净利润 <strong>2,106</strong> 百万（约 <strong>21.06</strong> 亿）；基本每股中間净利 <strong>35.64</strong> 日元（上年同期 <strong>3.04</strong> 日元）。短信对营业利益、归母中間净利的同比栏记“－”（上年同期基数很小）；按（本期−上年同期）／上年同期绝对值计，营业利益约 <strong>+1105%</strong>、归母中間净利约 <strong>+1045%</strong>。</li>
+<li><strong>分部（对外部客户销售额／分部利益，百万日元）</strong>：数字内容 <strong>6,616</strong>／<strong>1,329</strong>（销售额约上年同期的 <strong>53.3%</strong>，分部由上年同期亏损 <strong>1,070</strong> 转正）；娱乐设施<strong>5,544</strong>／<strong>1,447</strong>（销售额约上年 <strong>92.7%</strong>）；音乐映像 <strong>1,887</strong>／<strong>735</strong>（销售额约上年 <strong>100.2%</strong>）。全社费用等调整额 <strong>△788</strong> 百万后对接合并营业利益 <strong>2,724</strong> 百万。</li>
+<li><strong>费用与利润率（说明资料）</strong>：营业利益率约 <strong>19.4%</strong>（上年同期约 <strong>1.1%</strong>）；贩管费 <strong>4,909</strong> 百万（约上年同期的 <strong>83.2%</strong>），其中广告宣传费 <strong>694</strong> 百万（约上年 <strong>44.8%</strong>）、研究开发费 <strong>919</strong> 百万（约上年 <strong>141.0%</strong>）。公司称研发费与广告宣传费有一部分延后到下期。</li>
+<li><strong>通期予想（据置）</strong>：截至 <strong>2027年3月31日</strong> 的连结预计仍为销售额 <strong>30,000</strong>、营业利益 <strong>3,000</strong>、经常利益 <strong>3,000</strong>、归母当期净利 <strong>2,000</strong>（单位：百万日元）；与 <strong>2026年5月15日</strong> 公表时相同。短信注：对通期予想，当中間期营业／经常利益进度已超 <strong>90%</strong>，归母中間净利已超过通期预计；因下期多款新作发售时点与业绩影响仍有不确定因素，<strong>通期予想据置</strong>。</li>
+<li><strong>进度速算（中間实绩／通期予想）</strong>：销售额约 <strong>46.8%</strong>；营业利益约 <strong>90.8%</strong>；经常利益约 <strong>97.3%</strong>；归母净利约 <strong>105.3%</strong>。</li>
+<li><strong>分红与财务状况</strong>：第2四半期末配当 <strong>0.00</strong> 日元；通期配当予想合计 <strong>15.00</strong> 日元（期末予想 <strong>15.00</strong>，较前期实绩 <strong>12.00</strong> 增 <strong>3</strong> 日元）；直近配当予想无修正。中間期末总资产 <strong>35,265</strong> 百万日元，纯资产 <strong>26,958</strong> 百万，自有资本比率 <strong>76.3%</strong>（上期末 <strong>78.1%</strong>）。营业活动现金流 <strong>789</strong> 百万日元（上年同期 <strong>5,822</strong>）；现金及现金等价物中間期末余额 <strong>14,218</strong> 百万日元。</li>
+</ul>
+<h2>关键财务数据表（据决算短信／说明资料）</h2>
+<p>单位：百万日元（每股收益：日元）</p>
+<figure><table><thead><tr><th>项目</th><th>2027年3月期中間期</th><th>同比（短信）</th><th>2026年3月期中間期</th></tr></thead><tbody><tr><td>销售额（売上高）</td><td>14,047</td><td>△30.7%</td><td>20,281</td></tr><tr><td>营业利益（営業利益）</td><td>2,724</td><td>－</td><td>226</td></tr><tr><td>经常利益（経常利益）</td><td>2,920</td><td>+666.7%</td><td>380</td></tr><tr><td>归母中間净利润</td><td>2,106</td><td>－</td><td>184</td></tr><tr><td>基本每股中間净利</td><td>35.64</td><td>—</td><td>3.04</td></tr></tbody></table></figure>
+<figure><table><thead><tr><th>项目</th><th>2027年3月期中間期末</th><th>2026年3月期末</th><th>较上期末</th></tr></thead><tbody><tr><td>总资产</td><td>35,265</td><td>35,510</td><td>△245</td></tr><tr><td>纯资产</td><td>26,958</td><td>27,775</td><td>△817</td></tr><tr><td>自有资本比率</td><td>76.3%</td><td>78.1%</td><td>△1.8个百分点</td></tr></tbody></table></figure>
+<p>分部（对外部客户销售额／分部利益，百万日元）</p>
+<figure><table><thead><tr><th>分部</th><th>当中間期销售额</th><th>约对上年</th><th>当中間期分部利益</th><th>上年同期分部利益</th></tr></thead><tbody><tr><td>数字内容</td><td>6,616</td><td>53.3%</td><td>1,329</td><td>△1,070</td></tr><tr><td>娱乐设施</td><td>5,544</td><td>92.7%</td><td>1,447</td><td>1,702</td></tr><tr><td>音乐映像</td><td>1,887</td><td>100.2%</td><td>735</td><td>483</td></tr><tr><td>调整额（全社费用等）</td><td>—</td><td>—</td><td>△788</td><td>△889</td></tr><tr><td>合并（销售额合计／营业利益）</td><td>14,047</td><td>69.3%</td><td>2,724</td><td>226</td></tr></tbody></table></figure>
+<p>通期连结业绩予想（2027年3月期，未修正）</p>
+<figure><table><thead><tr><th>项目</th><th>通期予想</th><th>对前期增减率（短信）</th></tr></thead><tbody><tr><td>销售额</td><td>30,000</td><td>△21.0%</td></tr><tr><td>营业利益</td><td>3,000</td><td>+33.4%</td></tr><tr><td>经常利益</td><td>3,000</td><td>+5.0%</td></tr><tr><td>归母当期净利</td><td>2,000</td><td>+0.3%</td></tr><tr><td>每股收益予想</td><td>34.76 日元</td><td>—</td></tr></tbody></table></figure>
+<p>约亿日元速览（由百万日元÷100，四舍五入至两位）：销售额约 <strong>140.47</strong> 亿；营业利益约 <strong>27.24</strong> 亿；经常利益约 <strong>29.20</strong> 亿；归母中間净利约 <strong>21.06</strong> 亿。精确核对以表内百万日元为准。</p>
+<h2>正文</h2>
+<p>2026年10月30日，Marvelous（东证 Prime 7844）披露《2027年3月期第2四半期（中間期）决算短信〔日本基准〕（连结）》，并同步挂出决算说明资料与 FACTBOOK。期间为 <strong>2026年4月1日至2026年9月30日</strong>。对产经读者，这份中間决算的硬读数很清楚。销售额同比减 30.7%，营业利益从上年同期 226 百万抬到 2,724 百万，归母中間净利从 184 百万抬到 2,106 百万，已经盖过通期预计；公司仍选择 <strong>通期予想据置</strong>。</p>
+<p>合并销售额 14,047 百万日元，约 140.47 亿日元，同比减 30.7%。营业利益 2,724 百万，约 27.24 亿，上年同期仅 226 百万；经常利益 2,920 百万，约 29.20 亿，同比增 666.7%。归属于母公司股东的中間净利润 2,106 百万，约 21.06 亿，上年同期 184 百万。基本每股中間净利 35.64 日元。说明资料把营业利益率写到约 19.4%，对照上年同期约 1.1%。短信对营业利益与归母中間净利的同比百分比栏打了“－”。上年同期基数太小，栏内不写增减率是日系短信的常见处理；把绝对额并排看更清楚。</p>
+<p>减收增利的主因，说明资料写得很直白。海外独立游戏与主机游戏的重复销售、动画二次利用等毛利率较高的业务跑在计划上方；同时本中間期没有基干新作集中上市，大规模开发费与广告宣传费也没有像上年同期那样砸下来。贩管费 4,909 百万日元，约上年同期的 83.2%；其中广告宣传费 694 百万（约上年的 44.8%），研究开发费 919 百万（约上年的 141.0%）。公司称研发费与广告宣传费有一部分延后到下期，上期账面更好看。营业外还记入与差金结算型远期交易相关的衍生品评估收益等，经常利益跟着抬。</p>
+<p>分部上，数字内容对外部销售额 6,616 百万日元，约上年同期的 53.3%，分部利益 1,329 百万，对比上年同期亏损 1,070 百万，完成扭亏。说明资料点名海外子公司发行的《Moonlight Peaks》走量很好，前期作品《牧场物语 Let’s！风之百货街》等重复销售与跨平台展开也贡献利润；在线既有作品维持稳定。娱乐设施销售额 5,544 百万、分部利益 1,447 百万，同比承压；《宝可梦 FRIENDA》等儿童娱乐机国内外仍稳，但上年同期《宝可梦 MEZASTA》垂直拉升的反作用仍在。音乐映像销售额 1,887 百万、分部利益 735 百万：动画二次利用与舞台公演抬利润，光美系列电影票房等话题也在说明资料里。</p>
+<p>下期管线方面，说明资料列出年内配信的在线《Shinobi NEXUS –闪乱神乐–》，以及主机侧《胧村正怪奇谭》（预定 2027年2月4日）、《ETERNAL ANIMA》（预定 2027年3月4日）等；国内子公司还有话题性作品排期。公司称事前登录等指标好于计划，但强调质量优先，单作销量与业绩贡献仍可能有宽幅，因此先不改通期数字。</p>
+<p>财务状况：中間期末总资产 35,265 百万日元，较上期末略减；纯资产 26,958 百万；自有资本比率 76.3%。现金及存款 14,218 百万。营业活动现金流 789 百万日元，远低于上年同期 5,822 百万。上年同期有较大的存货回笼等因素，今年同期存货与税金支付等科目方向不同，不能单看这一条就外推经营恶化。财务活动现金流列出自己股票取得支出约 2,169 百万日元。第2四半期末不分红；通期配当予想 15.00 日元，直近予想无修正。</p>
+<p>通期连结予想仍为销售额 30,000、营业利益 3,000、经常利益 3,000、归母净利 2,000（百万日元）。以中間实绩对照：销售额完成通期预计约 46.8%，营业利益约 90.8%，经常利益约 97.3%，归母中間净利约 105.3%。短信原文写明：进度已经很高，但下期新作发售时点与影响仍不确定，故据置；若日后判断需要修正，会尽快公表。对发行与资本市场读者：这是一季“少发新作、吃重复销售与二次利用”的利润季；通期能不能把上半年的利润率带进下半年，要看新作放量与费用回流的节奏。未拆开的单机营收、区域 ARPU 与平台分成，本稿不外推。</p>
+<h2>【来源与编译】</h2>
+<ul>
+<li>原文标题：2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（连结）  </li>
+</ul>
+<p>  披露方：株式会社マーベラス（Marvelous Inc.）  </p>
+<p>  日期：2026年10月30日  </p>
+<p>  链接：<a href="https://corp.marv.jp/library/img/tanshin2q2027.pdf">Marvelous决算短信 PDF</a></p>
+<ul>
+<li>原文标题：2027年3月期 第2四半期（中間期）決算説明資料  </li>
+</ul>
+<p>  披露方：株式会社マーベラス  </p>
+<p>  日期：2026年10月30日  </p>
+<p>  链接：<a href="https://corp.marv.jp/library/img/kessansetsumei2q2027.pdf">Marvelous决算说明资料 PDF</a></p>
+<ul>
+<li>原文标题：FACTBOOK（2027年3月期 第2四半期）  </li>
+</ul>
+<p>  披露方：株式会社マーベラス  </p>
+<p>  日期：2026年10月30日  </p>
+<p>  链接：<a href="https://corp.marv.jp/library/img/factbook2q2027.pdf">Marvelous FACTBOOK PDF</a></p>
+<ul>
+<li>行业转述（交叉，非采数主源）：<a href="https://gamebiz.jp/news/434873">gamebiz｜マーベラス中間決算报道</a>（2026-10-30）</li>
+</ul>
+<p>本文为妙游社据决算短信与说明资料编译整理：金额以短信百万日元为准，正文“约X亿日元”由百万÷100；分部、费用、通期予想、配当与资产负债摘自短信主表／注记及说明资料概要。游戏名在正文用通行中文或原题；删去未在本中間短信主表核对的盘中股价解读。未编造未披露的单机营收细拆、未证实的排期变更或未公布的平台分成。短信对部分同比栏记“－”时，正文保留绝对额对照，并注明按算术同比的约数仅供读感。</p>
+<hr/>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/marvelous-interim-2027-cover-1024x1448.webp"/>
+    </item>
+    <item>
+      <title>《乐浮岛》Early Access 已上线，国区首发 ¥89.64</title>
+      <link>https://www.kmhgame.com/le-fu-dao-early-access-yi-shang-xian-guo-qu-shou-fa-89-64/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/le-fu-dao-early-access-yi-shang-xian-guo-qu-shou-fa-89-64/</guid>
+      <pubDate>Wed, 04 Nov 2026 00:02:11 GMT</pubDate>
+      <category>游戏热点</category>
+      <description><![CDATA[<p>《乐浮岛》（Loftia）已在 Steam 与 Epic 进入 Early Access，PC 与 Mac 今日可玩。国区标价 ¥108，首发 17% 折后 ¥89.64；美区 $29.99 折后 $24.89。开服对应北京时间约 11 月 4 日凌晨两点前后。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/loftia-ea-cover-616x353.webp"/></figure>
+<p>澳大利亚独立团队 Qloud Games 做的浮空岛生活向多人作，气质偏 cozy solarpunk。你在天上的小岛种田做手工，把家装点起来；闲了去探索，熟人多了就一起推社区工程。可单可多人，买断制。<a href="https://store.steampowered.com/app/2320980/Loftia/">Steam 页</a> 可点开查看。</p>
+<p>Kickstarter 曾创澳区纪录，Next Fest 也带过一波热度。Steam 眼下 Mostly Positive，约 73 评、好评率约 78%。Switch 版称 2027。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/loftia-ea-cover-616x353.webp"/>
+    </item>
+    <item>
+      <title>itch.io 删掉“几 TB 的 AI 垃圾”，搜索也加了“No AI”</title>
+      <link>https://www.kmhgame.com/itch-io-shan-diao-ji-tb-de-ai-la-ji-sou-suo-ye-jia-le-no-ai/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/itch-io-shan-diao-ji-tb-de-ai-la-ji-sou-suo-ye-jia-le-no-ai/</guid>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+      <category>AI</category>
+      <category>AI新闻</category>
+      <description><![CDATA[<p>2026 年 11 月 3 日，itch.io 称删掉“几 TB 的 AI slop”，披露扩到桌游等品类，搜索加“No AI”筛选。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/itch-io-ai-slop-no-ai-cover-1024x682.webp"/></figure>
+<p>独立游戏店面 itch.io 在 Bluesky 发帖用了平台原话“几 TB 的 AI slop”，未公开文件清单。几天前，同一账号还晒过另一张图：近两个月日新增游戏页面大约翻了一倍。八月日均约三千，十月末常超过六千，图上峰值接近八千。它同时补了一句：下载和购买并没有跟着翻倍。有人追问是不是 AI，它回了一串哭脸和机器人表情。</p>
+<p>这一次，平台把“暗示”换成了动作。</p>
+
+<h2>清库对准刷页与最低限度人工</h2>
+<p>官方没有公布被删页的名单或分类占比。跟帖里它写得更直白：你能上传十 TB 优化很差的 AI 生成模型，不等于你应该上传。质量指南里，那条“AI 垃圾邮件”条款已经挂了两年多。批量自动生成产品页、算法主导且少人工干预的项目，以及同一内容的大量 AI 变体，都会按垃圾邮件处理，可能从浏览与搜索里拿掉。</p>
+<p>这次清库对准的是“刷页”与“最低限度人工”的洪水。披露过、仍有人工主笔的作品，按现有规则仍可上架；传统游戏 AI（例如寻路、敌人行为或过程化关卡）也不要求当生成式 AI 来填。</p>
+<h2>披露扩面，玩家多了一个旋钮</h2>
+<p>此前，游戏与游戏资源页已要求填写生成式 AI 披露；资源页严格强制已约两年，未填可能下架。11 月 3 日前后，桌游（实体／桌上）、图书、漫画、原声带也纳入同一套：新建或编辑页面须先完成披露。</p>
+<p>对逛店的人更直接的是筛选。平台称，生成式 AI 披露过滤已补到此前缺口较大的位置，包括搜索结果；界面上可见按披露筛“No AI”一类选项。过滤依赖开发者自报，漏报与误报仍在，但它至少让“先把标明用了生成式 AI 的结果藏起来”变成默认可点的操作，而不必再靠第三方浏览器插件。</p>
+<h2>和 Steam 对照着看</h2>
+<p>同窗里，社区统计把 Steam 2026 年 10 月新作的生成式 AI 披露率推到约一半；Valve 对“克隆”与新品节质量的回应仍偏“不设守门人、持续更新与建社区”。itch.io 体量更小，却选择先砍体积、再加旋钮。</p>
+<p>两边都还没给出“删干净了”的保证。itch 自称删了几 TB，未说页数；Steam 侧披露是自报下限。能写实的只有：独立店面已经开始按既有垃圾邮件条款动刀，并把“不想看生成式 AI 披露”写进搜索。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/itch-io-ai-slop-no-ai-cover-1024x682.webp"/>
+    </item>
     <item>
       <title>《影之刃零》全黑伤武器铸魂：黑魔伤／炽刃／绝影（游民攻略）</title>
       <link>https://www.kmhgame.com/ying-zhi-ren-ling-quan-hei-shang-wu-qi-zhu-hun-hei-mo-shang/</link>
@@ -579,1115 +1268,6 @@ git diff</code></pre>
 <li>本文说明：编译空目录端到端示范与可粘贴完成定义；<strong>安装命令与沙箱旗标建议送核</strong>；未鼓励 danger-full-access。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-zero-to-script-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Grok：深度检索什么时候该开、什么时候浪费额度</title>
-      <link>https://www.kmhgame.com/grok-shen-du-jian-suo-shen-me-shi-hou-gai-kai-shen-me-shi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-shen-du-jian-suo-shen-me-shi-hou-gai-kai-shen-me-shi/</guid>
-      <pubDate>Tue, 03 Nov 2026 03:08:03 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>深度检索／多代理贵且慢：只对“多源对质＋要引用”的题开启；单链事实或草稿、闲逛搜索，改用普通检索或对话，少烧额度。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-deep-search-quota-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>产品页能力：消费端写明 <strong>Search</strong>（实时网页＋𝕏＋citations）与 <strong>Multi-agent</strong>（并行拆子问题，推理可审计，再合并成带引用回答）；更高额度与 multi-agent 常见于更高档（产品页写 SuperGrok／定价档位，以账号为准）（<a href="https://x.ai/grok">Grok 产品页</a>、<a href="https://x.ai/pricing">Pricing</a>）。</li>
-<li>按钮现名以 grok.com／App <strong>当前界面为准</strong>；历史按钮名 DeepSearch（Grok 3 时代常见说法）是否仍显示＝<strong>待核</strong>。勿把旧称当永久功能名。</li>
-<li>划界：Grok Build／TUI 的 <code>/deep-research</code> 是<strong>另一产品线</strong>的后台研究工作流命令，不等于消费端聊天里的深度检索按钮（<a href="https://docs.x.ai/build/modes-and-commands">Modes and Commands</a>）。</li>
-<li>官方提醒：Grok 可能出错或不准确，用前须自行核验（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）。额度见 Settings→Usage／定价页；<strong>勿写死免费次数</strong>。</li>
-<li>开发者旁证：工具调用按调用与复杂度计成本，回答应带回 citations（<a href="https://docs.x.ai/developers/tools/overview">Tools Overview</a>、<a href="https://docs.x.ai/developers/tools/web-search">Web Search</a>）。</li>
-<li>可抄决策：该开／不该开／提示骨架（含时间窗与源类型，并约定输出形状与冲突标注）。</li>
-<li>衔接本室《Grok 检索少幻觉》《免费档限速》《竞品公开情报检索》：少幻觉管核一句，竞品管周更表，本稿管<strong>何时值得开重模式</strong>。</li>
-<li>证据强度：Search／Multi-agent／FAQ／定价＝官方（高）；消费端是否仍显示 DeepSearch＝<strong>待核</strong>（中）；决策表为编译可跟做（中高）。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你要核对“某竞品本周是否改价”，随手点开界面里最重的检索／多代理开关。模型跑了很久，吐出一篇带十几条链接的长文：一半打不开，另一半是三个月前的旧闻，Usage 里这一轮却把额度啃掉一大块。演示噱头是“一键深度研究”；可日更工作流是：<strong>先判断题型，再决定要不要开重模式</strong>。</p>
-<p>下文以 grok.com／官方 App 的 Search 与 Multi-agent 为主；API 工具与 Build 命令只作划界与旁证。不写未核实的按钮坐标，也不写死免费档精确次数。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：高（产品页＋FAQ＋定价＋工具文档）；UI 按钮现名与旧称 DeepSearch 标待核。</strong></p>
-<h4>1. 先用决策表定模式（30 秒）</h4>
-<figure><table><thead><tr><th>题型</th><th>建议模式</th><th>理由（产品口径压缩）</th></tr></thead><tbody><tr><td>多源对质／争议事实且要可点引用</td><td>开 <strong>Search</strong>；更硬再开 <strong>Multi-agent</strong></td><td>产品页：实时网页／𝕏＋citations；多代理并行子问题并合并带引用回答</td></tr><tr><td>竞品／舆情周扫、需分事实／传闻</td><td>Search；复杂对比用 Multi-agent</td><td>与本室竞品流程一致：核链后沉淀表</td></tr><tr><td>单链事实（官网一句公告、一个 changelog）</td><td>普通对话，或轻量检索</td><td>重模式慢且更耗额度，收益有限</td></tr><tr><td>草稿／改写／头脑风暴／闲逛搜索</td><td>普通 Chat</td><td>不需要 live citations 时别开重循环</td></tr><tr><td>“帮我写万字研究报告”但无验收标准</td><td>先别开；先写输出合同</td><td>无时间窗／无源类型＝演示</td></tr></tbody></table></figure>
-<p>额度与限速随套餐变化：定价页写明各档 <strong>AI usage</strong> 池（周刷新；触顶可 top-up）；具体剩余看 Settings→Usage（<a href="https://x.ai/pricing">Pricing</a>）。免费档写 Limited Chat／Limited agent requests。<strong>次数以账号界面为准，本文不写死数字</strong>。</p>
-<h4>2. 该开时：提示骨架（可直接改括号粘贴）</h4>
-<p>在 <a href="https://grok.com/">grok.com</a> 或官方 App，选用当前界面的 <strong>Search</strong> 或 <strong>Multi-agent</strong>（名称以界面为准；旧称 DeepSearch <strong>待核</strong>）。若找不到同名开关，在提示里写死：“请先检索网页与 𝕏，再作答，并给出可点击引用。”</p>
-<pre><code>任务：多源对质（不是闲聊）
-问题：【一句话主问题】
-时间窗：【例如过去 14 天，Asia/Shanghai】
-源类型优先：【官网／文档域名】；𝕏 优先：【账号列表，无 @】
-次优先：【媒体／社区，默认证据强度≤中】
-输出形状：
-1) 结论表（Markdown）：主张｜支持来源｜反对／冲突来源｜证据强度(高/中/低)｜链接
-2) “已对齐”与“冲突／待核”分两节；冲突必须并排写出，禁止只留单边
-3) 每条至少 1 个可点击 URL；打不开的不要写
-4) 文末附“本回答实际引用的链接清单”
-禁止：把训练记忆写成“本周新闻”；禁止编造链接与数字。</code></pre>
-<p>复杂题再加一句：“请并行拆分子问题，合并时保留各支引用。”这对应产品页 Multi-agent 的并行与可审计推理描述。</p>
-<h4>3. 不该开时：轻量替代</h4>
-<ul>
-<li><strong>单链事实</strong>：粘贴官网 URL，要求“只根据该页作答；页外信息标待核”。  </li>
-<li><strong>草稿／改写</strong>：关掉检索类开关，用普通 Chat。  </li>
-<li><strong>闲逛</strong>：用普通搜索引擎或短检索一轮即可；别默认 Multi-agent。  </li>
-<li><strong>额度吃紧时</strong>：先看 Usage 池还剩多少；把重模式留给本周必须对质的题（省额度习惯见本室《免费档限速》）。</li>
-</ul>
-<h4>4. 开完仍要核链（重模式不等于免核）</h4>
-<p>官方写明：Grok 可能提供不准确信息，须自行核验（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）。深度／多代理只提高“找源与拆题”的概率，<strong>不取消人工点开链接</strong>。冲突行与高风险数字（如份额或营收、用户量）至少抽检一手域名；模型补的漂亮 URL 若不在引用清单里就删（少幻觉篇纪律）。</p>
-<h4>5. 与 Build <code>/deep-research</code> 划界（一句即可）</h4>
-<p>若你在 <strong>Grok Build</strong> 终端里看到 <code>/deep-research</code>，那是 Build 工作流命令，用来跑后台研究任务（<a href="https://docs.x.ai/build/modes-and-commands">Modes and Commands</a>）。消费端聊天里的 Search／Multi-agent（及历史 DeepSearch 说法）是另一条产品入口。选题与额度池、按钮位置都不要混谈。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先问“要不要引用”。</strong> 不要引用＝普通对话；要多源引用＝Search／Multi-agent。  </li>
-<li><strong>诀窍：冲突题才值得并行。</strong> 单源官网公告用多代理，等于用牛刀削铅笔。  </li>
-<li><strong>诀窍：输出先合同后模式。</strong> 缺时间窗、源类型或冲突栏，开再重也是散文。  </li>
-<li><strong>诀窍：Usage 当油表。</strong> 触顶前把重模式换成短检索或隔天再跑。  </li>
-<li><strong>反例：默认永远开最深。</strong> 产品页把 Chat／Search／Multi-agent 分开写，就是在暗示题型不同。  </li>
-<li><strong>反例：把旧称 DeepSearch 写进内部 SOP 当永久按钮名。</strong> 以当前界面为准，旧称标待核。  </li>
-<li><strong>反例：把 Build 的 <code>/deep-research</code> 教程复制进 grok.com 操作手册。</strong> 产品线不同。  </li>
-<li><strong>反例：长研究循环跑完不核链就进 Wiki。</strong> 官方已说明可能幻觉。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>消费端何时开启重检索／多代理以省额度</strong>；不覆盖企业合同价、未公开配额算法，也不教你绕过限速。  </li>
-<li>按钮文案、各地区／套餐是否开放 Multi-agent：<strong>以当前界面与账号为准（待核）</strong>。  </li>
-<li>API 工具计费与 citations 是旁证，不等于 grok.com 有一一对应开关。  </li>
-<li>对质结论供产品／内容决策参考；法律或投资、安全类结论须人工与正式信源复核。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li><a href="https://x.ai/grok">Grok 产品页｜Search／Multi-agent／SuperGrok</a></li>
-<li><a href="https://x.ai/legal/faq">Consumer FAQs｜Does Grok make mistakes?</a></li>
-<li><a href="https://x.ai/pricing">Pricing｜用量池与档位说明</a></li>
-<li><a href="https://docs.x.ai/developers/tools/web-search">Web Search｜xAI Docs（citations／域名过滤）</a></li>
-<li><a href="https://docs.x.ai/developers/tools/overview">Tools Overview｜工具调用有成本</a></li>
-<li><a href="https://docs.x.ai/build/modes-and-commands">Modes and Commands｜<code>/deep-research</code> 属 Grok Build</a></li>
-<li>本室衔接：成稿夹 <code>2026-10-29-AI工具-Grok检索少幻觉</code>；<code>2026-10-31-AI工具-Grok免费档限速与付费省额度</code>；<code>2026-11-02-AI工具-Grok竞品公开情报检索流程</code></li>
-<li>本文说明：编译“该开／不该开”决策与提示骨架；<strong>未写死免费次数与按钮坐标</strong>；DeepSearch 旧称与现行按钮文案标待核；Build <code>/deep-research</code> 已划界。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-deep-search-quota-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>抄的人两小时做出宝可梦，守规矩的人停了工</title>
-      <link>https://www.kmhgame.com/chao-de-ren-liang-xiao-shi-zuo-chu-bao-ke-meng-shou-gui-ju/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/chao-de-ren-liang-xiao-shi-zuo-chu-bao-ke-meng-shou-gui-ju/</guid>
-      <pubDate>Tue, 03 Nov 2026 01:30:00 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>lerugray 的公司叫 Conflict Simulations LLC，做的是一桩外人听不太懂的生意：有人家里摆着一盒实体战棋，付钱请他做一个数字版本，方便自己一个人对着屏幕推演。这种活他从零写代码，素材由客户提供，客户得先证明自己确实拥有那盒棋。做出来的东西不卖，也不公开分发，只装在那个人自己的电脑上。</p>
-<p>这桩生意他做了好几个月，一直用 Claude Code。</p>
-<p>十月下旬他看见一条新闻，说 Anthropic 在 Claude 里加了两句话，不让它复刻游戏。他去问了一句：这会影响到我们吗？</p>
-<p>从这一句开始，他的活停了。</p>
-<p>他撞上的那两句话藏在一个字段里，名字叫</p>
-<p>tengu_heron_brook，苍鹭和小溪</p>
-<p>两个不相干的词拼在一起，跟游戏没关系，跟版权也没关系，跟任何一条能读懂的意思都不沾边。字段下面是这么一段英文：</p>
-<p>可以做原创游戏，可以做某一类型的游戏，可以做基于用户自己设计和素材的游戏。不要做对某一款特定现有游戏的复刻，哪怕它改了名字，哪怕它被称作原创。</p>
-<p>十月二十七日前后，用 Claude Code 的人陆续在自己的配置文件里看到这一行。没有更新日志，没有公告，客户端里也没有多出一个可以勾选的框。三天后有人把截图贴到 X 上，问是不是所有游戏重写和 Mod 制作都走到头了，帖子过了一百万浏览。Anthropic 随后确认了这件事。</p>
-<p>公司技术团队的 Addy Osmani 在同一平台解释：他们在 Opus 5.5 的 Claude Code 提示词里加了两句话，把 Claude 从”复刻别人某一款游戏”这个方向引开，因为用它侵犯知识产权违反使用政策。原创游戏、类型游戏、基于用户自己设计和素材的项目，本来就该继续能用，他们还会接着调。末尾他补了一句：如果 Claude 拒绝了你自己的东西，把情况发给我。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-a88d318b71-0-766x468.webp"/></figure>
-<p>图：Anthropic的回应</p>
-<p>这条规则不是发版带进来的。Claude Code 启动时有一条通道，从 Anthropic 的服务器拉一段文本，直接塞进系统提示词。你能看见的只有字段名和值，看不见它什么时候来的，也看不见下一次会变成什么。</p>
-<p>这条通道今年五月被人翻出来过，七月还出过一次事：跑 Opus 5 的人发现系统提示词里多了一行，叫模型不要主动开子代理，除非用户要求，这一行压过了项目自己的配置，好几个开发者的自动化流程莫名断掉。同一个通道，七月管的是能不能开子代理，十月管的是你能做什么项目。</p>
-<p>lerugray 在十月三十日把这些写成了工单，编号 106167，标题是”服务器下发的’游戏’指令，阻断了专业开发工作”。</p>
-<p>工单里他没怎么抱怨，倒是把自己的边界一条条列了出来。做这种活的人，对边界的讲究往往超出外人的想象：出版方或者设计师说不想有人做，他不做；出版方自己已经出过数字版的，他也不做，比如 GMT 的《冷战热斗》和《叛逆之火》；客户提供的素材不能是出版方已经放到网上的，也不能是 VASSAL 里已经有的。VASSAL 是桌游圈用了很多年的开源引擎，很多绝版棋在上面都有现成模块，换句话说，他连”别人已经做过”的路都不走。</p>
-<p>同样的仓库，同样的流程，一直没断过。</p>
-<p>直到出现那条”不要复现游戏”的指令。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-498f89b636-1.webp"/></figure>
-<p>图：lerugray的工单</p>
-<p>他在工单里提了三条请求：把指令收窄到真正的侵权，也就是复制受版权保护的代码、素材和文本，而不是把”游戏相关的工作”整类圈进去；给做委托、能证明权属的人开一条核实或豁免的通道，参照现有的安全研究者认证计划；以及，这种量级的服务器端指令变更，写进更新日志。结尾他写：我可以向审核的人提供合同和客户授权文件。</p>
-<p>合同、客户的权属证明、”仅在本地使用，永不公开分发”这行字，都在规则读不到的地方。它能读到的，只有你在会话里敲下的那些话。那么一个读不到合同的模型，要怎么分辨”照着别人的游戏做一个”和”给拥有这盒棋的人做一个自己能用的版本”？这两件事在会话里说出来的样子，其实差不多。</p>
-<p>说到这里，得看看这条规则想拦的是什么。它要拦的东西，恐怕不是凭空想出来的。</p>
-<p>Freya Holmér 今年三月在社交平台放过一段原型视频：一个俄罗斯方块玩法的变体，方块不往下掉，而是围绕画面中心一个旋转的支点转动。视频很快传开。几天之内，一批用 vibe coding 拼出来的仿作出现，把这个玩法变得人人可玩，比她自己那一版还早。</p>
-<p>她在下面写了一句：每当我想分享进度的时候，一想到角落里有这些 slop ghoul，AI 也好，真人也罢，我就没那么想分享了。后面还跟着半句：好在这些人没有原创能力，也没法把这个想法抬到他们见过的东西之上。</p>
-<p>夏天她对 404 Media 说，第一周每天都有一个新的 AI 克隆，她当时的想法是”行吧，算我倒霉”。后来关注度降下来，她反而松了口气，可以慢慢把东西做对。</p>
-<p>发过仿作的人里有一个叫 Charlie Greenman。他没觉得自己做错了什么。</p>
-<p>他跟 404 Media 讲的是另一套道理：他感觉自己有了一个全新的创作。一首歌抄另一首歌，一个游戏抄另一个游戏，界限画在哪？创造《Blox》和《Jenga》的人，算抄俄罗斯方块吗？</p>
-<p>还有一种更快的做法：直接让它生成。二月有个 X 用户用 Claude Opus 4.6，提示词只有一句”做一个尽量接近原作的宝可梦克隆”，模型推理一小时三十分，用了十一万 token，两次生成就跑起来了，自己挑了 Game Boy 的画风，自己把游戏命名为 Pokemon Fire Red。</p>
-<p>那句提示词里没有逆向，没有反编译，也没有宝可梦之外的任何线索。模型全程不知道自己参与了什么。</p>
-<p>由此也带来一个新产业，就是收保护费。九月最后一天到十月十八日，三家团队先后收到邮件，要求在二十四小时内支付价值两百美元的 Steam 物品，否则游戏会被 AI 克隆、抢在原版前面上架。三封邮件里没有一封附上克隆已经存在的证据。</p>
-<p>收到第三封的是 Takashi Mochibe，游戏叫 Dragon’s Chronicles: Twin Stars of Reginleiv。他回了三个字：随便你。然后把邮件公开，提醒同行一分钱都别付。</p>
-<p>两百美元。一款做了几年的游戏，在勒索信上的标价就是这个数。</p>
-<p>十月二十七日，釜山，Steam Indie Connect。Valve 的 Tom Giardino 被问到 AI 克隆，他说这是第一次听说有人收这种勒索邮件。然后是 Valve 一贯的说法：不想当守门人，去告诉开发者该用什么工具、不该用什么工具。克隆在 AI 之前就有，看见新品节上一个有意思的点子赶紧做一个类似的，一直都在发生，AI 只是把速度提上去了。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-02f5e37093-2.webp"/></figure>
-<p>图：STEAM釜山活动的代表</p>
-<p>他给的办法是社区和持续更新：做开发者网站，和玩家建立关系，让人认得出你是谁；一直往里加功能、加个性、加只属于你这个视角的东西，别把命押在一个别人很容易复制的机制上。这套思路接的是 Valve 对付盗版的老办法，不搞强硬的 DRM，把正版做成最好的那个版本。至于勒索邮件，他说这更接近执法机构该管的事，不过报给 Valve，他们会查。</p>
-<p>不过做社区、维持更新，哪一样不需要时间？Eurogamer 在报道里就反问了一句，而这两件事，恰好是一款游戏还没找到玩家的时候最缺的。</p>
-<hr/>
-<hr/>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/nCaA1KTb7aaIlAUlgzC_Zg?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-a88d318b71-0-766x468.webp"/>
-    </item>
-    <item>
-      <title>恺英网络Q3营收约24.61亿同比+64.42%，拟每10股派1元</title>
-      <link>https://www.kmhgame.com/kai-ying-wang-luo-q3-ying-shou-yue-24-61-yi-tong-bi-64-42/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/kai-ying-wang-luo-q3-ying-shou-yue-24-61-yi-tong-bi-64-42/</guid>
-      <pubDate>Tue, 03 Nov 2026 00:33:31 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>恺英网络Q3营收约24.61亿同比+64.42%、归母约6.41亿同比+1.22%；前三季归母约20.69亿，拟每10股派1元。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/kaiying-q3-2026-cover-1024x737.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>2,461,357,345.52</strong> 元（约 <strong>24.61</strong> 亿元），同比 <strong>+64.42%</strong>；归属于上市公司股东的净利润 <strong>641,144,058.89</strong> 元（约 <strong>6.41</strong> 亿元），同比 <strong>+1.22%</strong>；扣非归母净利 <strong>624,133,219.40</strong> 元（约 <strong>6.24</strong> 亿元），同比 <strong>+7.27%</strong>。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>7,257,942,657.05</strong> 元（约 <strong>72.58</strong> 亿元），同比 <strong>+78.11%</strong>；归母净利 <strong>2,069,468,879.62</strong> 元（约 <strong>20.69</strong> 亿元），同比 <strong>+30.69%</strong>；扣非归母净利 <strong>1,790,868,196.73</strong> 元（约 <strong>17.91</strong> 亿元），同比 <strong>+17.79%</strong>；经营活动产生的现金流量净额 <strong>2,001,718,624.92</strong> 元（约 <strong>20.02</strong> 亿元），同比 <strong>+51.97%</strong>。</li>
-<li><strong>资产负债（截至 2026年9月30日）</strong>：总资产 <strong>15,913,125,404.19</strong> 元（约 <strong>159.13</strong> 亿元），较上年末 <strong>+21.72%</strong>；归属于上市公司股东的所有者权益 <strong>11,112,747,468.47</strong> 元，较上年末 <strong>+12.23%</strong>。</li>
-<li><strong>前三季度利润分配（公告 2026-062）</strong>：拟以总股本 <strong>2,136,443,234</strong> 股扣除回购专户 <strong>15,450,400</strong> 股后的 <strong>2,120,992,834</strong> 股为基数，向全体股东每 <strong>10</strong> 股派发现金红利 <strong>1.00</strong> 元（含税），合计拟派 <strong>212,099,283.40</strong> 元（含税）；不送红股、不以资本公积转增股本。方案尚需提交 <strong>2026年11月13日</strong> 召开的第二次临时股东会审议。</li>
-<li><strong>变动原因（季报原文可核）</strong>：前三季度营业收入同比上升，公司称“主要系本报告期公司运营的游戏表现良好，带来收入增加”；销售费用、营业成本分别同比 <strong>+122.98%</strong>、<strong>+144.73%</strong>，对应市场推广费与对外分成费增加。</li>
-<li><strong>重大事项一句</strong>：季报披露，公司拟通过收购 Neosphere 等路径间接参股韩国上市公司 Wemade（公告 <strong>2026-058</strong>，<strong>2026年9月12日</strong>披露），目标包括巩固“传奇”类游戏基本盘；另有子公司与传奇 IP 和解相关非经常性损益说明，细节以公告为准。</li>
-<li><strong>披露与审计</strong>：三季报公告编号 <strong>2026-061</strong>；第六届董事会第六次会议于 <strong>2026年10月28日</strong>召开、决议公告 <strong>2026-060</strong>；媒体／披露常见日 <strong>2026-10-29</strong>；第三季度财务会计报告 <strong>未经审计</strong>。</li>
-</ul>
-<h2>关键财务数据表（据三季报主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>2,461,357,345.52</td><td>+64.42%</td><td>7,257,942,657.05</td><td>+78.11%</td></tr><tr><td>归属于上市公司股东的净利润</td><td>641,144,058.89</td><td>+1.22%</td><td>2,069,468,879.62</td><td>+30.69%</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>624,133,219.40</td><td>+7.27%</td><td>1,790,868,196.73</td><td>+17.79%</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>2,001,718,624.92</td><td>+51.97%</td></tr><tr><td>基本每股收益（元／股）</td><td>0.30</td><td>+0.00%</td><td>0.98</td><td>+32.43%</td></tr><tr><td>稀释每股收益（元／股）</td><td>0.30</td><td>+0.00%</td><td>0.98</td><td>+32.43%</td></tr><tr><td>加权平均净资产收益率</td><td>5.93%</td><td>-1.51个百分点</td><td>19.69%</td><td>-1.09个百分点</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>15,913,125,404.19</td><td>13,073,211,436.90</td><td>+21.72%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>11,112,747,468.47</td><td>9,902,132,296.89</td><td>+12.23%</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月28日，恺英网络股份有限公司召开第六届董事会第六次会议，审议通过《2026年第三季度报告》及《关于2026年前三季度利润分配方案的议案》（决议公告编号 2026-060；三季报公告编号 2026-061；利润分配公告编号 2026-062）。材料落在巨潮／深交所披露链上的常见日期是 2026年10月29日。对产经读者，这份三季报的硬读数很清楚。单季营收同比 +64.42%，归母净利同比仅 +1.22%；前三季度累计营收与归母净利仍明显增长，经营现金流净额同比 +51.97%；同日落地每 10 股派 1 元（含税）的前三季度分红预案，尚待股东会过关。</p>
-<p>第三季度（本报告期）营业收入 2,461,357,345.52 元，约 24.61 亿元，同比增 64.42%；归属于上市公司股东的净利润 641,144,058.89 元，约 6.41 亿元，同比仅增 1.22%。扣除非经常性损益后的归母净利润 624,133,219.40 元，约 6.24 亿元，同比增 7.27%。营收与利润增速拉开，费用端和分成端在跟着量走，下文费用同比可以对照。</p>
-<p>年初至报告期末，营业收入 7,257,942,657.05 元，约 72.58 亿元，同比增 78.11%；归母净利 2,069,468,879.62 元，约 20.69 亿元，同比增 30.69%。扣非归母净利 1,790,868,196.73 元，约 17.91 亿元，同比增 17.79%。经营活动产生的现金流量净额 2,001,718,624.92 元，约 20.02 亿元，同比增 51.97%；公司在现金流量变动说明中写明，主要系销售商品、提供劳务收到的现金增加。季报对营业收入变动的原文表述是：“主要系本报告期公司运营的游戏表现良好，带来收入增加。”没有在主要会计数据附注里点名单品流水，本稿也不外推。</p>
-<p>费用侧同表也能对上。年初至期末营业成本 1,690,936,632.34 元，同比增 144.73%，公司称主要系对外分成费增加；销售费用 2,842,404,644.10 元，同比增 122.98%，对应市场推广费增加；管理费用 160,874,431.84 元，同比增 36.17%。投资收益、营业外收入等科目波动较大，季报注 2／注 3／注 4 将其部分归因于权益法投资收益，以及子公司上海恺英与株式会社传奇 IP 签订《和解协议》后确认的债务重组收益、仲裁胜诉相关收益，和浙江欢游相关仲裁费用损失。非经常性损益合计年初至期末约 2.79 亿元，读利润时建议与扣非并排看。</p>
-<p>资产负债表截至 2026年9月30日：总资产 15,913,125,404.19 元，约 159.13 亿元，较上年末增 21.72%；归属于上市公司股东的所有者权益 11,112,747,468.47 元，较上年末增 12.23%。货币资金期末 5,507,090,827.13 元。交易性金融资产期末约 17.28 亿元，较上年末大幅增加，公司称主要系理财投资增加。报告期末普通股股东总数 115,126 名。</p>
-<p>利润分配方面：董事会拟以截至目前已发行总股本 2,136,443,234 股扣除回购专户持有的 15,450,400 股后的 2,120,992,834 股为基数，向全体股东每 10 股派发现金红利 1.00 元（含税），合计派发 212,099,283.40 元（含税）；不送红股、不以资本公积转增股本。若披露日至股权登记日期间股本或回购股份数变动，按分配比例不变原则调整总额。该议案尚需提交公司 2026 年第二次临时股东会审议；公司通知现场会议时间为 2026年11月13日 14:00。</p>
-<p>其他重要事项中，季报复述了 2026年9月11日董事会审议的间接参股 Wemade 安排：拟通过增资与收购 Neosphere 等路径，使公司间接持有 Wemade 控股权中对应 49% 的权益，整体预估出资约 2.98 亿美元（约合人民币 20.30 亿元）；公司称有助于获得“传奇”系列相关许可及权益、巩固传奇类游戏基本盘。具体情况见 2026年9月12日披露的公告 2026-058。本稿只点到季报已写明的结论句，不展开交易结构长文。</p>
-<p>发行与资本市场侧，单季营收增速远高于归母增速，前三季度经营现金流同比改善明显；分红预案落地但需股东会确认。数字以公司三季报与利润分配公告为准；未披露的单品营收拆分或联运分成、区域 ARPU，本稿不外推。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：恺英网络股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  公告编号：2026-061  </p>
-<p>  出版方：恺英网络股份有限公司  </p>
-<p>  董事会会议：2026年10月28日（第六届董事会第六次会议）  </p>
-<p>  链接：<a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-10-29/4d7a6589-b029-434c-a4d9-2f4ff9ef652c.PDF">深交所披露 PDF｜恺英网络2026年第三季度报告</a></p>
-<ul>
-<li>原文标题：关于2026年前三季度利润分配方案的公告／第六届董事会第六次会议决议公告  </li>
-</ul>
-<p>  公告编号：2026-062／2026-060  </p>
-<p>  出版方：恺英网络股份有限公司（东方财富公告 PDF 镜像；上证报同日转载页）  </p>
-<p>  披露常见日期：2026-10-29  </p>
-<p>  链接：<a href="https://pdf.dfcfw.com/pdf/H2_AN202610281831116343_1.pdf">利润分配方案公告 PDF</a>；<a href="https://pdf.dfcfw.com/pdf/H2_AN202610281831116334_1.pdf">董事会决议公告 PDF</a>；<a href="https://paper.cnstock.com/html/2026-10/29/content_2283068.htm">上证报｜三季报及同日董事会决议、利润分配摘要</a></p>
-<ul>
-<li>原文标题：关于公司拟间接参股韩国公司 Wemade Co., Ltd.的公告  </li>
-</ul>
-<p>  公告编号：2026-058  </p>
-<p>  披露日期：2026-09-12  </p>
-<p>  链接：<a href="https://pdf.dfcfw.com/pdf/H2_AN202609121829315425_1.pdf">Wemade 间接参股公告 PDF</a></p>
-<p>本文为妙游社据公司三季报与同日利润分配公告整理：亿元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、资产负债与费用变动原因均摘自报告主要会计数据及变动说明；利润分配基数、拟派总额与股东会安排摘自公告 2026-062。未编造未披露的分业务营收细拆或未证实的排期。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/kaiying-q3-2026-cover-1024x737.webp"/>
-    </item>
-    <item>
-      <title>《弗莱明庄园命案》（Death at Fleming Manor）今日起按 Steam 解锁登陆 PC</title>
-      <link>https://www.kmhgame.com/fu-lai-ming-zhuang-yuan-ming-an-death-at-fleming-manor-jin/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/fu-lai-ming-zhuang-yuan-ming-an-death-at-fleming-manor-jin/</guid>
-      <pubDate>Tue, 03 Nov 2026 00:07:08 GMT</pubDate>
-      <category>游戏热点</category>
-      <description><![CDATA[<p>《弗莱明庄园命案》今日起按Steam解锁登陆PC；Windows与macOS，非主机今日发售。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/death-fleming-manor-cover-616x353.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>今日／本档</strong>：Steam 店面将发售日标为 <strong>2026-11-03</strong>；官方社区 2026-10-27 公告给出多时区解锁表，其中 <strong>中国／台湾 16:00（CST，UTC+8）</strong>。晨间店面仍可能显示即将推出，<strong>以 Steam 实际解锁为准</strong>。本稿写的是 <strong>PC（Steam）正式版解锁</strong>，不是主机今日发售。</li>
-<li><strong>开发／发行</strong>：韩国独立工作室 <strong>SUPERTHUMb</strong> 自研自发。</li>
-<li><strong>平台</strong>：发售日起 <strong>Windows 与 macOS</strong>；店面与社区公告均未把主机列入今日档。</li>
-<li><strong>玩法（店面／PR 口径）</strong>：1959 年英国庄园法医推理。勘查现场、验尸与问询，再填写死亡证明与急救报告；自行判断意外／自杀／谋杀。手绘清线（ligne claire）风，灵感自 1960 年代欧洲侦探漫画；官方声明美术为团队手绘、<strong>未使用生成式 AI</strong>。店面对标口吻可提 <em>Return of the Obra Dinn</em>／<em>The Case of the Golden Idol</em>，本稿不作评测。</li>
-<li><strong>语言</strong>：英语、日语、韩语、简体中文、繁体中文。</li>
-<li><strong>定价</strong>：交稿打开店面时 <code>price_overview</code> 为空（尚未稳定标价），<strong>售价以 Steam 实时显示为准</strong>，本稿不写死美元／人民币。</li>
-<li><strong>Wishlist／Demo</strong>：发售前官方社区称 Wishlist 破十万（另有 9 月 PR 称超 6.5 万）；另有 Demo（App <strong>4137650</strong>）。2026-09-03 Games Press 称 Demo 含序章＋第一章、当时 Very Positive 且评分数＞140。<strong>仅为当时 Demo 口径，勿读成正式版已评</strong>。</li>
-</ul>
-<h2>正文</h2>
-<p>2026 年 11 月 3 日起，《弗莱明庄园命案》（Death at Fleming Manor，Steam App <strong>3758950</strong>）进入 Steam 标注的解锁窗口。开发与发行均为韩国独立工作室 SUPERTHUMb。店面与官方社区写明首发平台为 <strong>Windows 与 macOS</strong>；本稿不写成主机今日全球发售。</p>
-<p>解锁时刻按官方社区时区表理解即可，最终以 Steam 放行为准。2026-10-27 社区帖 <em>Less Than One Week Until Release! 100,000 Wishlists!</em> 列出：PST 0:00、EST 3:00、GMT 8:00、CET 9:00、<strong>CST（UTC+8）16:00</strong>、KST／JST 17:00。早期 Games Press（2026-09-03）曾写 11:00 AM UTC／20:00 KST，与后续社区公告冲突。<strong>正文以社区解锁表与 Steam 实际解锁为准</strong>，不写死那一版错误钟点。晨间打开店面时仍可能看到即将推出，属解锁前窗口，勿当成延期。</p>
-<p>玩法卖点沿用店面与 PR：你的工作是填写死亡证明。1959 年伦敦郊外弗莱明庄园接连出现不明死亡；勘查阴森现场、分析证据、问询相关人员，再把结论写进死亡证明或急救报告。漏填或填错可能导向错误结案；意外、自杀还是谋杀，由玩家自己收口。画面为手绘清线风格，灵感来自 1960 年代欧洲侦探漫画；官方另声明不使用生成式 AI 美术，并在 YouTube 公开 Clip Studio Paint 流程。店面自比 <em>Return of the Obra Dinn</em> 与 <em>The Case of the Golden Idol</em>，本稿只作对标提示，不作体验评测。</p>
-<p>发售前官方社区称 Wishlist 已破十万（帖内写上周约 8.5 万、很快到 10 万）；9 月 Games Press 则称超 6.5 万；写的是官方自称节点，勿当成 SteamDB 现时精确数。Demo 仍可在 Steam 找到（App 4137650）；9 月 PR 称 Demo 为序章＋第一章，当时评分为 Very Positive、样本＞140。语言支持英语、日语、韩语、简体中文与繁体中文。售价：交稿时 Steam API <code>price_overview</code> 为 null，<strong>以 Steam 实时页为准</strong>。</p>
-<p>官网与 Press kit 另见 SUPERTHUMb 站点与 Bonfire PR Notion 页；本稿不作主机排期推测。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：弗莱明庄园命案／Death at Fleming Manor（Steam 店面）  </li>
-</ul>
-<p>  出版方：Steam／SUPERTHUMb  </p>
-<p>  链接：<a href="https://store.steampowered.com/app/3758950/Death_at_Fleming_Manor/">Steam 店面（App 3758950）</a> </p>
-<p>  要点：发售日 2026-11-03；Windows／macOS；开发／发行 SUPERTHUMb；语言英／日／韩／简中／繁中；法医推理卖点与手绘风格说明；交稿时 coming_soon 与 price_overview=null</p>
-<ul>
-<li>原文标题：Less Than One Week Until Release! 100,000 Wishlists!  </li>
-</ul>
-<p>  出版方：Death at Fleming Manor Steam 社区公告  </p>
-<p>  链接：<a href="https://store.steampowered.com/news/app/3758950/view/1847286114050012">Steam 新闻页（解锁时区／Wishlist）</a> </p>
-<p>  日期：2026-10-27  </p>
-<p>  要点：多时区解锁表（含 CST UTC+8 16:00）；Windows＋macOS；Wishlist 破十万</p>
-<ul>
-<li>原文标题：Your Next Case Is Assigned: Death at Fleming Manor Arrives November 3rd  </li>
-</ul>
-<p>  出版方：Games Press／Bonfire PR  </p>
-<p>  链接：<a href="https://www.gamespress.com/Your-Next-Case-Is-Assigned-Death-at-Fleming-Manor-Arrives-November-3rd">Games Press 通稿</a> </p>
-<p>  日期：2026-09-03  </p>
-<p>  要点：11/3 定档；Wishlist＞6.5 万；Demo 序章＋第一章与当时 Very Positive＞140；Obra Dinn／Golden Idol 对标；<strong>早期解锁钟点 11:00 AM UTC／20:00 KST 与后续社区公告冲突，正文不采用</strong></p>
-<ul>
-<li>原文标题：Death at Fleming Manor Demo（交叉）  </li>
-</ul>
-<p>  链接：<a href="https://store.steampowered.com/app/4137650/Death_at_Fleming_Manor_Demo/">Steam Demo（App 4137650）</a></p>
-<ul>
-<li>原文标题：官网／Press kit  </li>
-</ul>
-<p>  链接：<a href="https://www.superthumb.net/flemingmanor">SUPERTHUMb 官网页</a> </p>
-<p>  链接：<a href="https://bonfirepr.notion.site/death-at-fleming-manor">Bonfire PR Press kit</a></p>
-<p>本文为妙游社据 Steam 店面与官方社区公告整理的答案型发售短讯：写清 PC 解锁、Windows／macOS、社区时区表与 Wishlist 自称；未写成主机今日发；未写死售价；未把早期 PR 错误钟点当现网；未把 Demo 评分当正式版；非评测。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/death-fleming-manor-cover-616x353.webp"/>
-    </item>
-    <item>
-      <title>《星布谷地》预下载 12 月 1 日开放；预约送什么一览</title>
-      <link>https://www.kmhgame.com/xing-bu-gu-di-yu-xia-zai-12-yue-1-ri-kai-fang-yu-yue-song/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/xing-bu-gu-di-yu-xia-zai-12-yue-1-ri-kai-fang-yu-yue-song/</guid>
-      <pubDate>Mon, 02 Nov 2026 13:43:07 GMT</pubDate>
-      <category>流行游戏</category>
-      <description><![CDATA[<p>《星布谷地》预下载自 <strong>12 月 1 日</strong> 开放（PC／iOS／Android）；预约即领“星空贴贴手灯”，全球千万里程碑“小星苗”套装已全开。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/xingbugudi-predownload-cover-1024x576.webp"/></figure>
-<p>HoYoverse／米哈游慢生活新作《星布谷地》（Petit Planet）于 2026 年 11 月 1 日发布预告节目与 PR TIMES 新闻稿同步更新节点；中文官网与活动页继续以“12 月 4 日公测／预约领好礼”承接查询。本稿只回答两件事：<strong>什么时候预下载、预约／开服礼送什么</strong>。</p>
-
-<h2>要点</h2>
-<ul>
-<li><strong>预下载</strong>：日文官方新闻稿写明自 <strong>2026-12-01</strong> 开放；对应即将公测的 <strong>PC、iOS、Android</strong>。预下载 ≠ 当天可玩；具体各店入口与时刻以客户端／商店页为准，本稿未登录逐端实测按钮。</li>
-<li><strong>公测窗口</strong>：PC／iOS／Android <strong>2026-12-04</strong> 全球公测／同步上线（中文官网口径“公测”，日文稿“全球同时发行”）。</li>
-<li><strong>预约即领</strong>：官网活动页写明预约《星布谷地》即得 <strong>“星空贴贴手灯”</strong>（含历史预约）；公测登录后领取。</li>
-<li><strong>里程碑已全开</strong>：官方称全球预约破 <strong>1000 万</strong>，里程碑奖励全解放；终档为 <strong>“小星苗”套装</strong>。阶梯（官网展示）还包括：200 万“和熙花果茶”×2、400 万“星红烟花”×2、600 万“甜蜜特饮”×2、800 万“街乐果冻”×100。</li>
-<li><strong>开服登录／成长</strong>：活动名 <strong>“树下七日七盏茶”</strong>：七日登录领 <strong>“奇物海哨”×10</strong>；<strong>“种星成长礼”</strong>：露卡树达 30 级合计领 <strong>“小海哨”×10</strong>（细则以游戏内活动页为准）。</li>
-<li><strong>组队预约服装</strong>：活动 <strong>“好星友就这么搭”</strong>：三人完成预约并成团，可获 <strong>阿奇宝上衣</strong>（自选包口径见官方活动说明）。</li>
-<li><strong>周边节点（不展开细则）</strong>：11 月 1 日起网页活动“发射你的星球／星球发射”；12 月 3 日上线前直播（日文官方稿称“搬家准备特番”）；公测前瞻特别兑换码 <strong>XBGD1204</strong>（内含“奇物海哨”×10，公测后于设置→账号→兑换码兑换）。道具数值与领取路径以官方当时页为准，勿把网页抽奖实物当成游戏内必得。</li>
-</ul>
-<h2>正文</h2>
-<p>先记日期。株式会社 COGNOSPHERE（HoYoverse）2026 年 11 月 1 日经日本 PR TIMES 发布的新闻稿写明：《星布谷地》正式推出日前的 <strong>事前下载（预下载）自 12 月 1 日开放</strong>；PC、iOS、Android 于 <strong>12 月 4 日（周五）</strong> 全球同步推出。中文官方站点标题与 meta 统一使用“12 月 4 日公测开启／正式公测”，预约入口仍挂在 <a href="https://planet.hoyoverse.com/zh-cn/">planet.hoyoverse.com/zh-cn</a>。预下载只解决“把包提前下完”，不改变 12 月 4 日才开服的节奏；各平台预下载按钮何时亮起、容量多大，以商店与启动器当时显示为准。</p>
-<p>预约福利可以压成一张清单。中文官网活动页写明：预约即得 <strong>“星空贴贴手灯”</strong>（含历史预约），并随全球预约里程碑解锁 <strong>“小星苗”套装</strong> 等奖励，<strong>公测时登录即可领取</strong>。PR TIMES 同步宣布事前登录已破 <strong>1000 万</strong>、事前登录报酬全解放，与官网终档里程碑一致。官网展示的中间档为：200 万“和熙花果茶”×2、400 万“星红烟花”×2、600 万“甜蜜特饮”×2、800 万“街乐果冻”×100；中间档道具名以页面字符串为准，领取条件仍是“完成预约并达到对应里程碑人数”。</p>
-<p>开服后还有两条固定活动线。活动 <strong>“树下七日七盏茶”</strong>：七日登录领取 <strong>“奇物海哨”×10</strong>，用于“星海唤舟”获取当季奇物；每日奖励按官网说明于当日 04:00（UTC+8）刷新，未领可顺延补领。活动 <strong>“种星成长礼”</strong>：露卡树达到 30 级，合计可领取 <strong>“小海哨”×10</strong>（成长线用于兑换当季服饰／星海唤舟相关用途，以游戏内说明为准）。日文新闻稿把同类内容概括为登录奖励与成长奖励，中文页给出了活动名与数量。</p>
-<p>想凑服装的，看组队预约。官网板块 <strong>“好星友就这么搭”</strong> 文案为“三人成团必得阿奇宝上衣”；TapTap 官方活动帖补充：三人完成预约并组队后，全队可获“阿奇宝上衣自选包”，公测后于活动中心对应页签领取；具体时限与兑换规则以该活动页为准。</p>
-<p>其余节点只钉名字、不展开数值。11 月 1 日起有网页向“发射你的星球／星球发射”活动（繁中官网新闻列表写作“星球发射”）；12 月 3 日有上线前直播，日文官方稿命名为“搬家准备特番”；公测前瞻特别兑换码 <strong>XBGD1204</strong> 写在中文官网活动资源与 TapTap 官方帖，兑换路径为公测后游戏内设置→账号→兑换码，飞件有效期等以页面说明为准。网页扭蛋、异业抽奖实物（如手机、周边）属于另一条抽奖规则，不能写成“预约必得”。</p>
-<p>渠道侧，日文官方稿写明可在 App Store、Google Play、Epic Games Store 搜索预约；中文玩家亦可走官网预约。PC 首发是否另有官方客户端、Steam 是否同期上架，公开材料口径不一，本稿不把“未宣布的商店”写成已上架。Switch 2 版仅官宣 2027 年、仍在开发，与本次预下载／12 月 4 日公测不是同一条线。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>一手／日文官方新闻稿（钉死预下载 12／1、公测／全球同步 12／4、预约破千万与登录／成长奖励概述）：  </li>
-</ul>
-<p>  链接：<a href="https://prtimes.jp/main/html/rd/p/000000463.000096124.html">PR TIMES｜Petit Planet／星布谷地新闻稿</a></p>
-<ul>
-<li>一手／英文社区官宣（同窗口）：  </li>
-</ul>
-<p>  链接：<a href="https://www.hoyolab.com/article/47276077">HoYoLAB｜Petit Planet Switch 2 in 2027</a></p>
-<ul>
-<li>一手／中文官网与活动页（预约即领“星空贴贴手灯”、里程碑“小星苗”套装、七日登录／种星成长礼、组队阿奇宝、兑换码 XBGD1204 等中文道具名）：  </li>
-</ul>
-<p>  链接：<a href="https://planet.hoyoverse.com/zh-cn/">《星布谷地》中文官网</a></p>
-<ul>
-<li>一手／TapTap 官方帖（启程礼遇／组队活动补充说明，道具名与官网一致）：  </li>
-</ul>
-<p>  链接：<a href="https://www.taptap.cn/moment/865371624516354368">TapTap｜公测定档：启程礼遇抢先看</a></p>
-<p>本文为妙游社据上述官方一手编译，回答预下载日期与预约／开服福利清单；活动细则、领取时限与道具用途以官方当时页面及游戏内说明为准，后续变更以官方更新为准。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/xingbugudi-predownload-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>《星布谷地》定档 12 月 4 日全球公测；Switch 2 版官宣 2027 年上线</title>
-      <link>https://www.kmhgame.com/xing-bu-gu-di-ding-dang-12-yue-4-ri-quan-qiu-gong-ce-switch/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/xing-bu-gu-di-ding-dang-12-yue-4-ri-quan-qiu-gong-ce-switch/</guid>
-      <pubDate>Mon, 02 Nov 2026 13:15:17 GMT</pubDate>
-      <category>游戏热点</category>
-      <description><![CDATA[<p>《星布谷地》定档 <strong>12 月 4 日</strong> 全球公测（PC／手机）；<strong>Switch 2</strong> 版官宣 <strong>2027</strong> 年，开发中、无更细日期。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/xingbugudi-switch2-cover-1024x576.webp"/></figure>
-<p>HoYoverse（米哈游海外品牌）于 <strong>2026 年 11 月 1 日</strong>“发布预告节目”与 PR TIMES／HoYoLAB 同步官宣上述节点；中文官网口径为“正式公测／公测开启”，与日英“全球同步发行／launches”为同一窗口。</p>
-
-<h2>要点</h2>
-<ul>
-<li><strong>全球公测／同步上线</strong>：PC（Epic Games Store 等）、iOS、Android 定档 <strong>2026-12-04</strong>；日文官方新闻稿写“全球同时发行”，中文官网标题写“12月4日正式公测／公测开启”——同一窗口，本稿中文表述跟中文官网“公测”。</li>
-<li><strong>预下载</strong>：日文官方稿写明预下载自 <strong>12 月 1 日</strong> 开放。</li>
-<li><strong>Switch 2</strong>：仅钉 <strong>2027 年</strong>，无季度／月份；官方称开发团队正加紧开发，将尽快分享实机游玩影像与更详内容。</li>
-<li><strong>预约</strong>：App Store、Google Play、Epic Games Store 等渠道已开放事前登录／预约；官方称全球预约突破 <strong>1000 万</strong>，对应里程碑奖励全开（以游戏内到账规则为准）。</li>
-<li><strong>品类</strong>：HoYoverse“首款”慢生活向作品；玩家扮演“星民／Planet Tender”，在自有小星球上改地形、种作物、钓鱼、做家具，并与邻居互动、出海探索。</li>
-<li><strong>背景一句</strong>：同厂《原神》此前也曾官宣过任天堂主机意向但长期未落地；本稿主叙事仍是《星布谷地》本次节点，不以“原神六年未上”作主轴。</li>
-</ul>
-<h2>正文</h2>
-<p>先把日期钉死。2026 年 11 月 1 日，株式会社 COGNOSPHERE（HoYoverse）经日本 PR TIMES 发布新闻稿，并同步在 HoYoLAB 英文社区发帖：慢生活新作 Petit Planet／《星布谷地》的 <strong>Nintendo Switch 2</strong> 版预定 <strong>2027 年</strong> 登场；PC、iOS、Android 则于 <strong>2026 年 12 月 4 日（周五）</strong> 全球同步推出。中文官方站点标题与 meta 统一使用“12月4日正式公测／公测开启”——面向中文读者时，本稿采用“全球公测”表述，并注明日文稿对应“全球同时发行”、英文社区写 “officially launches on December 4”。</p>
-<p>Switch 2 版的边界也要写清：官方只给到“2027 年”，没有更细日期；新闻稿写明开发团队正加紧开发，并承诺近期尽量带来实机影像与更详内容。换言之，这次是平台官宣与开发中表态，不是实机演示定档。为纪念 Switch 2 版公布，日文官方 X 同步开抽奖（本体＋Pro 手柄等），细节以官方帖为准。</p>
-<p>玩法侧，官方把本作定位为“造属于你的星星”的慢生活：玩家成为星民，随时间推移塑造星球地形、季节与生态；日常可种植、钓鱼、制作家具，也能与邻居往来、前往星海小岛或银河市集。预约侧，官方称事前登录已破千万，并开放登录奖励、成长奖励、组队预约服装活动，以及 11 月 1 日起的“发射你的星球”网页活动；12 月 3 日还将有上线前直播“搬家准备特番”。上述活动与道具名以官方页面当时规则为准，本稿不展开兑换码清单。</p>
-<p>渠道方面，日文官方稿写明可在 App Store、Google Play、Epic Games Store 搜索预约；官方站点 https://planet.hoyoverse.com 提供各语区入口。是否另有主机实体版、跨存档、跨购，公开材料未在本次稿中写死，本稿不臆测。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>一手／日文官方新闻稿（2026-11-01）：PR TIMES，株式会社 COGNOSPHERE（HoYoverse／COGNOSPHERE；钉死 Switch 2＝2027、PC／iOS／Android＝2026-12-04 全球同步、预下载 12／1）  </li>
-</ul>
-<p>  链接：<a href="https://prtimes.jp/main/html/rd/p/000000463.000096124.html">PR TIMES｜Petit Planet／星布谷地新闻稿</a></p>
-<ul>
-<li>一手／英文社区官宣（HoYoLAB）：《Petit Planet is coming to Nintendo Switch 2 in 2027!》  </li>
-</ul>
-<p>  链接：<a href="https://www.hoyolab.com/article/47276077">HoYoLAB｜Petit Planet Switch 2 in 2027</a></p>
-<ul>
-<li>一手／中文官网口径（标题“12月4日公测开启／正式公测”）：  </li>
-</ul>
-<p>  链接：<a href="https://planet.hoyoverse.com/zh-cn/">《星布谷地》中文官网</a></p>
-<p>本文为妙游社据上述官方一手编译：12 月 4 日窗口以 PR TIMES／HoYoLAB／中文官网为准；Switch 2 仅“2027”、开发中、无更细日期。活动与预约数字以官方当时页面为准，后续变更以官方更新为准。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/xingbugudi-switch2-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>GRAVHOUNDS 今日 PC＋Xbox Early Access／Game Preview 上线，日一进 Game Pass</title>
-      <link>https://www.kmhgame.com/gravhounds-jin-ri-pc-xbox-early-access-game-preview-shang/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/gravhounds-jin-ri-pc-xbox-early-access-game-preview-shang/</guid>
-      <pubDate>Mon, 02 Nov 2026 12:56:28 GMT</pubDate>
-      <category>游戏热点</category>
-      <description><![CDATA[<p><strong>GRAVHOUNDS</strong> 官方钉 <strong>11 月 2 日</strong> 进 PC＋Xbox EA／Game Preview，日一 Game Pass；Steam 尚未解锁。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/gravhounds-ea-cover-1024x576.webp"/></figure>
-<p>Xbox Wire“Next Week on Xbox”（2026-10-30）已将其列入本周新游；2026-08 揭幕稿与 Games Press 新闻稿同钉该日。开发由前 Halo Studios 负责人、<em>Halo 4</em> 创意总监 <strong>Josh Holmes</strong> 领衔的七人工作室 <strong>Octopus Panic</strong> 自研自发。Xbox／Game Pass 实际可玩以本地区商店当日状态为准。</p>
-
-<h2>要点</h2>
-<ul>
-<li><strong>上线日（官方）</strong>：<strong>2026-11-02</strong>；平台：Xbox Series X|S、Xbox on PC（Microsoft Store）、Steam（Windows）。</li>
-<li><strong>平台差（现网）</strong>：Steam 店面写明 “not yet available”、约数小时后解锁（对应约 <strong>2026-11-03 01:51 Asia/Shanghai</strong>）；Xbox Wire／Games Press 仍钉 11 月 2 日 Game Preview／Early Access，实际可玩以本地区 Xbox／Game Pass 当日显示为准。</li>
-<li><strong>订阅</strong>：<strong>日一 Xbox Game Pass</strong>；Xbox Wire 标注 <strong>Xbox Play Anywhere</strong>。</li>
-<li><strong>形态</strong>：Game Preview／Early Access——官方强调系统、平衡与合作仍会与玩家一起打磨；购买须接受“未完成作品”说明。Steam 页称 Early Access 预计约 <strong>六个月</strong>（或更长），正式版（1.0）日期未钉死。</li>
-<li><strong>玩法</strong>：1～4 人合作动作建造；扮演生物工程犬工“Gravhound”，降落敌意星球，用重力束（Grav Beam）搬运／投掷，铺管线、建炮塔与设施，尽量满载撤离；停留越久奖励越高、虫群越强。</li>
-<li><strong>团队</strong>：Octopus Panic 约 <strong>七人</strong> 全职；创始班底来自 343 Industries／DICE 等；自筹自宣发。</li>
-</ul>
-<h2>正文</h2>
-<p>把节点写死：官方档期是 <strong>2026 年 11 月 2 日</strong> 进入 Early Access／Game Preview，不是“刚刚首次曝光”。首次公开发生在 2026 年 8 月 gamescom／Opening Night Live 前后——Xbox Wire 于 8 月 27 日刊登 Josh Holmes 署名稿，Games Press 新闻稿日期为 8 月 25 日，二者均写明 <strong>November 2, 2026</strong> 登陆 PC 与 Xbox，并日一进 Game Pass。10 月 30 日 Xbox Wire《Next Week on Xbox: New Games for November 2 to 6》再次把它排进本周名单，口径未改。平台差也要写清：抓稿时 Steam 仍显示尚未解锁、约数小时后开放（解锁时刻约落 Asia/Shanghai 的 11 月 3 日凌晨）；Xbox／Game Pass 同属该档，玩家侧是否已能下载开玩，以本地区商店页为准——勿把“日历日＝已全球同时可玩”写成绝对句。</p>
-<p>作品本身是系统向合作：玩家作为“远赴星系另一端仍得上班”的蓝领太空犬，接任务、建临时基地、抢高价值材料、再撤离。官方反复强调 Grav Beam 既是工业工具也是武器，管线既供电也是高速滑轨；“计划只能撑大约 30 秒”——合作张力来自救援队友、临时改建造与撤离时机，而不是四人同屏对同一靶子开火。Game Preview 被工作室写成自然选择：要靠真实玩家把系统、平衡和合作边角打磨完。</p>
-<p>人员侧可记一句：Octopus Panic 自述全职约七人，Holmes 与 Scott Sims 等为联合创始；班底履历覆盖 Halo、Battlefield 等大作，但本作刻意“重新变小”。公开材料未给出正式版（1.0）日期，本稿只记录 Early Access／Game Preview 启动，不臆测何时出 EA。</p>
-<p>国区商店上架、买断价、是否进 PC Game Pass 国区等以玩家本地区 Xbox／Steam 页面当日显示为准；本稿事实锚在 Xbox Wire、Games Press 与 Steam 店面的全球口径。Steam 页未在抓稿时给出可购价格数字，故正文不写死售价。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>一手／本周上线清单（2026-10-30）：Xbox Wire，《Next Week on Xbox: New Games for November 2 to 6》（条目 GRAVHOUNDS Game Preview – November 2，Game Pass／Play Anywhere）  </li>
-</ul>
-<p>  链接：<a href="https://news.xbox.com/en-us/2026/10/30/next-week-on-xbox-new-games-for-november-2-to-6/">Next Week on Xbox: New Games for November 2 to 6</a></p>
-<ul>
-<li>一手／揭幕署名稿（2026-08-27）：Xbox Wire，Josh Holmes，《Gravhounds Revealed: Co-op Chaos with Bio-Engineered Dogs in Space》  </li>
-</ul>
-<p>  链接：<a href="https://news.xbox.com/en-us/2026/08/27/gravhounds-revealed-co-op-chaos-bio-engineered-dogs-in-space/">Gravhounds Revealed（Xbox Wire）</a></p>
-<ul>
-<li>一手／开发商新闻稿（2026-08-25）：Games Press，《Co-op action builder GRAVHOUNDS entering Early Access on PC and Xbox November 2, 2026》  </li>
-</ul>
-<p>  链接：<a href="https://www.gamespress.com/Co-op-action-builder-GRAVHOUNDS-entering-Early-Access-on-PC-and-Xbox-N">GRAVHOUNDS Early Access 新闻稿（Games Press）</a></p>
-<ul>
-<li>一手／Xbox 商店页：《GRAVHOUNDS (Game Preview)》  </li>
-</ul>
-<p>  链接：<a href="https://www.xbox.com/en-US/games/store/gravhounds-game-preview/9pbg4mtm3jjc">Xbox Store｜GRAVHOUNDS (Game Preview)</a></p>
-<ul>
-<li>一手／Steam 店面：app/2440760（Early Access；抓稿时尚未解锁）  </li>
-</ul>
-<p>  链接：<a href="https://store.steampowered.com/app/2440760/GRAVHOUNDS/">Steam｜GRAVHOUNDS</a></p>
-<p>本文为妙游社据 Xbox Wire／Games Press／Steam 店面等一手编译：官方上线日以 2026-11-02 为准；日一 Game Pass、Game Preview／Early Access、Play Anywhere 以 Xbox 官方页面为准；Steam 解锁时刻以店面倒计时为准（时区差或落 11 月 3 日凌晨）。正式版档期公开材料未钉死；Steam 页称 Early Access 预计约六个月或更长。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/gravhounds-ea-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>电魂网络Q3营收约1.15亿同比+16.33%，前三季归母亏约1.082亿</title>
-      <link>https://www.kmhgame.com/dian-hun-wang-luo-q3-ying-shou-yue-1-15-yi-tong-bi-16-33/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/dian-hun-wang-luo-q3-ying-shou-yue-1-15-yi-tong-bi-16-33/</guid>
-      <pubDate>Mon, 02 Nov 2026 03:00:20 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>电魂网络Q3营收约1.15亿同比+16.33%、归母亏约4939.66万；前三季营收约2.98亿同比+1.74%、归母亏约1.082亿。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/dianhun-q3-2026-cover-1024x381.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>114,752,593.93</strong> 元（约 <strong>1.15</strong> 亿元），同比 <strong>+16.33%</strong>；归属于上市公司股东的净利润 <strong>-49,396,644.89</strong> 元（约亏 <strong>4939.66</strong> 万元）；扣非归母净利 <strong>-50,272,912.31</strong> 元；利润总额 <strong>-48,742,099.26</strong> 元；基本／稀释每股收益均为 <strong>-0.21</strong> 元／股；加权平均净资产收益率 <strong>-2.63%</strong>。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>297,797,418.17</strong> 元（约 <strong>2.98</strong> 亿元），同比 <strong>+1.74%</strong>；归母净利 <strong>-108,170,325.86</strong> 元（约亏 <strong>1.082</strong> 亿元）；扣非归母净利 <strong>-112,668,895.37</strong> 元；利润总额 <strong>-107,787,842.51</strong> 元；基本／稀释每股收益均为 <strong>-0.45</strong> 元／股；加权平均净资产收益率 <strong>-5.65%</strong>。</li>
-<li><strong>经营现金流</strong>：年初至报告期末经营活动产生的现金流量净额 <strong>-120,461,924.88</strong> 元；公司称主要系游戏充值回款较上年同期减少，同时本期游戏买量支出大幅增加。上年同期经营现金流净额为 <strong>-23,082,343.74</strong> 元。</li>
-<li><strong>费用与汇兑（公司变动说明）</strong>：1–9 月销售费用 <strong>122,998,769.97</strong> 元，上年同期 <strong>64,892,927.67</strong> 元，同比 <strong>+89.54%</strong>（部分游戏市场投放、推广费大幅增加）；财务费用由上年同期 <strong>-18,537,046.26</strong> 元转为 <strong>1,976,922.15</strong> 元，公司称主要系美元兑人民币汇率下降产生较多汇兑亏损。Q3 单季销售费用 <strong>58,052,287.15</strong> 元，同比 <strong>+136.27%</strong>。</li>
-<li><strong>亏损原因（公司表述）</strong>：前三季度／Q3 归母与扣非归母亏损扩大，主要因部分老游戏收入同比下降明显，同时部分游戏持续或一定规模市场投放致销售费用增加；前三季度另叠加汇兑亏损。</li>
-<li><strong>资产负债与并购痕迹</strong>：截至 <strong>2026年9月30日</strong>，总资产 <strong>2,190,013,197.53</strong> 元，较上年末 <strong>-4.16%</strong>；归属于上市公司股东的所有者权益 <strong>1,853,398,525.62</strong> 元，较上年末 <strong>-6.32%</strong>；货币资金 <strong>889,575,763.89</strong> 元。商誉期末 <strong>26,516,177.10</strong> 元（上年末 <strong>160,183.53</strong> 元），公司称主要系非同一控制下合并收购上海漫魂。</li>
-<li><strong>披露与审计</strong>：董事会落款 <strong>2026年10月29日</strong>；巨潮静态路径日期常见为 <strong>2026-10-30</strong>；第三季度财务报表 <strong>未经审计</strong>；报告期末普通股股东总数 <strong>23,868</strong> 名；胡建平、陈芳为一致行动人／实际控制人。</li>
-</ul>
-<h2>关键财务数据表（据巨潮 PDF 主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>114,752,593.93</td><td>+16.33%</td><td>297,797,418.17</td><td>+1.74%</td></tr><tr><td>利润总额</td><td>-48,742,099.26</td><td>不适用</td><td>-107,787,842.51</td><td>不适用</td></tr><tr><td>归属于上市公司股东的净利润</td><td>-49,396,644.89</td><td>不适用</td><td>-108,170,325.86</td><td>不适用</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>-50,272,912.31</td><td>不适用</td><td>-112,668,895.37</td><td>不适用</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>-120,461,924.88</td><td>不适用</td></tr><tr><td>基本每股收益（元／股）</td><td>-0.21</td><td>不适用</td><td>-0.45</td><td>不适用</td></tr><tr><td>稀释每股收益（元／股）</td><td>-0.21</td><td>不适用</td><td>-0.45</td><td>不适用</td></tr><tr><td>加权平均净资产收益率</td><td>-2.63%</td><td>不适用</td><td>-5.65%</td><td>不适用</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>2,190,013,197.53</td><td>2,284,956,980.74</td><td>-4.16%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>1,853,398,525.62</td><td>1,978,453,830.91</td><td>-6.32%</td></tr></tbody></table></figure>
-<p>合并利润表费用摘录（年初至报告期末）</p>
-<figure><table><thead><tr><th>项目</th><th>2026年1–9月</th><th>2025年1–9月</th><th>同比</th></tr></thead><tbody><tr><td>营业总成本</td><td>414,755,339.16</td><td>332,425,453.46</td><td>—</td></tr><tr><td>营业成本</td><td>147,485,025.85</td><td>119,556,222.98</td><td>—</td></tr><tr><td>销售费用</td><td>122,998,769.97</td><td>64,892,927.67</td><td>+89.54%</td></tr><tr><td>管理费用</td><td>72,177,351.47</td><td>77,719,226.85</td><td>—</td></tr><tr><td>研发费用</td><td>64,819,855.11</td><td>83,171,780.06</td><td>—</td></tr><tr><td>财务费用</td><td>1,976,922.15</td><td>-18,537,046.26</td><td>不适用</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月29日，杭州电魂网络科技股份有限公司董事会披露《2026年第三季度报告》（巨潮静态文件路径日期常见为 2026-10-30）。对产经读者，这份季报的硬信息是：单季营收同比仍增，但归母与扣非口径继续亏损；前三季度营收微增，亏损规模较上年同期明显扩大，费用侧销售费用与汇兑是公司点名的主因。</p>
-<p>第三季度（本报告期）营业收入 114,752,593.93 元，约 1.15 亿元，同比增 16.33%。归属于上市公司股东的净利润 -49,396,644.89 元，约亏 4939.66 万元。扣除非经常性损益后的归母净利润 -50,272,912.31 元。利润总额 -48,742,099.26 元。基本／稀释每股收益均为 -0.21 元／股；加权平均净资产收益率 -2.63%。公司在变动说明中写明：本年第三季度，部分老游戏收入同比下降明显，同时部分游戏进行了一定规模的市场投放，销售费用大幅增加。</p>
-<p>年初至报告期末，营业收入 297,797,418.17 元，约 2.98 亿元，同比增 1.74%。归母净利 -108,170,325.86 元，约亏 1.082 亿元（上年同期归母净利 -30,515,042.77 元）。扣非归母净利 -112,668,895.37 元。利润总额 -107,787,842.51 元。经营活动产生的现金流量净额 -120,461,924.88 元（上年同期 -23,082,343.74 元）。基本／稀释每股收益均为 -0.45 元／股；加权平均净资产收益率 -5.65%。公司将前三季度亏损同比明显增加归因于：部分老游戏收入同比下降明显、部分游戏持续市场投放推高销售费用，以及美元兑人民币汇率下降带来的汇兑亏损。</p>
-<p>费用结构可直接对照合并利润表：1–9 月营业总成本 414,755,339.16 元（上年同期 332,425,453.46 元）；其中销售费用 122,998,769.97 元，同比增 89.54%；研发费用 64,819,855.11 元（上年同期 83,171,780.06 元）；管理费用 72,177,351.47 元（上年同期 77,719,226.85 元）；财务费用 1,976,922.15 元（上年同期为负的 -18,537,046.26 元）。Q3 单季销售费用 58,052,287.15 元，同比增 136.27%；Q3 营业成本 59,653,910.75 元，同比增 35.35%，公司称主要系收购上海漫魂后商品销售成本增加。投资收益 1–9 月 10,241,648.73 元，同比增 130.21%，公司称主要系大额存单到期赎回增加。</p>
-<p>资产负债表截至 2026年9月30日：总资产 2,190,013,197.53 元，较上年末减 4.16%；归属于上市公司股东的所有者权益 1,853,398,525.62 元，较上年末减 6.32%。货币资金期末 889,575,763.89 元（上年末 945,405,743.22 元）。交易性金融资产期末 201,947,985.89 元，较上年末增 59.42%；其他流动资产减 50.56%，公司称主要系未到期大额存单减少。商誉由上年末 160,183.53 元升至 26,516,177.10 元，对应非同一控制下收购上海漫魂；存货、少数股东权益同步因合并范围扩大而上升。报告期末普通股股东总数 23,868 名；前十大股东中陈芳持股 10.78%，胡建平 5.78%，二者通过《一致行动协议》为实际控制人。</p>
-<p>现金流侧：1–9 月销售商品、提供劳务收到的现金 283,165,344.38 元（上年同期 295,533,243.71 元）；购买商品、接受劳务支付的现金 101,564,940.90 元（上年同期 54,740,300.57 元）；支付其他与经营活动有关的现金 132,118,312.91 元（上年同期 97,013,751.48 元）。投资活动现金流量净额 108,328,165.21 元；筹资活动现金流量净额 -11,931,818.43 元，公司称主要系回购注销的限制性股票增加。汇率变动对现金及现金等价物的影响为 -31,424,927.83 元。</p>
-<p>对发行与资本市场读者的短结论：Q3 营收同比仍增，但利润与经营现金流继续承压；前三季度微增收入挡不住亏损扩大，销售费用与汇兑是季报自己写明的两条主线，收购上海漫魂已在成本与商誉上留下痕迹。数字以巨潮 PDF 为准；季报未拆单品流水或分区域收入，本稿不外推《梦三国》等产品贡献。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：杭州电魂网络科技股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  出版方：杭州电魂网络科技股份有限公司／巨潮资讯网  </p>
-<p>  董事会日期：2026年10月29日  </p>
-<p>  链接：<a href="https://static.cninfo.com.cn/finalpage/2026-10-30/1225642744.PDF">电魂网络2026年第三季度报告（巨潮 PDF）</a></p>
-<p>本文为妙游社据巨潮三季报整理：亿元／万元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、资产负债、销售／研发／财务费用、商誉与收购说明、股东人数与实际控制人信息均摘自报告主要会计数据、变动说明及合并报表；未编造未披露的分业务营收、单品流水或未证实的排期。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/dianhun-q3-2026-cover-1024x381.webp"/>
-    </item>
-    <item>
-      <title>Claude：幻觉校验清单——数字、引语、链接怎么核</title>
-      <link>https://www.kmhgame.com/claude-huan-jue-jiao-yan-qing-dan-shu-zi-yin-yu-lian-jie/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-huan-jue-jiao-yan-qing-dan-shu-zi-yin-yu-lian-jie/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:43:58 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>模型会编；引用与联网能降风险但不能代替人工。对数字／引语／链接用可勾选清单，过不了就删或改“不确定”。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-hallucination-checklist-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>Anthropic 官方减幻觉底线：<strong>允许说不知道</strong>、长文先抽<strong>逐字引语</strong>再分析、对主张做<strong>引用核验</strong>——找不到支撑就撤回。证据：<strong>高</strong>（<a href="https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations">Reduce hallucinations</a>）。</li>
-<li>消费端打开 <strong>Web search</strong> 后，回答应带来源链接／适当引语；仍要你点开核对。证据：<strong>高</strong>（<a href="https://support.claude.com/en/articles/10684626-enable-and-use-web-search">Enable and use web search</a>）。</li>
-<li>API 侧：文档 <strong>Citations</strong>（<code>citations.enabled=true</code>）与 <strong>web_search</strong>（检索引用默认开启）让主张可回溯到文档片段或 URL；有引用≠事实已终核。证据：<strong>高</strong>。</li>
-<li><strong>数字</strong>：对每个关键数字问“出处页能否原样找到”；找不到就删或标不确定——不要用“大概是”。</li>
-<li><strong>引语</strong>：对外引号内文字须与原文一致；先让模型列出带定位的逐字摘录，再写综述。</li>
-<li><strong>链接</strong>：逐条打开；看是否 404、是否与主张同页同段；警惕“看起来很真”的假 URL。</li>
-<li>证据强度：减幻觉策略与联网必引＝高；具体模型列表／限额数字随产品变＝<strong>以你界面为准，勿照抄过期表</strong>；第三方测得的“引用 URL 幻觉比例”＝中（研究向，非 Anthropic 官方 SLA）。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>Claude 写完稿：版本号、营收、“某制作人原话”、三条参考链接——读起来顺，发之前却不敢赌。幻觉（hallucination）在这里就是：<strong>读起来像真的，但对不上可核来源</strong>。官方已经把“准许说不知道＋先引语再分析＋主张要有引用”写成减幻觉常规；联网搜索还会附来源——但 Help 仍写明：重要信息请交叉核对。下面是一份按<strong>数字／引语／链接</strong>拆开的可跟做清单。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：高（Reduce hallucinations＋Web search Help＋Citations／web_search 文档）；界面开关文案以你账号为准。</strong></p>
-<ol>
-<li><strong>生成前：把“可认输”写进约束（官方基础策略）</strong></li>
-</ol>
-<pre><code>只依据我提供的材料与你检索到且能打开的来源。
-任何数字、引语、链接，若材料或来源中没有，写“不确定／未找到”，禁止编造。
-先列出支撑摘录，再写结论。</code></pre>
-<ol>
-<li><strong>数字核对清单（逐条勾）</strong> </li>
-</ol>
-<p>   – [ ] 每个关键数字（版本、日期、金额、占比、人数）能否指回<strong>具体来源句</strong>？  </p>
-<p>   – [ ] 单位与口径是否一致（周／月活、含税／不含、地区范围）？  </p>
-<p>   – [ ] 是否把区间做成了单点、把预测写成了已发生？  </p>
-<p>   – [ ] 模型是否“四舍五入润色”导致与原文不符？  </p>
-<p>   → 任一失败：改原文数字或删除该句；禁止用“约等于”糊弄对外稿。</p>
-<ol>
-<li><strong>引语核对清单</strong> </li>
-</ol>
-<p>   – [ ] 引号内是否为<strong>逐字</strong>原文（含标点），而非同义改写冒充引语？  </p>
-<p>   – [ ] 是否标明说话人／文档名／大致位置（页码或章节）？  </p>
-<p>   – [ ] 长文档场景：是否先执行官方建议的“先抽取相关逐字引语，再仅基于引语分析”？  </p>
-<p>   – [ ] 生成后复检：对每一条主张，能否找回支撑引语？不能 → <strong>撤回该主张</strong>（官方 Verify with citations 流程）。</p>
-<p>可抄复检提示：</p>
-<pre><code>请列出上文每一条事实主张，并为每条给出：
-1) 支撑的逐字引语；2) 来源标题与链接或文档位置。
-找不到支撑的主张请删除，并在原文对应处标记 []。</code></pre>
-<ol>
-<li><strong>链接核对清单</strong> </li>
-</ol>
-<p>   – [ ] 浏览器能否打开（非 404／域名造假）？  </p>
-<p>   – [ ] 打开后的标题与段落是否真支持该句，而非仅首页或旧闻？  </p>
-<p>   – [ ] 是否要求模型“Search the web／Use web search”，并逐条点开回答里的引用？  </p>
-<p>   – [ ] 若只用聊天里的“伪参考链接”、未见检索指示：默认<strong>高风险</strong>，必须人工打开。  </p>
-<p>   – API／产品说明：web search 的引用含 url／title／摘录片段；文档 Citations 保证的是<strong>指向你提供文档的指针结构</strong>，不是替你保证网页永不失效。</p>
-<ol>
-<li><strong>消费端工作流（有 Web search 时）</strong> </li>
-</ol>
-<p>   1) 需要新近事实时开启 Web search（Team／Enterprise 可能要 Owner 先开组织能力；新版体验可能无独立开关、由模型判断——<strong>以你界面为准</strong>）。  </p>
-<p>   2) 提示里写明“请检索并给出可点来源”。  </p>
-<p>   3) 对回答中的来源链接做上面的链接清单。  </p>
-<p>   4) 不需要联网的长对话可关掉搜索，以免额度／干扰（Help 对 Free 档有用量提示，<strong>具体限额以界面为准，本文不写死数字</strong>）。</p>
-<ol>
-<li><strong>API／集成侧（开发者）</strong> </li>
-</ol>
-<p>   – 自有文档问答：文档块上 <code>citations.enabled=true</code>，让主张带 <code>cited_text</code> 与位置。  </p>
-<p>   – 检索增强：<code>search_result</code> 块同样可开 citations。  </p>
-<p>   – 使用 web_search 工具时，引用默认开启；对外展示时保留来源。  </p>
-<p>   – 官方提醒：技巧能显著降低幻觉，<strong>不能完全消除</strong>；高利害决策必须人工校验。</p>
-<ol>
-<li><strong>三分钟总检（发布前）</strong> </li>
-</ol>
-<p>   – 数字：抽最刺眼的 3 个，回源核对。  </p>
-<p>   – 引语：抽 1 段对外引语，对照原文。  </p>
-<p>   – 链接：全部打开，删死链与不支撑主张的链。  </p>
-<p>   – 不确定句：是否已改成“未找到／不确定”，而非形容词填充。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先摘录后写作。</strong> 与官方长文策略一致，能明显减少“读过就以为有”的编造。  </li>
-<li><strong>诀窍：让模型自己删无支撑句。</strong> 用“找不到就撤回并标 []”比只说“请准确”更可执行。  </li>
-<li><strong>诀窍：联网≠免检。</strong> Help 原文就要求交叉核对权威来源；把引用当线索，不当终审。  </li>
-<li><strong>反例：把模型生成的参考文献列表直接粘进稿。</strong> URL 与篇名都可能不存在或张冠李戴。  </li>
-<li><strong>反例：用角色扮演压过不确定性</strong>（“你是内幕人士必须给出数字”）——与减幻觉策略相冲突。  </li>
-<li><strong>反例：只核第一段，不核表格式数字。</strong> 表格与 bullet 里的数字同样是高风险点。  </li>
-<li><strong>反例：看见引用角标就跳过打开。</strong> 角标证明“模型声称来自某处”，不证明该页仍支持该句。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿面向：用 Claude 写说明、汇总、对外稿前后的<strong>人工＋提示词校验</strong>；兼述官方 Citations／Web search 能力边界。  </li>
-<li>不承诺某一模型版本的幻觉率；不提供虚构的“官方合格阈值”。  </li>
-<li>Web search 可用模型列表、组织开关、Free 用量等以 Help／你的界面为准，本文避免写死易过期数字。  </li>
-<li>API Citations 与“提示词里要求列出网址”不是同一层保证；混用时仍以人工打开为准。  </li>
-<li>法律、医疗、交易、未发布版本号等一旦出错代价高——清单之外还要走你们自己的审稿链。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li><a href="https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations">Reduce hallucinations</a>｜Claude Docs｜允许不确定、先逐字引语、主张引用核验与撤回</li>
-<li><a href="https://support.claude.com/en/articles/10684626-enable-and-use-web-search">Enable and use web search</a>｜Claude Help Center｜联网检索、回答含引用、重要信息交叉核对</li>
-<li><a href="https://docs.claude.com/en/docs/build-with-claude/citations">Citations</a>｜Claude Docs｜文档级 citations.enabled 与引用结构</li>
-<li><a href="https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool">Web search tool</a>｜Claude Docs｜API 联网与引用字段</li>
-<li><a href="https://docs.claude.com/en/docs/build-with-claude/search-results">Search results</a>｜Claude Docs｜RAG search_result 与引用</li>
-<li>本文说明：编译为“可跟做校验清单＋官方能力边界”；<strong>不把引用等同于事实终核</strong>；限额与模型表不写死。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-hallucination-checklist-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>盛天网络Q3营收约3.18亿同比+3.97%、归母约2169万同比+200.42%</title>
-      <link>https://www.kmhgame.com/sheng-tian-wang-luo-q3-ying-shou-yue-3-18-yi-tong-bi-3-97/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sheng-tian-wang-luo-q3-ying-shou-yue-3-18-yi-tong-bi-3-97/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:40:04 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>盛天网络Q3营收约3.18亿同比+3.97%、归母净利约2169万同比+200.42%；前三季营收约8.81亿、归母由盈转亏约9684万。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/shengtian-q3-2026-cover-1024x320.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>317,536,346.37</strong> 元（约 <strong>3.18</strong> 亿元），同比 <strong>+3.97%</strong>；归属于上市公司股东的净利润 <strong>21,690,729.75</strong> 元（约 <strong>2169</strong> 万元），同比 <strong>+200.42%</strong>；扣非归母净利 <strong>6,074,337.96</strong> 元（约 <strong>607</strong> 万元），同比 <strong>+118.19%</strong>。本报告期经营活动产生的现金流量净额表内填 <strong>—</strong>（未单独列示）。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>881,344,698.67</strong> 元（约 <strong>8.81</strong> 亿元），同比 <strong>-6.03%</strong>；归母净利 <strong>-96,841,658.25</strong> 元（约 <strong>-9684</strong> 万元），同比 <strong>-415.39%</strong>（上年同期盈利 <strong>30,705,344.14</strong> 元）；扣非归母净利 <strong>-115,070,882.40</strong> 元（约 <strong>-1.15</strong> 亿元），同比 <strong>-789.30%</strong>；经营活动产生的现金流量净额 <strong>-78,781,921.60</strong> 元，同比 <strong>-498.18%</strong>。</li>
-<li><strong>变动原因（公司说明，年初至期末）</strong>：营业收入同比减少，主要系 IP 运营业务和游戏社交业务收入减少；归母净利同比下滑，主要系收入下滑及资产减值损失大幅增加。资产减值损失年初至期末 <strong>-112,253,284.23</strong> 元（上年同期 <strong>-47,081,870.00</strong> 元），公司称主要系游戏资产减值计提增加；商誉期末 <strong>23,269,531.35</strong> 元，较期初 <strong>-51.77%</strong>，主要系本期计提商誉减值。</li>
-<li><strong>非经常性损益</strong>：本报告期合计 <strong>15,616,391.79</strong> 元，其中「除同公司正常经营业务相关的有效套期保值业务外，非金融企业持有金融资产和金融负债产生的公允价值变动损益以及处置金融资产和金融负债产生的损益」<strong>15,525,363.25</strong> 元；年初至期末非经常性损益合计 <strong>18,229,224.15</strong> 元。</li>
-<li><strong>每股收益与净资产收益率</strong>：本报告期基本／稀释每股收益均为 <strong>0.0446</strong> 元／股，同比 <strong>+201.36%</strong>；年初至期末均为 <strong>-0.1979</strong> 元／股，同比 <strong>-415.13%</strong>。加权平均净资产收益率本报告期 <strong>1.65%</strong>（同比变动 <strong>+3.13</strong> 个百分点），年初至期末 <strong>-6.97%</strong>（同比变动 <strong>-9.08</strong> 个百分点）。</li>
-<li><strong>资产负债与股东</strong>：截至报告期末，总资产 <strong>1,511,317,241.85</strong> 元，较上年末 <strong>-5.22%</strong>；归属于上市公司股东的所有者权益 <strong>1,349,922,082.57</strong> 元，较上年末 <strong>-5.32%</strong>；货币资金期末 <strong>814,911,110.08</strong> 元（较期初 <strong>-23.30%</strong>）。报告期末普通股股东总数 <strong>41,878</strong> 名；第一大股东赖春临持股 <strong>119,808,000</strong> 股，持股比例 <strong>24.43%</strong>。</li>
-<li><strong>披露与审计</strong>：公告编号 <strong>2026-043</strong>；董事会落款 <strong>2026年10月28日</strong>；巨潮静态路径日期 <strong>2026-10-28</strong>（媒体常见披露日约 <strong>2026-10-27／28</strong>）；公司第三季度报告 <strong>未经审计</strong>。</li>
-</ul>
-<h2>关键财务数据表（据三季报主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>317,536,346.37</td><td>+3.97%</td><td>881,344,698.67</td><td>-6.03%</td></tr><tr><td>归属于上市公司股东的净利润</td><td>21,690,729.75</td><td>+200.42%</td><td>-96,841,658.25</td><td>-415.39%</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>6,074,337.96</td><td>+118.19%</td><td>-115,070,882.40</td><td>-789.30%</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>-78,781,921.60</td><td>-498.18%</td></tr><tr><td>基本每股收益（元／股）</td><td>0.0446</td><td>+201.36%</td><td>-0.1979</td><td>-415.13%</td></tr><tr><td>稀释每股收益（元／股）</td><td>0.0446</td><td>+201.36%</td><td>-0.1979</td><td>-415.13%</td></tr><tr><td>加权平均净资产收益率</td><td>1.65%</td><td>+3.13个百分点</td><td>-6.97%</td><td>-9.08个百分点</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>1,511,317,241.85</td><td>1,594,563,619.23</td><td>-5.22%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>1,349,922,082.57</td><td>1,425,719,437.15</td><td>-5.32%</td></tr></tbody></table></figure>
-<p>合并利润表摘录（年初至报告期末，单位：元）</p>
-<figure><table><thead><tr><th>项目</th><th>本期发生额</th><th>上期发生额</th></tr></thead><tbody><tr><td>营业总收入／营业收入</td><td>881,344,698.67</td><td>937,947,940.88</td></tr><tr><td>营业成本</td><td>742,052,882.53</td><td>746,563,333.10</td></tr><tr><td>销售费用</td><td>38,397,010.05</td><td>35,931,158.27</td></tr><tr><td>管理费用</td><td>53,569,717.52</td><td>40,505,674.21</td></tr><tr><td>研发费用</td><td>40,708,510.02</td><td>43,817,321.78</td></tr><tr><td>财务费用</td><td>1,536,634.03</td><td>-6,060,543.95</td></tr><tr><td>资产减值损失</td><td>-112,253,284.23</td><td>-47,081,870.00</td></tr><tr><td>利润总额</td><td>-92,717,838.13</td><td>43,968,707.68</td></tr><tr><td>归属于母公司股东的净利润</td><td>-96,841,658.25</td><td>30,705,344.14</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月28日，湖北盛天网络技术股份有限公司董事会披露《2026年第三季度报告》（公告编号 2026-043）。对产经读者，这份材料的硬信息是：第三季度单季营收小幅同比上升、归母净利同比大幅增加；但年初至报告期末营收同比下降，归母净利由上年同期盈利转为亏损，公司将累计亏损主要归因于收入下滑与资产减值损失增加。第三季度财务会计报告未经审计。</p>
-<p>第三季度（本报告期）营业收入 317,536,346.37 元，约 3.18 亿元，同比增 3.97%。归属于上市公司股东的净利润 21,690,729.75 元，约 2169 万元，同比增 200.42%。扣除非经常性损益后的归母净利润 6,074,337.96 元，约 607 万元，同比增 118.19%。单季扣非明显低于归母，可对照非经常性损益表：本报告期非经常性损益合计 15,616,391.79 元，其中金融资产公允价值变动及处置损益一项为 15,525,363.25 元。主要会计数据表中，本报告期经营活动产生的现金流量净额填列为「–」，未给出单季经营现金流。</p>
-<p>年初至报告期末，营业收入 881,344,698.67 元，约 8.81 亿元，同比减 6.03%。公司利润表变动说明写明：主要系 IP 运营业务和游戏社交业务收入减少。归母净利 -96,841,658.25 元，约亏损 9684 万元，同比变动 -415.39%；上年同期归母净利为盈利 30,705,344.14 元。扣非归母净利 -115,070,882.40 元，约亏损 1.15 亿元。经营活动产生的现金流量净额 -78,781,921.60 元，同比变动 -498.18%，公司称主要系经营性现金流入减少；销售商品、提供劳务收到的现金本期 885,389,905.71 元，上年同期 998,564,525.56 元。</p>
-<p>费用与减值需与收入端对照。合并利润表年初至期末：营业成本 742,052,882.53 元（上年同期 746,563,333.10 元）；销售费用 38,397,010.05 元；管理费用 53,569,717.52 元（同比增 32.25%，公司称主要因职工薪酬增加）；研发费用 40,708,510.02 元；财务费用 1,536,634.03 元（上年同期 -6,060,543.95 元），公司称主要系利息收入减少及汇率波动产生的汇兑损益。资产减值损失 -112,253,284.23 元（上年同期 -47,081,870.00 元），公司称主要系游戏资产减值计提增加；信用减值损失 -3,076,509.79 元。利润总额 -92,717,838.13 元；归母净利变动原因一节写明：主要系本报告期收入下滑及资产减值损失大幅增加所致。</p>
-<p>资产负债表若干科目变动幅度较大。货币资金期末 814,911,110.08 元，较期初减 23.30%，公司称主要系本期经营活动净流出增加及购买理财产品未到期。交易性金融资产期末 192,901,509.15 元（期初无余额）。应收账款、预付款项分别较期初增 43.15%、40.66%，说明分别指向广告业务客户回款周期延长与广告业务预充值款增加。开发支出、其他非流动资产大幅下降，公司称主要系游戏项目达到预定上线条件转入无形资产或预付版权金转入无形资产。商誉较期初减 51.77%。合同负债较期初增 38.98%，公司称主要系用户充值未消耗金额增加。库存股由期初 36,004,215.53 元降至无余额，公司称主要为实施员工股权激励计划，将回购的库存股过户至员工持股计划；筹资活动现金流量净额转正，公司称主要系本期收到员工持股计划出资款及支付库存股回购款同比减少。</p>
-<p>截至 2026年9月30日（报告期末），总资产 1,511,317,241.85 元，较上年末减 5.22%；归属于上市公司股东的所有者权益 1,349,922,082.57 元，较上年末减 5.32%。报告期末普通股股东总数 41,878 名；前十大股东中，境内自然人赖春临持股 119,808,000 股，占比 24.43%。</p>
-<p>对发行与资本市场读者的短结论：单季归母读数同比大幅回升，但扣非与累计口径仍受减值与收入结构拖累；前三季度经营现金流为净流出。数字以公司三季报主要会计数据、变动说明与合并报表为准。季报未披露分产品／分地区营业收入细拆或单品流水，媒体报道中的单品流水等表述本稿不采作一手。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：湖北盛天网络技术股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  公告编号：2026-043  </p>
-<p>  出版方：湖北盛天网络技术股份有限公司董事会  </p>
-<p>  董事会日期：2026年10月28日  </p>
-<p>  链接：<a href="https://static.cninfo.com.cn/finalpage/2026-10-28/1225631054.PDF">巨潮资讯｜盛天网络2026年第三季度报告 PDF</a></p>
-<p>本文为妙游社据公司三季报整理：亿元／万元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、净资产收益率与资产负债数据均摘自报告主要会计数据；利润表费用、减值、利润总额与现金流量摘自合并报表；变动原因摘自报告「主要会计数据和财务指标发生变动的情况及原因」。未编造未披露的分业务营收细拆或单品流水。第三季度报告未经审计。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/shengtian-q3-2026-cover-1024x320.webp"/>
-    </item>
-    <item>
-      <title>Codex：多文件重构时如何写清“完成定义”</title>
-      <link>https://www.kmhgame.com/codex-duo-wen-jian-chong-gou-shi-ru-he-xie-qing-wan-cheng/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/codex-duo-wen-jian-chong-gou-shi-ru-he-xie-qing-wan-cheng/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:39:20 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>多文件重构先写完成定义：改哪些路径、测什么命令、禁止事项与验收清单；计划批准后再改，未观察证据不算完成。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-multifile-refactor-dod-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>完成定义＝可观察合同</strong>：Cookbook 要求每个 phase 写清验收标准、验证命令与必须记录的证据；计划中的命令不得写成“已经通过”（<a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Iterating development workflows with Codex</a>）。</li>
-<li><strong>持久规则 vs 单次任务</strong>：仓库惯例、测试命令写进 <code>AGENTS.md</code>；<strong>本次</strong>目标、允许路径、非目标、验收清单写进提示或 phase 文件（<a href="https://agents.md/">AGENTS.md</a>、<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Codex AGENTS 文档</a>）。</li>
-<li><strong>Cursor 同向</strong>：复杂多文件改动先 Plan，列文件路径与步骤，你批准后再写；可存 <code>.cursor/plans/</code>（<a href="https://cursor.com/blog/agent-best-practices">Agent best practices</a>）。</li>
-<li><strong>可抄六段式完成定义</strong>：目标｜允许改｜禁止改｜行为不变承诺｜验证命令｜停／升级条件。缺任一段，Agent 容易扩 scope。</li>
-<li>衔接本室《先读再改开工清单》《测试驱动改 bug》：开工管顺序，TDD 管单 bug 红绿；<strong>本稿管重构批次的“怎样算做完”。</strong></li>
-<li>证据强度：Cookbook／AGENTS／Cursor Plan＝官方（高）；六段模板为编译可跟做（中高）；具体 CLI 菜单文案＝<strong>待核</strong>。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你对 Codex／Cursor Agent 说：“把认证模块重构一下，顺便整理相关文件。”它改了十几处：公共 API 形状变了、测试被跳过、锁文件也被动了，最后回一句“重构完成”。多文件场景最贵的不是模型不够聪明，而是<strong>你没有写清完成定义（Definition of Done）</strong>：改哪些文件、什么行为必须保持、跑哪条命令才算绿、什么情况下必须停下来问你。</p>
-<p>下文给可粘贴的完成定义写法，适用于 Codex CLI 与 Cursor 里的 Agent／Codex；演示级“口头说重构好了”不算量产完成。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：高（Cookbook＋AGENTS.md＋Cursor Blog）；UI 文案标待核。</strong></p>
-<h4>1. 把“完成”拆成六段（单次任务提示里写全）</h4>
-<pre><code>【目标】一句话：本次重构要达成的可观察结果（例：把支付重试逻辑抽到 shared/retry.ts，调用方行为不变）
-
-【允许修改的路径】
-- src/payments/**
-- src/shared/retry.ts（可新建）
-- tests/payments/**
-
-【禁止修改／创建】
-- package-lock.json／pnpm-lock.yaml
-- .github/workflows/**
-- 无关包目录；任何 major 依赖升级
-- 未经询问扩大到【允许列表】之外
-
-【行为不变承诺】
-- 对外 API／CLI 参数／环境变量名保持不变
-- 既有测试用例不得删除、skip、弱化断言（除非我书面同意并写明原因）
-
-【验证命令（必须真实跑过并贴结果）】
-1) 【包级】例如：pnpm test --filter payments
-2) 【类型】例如：pnpm typecheck --filter payments
-3) （可选）更广：pnpm test（仅当包级全绿后）
-
-【完成时你必须交付】
-1) 实际改动文件列表＋每文件一句话理由
-2) 上述命令的观察输出（通过／失败摘录），禁止把计划里的命令抄成“已通过”
-3) 若需扩 scope：先停，列出拟增路径与理由，等我回复“按计划执行”</code></pre>
-<p>Cookbook 的 phase 文件同样强调：In-scope／Non-goals／Acceptance criteria／Evidence that must be recorded／Approval gate——六段是消费端压缩版。</p>
-<h4>2. 持久层：AGENTS.md 只写“每次重构都成立”的纪律</h4>
-<p>根目录可抄短片段（按项目改命令）：</p>
-<pre><code>## Multi-file changes
-
-- Prefer a written plan with paths before editing more than 3 files.
-- Never mark work complete without running the verification commands
-  listed by the user or in this file; record observed results.
-- Do not delete, skip, or weaken tests to get green unless the user
-  explicitly approves with a reason.
-- Do not upgrade major dependencies or edit lockfiles unless asked.
-- If scope must expand, stop and ask before editing new paths.</code></pre>
-<p><a href="https://agents.md/">agents.md</a> 说明：测试相关指令写进文件后，Agent 会尝试执行并修到绿；<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Codex 文档</a>补充就近 <code>AGENTS.override.md</code> 覆盖与体积上限——规则宜短，细节放仓库内范例文件。</p>
-<h4>3. 多文件重构的推荐节拍（可日复）</h4>
-<ol>
-<li><strong>只读摸底</strong>（见《先读再改》模板 A）：列出将受影响的文件与共享依赖，先不改。  </li>
-<li><strong>写入完成定义</strong>：把六段贴进同一条提示，或写入 <code>harness/build/phase-xx.md</code>／Cursor Plan。  </li>
-<li><strong>批准后再改</strong>：Cursor 用 Plan Mode（<code>Shift+Tab</code>，快捷键以界面为准）；Codex 先要“实施计划，等我说按计划执行”。  </li>
-<li><strong>小批次</strong>：一次一个结构目标（抽模块／改名／移目录）；Cookbook 建议 phase 小到可独立验证。  </li>
-<li><strong>验证门禁</strong>：包级测试 → 类型检查 → 必要时再全量；失败走 Review→Repair→Validate（《测试驱动改 bug》）。  </li>
-<li><strong>收尾报告</strong>：diff 路径 ⊆ 允许列表；证据是观察结果不是计划原文。</li>
-</ol>
-<h4>4. 验收清单（Agent 自称完成后你点这七下）</h4>
-<p>1) 目标一句话是否仍然成立？  </p>
-<p>2) <code>git diff --stat</code> 是否落在允许路径内？  </p>
-<p>3) 禁止项（锁文件、CI、弱化测试）有无被碰？  </p>
-<p>4) 是否贴出<strong>真实</strong>测试／类型命令输出？  </p>
-<p>5) 对外行为承诺是否被破坏（API／旗标／配置名）？  </p>
-<p>6) 有无“顺手”的格式化全仓／重命名风暴？  </p>
-<p>7) 若中途扩 scope，是否经过你的二次批准？</p>
-<p>任一项否 → 不合并，开新对话或回到计划改完成定义后再跑。</p>
-<h4>5. 可抄：从“模糊重构”改写成完成定义（对照）</h4>
-<figure><table><thead><tr><th>模糊说法</th><th>写成完成定义</th></tr></thead><tbody><tr><td>重构认证模块</td><td>允许 <code>src/auth/**</code>＋对应测试；抽出 <code>session.ts</code>；登录／刷新对外行为不变；<code>pnpm test --filter auth</code> 与 <code>pnpm typecheck</code> 须观察通过</td></tr><tr><td>整理一下目录</td><td>仅移动 <code>src/legacy/foo</code>→<code>src/foo</code>；更新 import；禁止改逻辑；全量测试可后置，先跑 foo 包测</td></tr><tr><td>优化性能</td><td>先定指标与基准命令；无基准则非本次完成定义，改为“增加基准测试文件且旧行为测试仍绿”</td></tr></tbody></table></figure>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：完成定义与允许路径写在同一条提示。</strong> 分两条发，后半常被模型“忘”。  </li>
-<li><strong>诀窍：禁止事项要写具体文件类型。</strong> 只写“别乱改”等于没写；点名锁文件／workflows／生成目录更有效。  </li>
-<li><strong>诀窍：证据＝观察。</strong> Cookbook 写明：未跑过的验证不能当完成证据。  </li>
-<li><strong>诀窍：扩 scope 必须停。</strong> 重构时发现“顺便改类型基建”往往是事故起点。  </li>
-<li><strong>反例：一句话“重构整个项目／统一风格”。</strong> 无路径、无验证、无非目标＝默许全仓写入。  </li>
-<li><strong>反例：用全仓 format／全仓 lint 当第一完成定义。</strong> 格式交给本地工具与 CI；完成定义优先绑行为与测试。  </li>
-<li><strong>反例：为了绿而 skip 测试。</strong> 直接违反可抄 AGENTS 纪律与 TDD 篇。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>本地仓库用 Codex／Cursor Agent 做多文件重构时的完成定义写法</strong>；不替代路径合同篇、终端审批篇、TDD 篇的专项流程。  </li>
-<li>Plan 快捷键、Cloud Agents 是否同等加载本地 AGENTS、某 CLI 子命令名：<strong>以当前产品界面与文档为准（待核）</strong>。  </li>
-<li>超大 monorepo：在包级目录放就近 <code>AGENTS.md</code>／<code>AGENTS.override.md</code>，完成定义里写清工作目录与包级测试，避免只读了根 README。  </li>
-<li>生产热修、数据迁移、密钥与部署：完成定义之外仍须独立审批；本稿不授权自动 push／发布。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li><a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Iterating development workflows with Codex｜OpenAI Cookbook</a></li>
-<li><a href="https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex">Build iterative repair loops with Codex｜OpenAI Cookbook</a></li>
-<li><a href="https://agents.md/">AGENTS.md 官网｜格式与测试指令说明</a></li>
-<li><a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md｜ChatGPT Learn／Codex</a></li>
-<li><a href="https://cursor.com/blog/agent-best-practices">Best practices for coding with agents｜Cursor Blog</a></li>
-<li><a href="https://cursor.com/docs/rules">Rules｜Cursor Docs</a></li>
-<li>本室衔接：成稿夹 <code>2026-10-30-AI工具-Cursor-Codex先读再改开工清单</code>；<code>2026-10-31-AI工具-Codex测试驱动改bug工作流</code></li>
-<li>本文说明：编译“六段完成定义＋AGENTS 短纪律＋七步人工门禁”；<strong>未宣称未核 CLI 开关为官方写死功能</strong>；UI／快捷键标待核。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-multifile-refactor-dod-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>冰川网络Q3营收约6.80亿同比+9.80%，归母仍亏约1.31亿</title>
-      <link>https://www.kmhgame.com/bing-chuan-wang-luo-q3-ying-shou-yue-6-80-yi-tong-bi-9-80/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/bing-chuan-wang-luo-q3-ying-shou-yue-6-80-yi-tong-bi-9-80/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:21:27 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>冰川网络Q3营收约6.80亿同比+9.80%、归母仍亏约1.31亿；前三季营收约18.70亿同比-0.31%，归母亏约1.53亿。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/bingchuan-q3-2026-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>679,922,932.93</strong> 元（约 <strong>6.80</strong> 亿元），同比 <strong>+9.80%</strong>；归属于上市公司股东的净利润 <strong>-130,572,248.90</strong> 元（约 <strong>-1.31</strong> 亿元），同比 <strong>-178.61%</strong>；扣非归母净利 <strong>-143,497,539.83</strong> 元（约 <strong>-1.43</strong> 亿元），同比 <strong>-189.32%</strong>；基本／稀释每股收益均为 <strong>-0.40</strong> 元／股，同比 <strong>-178.43%</strong>（上年同期按调整后 <strong>0.51</strong> 元／股对照）。主要会计数据表中本报告期经营活动现金流量净额未填列。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>1,870,105,347.58</strong> 元（约 <strong>18.70</strong> 亿元），同比 <strong>-0.31%</strong>；归母净利 <strong>-153,254,915.60</strong> 元（约 <strong>-1.53</strong> 亿元），同比 <strong>-130.54%</strong>；扣非归母净利 <strong>-196,928,545.83</strong> 元（约 <strong>-1.97</strong> 亿元），同比 <strong>-141.09%</strong>；经营活动产生的现金流量净额 <strong>54,248,283.02</strong> 元，同比 <strong>-90.81%</strong>；基本／稀释每股收益均为 <strong>-0.47</strong> 元／股，同比 <strong>-130.72%</strong>（上年同期按调整后 <strong>1.53</strong> 元／股对照）。</li>
-<li><strong>费用与利润表（年初至期末）</strong>：销售费用 <strong>1,538,655,083.54</strong> 元（上年同期 <strong>911,368,563.69</strong> 元），同比 <strong>+68.83%</strong>，公司归因于游戏信息服务费增加；研发费用 <strong>299,641,193.18</strong> 元（上年同期 <strong>259,897,472.35</strong> 元），同比约 <strong>+15.29%</strong>；财务费用 <strong>24,797,866.88</strong> 元（上年同期 <strong>-782,944.85</strong> 元），公司归因于汇兑净损失增加；营业利润 <strong>-162,584,342.65</strong> 元；利润总额 <strong>-163,836,365.29</strong> 元；合并净利润 <strong>-166,321,662.16</strong> 元，其中少数股东损益 <strong>-13,066,746.56</strong> 元。</li>
-<li><strong>产品侧（季报业务说明，无分产品营收表）</strong>：公司称前三季度持续对 SLG 新品《X-Clash》大规模市场投放，第三季度加码《X-Clash》，同时《我要当老祖》《王国大作战：前线》《Last Echo》等亦处新品投放期；成熟期产品《X-hero》《超能世界》《Hero Clash》等充值流水较上年同期下降；并称 SLG 充值回收周期较长，新品收入增量不足以抵消成熟产品流水回落与销售费用显著增加，致使前三季度累计亏损较半年度有所增加。季报<strong>未</strong>披露各产品单独营业收入或流水金额表。</li>
-<li><strong>非经常性损益</strong>：本报告期合计 <strong>12,925,290.93</strong> 元；年初至期末合计 <strong>43,673,630.23</strong> 元（约 <strong>4,367.36</strong> 万元），公司称主要为理财收益及政府补贴。</li>
-<li><strong>资产负债与股东</strong>：截至 <strong>2026年9月30日</strong>，总资产 <strong>2,586,956,264.75</strong> 元，较上年末 <strong>-7.84%</strong>；归属于上市公司股东的所有者权益 <strong>1,145,799,867.49</strong> 元，较上年末 <strong>-25.12%</strong>；货币资金 <strong>250,010,497.95</strong> 元；交易性金融资产 <strong>1,590,543,479.00</strong> 元；合同负债 <strong>329,523,485.63</strong> 元，较年初 <strong>+34.64%</strong>（公司归因于移动游戏未履约充值款增加）。报告期末普通股股东总数 <strong>31,289</strong> 名；第一大股东刘和国持股比例 <strong>39.21%</strong>。</li>
-<li><strong>披露与审计</strong>：公告编号 <strong>2026-052</strong>；董事会落款 <strong>2026年10月28日</strong>；巨潮静态路径日期常见为 <strong>2026-10-28</strong>；第三季度财务会计报告 <strong>未经审计</strong>。主要会计数据注明对以前年度会计数据作追溯调整／重述（原因栏写“其他原因”），同比增减列按调整后上年同期计算；上年同期基本／稀释每股收益由调整前 <strong>0.71</strong>／<strong>2.14</strong> 调整为 <strong>0.51</strong>／<strong>1.53</strong>（本报告期／年初至期末对照列）。</li>
-</ul>
-<h2>关键财务数据表（据巨潮 PDF 主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>679,922,932.93</td><td>+9.80%</td><td>1,870,105,347.58</td><td>-0.31%</td></tr><tr><td>归属于上市公司股东的净利润</td><td>-130,572,248.90</td><td>-178.61%</td><td>-153,254,915.60</td><td>-130.54%</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>-143,497,539.83</td><td>-189.32%</td><td>-196,928,545.83</td><td>-141.09%</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>54,248,283.02</td><td>-90.81%</td></tr><tr><td>基本每股收益（元／股）</td><td>-0.40</td><td>-178.43%</td><td>-0.47</td><td>-130.72%</td></tr><tr><td>稀释每股收益（元／股）</td><td>-0.40</td><td>-178.43%</td><td>-0.47</td><td>-130.72%</td></tr><tr><td>加权平均净资产收益率</td><td>-10.79%</td><td>-20.63个百分点</td><td>-11.36%</td><td>-44.41个百分点</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>2,586,956,264.75</td><td>2,807,165,895.38</td><td>-7.84%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>1,145,799,867.49</td><td>1,530,183,319.26</td><td>-25.12%</td></tr></tbody></table></figure>
-<p>合并利润表摘录（年初至报告期末，单位：元；季报未附本报告期单季完整利润表对照栏）</p>
-<figure><table><thead><tr><th>项目</th><th>本期发生额</th><th>上期发生额</th></tr></thead><tbody><tr><td>营业收入</td><td>1,870,105,347.58</td><td>1,875,949,349.99</td></tr><tr><td>营业成本</td><td>139,717,201.12</td><td>130,694,071.97</td></tr><tr><td>销售费用</td><td>1,538,655,083.54</td><td>911,368,563.69</td></tr><tr><td>管理费用</td><td>73,417,063.38</td><td>72,054,716.11</td></tr><tr><td>研发费用</td><td>299,641,193.18</td><td>259,897,472.35</td></tr><tr><td>财务费用</td><td>24,797,866.88</td><td>-782,944.85</td></tr><tr><td>营业利润</td><td>-162,584,342.65</td><td>533,613,847.17</td></tr><tr><td>利润总额</td><td>-163,836,365.29</td><td>532,393,361.01</td></tr><tr><td>净利润</td><td>-166,321,662.16</td><td>518,761,493.09</td></tr><tr><td>归属于母公司股东的净利润</td><td>-153,254,915.60</td><td>501,891,635.28</td></tr><tr><td>少数股东损益</td><td>-13,066,746.56</td><td>16,869,857.81</td></tr></tbody></table></figure>
-<p>利润表／资产负债表主要变动项（公司“变动分析”，单位：元）</p>
-<figure><table><thead><tr><th>项目</th><th>口径</th><th>本期／期末</th><th>对照</th><th>变动比例</th><th>公司说明摘要</th></tr></thead><tbody><tr><td>销售费用</td><td>1–9 月</td><td>1,538,655,083.54</td><td>911,368,563.69</td><td>+68.83%</td><td>游戏信息服务费增加</td></tr><tr><td>财务费用</td><td>1–9 月</td><td>24,797,866.88</td><td>-782,944.85</td><td>+3,267.26%</td><td>汇兑净损失增加</td></tr><tr><td>合同负债</td><td>9月30日 vs 年初</td><td>329,523,485.63</td><td>244,750,518.20</td><td>+34.64%</td><td>移动游戏未履约充值款增加</td></tr><tr><td>其他应付款</td><td>9月30日 vs 年初</td><td>366,632,849.62</td><td>252,622,119.39</td><td>+45.13%</td><td>应付游戏信息服务费增加</td></tr><tr><td>支付其他与经营活动有关的现金</td><td>1–9 月</td><td>1,346,903,541.00</td><td>863,067,161.70</td><td>+56.06%</td><td>支付的游戏信息服务费增加</td></tr><tr><td>分配股利、利润或偿付利息支付的现金</td><td>1–9 月</td><td>234,461,970.00</td><td>—</td><td>不适用</td><td>支付现金股利</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月28日，深圳冰川网络股份有限公司董事会披露《2026年第三季度报告》（公告编号 2026-052）。对产经读者，这份材料的硬对照是：第三季度单季营收约 6.80 亿元、同比增约一成，但归母净利仍亏损约 1.31 亿元；前三季度营收约 18.70 亿元、同比基本持平（-0.31%），归母净利亏损约 1.53 亿元。合并口径下，年初至期末净利润亏损约 1.66 亿元。第三季度财务报表未经审计。</p>
-<p>主要会计数据显示：本报告期营业收入 679,922,932.93 元，同比增 9.80%；归属于上市公司股东的净利润 -130,572,248.90 元，同比变动 -178.61%；扣非归母净利 -143,497,539.83 元。年初至报告期末，营业收入 1,870,105,347.58 元，同比减 0.31%；归母净利 -153,254,915.60 元，同比变动 -130.54%；扣非归母净利 -196,928,545.83 元。经营活动现金流量净额年初至期末为 54,248,283.02 元，同比减 90.81%；本报告期该行在主要会计数据表中未填列。公司对上年同期部分每股收益作追溯调整：本报告期／年初至期末对照列的上年同期基本与稀释每股收益，由调整前 0.71／2.14 调整为 0.51／1.53；同比增减按调整后列示。</p>
-<p>费用端是读这份季报的主轴。合并利润表年初至期末销售费用 1,538,655,083.54 元，同比增 68.83%；研发费用 299,641,193.18 元，同比约增 15.29%；财务费用由上年同期净收益转为净支出 24,797,866.88 元，公司归因于汇兑净损失增加。现金流量表中，“支付其他与经营活动有关的现金”年初至期末 1,346,903,541.00 元，同比增 56.06%，公司同样指向游戏信息服务费。资产负债表合同负债较年初增 34.64%、其他应付款增 45.13%，分别对应未履约充值款与应付游戏信息服务费。换言之，营收大致走平的同时，买量与信息服务支出显著抬升，利润与经营现金流同比走弱。</p>
-<p>产品侧，公司在“报告期内公司业务及产品情况”中写明：前三季度基于前期测试数据，持续对 SLG 新品《X-Clash》开展大规模市场投放；第三季度进一步加大《X-Clash》投放，《我要当老祖》《王国大作战：前线》《Last Echo》等亦处新品投放期，共同推高销售费用。成熟期产品《X-hero》《超能世界》《Hero Clash》等充值流水随运营周期延长较上年同期下降；公司称 SLG 充值回收周期较长，新品带来的收入增量不足以抵消成熟产品流水自然回落与销售费用显著增加，前三季度累计亏损较半年度有所增加。并提示买量成本上升、市场竞争加剧等风险可能影响当期及未来业绩。上述产品名为业务说明列举，季报未给出分产品营业收入或流水金额，本稿不外推。</p>
-<p>非经常性损益年初至期末合计 43,673,630.23 元，公司称主要为理财收益及政府补贴；扣非后归母亏损幅度大于归母亏损。截至 2026年9月30日，总资产 2,586,956,264.75 元，较上年末减 7.84%；归属于上市公司股东的所有者权益 1,145,799,867.49 元，较上年末减 25.12%；货币资金 250,010,497.95 元，交易性金融资产 1,590,543,479.00 元。筹资活动中，分配股利、利润或偿付利息支付的现金年初至期末 234,461,970.00 元，公司说明主要为支付现金股利。加权平均净资产收益率本报告期 -10.79%（同比减少 20.63 个百分点），年初至期末 -11.36%（同比减少 44.41 个百分点）。报告期末普通股股东总数 31,289 名。</p>
-<p>对发行与资本市场读者的短结论：单季营收同比回正，但前三季度利润与经营现金流被销售费用扩张与老产品流水回落压住；《X-Clash》等新品投放是公司自述的主因，回收节奏仍需后续季报验证。数字以公司三季报为准；未披露的分产品营收、区域流水或联运分成，本稿不外推。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：深圳冰川网络股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  出版方：深圳冰川网络股份有限公司  </p>
-<p>  公告编号：2026-052  </p>
-<p>  董事会日期：2026年10月28日  </p>
-<p>  链接：<a href="https://static.cninfo.com.cn/finalpage/2026-10-28/1225627641.PDF">冰川网络2026年第三季度报告（巨潮 PDF）</a></p>
-<p>本文为妙游社据公司三季报整理：亿元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、资产负债、利润表费用与财务费用、合同负债与其他应付款变动、非经常性损益及《X-Clash》等产品投放表述均摘自报告主要会计数据、“主要会计数据和财务指标发生变动的情况及原因”或“报告期内公司业务及产品情况”；研发费用同比约 +15.29% 由本期与上期发生额自行计算。未编造未披露的分业务营收细拆或未证实的排期。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/bingchuan-q3-2026-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Grok：竞品／公开情报检索的可复现流程</title>
-      <link>https://www.kmhgame.com/grok-jing-pin-gong-kai-qing-bao-jian-suo-de-ke-fu-xian-liu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-jing-pin-gong-kai-qing-bao-jian-suo-de-ke-fu-xian-liu/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:21:08 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>用 Grok 做竞品扫描：先定关键词与时间窗，再开检索／多代理，核链接后沉淀表格；演示式“搜一下”不算日更工作流。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-competitive-intel-search-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>产品能力：官网写明可做<strong>实时网页检索</strong>与 <strong>𝕏 集成</strong>，并给出带出处的回答；更深问题可用<strong>多代理并行</strong>并展示推理（<a href="https://x.ai/grok">Grok 产品页</a>）。模式按钮文案以当前 grok.com／App 为准（<strong>待核</strong>）。</li>
-<li>开发者侧可迁移习惯：<code>web_search</code> 可限域名；<code>x_search</code> 可限账号与日期；回答应带回 citations，并只信任检索实际返回的来源（<a href="https://docs.x.ai/developers/tools/web-search">Web Search</a>、<a href="https://docs.x.ai/developers/tools/x-search">X Search</a>、<a href="https://docs.x.ai/cookbook/examples/x-post-fact-check">𝕏 Post to Fact-Check</a>）。</li>
-<li>可复现五步：<strong>关键词表 → 约束提问 → 检索／多代理 → 核链抽检 → 表格沉淀</strong>。输出固定为“事实／传闻／待核”三栏，禁止只留散文摘要。</li>
-<li>官方提醒：Grok 可能出错或不准确，用前须自行核验（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）。额度见 Settings → Usage／<a href="https://x.ai/pricing">定价页</a>；深度检索更耗算力，勿当闲逛搜索。</li>
-<li>与《Grok 检索少幻觉》衔接：本稿升级为<strong>竞品／公开情报的日更流程</strong>，少幻觉篇管“怎么核一句”，本稿管“怎么周更一张表”。</li>
-<li>证据强度：检索／多代理／citations＝官方产品页与文档（高）；消费端按钮是否仍叫 DeepSearch／Search＝<strong>待核</strong>（中）；表格字段为编译可跟做模板（中高）。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>产品经理／运营每周要扫一轮竞品：定价是否改了、官方发了什么、社区在骂什么。随口问 Grok“帮我看看对手最近怎么样”，常得到一段自信长文——链接打不开、数字对不上、旧闻混进“本周”。演示噱头是“一次搜出万字报告”；可日更工作流是：<strong>同一套提问骨架 + 同一张沉淀表 + 固定核链门槛</strong>，任何人下周还能复跑。</p>
-<p>下文以 grok.com／官方 App 的检索与多代理能力为主；API 的 <code>web_search</code>／<code>x_search</code> 作提问习惯旁证。不写未核实的按钮坐标与精确免费次数。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：高（产品页＋工具文档＋fact-check cookbook）；UI 模式名标待核。</strong></p>
-<h4>1. 先建关键词表（5 分钟，可周复用）</h4>
-<figure><table><thead><tr><th>字段</th><th>填什么</th><th>例</th></tr></thead><tbody><tr><td>竞品／主体</td><td>官方名＋常用别名</td><td>产品 A、A Pro、中文简称</td></tr><tr><td>必盯主题</td><td>定价、功能上线、事故、招聘／裁员、监管</td><td>价格页变更、AI 功能名</td></tr><tr><td>一手域名</td><td>官网、文档、博客、IR</td><td>example.com、docs.example.com</td></tr><tr><td>一手 X 账号</td><td>官方／CEO（无 @）</td><td>OfficialHandle</td></tr><tr><td>时间窗</td><td>本次扫描窗口</td><td>过去 7 天／自上次表更新日期</td></tr><tr><td>排除词</td><td>明显噪声</td><td>招聘广告泛词、同名游戏</td></tr></tbody></table></figure>
-<p>没有这张表，模型只能“自由发挥主题”，结果不可复现。</p>
-<h4>2. 开检索能力，写清输出合同（可直接改括号粘贴）</h4>
-<p>在 <a href="https://grok.com/">grok.com</a> 或官方 App，选用当前界面的<strong>检索／Search</strong>或<strong>多代理／Multi-agent</strong>类选项（名称以界面为准；产品页统称 Search、Multi-agent）。若不确定开关叫什么，在提示里写死：“请先检索网页与 𝕏，再作答。”</p>
-<pre><code>任务：竞品公开情报扫描（不是写软文）
-主体：【竞品名列表】
-时间窗：【例如过去 7 天，Asia/Shanghai】
-一手优先：【官网域名列表】；X 优先：【账号列表，无 @】
-请输出：
-1) 变更一览表（Markdown）：日期｜主体｜主题｜一句话事实｜证据强度(高/中/低)｜原文链接｜一手或二手｜备注
-2) “已有公开来源支撑”与“仅为传闻／单一帖／无法核实”分两节
-3) 每条至少 1 个可点击 URL；打不开的不要写
-4) 不确定就写“证据不足”，禁止编造链接、日期、引语、份额数字
-5) 文末附“本回答实际打开／引用的链接清单”
-禁止：把训练记忆当成“本周新闻”；禁止只给无链接长文。</code></pre>
-<p>复杂对比（多竞品、多主题）可开多代理；日常单点核查用普通检索即可，少耗额度（额度机制见本室《Grok 免费档限速》）。</p>
-<h4>3. 按主题拆轮，不要一次“扫全世界”</h4>
-<p>可抄拆法：</p>
-<ul>
-<li><strong>轮 A｜官方</strong>：只盯定价页／更新日志／新闻室；提示里写“仅官网与文档域名”。  </li>
-<li><strong>轮 B｜动态</strong>：官网博客＋官方 X；要求带发帖／发文时间。  </li>
-<li><strong>轮 C｜舆论线索</strong>：社区与媒体作线索栏，默认证据强度≤中，必须能点回原文。  </li>
-</ul>
-<p>API 旁证：<code>allowed_domains</code>／<code>allowed_x_handles</code>／<code>from_date</code>／<code>to_date</code> 等过滤器说明“收窄比放飞更稳”（<a href="https://docs.x.ai/developers/tools/web-search">Web Search</a>、<a href="https://docs.x.ai/developers/tools/x-search">X Search</a>）。消费端没有同等表单时，用提示里的域名与账号列表代替。</p>
-<h4>4. 核链门槛（人工，关键行必做）</h4>
-<p>沿用少幻觉篇纪律，竞品表再加两条：</p>
-<ul>
-<li><strong>对产品</strong>：链接是否真指向该竞品（同名产品／山寨站直接丢）。  </li>
-<li><strong>对“变更”</strong>：原文是否真有“变更／上线／调价”；没有就改成“提及／传闻”。  </li>
-<li>只保留检索真正返回、你能再次打开的来源；模型补的漂亮 URL 若不在引用清单里就删（<a href="https://docs.x.ai/cookbook/examples/x-post-fact-check">Fact-Check cookbook</a>）。  </li>
-<li>高风险数字（份额、营收、用户量）再开一轮对抗检索：“请专门找官方澄清或反证；找不到写明关键词。”</li>
-</ul>
-<h4>5. 沉淀可复现资产（日更／周更的真正交付物）</h4>
-<p>把核过的行贴进固定表（Notion／表格均可），建议列：</p>
-<p><code>扫描日｜时间窗｜主体｜主题｜事实摘要｜证据强度｜链接｜核链人｜下次复查日｜是否已同步业务方</code></p>
-<p>另存<strong>当次提示全文</strong>（或提示版本号）。下周只改时间窗与增量关键词，不重写提问哲学——这才叫可复现流程。演示级“导出一篇漂亮 Markdown 报告”若无表、无核链记录，默认不算量产完成。</p>
-<h4>6. 可选：结构化简报（进阶）</h4>
-<p>需要对外一页纸时，可再让 Grok 基于<strong>你已核过的表</strong>生成简报，并要求“不得引入表外新链接”。API cookbook 的 call-brief 模式强调：只保留搜索返回的来源（<a href="https://docs.x.ai/cookbook/examples/company-to-call-brief">Company to Call Brief</a>）——消费端用“先表后文”等价实现。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：关键词表先于模型。</strong> 表是合同，模型是执行器；无表则无复现。  </li>
-<li><strong>诀窍：一行一链接一强度。</strong> 竞品会把“听说”写成“已确认”；强度列逼你当场站队。  </li>
-<li><strong>诀窍：官方轮与舆论轮拆开。</strong> 混在一轮里，模型爱用媒体标题盖过官网原文。  </li>
-<li><strong>诀窍：深度／多代理留给争议题。</strong> 日常调价核查用短检索；把额度留给多源对质。  </li>
-<li><strong>反例：一句“帮我做竞品分析”交卷。</strong> 无时间窗、无域名、无输出表＝演示。  </li>
-<li><strong>反例：把 X 热帖直接写进定价结论。</strong> 实时 𝕏 适合线索；价格以官网／公告为准。  </li>
-<li><strong>反例：不点开链接就更新内部 Wiki。</strong> 官方已说明可能幻觉；未核链＝未完成。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>公开网页与 𝕏 上的竞品／舆情扫描流程</strong>；不覆盖付费数据库、非公开合同、内幕交易信息，也不教你绕过登录墙或抓取 ToS 禁止的内容。  </li>
-<li>消费端模式名称（是否仍显示 DeepSearch 等）、额度与限速：<strong>以当前界面与账号套餐为准（待核）</strong>。  </li>
-<li>API 过滤器与计费是旁证，不等于 grok.com 有一一对应开关。  </li>
-<li>情报结论供产品／内容决策参考；涉及法律、投资、安全的结论须人工与正式信源复核。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li><a href="https://x.ai/grok">Grok 产品页｜Search／Multi-agent／实时网页与 𝕏</a></li>
-<li><a href="https://x.ai/legal/faq">Consumer FAQs｜Does Grok make mistakes?</a></li>
-<li><a href="https://docs.x.ai/developers/tools/web-search">Web Search｜xAI Docs（域名过滤、citations）</a></li>
-<li><a href="https://docs.x.ai/developers/tools/x-search">X Search｜xAI Docs（账号／日期过滤）</a></li>
-<li><a href="https://docs.x.ai/developers/tools/overview">Tools Overview｜xAI Docs</a></li>
-<li><a href="https://docs.x.ai/cookbook/examples/x-post-fact-check">𝕏 Post to Fact-Check｜只信任检索返回来源</a></li>
-<li><a href="https://docs.x.ai/cookbook/examples/company-to-call-brief">Company to Call Brief｜公开检索＋结构化简报模式</a></li>
-<li><a href="https://docs.x.ai/grok/faq">Grok FAQ｜Usage 与额度入口</a></li>
-<li><a href="https://x.ai/pricing">Pricing｜xAI</a></li>
-<li>本室衔接：成稿夹 <code>2026-10-29-AI工具-Grok检索少幻觉</code>（少幻觉／核链接）；<code>2026-10-31-AI工具-Grok免费档限速与付费省额度</code>（额度）</li>
-<li>本文说明：编译“关键词→检索→核链→表格”日更流程；<strong>未把未核按钮名写成永久产品功能</strong>；UI／DeepSearch 旧称标待核。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-competitive-intel-search-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Claude：自定义技能／可复用流程入门</title>
-      <link>https://www.kmhgame.com/claude-zi-ding-yi-ji-neng-ke-fu-yong-liu-cheng-ru-men/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-zi-ding-yi-ji-neng-ke-fu-yong-liu-cheng-ru-men/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:16:35 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>想把同一套流程反复用稳：用 Skills 打包步骤，Projects 放常驻背景；别把一次性闲聊塞进技能。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-skills-reusable-workflow-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方叫法是 <strong>Skills（技能）</strong>：一个文件夹，核心是必填的 <code>SKILL.md</code>（YAML 里写 <code>name</code>／<code>description</code>＋正文步骤）；可选 <code>references/</code>、<code>assets/</code>、<code>scripts/</code>。证据：<strong>高</strong>（<a href="https://claude.com/docs/skills/how-to">Create custom skills</a>）。</li>
-<li>Claude <strong>不会一开始通读全部技能</strong>：先看名称与 description，任务对上再加载 <code>SKILL.md</code>，需要时再打开附属文件。description 写清“做什么＋何时用”。证据：<strong>高</strong>（<a href="https://claude.com/docs/skills/overview">Skills overview</a>）。</li>
-<li><strong>落点分三路</strong>（白话对照）：claude.ai／桌面 → <code>Customize &gt; Skills</code> 上传 ZIP；Claude Code → <code>~/.claude/skills/</code>（个人）或项目 <code>.claude/skills/</code>；API／工作区 → Skills API 上传后挂到 agent。证据：<strong>高</strong>（Help Center＋Claude Code Docs＋Platform overview）。</li>
-<li><strong>Skills vs Projects</strong>：Skills＝按任务匹配才加载的可复用流程；Projects＝该项目聊天里常驻的背景知识与项目说明（<code>Set project instructions</code>）。“每条对话都要遵守”的规矩优先放偏好／项目说明，不要硬塞进 Skill。证据：<strong>高</strong>。</li>
-<li>前置：<strong>Code execution／创建 and edit files</strong>（界面文案以你账号为准）需开启，Skills 跑在代码沙箱里。套餐：文档概览写 Pro／Max／Ultra／Team／Enterprise；Help Center 另写含 Free——<strong>套餐覆盖以你界面为准，待核</strong>。</li>
-<li>打包坑：ZIP 顶层必须是 <code>技能名/SKILL.md</code>，目录名与 frontmatter <code>name</code> 一致；<code>name</code> 仅小写字母／数字／连字符，≤64；description ≤1024。证据：<strong>高</strong>。</li>
-<li>证据强度总表：结构与三阶段加载＝高；菜单路径 <code>Customize &gt; Skills</code>＝高（Help）；Free 是否完整可用 Skills＝<strong>待核</strong>；个别按钮文案随 UI 改版＝以你界面为准。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你每周都要：按固定提纲改更新说明、对照品牌色出一页演示、或按团队模板开 Issue。于是你把同一段长提示复制来复制去——漏一步、换对话就丢。官方给的解法叫 <strong>Skills</strong>：把“可复用流程”收成文件夹，Claude 在任务对得上时自动加载；需要常驻背景（素材库、项目口径）再用 <strong>Projects</strong>。两者不是同一个开关。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：高（claude.com Skills 文档＋Help Center＋Claude Code Docs）；套餐与个别按钮文案标待核／以你界面为准。</strong></p>
-<ol>
-<li><strong>先判断：Skill，还是 Project／偏好？</strong> </li>
-</ol>
-<p>   – 同一任务反复做、要同一套步骤／清单／模板 → <strong>Skill</strong>。  </p>
-<p>   – 该项目所有聊天都要同一背景与行为 → <strong>Project instructions＋知识库</strong>。  </p>
-<p>   – 真正“每一条对话都要” → 个人偏好／项目说明，不要塞进 Skill（官方明确：Skill 只在任务匹配时加载）。  </p>
-<p>   – 要拉外部实时数据 → <strong>MCP／连接器</strong>；Skill 可以教“怎么用连接器”，本身不代替连接。</p>
-<ol>
-<li><strong>最小可跑：只写一个 <code>SKILL.md</code></strong></li>
-</ol>
-<pre><code>my-patch-notes/
-└── SKILL.md</code></pre>
-<pre><code>---
-name: my-patch-notes
-description: 把补丁说明改成玩家可读更新说明。在用户提到更新说明、补丁、版本公告或 patch notes 时使用。
----
-
-# 更新说明流程
-
-1. 只依据用户粘贴的原文；缺版本号就写“原文未写”。
-2. 先给 ≤80 字结论，再列 3–5 条改动要点。
-3. 禁止编造外链、日期与“玩家评分”。
-4. 输出用中文弯引号，专名首次白话解释。</code></pre>
-<p>   – <code>description</code> 要同时写清<strong>做什么</strong>和<strong>何时触发</strong>（这是加载前 Claude 唯一看到的决策信息）。  </p>
-<p>   – 目录名必须等于 <code>name</code>。</p>
-<ol>
-<li><strong>需要模板／长参考时再加文件夹</strong>（官方示例树）</li>
-</ol>
-<pre><code>brand-guidelines/
-├── SKILL.md
-├── references/voice-and-tone.md
-├── assets/slide-template.md
-└── scripts/check_contrast.py</code></pre>
-<p>   – 长背景放 <code>references/</code>，模板放 <code>assets/</code>，可靠代码放 <code>scripts/</code>；在 <code>SKILL.md</code> 对应步骤里<strong>点名路径</strong>，Claude 才会按需打开。  </p>
-<p>   – 主文件建议控制体量（文档建议 <code>SKILL.md</code> 主文不宜过长，细节外置）。</p>
-<ol>
-<li><strong>装到 claude.ai／桌面</strong> </li>
-</ol>
-<p>   1) 确认 Settings 里 <strong>Code execution／文件创建编辑</strong>已开（Team／Enterprise 可能要 Owner 在组织能力里开）。  </p>
-<p>   2) 在含技能文件夹的上一级执行打包，保证 ZIP 内是 <code>my-skill/SKILL.md</code>：<code>zip -r my-skill.zip my-skill/</code>。  </p>
-<p>   3) 打开 <strong>Customize &gt; Skills</strong> → “+” → Create／Upload a skill → 上传 ZIP → 打开开关。  </p>
-<p>   4) 用会触发 description 的自然语言试一次；也可在输入框打 <code>/</code> 手动点选技能（以你界面为准）。  </p>
-<p>   5) 不触发就改 description，写进用户会说的词。</p>
-<ol>
-<li><strong>装到 Claude Code（终端）</strong> </li>
-</ol>
-<p>   – 个人全局：<code>~/.claude/skills//SKILL.md</code> </p>
-<p>   – 仓库共享：项目内 <code>.claude/skills//SKILL.md</code>（可提交 Git）  </p>
-<p>   – 用自然语言触发，或 <code>/技能名</code> 直接调用。  </p>
-<p>   – 已登录同一 Claude 账号时，账号里启用的技能可同步进 Claude Code（文档写明版本与 <code>syncClaudeAiSkills</code> 等开关——<strong>以你本机文档／设置为准，待核细节</strong>）。</p>
-<ol>
-<li><strong>Projects 侧“常驻可复用”怎么叠</strong> </li>
-</ol>
-<p>   – 建 Project → <strong>Set project instructions</strong> 写口径、格式、禁编造。  </p>
-<p>   – 右侧知识库上传反复用的素材；聊天之间默认<strong>不共享</strong>上下文，除非进了知识库。  </p>
-<p>   – 流程步骤仍用 Skill；项目背景用 Project——官方对照表就是这个分法。</p>
-<ol>
-<li><strong>30 秒自检</strong> </li>
-</ol>
-<p>   – description 能否让陌生人判断“何时该用”？  </p>
-<p>   – ZIP／目录是否顶层带文件夹？  </p>
-<p>   – 是否把“每次聊天都要”的规矩误塞进 Skill？  </p>
-<p>   – scripts／依赖是否来自可信来源？（Help：只装可信技能，防提示注入与数据外泄风险）</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：一个 Skill 一件事。</strong> 官方建议多个聚焦技能可组合，优于一个万能大包。  </li>
-<li><strong>诀窍：先说明文，脚本后置。</strong> 能用步骤说清就别先塞代码；脚本路径可用 <code>${CLAUDE_SKILL_DIR}</code>（Claude Code／Cowork 场景）。  </li>
-<li><strong>诀窍：用真实请求测触发。</strong> 上传后专门试“会触发／不该触发”两类句子，只改 description 往往比改正文更管用。  </li>
-<li><strong>反例：把整本员工手册塞进单个 <code>SKILL.md</code>。</strong> 每次加载都吃上下文；应拆 references 并按步骤引用。  </li>
-<li><strong>反例：ZIP 直接压了散落的 <code>SKILL.md</code>。</strong> 官方：根上裸文件不被识别。  </li>
-<li><strong>反例：技能里写死 API Key。</strong> 分享＝密钥扩散；外连用连接器、各自登录。  </li>
-<li><strong>反例：用 Skill 代替事实来源。</strong> 流程可复用，数字与引语仍要核（见本室《幻觉校验清单》）。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：claude.ai／桌面自定义 Skills 入门、与 Projects 分工、Claude Code 目录落点；<strong>不</strong>展开 API 计费数字或企业审核工单细节。  </li>
-<li>Free 是否与付费档同等可用 Skills：Help 与 overview 表述不完全一致 → <strong>待核／以你界面为准</strong>。  </li>
-<li>UI 文案（Capabilities 新旧名、Create skill 按钮）可能改版 → 以当前界面为准。  </li>
-<li>他人分享／第三方技能：启用前读 <code>SKILL.md</code> 与脚本；组织扫描与分享策略因计划而异。  </li>
-<li>Skill 不能消灭幻觉，也不能替代你对对外稿的人工终核。</li>
-</ul>
-<h2>【来源与编译】</h2>
-<ul>
-<li><a href="https://claude.com/docs/skills/overview">Skills overview</a>｜Claude.ai Documentation｜三阶段加载；与 Projects／Plugins／MCP 对照；Capabilities 前置</li>
-<li><a href="https://claude.com/docs/skills/how-to">Create custom skills</a>｜Claude.ai Documentation｜目录结构、<code>SKILL.md</code> 字段、ZIP 打包、测试与最佳实践</li>
-<li><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude">Use skills in Claude</a>｜Claude Help Center｜Customize &gt; Skills、上传、套餐与 Code execution、安全提示</li>
-<li><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Agent Skills overview</a>｜Claude Platform Docs｜预置文档技能、API／Claude Code 路径摘要</li>
-<li><a href="https://code.claude.com/docs/en/skills">Extend Claude with skills</a>｜Claude Code Docs｜<code>~/.claude/skills/</code> 与项目 <code>.claude/skills/</code>、<code>/skill-name</code></li>
-<li><a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How can I create and manage projects?</a>｜Claude Help Center｜Set project instructions、知识库、Free 最多五个项目</li>
-<li><a href="https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features">Understanding Claude’s personalization features</a>｜Claude Help Center｜项目说明适用场景</li>
-<li>本文说明：编译“何时用 Skill／如何最小搭建／三端落点／与 Projects 分工”；<strong>未捏造额度数字</strong>；Free 覆盖与部分同步开关标待核。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-skills-reusable-workflow-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>掌趣科技Q3营收约1.58亿同比-10.42%，前三季归母净利约-1142万</title>
-      <link>https://www.kmhgame.com/zhang-qu-ke-ji-q3-ying-shou-yue-1-58-yi-tong-bi-10-42-qian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/zhang-qu-ke-ji-q3-ying-shou-yue-1-58-yi-tong-bi-10-42-qian/</guid>
-      <pubDate>Mon, 02 Nov 2026 02:04:43 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>掌趣科技Q3营收约1.58亿同比-10.42%、归母约-4768万；前三季营收约4.92亿、归母约-1142万。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zhangqu-q3-2026-cover-1024x465.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>157,881,654.48</strong> 元（约 <strong>1.58</strong> 亿元），同比 <strong>-10.42%</strong>；归属于上市公司股东的净利润 <strong>-47,679,487.46</strong> 元（约 <strong>-4768</strong> 万元），同比 <strong>-265.70%</strong>；扣非归母净利 <strong>-52,252,707.33</strong> 元（约 <strong>-5225</strong> 万元），同比 <strong>-306.20%</strong>；基本／稀释每股收益均为 <strong>-0.0176</strong> 元／股，同比 <strong>-276.00%</strong>。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>491,708,632.44</strong> 元（约 <strong>4.92</strong> 亿元），同比 <strong>-7.96%</strong>；归母净利 <strong>-11,421,043.71</strong> 元（约 <strong>-1142</strong> 万元），同比 <strong>-114.92%</strong>；扣非归母净利 <strong>-88,453,304.82</strong> 元（约 <strong>-8845</strong> 万元），同比 <strong>-216.91%</strong>；基本／稀释每股收益均为 <strong>-0.0042</strong> 元／股，同比 <strong>-114.00%</strong>。</li>
-<li><strong>股份支付口径</strong>：扣除股份支付影响后的净利润本报告期 <strong>-37,330,504.29</strong> 元（同比 <strong>-229.74%</strong>），年初至期末 <strong>19,846,471.96</strong> 元（同比 <strong>-74.08%</strong>）。即前三季度若剔除股份支付费用，净利润仍为正。</li>
-<li><strong>经营现金流与费用</strong>：年初至期末经营活动产生的现金流量净额 <strong>-95,315,398.38</strong> 元（约 <strong>-0.95</strong> 亿元），同比 <strong>-1,376.54%</strong>（主要会计数据表中本报告期经营现金流未填列）。合并利润表销售费用年初至期末 <strong>270,919,131.15</strong> 元（上年同期 <strong>143,995,618.63</strong> 元），公司称同比约 <strong>+88%</strong>，主因新游戏上线带来的市场推广费；研发费用 <strong>194,101,041.82</strong> 元（上年同期 <strong>196,862,991.56</strong> 元）。</li>
-<li><strong>非经常性与公允价值</strong>：非经常性损益合计本报告期 <strong>4,573,219.87</strong> 元、年初至期末 <strong>77,032,261.11</strong> 元；其中“金融资产公允价值变动／处置损益”年初至期末 <strong>67,704,690.26</strong> 元。合并利润表公允价值变动收益年初至期末 <strong>75,471,658.73</strong> 元（上年同期 <strong>-2,570,217.92</strong> 元）。归母亏损远小于扣非亏损，主要被上述非经常性／公允价值收益托住。</li>
-<li><strong>资产负债与业务侧表述</strong>：截至 <strong>2026年9月30日</strong>，总资产 <strong>4,912,575,350.08</strong> 元（约 <strong>49.13</strong> 亿元），较上年末 <strong>-3.33%</strong>；归属于上市公司股东的所有者权益 <strong>4,522,086,672.20</strong> 元（约 <strong>45.22</strong> 亿元），较上年末 <strong>-3.29%</strong>；货币资金 <strong>2,325,218,113.58</strong> 元；合同负债 <strong>116,699,342.02</strong> 元（上年末 <strong>143,122,984.07</strong> 元）。公司称应付账款增、销售费用增、经营现金流恶化均与“新游戏上线”及市场推广相关；季报<strong>未</strong>披露该新游名称或分产品营收。</li>
-<li><strong>披露与审计</strong>：公告编号 <strong>2026-028</strong>；董事会落款 <strong>2026年10月26日</strong>；巨潮静态路径日期常见为 <strong>2026-10-27</strong>；第三季度财务会计报告 <strong>未经审计</strong>。</li>
-</ul>
-<h2>关键财务数据表（据巨潮 PDF 主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>157,881,654.48</td><td>-10.42%</td><td>491,708,632.44</td><td>-7.96%</td></tr><tr><td>归属于上市公司股东的净利润</td><td>-47,679,487.46</td><td>-265.70%</td><td>-11,421,043.71</td><td>-114.92%</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>-52,252,707.33</td><td>-306.20%</td><td>-88,453,304.82</td><td>-216.91%</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>-95,315,398.38</td><td>-1,376.54%</td></tr><tr><td>基本每股收益（元／股）</td><td>-0.0176</td><td>-276.00%</td><td>-0.0042</td><td>-114.00%</td></tr><tr><td>稀释每股收益（元／股）</td><td>-0.0176</td><td>-276.00%</td><td>-0.0042</td><td>-114.00%</td></tr><tr><td>加权平均净资产收益率</td><td>-1.05%</td><td>减少1.63个百分点</td><td>-0.25%</td><td>减少1.81个百分点</td></tr><tr><td>扣除股份支付影响后的净利润</td><td>-37,330,504.29</td><td>-229.74%</td><td>19,846,471.96</td><td>-74.08%</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>4,912,575,350.08</td><td>5,082,000,520.39</td><td>-3.33%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>4,522,086,672.20</td><td>4,676,124,779.10</td><td>-3.29%</td></tr></tbody></table></figure>
-<p>合并利润表摘录（年初至报告期末，单位：元）</p>
-<figure><table><thead><tr><th>项目</th><th>本期发生额</th><th>上期发生额</th></tr></thead><tbody><tr><td>营业收入</td><td>491,708,632.44</td><td>534,251,971.13</td></tr><tr><td>营业成本</td><td>110,663,799.21</td><td>141,656,935.25</td></tr><tr><td>销售费用</td><td>270,919,131.15</td><td>143,995,618.63</td></tr><tr><td>管理费用</td><td>82,404,595.30</td><td>73,830,893.94</td></tr><tr><td>研发费用</td><td>194,101,041.82</td><td>196,862,991.56</td></tr><tr><td>公允价值变动收益</td><td>75,471,658.73</td><td>-2,570,217.92</td></tr><tr><td>营业利润</td><td>-7,946,011.18</td><td>75,518,436.40</td></tr><tr><td>利润总额</td><td>-8,381,312.72</td><td>76,270,450.17</td></tr><tr><td>净利润</td><td>-11,421,043.71</td><td>76,561,220.36</td></tr><tr><td>归属于母公司股东的净利润</td><td>-11,421,043.71</td><td>76,561,220.36</td></tr></tbody></table></figure>
-<p>非经常性损益摘录（单位：元）</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期金额</th><th>年初至报告期末金额</th></tr></thead><tbody><tr><td>非流动性资产处置损益</td><td>-248,389.39</td><td>-248,389.39</td></tr><tr><td>计入当期损益的政府补助</td><td>9,175.29</td><td>954,625.87</td></tr><tr><td>金融资产公允价值变动／处置损益</td><td>2,791,752.18</td><td>67,704,690.26</td></tr><tr><td>委托他人投资或管理资产的损益</td><td>1,713,692.31</td><td>8,138,593.77</td></tr><tr><td>非经常性损益合计</td><td>4,573,219.87</td><td>77,032,261.11</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月26日，北京掌趣科技股份有限公司董事会披露《2026年第三季度报告》（公告编号 2026-028；巨潮静态文件路径日期常见为 2026-10-27）。对产经读者，这份材料的硬对照是：营收同比小幅下滑，利润端由盈转亏；第三季度单季归母亏损约 4768 万元，已超过前三季度累计归母亏损约 1142 万元——意味着上半年归母仍为正，三季度单季把累计利润打穿。扣非口径亏损更深：年初至期末扣非归母约 -8845 万元。第三季度财务报表未经审计。</p>
-<p>主要会计数据显示：本报告期营业收入 157,881,654.48 元，同比降 10.42%；归属于上市公司股东的净利润 -47,679,487.46 元，同比变动 -265.70%；扣非归母净利 -52,252,707.33 元。年初至报告期末，营业收入 491,708,632.44 元，同比降 7.96%；归母净利 -11,421,043.71 元，同比变动 -114.92%；扣非归母净利 -88,453,304.82 元，同比变动 -216.91%。经营活动现金流量净额年初至期末为 -95,315,398.38 元，同比变动 -1,376.54%；本报告期该行在主要会计数据表中未填列。</p>
-<p>费用与业务侧，公司把销售费用同比增加约 88%、应付账款增加、经营现金流恶化，一并归因于“本期新游戏上线”带来的市场推广费支出增加，以及销售收款减少；部分被职工薪酬和游戏分成款支付减少所抵消。其他非流动负债较上年末增约 103%，公司称系新增游戏授权金。季报未给出该新游的名称、流水或分产品营业收入，本稿不外推。</p>
-<p>盈利质量需把股份支付、非经常性损益与公允价值变动放在一起读。扣除股份支付影响后，年初至期末净利润仍为 19,846,471.96 元（同比 -74.08%），本报告期则为 -37,330,504.29 元。非经常性损益年初至期末合计 77,032,261.11 元，其中金融资产公允价值变动／处置损益 67,704,690.26 元；合并利润表公允价值变动收益同期 75,471,658.73 元。换言之，归母层面的亏损幅度被金融资产公允价值与非经常性项目明显收窄，扣非更能反映主业承压。</p>
-<p>资产负债表截至 2026年9月30日：总资产 4,912,575,350.08 元，较上年末降 3.33%；归属于上市公司股东的所有者权益 4,522,086,672.20 元，较上年末降 3.29%。货币资金期末 2,325,218,113.58 元；合同负债 116,699,342.02 元，较上年末 143,122,984.07 元下降。加权平均净资产收益率本报告期 -1.05%（同比减少 1.63 个百分点），年初至期末 -0.25%（同比减少 1.81 个百分点）。报告期末普通股股东总数 157,551 名。</p>
-<p>其他重要事项一节披露：公司参与的深圳前海掌趣创享股权投资企业（有限合伙）因投资项目未全部退出，报告期内经合伙人会议决议再延长存续期一年；公司称不会对经营状况产生重大影响。本稿仅作背景一句。</p>
-<p>对发行与资本市场读者的短结论：收入端同比温和下滑，利润与经营现金流在三季度明显恶化；销售费用因新游推广抬升，但季报未交代单品贡献。归母亏损小于扣非，依赖金融资产公允价值与非经常性收益；扣除股份支付后前三季仍录得正利润。后续观察点是新游推广费用能否转化为可持续流水，以及公允价值波动是否继续扰动归母与扣非差额。数字以巨潮 PDF 为准；未披露的分产品营收、单品流水或排期，本稿不外推。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：北京掌趣科技股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  出版方：北京掌趣科技股份有限公司  </p>
-<p>  公告编号：2026-028  </p>
-<p>  董事会日期：2026年10月26日  </p>
-<p>  链接：<a href="https://static.cninfo.com.cn/finalpage/2026-10-27/1225625582.PDF">掌趣科技2026年第三季度报告（巨潮 PDF）</a></p>
-<p>本文为妙游社据公司三季报整理：亿元／万元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、资产负债、利润表费用与公允价值、非经常性损益、扣除股份支付后净利润均摘自报告主要会计数据、“主要会计数据和财务指标发生变动的情况及原因”或财务报表附注表；“新游戏上线”为公司变动说明原表述，季报未列游戏名称或分产品营收，未编造未披露细拆。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zhangqu-q3-2026-cover-1024x465.webp"/>
-    </item>
-    <item>
-      <title>卡普空FY2027第2四半期销售额约1208.87亿日元同比+49%，通期予想未改</title>
-      <link>https://www.kmhgame.com/ka-pu-kong-fy2027-di-2-si-ban-qi-xiao-shou-e-yue-1208-87-yi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ka-pu-kong-fy2027-di-2-si-ban-qi-xiao-shou-e-yue-1208-87-yi/</guid>
-      <pubDate>Mon, 02 Nov 2026 01:58:54 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>卡普空FY2027第2四半期（中間期，截至2026年9月30日）销售额约1208.87亿日元同比+49.0%，营业利润约607.69亿同比+54.5%；数字内容销量约3686万本，通期予想未改。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/capcom-fy27-q2-cover-1024x1447.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>窗口口径</strong>：本稿按日系决算短信写 <strong>2027年3月期第2四半期（中間期）</strong>，累计期间 <strong>2026年4月1日–2026年9月30日</strong>；披露日约 <strong>2026年10月27日</strong>。勿与日历年 Q2 混读。英站 IR 偶见 “FY2026 Q2” 起年写法，与本稿日系 FY2027（截止日）指同一窗口。</li>
-<li><strong>连结合计</strong>：销售额（売上高）<strong>120,887</strong> 百万日元（约 <strong>1208.87</strong> 亿日元），同比 <strong>+49.0%</strong>；营业利润 <strong>60,769</strong> 百万（约 <strong>607.69</strong> 亿），同比 <strong>+54.5%</strong>；经常利润 <strong>61,212</strong> 百万（约 <strong>612.12</strong> 亿），同比 <strong>+67.5%</strong>；归属于母公司股东的中期净利润 <strong>43,083</strong> 百万（约 <strong>430.83</strong> 亿），同比 <strong>+56.6%</strong>；基本每股中期净利 <strong>102.99</strong> 日元（上年同期 <strong>65.78</strong> 日元）。</li>
-<li><strong>数字内容销量</strong>：Digital Contents 事业销售本数约 <strong>3,686</strong> 万本（上年同期约 <strong>2,385</strong> 万本）；英释新闻稿作 <strong>36.86</strong> million units（上年 <strong>23.85</strong> million）。短信称期间向 <strong>239</strong> 个国家／地区销售 <strong>260</strong> 个标题。</li>
-<li><strong>新作与目录</strong>：完全新 IP《Pragmata（普拉格玛塔）》约 <strong>270</strong> 万本；时隔约 20 年的《鬼武者 Way of the Sword》约 <strong>170</strong> 万本（系列累计约 <strong>1,100</strong> 万本）；《生化危机 安魂曲》累计突破约 <strong>800</strong> 万本；《鬼泣 5》累计突破约 <strong>1,400</strong> 万本。重售／目录标题约 <strong>3,218</strong> 万本（上年同期约 <strong>2,285</strong> 万本）。</li>
-<li><strong>分部（对外部客户销售额／分部损益）</strong>：数字内容 <strong>85,141</strong>／<strong>52,308</strong> 百万日元（同比约 <strong>+70.8%</strong>／<strong>+66.7%</strong>）；娱乐设施 <strong>15,709</strong>／<strong>2,681</strong>（约 <strong>+26.2%</strong>／<strong>+32.8%</strong>）；娱乐设备 <strong>16,549</strong>／<strong>9,275</strong>（约 <strong>+8.9%</strong>／<strong>+2.2%</strong>）；其他 <strong>3,486</strong>／<strong>1,975</strong>（约 <strong>-4.7%</strong>／<strong>-5.1%</strong>）。分部损益调整额 <strong>-5,471</strong> 百万后对接合并营业利润。</li>
-<li><strong>通期予想（未改）</strong>：截至 <strong>2027年3月31日</strong> 的连结预计仍为销售额 <strong>210,000</strong>、营业利润 <strong>83,000</strong>、经常利润 <strong>83,000</strong>、归母净利 <strong>58,000</strong>（单位：百万日元）；与 <strong>2026年5月13日</strong> 决算发表时相同。短信注记：业绩管理按年，仅披露通期予想。</li>
-<li><strong>分红与财务状况</strong>：第2四半期末预定分红 <strong>23.00</strong> 日元／股（上年同期第2四半期末为 <strong>20.00</strong>）；通期配当予想合计 <strong>46.00</strong> 日元（期末予想 <strong>23.00</strong>）。中間期末总资产 <strong>365,399</strong> 百万日元，纯资产 <strong>299,456</strong> 百万，自有资本比率 <strong>81.8%</strong>（上期末 <strong>78.8%</strong>）。营业活动现金流 <strong>36,769</strong> 百万日元（上年同期 <strong>4,525</strong>）。</li>
-</ul>
-<h2>关键财务数据表（据决算短信／英释新闻稿）</h2>
-<p>单位：百万日元（每股收益：日元）</p>
-<figure><table><thead><tr><th>项目</th><th>2027年3月期中間期</th><th>同比</th><th>2026年3月期中間期</th></tr></thead><tbody><tr><td>销售额（売上高）</td><td>120,887</td><td>+49.0%</td><td>81,152</td></tr><tr><td>营业利润（営業利益）</td><td>60,769</td><td>+54.5%</td><td>39,333</td></tr><tr><td>经常利润（経常利益）</td><td>61,212</td><td>+67.5%</td><td>36,543</td></tr><tr><td>归母中期净利润</td><td>43,083</td><td>+56.6%</td><td>27,514</td></tr><tr><td>基本每股中期净利</td><td>102.99</td><td>—</td><td>65.78</td></tr><tr><td>中期包括利益</td><td>42,061</td><td>+49.4%</td><td>28,152</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>2027年3月期中間期末</th><th>2026年3月期末</th><th>较上期末</th></tr></thead><tbody><tr><td>总资产</td><td>365,399</td><td>339,307</td><td>+26,091</td></tr><tr><td>纯资产</td><td>299,456</td><td>267,716</td><td>+31,740</td></tr><tr><td>自有资本比率</td><td>81.8%</td><td>78.8%</td><td>+3.0个百分点</td></tr></tbody></table></figure>
-<p>分部（对外部客户销售额／分部损益，百万日元）</p>
-<figure><table><thead><tr><th>分部</th><th>当中間期销售额</th><th>同比约</th><th>当中間期分部损益</th><th>同比约</th></tr></thead><tbody><tr><td>数字内容</td><td>85,141</td><td>+70.8%</td><td>52,308</td><td>+66.7%</td></tr><tr><td>娱乐设施</td><td>15,709</td><td>+26.2%</td><td>2,681</td><td>+32.8%</td></tr><tr><td>娱乐设备</td><td>16,549</td><td>+8.9%</td><td>9,275</td><td>+2.2%</td></tr><tr><td>其他</td><td>3,486</td><td>-4.7%</td><td>1,975</td><td>-5.1%</td></tr><tr><td>调整额（全社费用等）</td><td>—</td><td>—</td><td>-5,471</td><td>—</td></tr><tr><td>合并（销售额合计／营业利润）</td><td>120,887</td><td>+49.0%</td><td>60,769</td><td>+54.5%</td></tr></tbody></table></figure>
-<p>通期连结業績予想（2027年3月期，未修正）</p>
-<figure><table><thead><tr><th>项目</th><th>通期予想</th><th>对前期增减率</th></tr></thead><tbody><tr><td>销售额</td><td>210,000</td><td>+7.5%</td></tr><tr><td>营业利润</td><td>83,000</td><td>+10.2%</td></tr><tr><td>经常利润</td><td>83,000</td><td>+12.0%</td></tr><tr><td>归母当期净利</td><td>58,000</td><td>+6.3%</td></tr><tr><td>每股收益予想</td><td>138.65 日元</td><td>—</td></tr></tbody></table></figure>
-<p>约亿日元速览（由百万日元÷100，四舍五入至两位）：销售额约 <strong>1208.87</strong> 亿；营业利润约 <strong>607.69</strong> 亿；经常利润约 <strong>612.12</strong> 亿；归母中期净利约 <strong>430.83</strong> 亿。精确核对以表内百万日元为准。</p>
-<h2>正文</h2>
-<p>2026年10月27日，卡普空（东证 Prime 9697）披露《2027年3月期第2四半期（中間期）决算短信〔日本基准〕（合并）》，并同步发布英释新闻稿。期间为 <strong>2026年4月1日至2026年9月30日</strong>。对产经读者，这份中間决算的硬信息是：销售额与各级利润同比大幅上升，数字内容新作加目录量形成主引擎；公司明确 <strong>通期予想未改</strong>，并称正按通期目标推进。</p>
-<p>合并销售额 120,887 百万日元，约 1208.87 亿日元，同比增 49.0%。营业利润 60,769 百万，约 607.69 亿，同比增 54.5%。经常利润 61,212 百万，约 612.12 亿，同比增 67.5%。上年同期营业外曾记入较高社会贡献相关费用（万博相关等），本年同期该项大幅回落，经常利润同比弹性高于营业利润。归属于母公司股东的中期净利润 43,083 百万，约 430.83 亿，同比增 56.6%。基本每股中期净利 102.99 日元。</p>
-<p>数字内容是增长主轴。短信称该事业销售本数约 3,686 万本，高于上年同期约 2,385 万本；英释作 36.86 million units。4 月上线的完全新 IP《Pragmata（普拉格玛塔）》约 270 万本；8 月前后发售的《鬼武者 Way of the Sword》约 170 万本，英释称其在游戏展获两项奖、系列累计约 1,100 万本。目录侧，《生化危机 安魂曲》持续走量并叠加价格施策，累计突破约 800 万本；《生化危机 RE:4》《RE:2》等前作续销；《怪物猎人：荒野》超大型扩展《Ascendance（扬升）》宣布 2027 年发售及 Switch 2 展开，带动系列旧作；《鬼泣 5》借 Switch 2 展开与影像联动，累计突破约 1,400 万本。《街头霸王 6》继续与电竞联动扩用户。重售标题合计约 3,218 万本（上年同期约 2,285 万本）。数字内容分部对外部销售额 85,141 百万日元、分部损益 52,308 百万日元。</p>
-<p>娱乐设施方面，短信写到天气等因素抬升室内需求，叠加既有店运营与新业态出店；期间新开埼玉角色扭蛋店“Chara-Cap／Capsule Lab 羽生店”、神奈川体验型设施“CAPCOMIX 港未来店”等，设施数至 <strong>63</strong> 店，并延续台北直营店及洛杉矶限期快闪等海外角色商品实验。该分部销售额 15,709 百万、损益 2,681 百万。娱乐设备侧，智能柏青哥新机《生化危机 RE:3》《街头霸王 6》及《怪物猎人崛起：曙光》等出货支撑，销售额 16,549 百万、损益 9,275 百万。其他事业含 Netflix《Devil May Cry》第二季、10 月 16 日全球上映的真人电影《街头霸王》话题、CAPCOM Pro Tour／街头霸王联赛等电竞与角色商品；销售额 3,486 百万、损益 1,975 百万，同比略降。</p>
-<p>财务状况：中間期末总资产 365,399 百万日元，较上期末增 26,091 百万；纯资产 299,456 百万，增 31,740 百万；自有资本比率 81.8%。现金及存款 151,634 百万；游戏软件仕挂品 60,740 百万。营业活动现金流 36,769 百万日元，远高于上年同期 4,525 百万。第2四半期末分红予定 23.00 日元；通期配当予想 46.00 日元，直近予想无修正。</p>
-<p>通期连结予想仍为销售额 210,000、营业／经常利润各 83,000、归母净利 58,000（百万日元）。以中間期实绩对照：销售额已完成通期予想约 <strong>57.6%</strong>，营业利润约 <strong>73.2%</strong>，归母净利约 <strong>74.3%</strong>。公司选择不改予想，英释写 “on track to achieve its full-year earnings forecast”。对发行与资本市场读者：上半年数字内容弹性很强，但通期是否上修要等后续披露；未拆开的单机营收、区域 ARPU 与平台分成，本稿不外推。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（连结）  </li>
-</ul>
-<p>  披露方：卡普空株式会社（Capcom Co., Ltd.）  </p>
-<p>  日期：2026年10月27日  </p>
-<p>  链接：<a href="https://www.capcom.co.jp/ir/data/pdf/result/2027/2nd/result_2027_2nd_01.pdf">卡普空决算短信 PDF（日文）</a></p>
-<ul>
-<li>原文标题：Sales and Profits Increase Year on Year in Capcom’s Consolidated Results for the Six Months Ended September 30, 2026  </li>
-</ul>
-<p>  披露方：Capcom Co., Ltd.／IR English Press Release  </p>
-<p>  日期：2026年10月27日  </p>
-<p>  链接：<a href="https://www.capcom.co.jp/ir/english/news/pdf/e261027b.pdf">卡普空英释新闻稿 PDF</a></p>
-<p>本文为妙游社据决算短信与英释新闻稿编译整理：金额以短信百万日元为准，正文“约X亿日元”由百万÷100；销量、分部、通期予想、分红与资产负债摘自短信经营概况／注记及英释摘要表。游戏名在正文用通行中文或英文官方题名；删去未在本中間短信主表核对的盘中股价解读。未编造未披露的单机营收细拆、未证实的排期变更或未公布的平台分成。英站 IR 轮播偶标 “FY2026 Q2”，与日系“2027年3月期第2四半期”为同一披露窗的起年／截止日表述差，本稿统一日系截止日口径。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/capcom-fy27-q2-cover-1024x1447.webp"/>
-    </item>
-    <item>
-      <title>游族网络Q3营收约3.66亿同比+10.75%，前三季归母约1.42亿同比+85.97%</title>
-      <link>https://www.kmhgame.com/you-zu-wang-luo-q3-ying-shou-yue-3-66-yi-tong-bi-10-75-qian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/you-zu-wang-luo-q3-ying-shou-yue-3-66-yi-tong-bi-10-75-qian/</guid>
-      <pubDate>Mon, 02 Nov 2026 01:37:01 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>游族网络Q3营收约3.66亿同比+10.75%、归母亏损约1.11亿；前三季归母约1.42亿同比+85.97%。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/youzu-q3-2026-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li><strong>Q3 单季（本报告期）</strong>：营业收入 <strong>366,248,494.89</strong> 元（约 <strong>3.66</strong> 亿元），同比 <strong>+10.75%</strong>；归属于上市公司股东的净利润 <strong>-110,684,515.45</strong> 元（约亏损 <strong>1.11</strong> 亿元），同比 <strong>-522.46%</strong>；扣非归母净利 <strong>9,389,070.12</strong> 元（约 <strong>0.09</strong> 亿元），同比 <strong>-65.72%</strong>。</li>
-<li><strong>前三季度（年初至报告期末）</strong>：营业收入 <strong>1,062,619,755.20</strong> 元（约 <strong>10.63</strong> 亿元），同比 <strong>+4.31%</strong>；归母净利 <strong>141,996,085.95</strong> 元（约 <strong>1.42</strong> 亿元），同比 <strong>+85.97%</strong>；扣非归母净利 <strong>27,176,174.71</strong> 元（约 <strong>0.27</strong> 亿元），同比 <strong>-33.93%</strong>。</li>
-<li><strong>经营现金流</strong>：年初至报告期末经营活动产生的现金流量净额 <strong>-650,656,295.61</strong> 元（约净流出 <strong>6.51</strong> 亿元），同比 <strong>-1,112.11%</strong>；公司归因于本期收购子公司并纳入合并范围，合并其购买商品、接受劳务支付的现金。</li>
-<li><strong>非经常性损益与公允价值</strong>：本报告期非经常性损益合计 <strong>-120,073,585.57</strong> 元，其中“非金融企业持有金融资产和金融负债产生的公允价值变动损益以及处置金融资产和金融负债产生的损益”为 <strong>-126,876,686.87</strong> 元；年初至期末该项为 <strong>107,824,757.32</strong> 元，非经常性损益合计 <strong>114,819,911.24</strong> 元。合并利润表年初至期末公允价值变动收益 <strong>81,885,013.66</strong> 元（上年同期 <strong>-9,262,337.28</strong> 元）。</li>
-<li><strong>每股收益与净资产收益率</strong>：本报告期基本／稀释每股收益均为 <strong>-0.12</strong> 元／股，同比 <strong>-500.00%</strong>；年初至期末均为 <strong>0.15</strong> 元／股，同比 <strong>+87.50%</strong>。加权平均净资产收益率本报告期 <strong>-2.41%</strong>（同比变动 <strong>-2.97</strong> 个百分点），年初至期末 <strong>3.16%</strong>（同比变动 <strong>+1.49</strong> 个百分点）。</li>
-<li><strong>资产负债与收购</strong>：截至 <strong>2026年9月30日</strong>，总资产约 <strong>66.28</strong> 亿元，较上年末 <strong>+23.59%</strong>；归属于上市公司股东的所有者权益约 <strong>45.21</strong> 亿元，较上年末 <strong>+1.30%</strong>。其他重要事项披露：2026年9月全资子公司上海游族智算数据有限公司增资取得智存合盈（深圳）科技有限公司 <strong>51%</strong> 股权并纳入合并；存货期末 <strong>974,684,603.02</strong> 元（上年末为 <strong>0</strong>）。</li>
-<li><strong>披露与审计</strong>：公告编号 <strong>2026-050</strong>；董事会落款 <strong>2026年10月27日</strong>；巨潮静态路径日期常见为 <strong>2026-10-29</strong>；公司官网新闻时间戳 <strong>2026-10-28</strong>；第三季度财务会计报告 <strong>未经审计</strong>。</li>
-</ul>
-<h2>关键财务数据表（据巨潮 PDF 主要会计数据）</h2>
-<p>单位：元</p>
-<figure><table><thead><tr><th>项目</th><th>本报告期</th><th>本报告期同比</th><th>年初至报告期末</th><th>年初至期末同比</th></tr></thead><tbody><tr><td>营业收入</td><td>366,248,494.89</td><td>+10.75%</td><td>1,062,619,755.20</td><td>+4.31%</td></tr><tr><td>归属于上市公司股东的净利润</td><td>-110,684,515.45</td><td>-522.46%</td><td>141,996,085.95</td><td>+85.97%</td></tr><tr><td>归属于上市公司股东的扣除非经常性损益的净利润</td><td>9,389,070.12</td><td>-65.72%</td><td>27,176,174.71</td><td>-33.93%</td></tr><tr><td>经营活动产生的现金流量净额</td><td>—</td><td>—</td><td>-650,656,295.61</td><td>-1,112.11%</td></tr><tr><td>基本每股收益（元／股）</td><td>-0.12</td><td>-500.00%</td><td>0.15</td><td>+87.50%</td></tr><tr><td>稀释每股收益（元／股）</td><td>-0.12</td><td>-500.00%</td><td>0.15</td><td>+87.50%</td></tr><tr><td>加权平均净资产收益率</td><td>-2.41%</td><td>-2.97个百分点</td><td>3.16%</td><td>+1.49个百分点</td></tr></tbody></table></figure>
-<figure><table><thead><tr><th>项目</th><th>本报告期末</th><th>上年度末</th><th>较上年末</th></tr></thead><tbody><tr><td>总资产</td><td>6,628,079,376.41</td><td>5,362,790,938.95</td><td>+23.59%</td></tr><tr><td>归属于上市公司股东的所有者权益</td><td>4,520,926,604.71</td><td>4,463,036,652.01</td><td>+1.30%</td></tr></tbody></table></figure>
-<h2>正文</h2>
-<p>2026年10月27日，游族网络股份有限公司董事会披露《2026年第三季度报告》（公告编号 2026-050；巨潮静态文件路径日期常见为 2026-10-29；公司官网新闻时间戳为 2026-10-28）。对产经读者，这份季报的硬信息是：单季营收同比仍增，但归母净利因金融资产公允价值波动转入大额亏损；前三季度归母净利同比大增，同期扣非归母净利却同比下降；经营现金流因收购并表大幅净流出。</p>
-<p>第三季度（本报告期）营业收入 366,248,494.89 元，约 3.66 亿元，同比增 10.75%。归属于上市公司股东的净利润 -110,684,515.45 元，约亏损 1.11 亿元，同比变动 -522.46%。扣除非经常性损益后的归母净利润 9,389,070.12 元，约 0.09 亿元，同比减 65.72%。单季扣非仍为正、归母为负，主要对应本报告期非经常性损益合计 -120,073,585.57 元；其中金融资产公允价值变动／处置损益一项为 -126,876,686.87 元。</p>
-<p>年初至报告期末，营业收入 1,062,619,755.20 元，约 10.63 亿元，同比增 4.31%。归母净利 141,996,085.95 元，约 1.42 亿元，同比增 85.97%。扣非归母净利 27,176,174.71 元，约 0.27 亿元，同比减 33.93%。换言之，前三季度归母净利的高增幅与扣非口径并不同向：年初至期末非经常性损益合计 114,819,911.24 元，其中金融资产公允价值变动／处置损益 107,824,757.32 元；合并利润表公允价值变动收益 81,885,013.66 元，上年同期为 -9,262,337.28 元。营业利润 150,305,224.20 元，利润总额 143,715,341.75 元。</p>
-<p>经营现金流是另一条需与利润对照的线。年初至报告期末经营活动产生的现金流量净额 -650,656,295.61 元，约净流出 6.51 亿元，同比变动 -1,112.11%。公司在变动说明中写明：主要系本期收购子公司并纳入合并范围，合并其购买商品、接受劳务支付的现金。同期投资活动现金流量净额 -330,056,840.83 元（同比 -301.86%，公司称主要系预付投资款增加）；筹资活动现金流量净额 499,998,429.73 元（同比 +762.84%，公司称主要系新增银行贷款增加）。现金及现金等价物净增加额 -493,815,942.55 元。</p>
-<p>资产负债表可看见并表痕迹。截至 2026年9月30日，总资产 6,628,079,376.41 元，较上年末增 23.59%；归属于上市公司股东的所有者权益 4,520,926,604.71 元，较上年末增 1.30%。存货期末 974,684,603.02 元，上年末为 0，公司说明主要系本期收购子公司并纳入合并范围。合同负债期末 484,079,621.46 元，较上年末增 406.38%，同样归因于收购并表。短期借款期末 806,898,308.89 元，较上年末增 130.34%，公司称主要系新增短期银行贷款。货币资金期末 1,178,546,656.86 元。其他重要事项披露：2026年9月，全资子公司上海游族智算数据有限公司通过增资取得智存合盈（深圳）科技有限公司 51% 股权并纳入合并报表；智存合盈主营包括电子专用设备销售、电子产品销售、国内贸易代理、计算机软硬件及辅助设备零售等。</p>
-<p>费用侧（年初至期末）：销售费用 48,294,734.43 元（上年同期 45,908,217.67 元），管理费用 156,767,138.71 元（上年同期 167,869,178.39 元），研发费用 87,541,792.81 元（上年同期 97,032,663.78 元）。报告期末普通股股东总数 53,990 名。前十大股东中，上海加游企业管理合伙企业（有限合伙）持股比例 10.95%；王卿伟 4.20%、王卿泳 3.31%，二者为兄弟关系、一致行动人；林漓、林芮璟互为一致行动人，所持股份均标注冻结。</p>
-<p>季报未拆单品营收或区域收入。公司官网同题新闻列举《少年三国志》系列、《少年西游记》系列、《战火与永恒》《权力的游戏 凛冬将至》《绯色回响》等产品名称及 AI 工具／生态表述，但不提供可与主要会计数据表交叉核对的分产品金额；本稿不以官网通稿外推流水或利润贡献。</p>
-<p>对发行与资本市场读者的短结论：营收端温和增长；归母净利的季度亏损与前三季度高增，都高度受金融资产公允价值波动牵引，扣非口径更能贴近经常性盈利强度。后续观察点是公允价值科目是否继续扰动归母与扣非差额，以及智存合盈并表后存货、经营性现金流出与短期借款的走向。数字以巨潮 PDF 为准；未披露的分业务营收细拆，本稿不外推。</p>
-<h2>【来源与编译】</h2>
-<ul>
-<li>原文标题：游族网络股份有限公司 2026 年第三季度报告  </li>
-</ul>
-<p>  公告编号：2026-050  </p>
-<p>  出版方：游族网络股份有限公司／巨潮资讯网  </p>
-<p>  董事会日期：2026年10月27日  </p>
-<p>  链接：<a href="https://static.cninfo.com.cn/finalpage/2026-10-29/1225636518.PDF">游族网络2026年第三季度报告（巨潮 PDF）</a></p>
-<ul>
-<li>原文标题：游族网络2026年前三季度营收净利润双增长，AI产业生态建设再提速  </li>
-</ul>
-<p>  出版方：游族网络官网新闻  </p>
-<p>  页面时间戳：2026-10-28  </p>
-<p>  链接：<a href="https://www.youzu.com/newsgroup/enterprise/7025323">游族官网｜三季报相关企业新闻</a></p>
-<p>本文为妙游社据巨潮三季报整理：亿元口径为元金额四舍五入；同比、扣非、经营现金流、每股收益、资产负债、非经常性损益与公允价值细项、收购并表说明均摘自报告主要会计数据、变动说明及其他重要事项；官网新闻仅作披露时间戳与产品名称线索，不作金额依据。未编造未披露的分业务营收、单品流水或未证实的排期。</p>
-<hr/>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/youzu-q3-2026-cover-1024x576.webp"/>
     </item>
   </channel>
 </rss>
