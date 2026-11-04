@@ -6,7 +6,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "lol-dev",
@@ -15,7 +15,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "gameres-25",
@@ -24,16 +24,16 @@
   "error": null,
   "items": 28,
   "newest": "2026-11-04T01:15:00Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "thepaper-tag-1909025",
   "title": "澎湃新闻 · 游戏论",
-  "ok": false,
-  "error": "list: FetchError: Failed to perform, curl: (28) Connection timed out after 30001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "ok": true,
+  "error": null,
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "kmhgame",
@@ -41,8 +41,8 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-04T02:43:19Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "newest": "2026-11-04T14:10:18Z",
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "jamesclear-3-2-1",
@@ -51,15 +51,15 @@
   "error": null,
   "items": 16,
   "newest": "2026-10-29T13:00:00Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "checked_at": "2026-11-04T15:32:17Z"
  },
  {
   "id": "gamersky-review",
   "title": "游民星空 · 游戏评测",
   "ok": true,
   "error": null,
-  "items": 18,
-  "newest": "2026-10-28T08:36:58Z",
-  "checked_at": "2026-11-04T06:42:35Z"
+  "items": 19,
+  "newest": "2026-11-04T10:30:53Z",
+  "checked_at": "2026-11-04T15:32:17Z"
  }
 ]
