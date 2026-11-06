@@ -6,7 +6,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "lol-dev",
@@ -15,7 +15,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "gameres-25",
@@ -24,7 +24,7 @@
   "error": null,
   "items": 28,
   "newest": "2026-11-04T01:15:00Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "thepaper-tag-1909025",
@@ -33,7 +33,7 @@
   "error": null,
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "kmhgame",
@@ -41,17 +41,17 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-05T06:50:00Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "newest": "2026-11-06T00:05:00Z",
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "jamesclear-3-2-1",
   "title": "James Clear · 3-2-1 Newsletter",
   "ok": true,
   "error": null,
-  "items": 16,
-  "newest": "2026-10-29T13:00:00Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "items": 17,
+  "newest": "2026-11-05T14:00:00Z",
+  "checked_at": "2026-11-06T00:24:41Z"
  },
  {
   "id": "gamersky-review",
@@ -60,6 +60,6 @@
   "error": null,
   "items": 19,
   "newest": "2026-11-04T10:30:53Z",
-  "checked_at": "2026-11-05T18:49:46Z"
+  "checked_at": "2026-11-06T00:24:41Z"
  }
 ]
