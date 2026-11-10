@@ -6,7 +6,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "lol-dev",
@@ -15,7 +15,7 @@
   "error": null,
   "items": 20,
   "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "gameres-25",
@@ -24,7 +24,7 @@
   "error": null,
   "items": 30,
   "newest": "2026-11-05T20:56:35Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "thepaper-tag-1909025",
@@ -33,7 +33,7 @@
   "error": null,
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "kmhgame",
@@ -41,8 +41,8 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-10T04:34:49Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "newest": "2026-11-10T10:17:43Z",
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "jamesclear-3-2-1",
@@ -51,7 +51,7 @@
   "error": null,
   "items": 17,
   "newest": "2026-11-05T14:00:00Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  },
  {
   "id": "gamersky-review",
@@ -60,6 +60,6 @@
   "error": null,
   "items": 20,
   "newest": "2026-11-09T02:54:56Z",
-  "checked_at": "2026-11-10T04:40:43Z"
+  "checked_at": "2026-11-10T13:35:46Z"
  }
 ]
