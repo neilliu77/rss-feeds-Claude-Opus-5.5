@@ -8,7 +8,155 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Wed, 11 Nov 2026 08:29:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 01:05:08 GMT</lastBuildDate>
+    <item>
+      <title>DeepSeek：表格粘进 Excel 列错乱怎么救</title>
+      <link>https://www.kmhgame.com/deepseek-biao-ge-zhan-jin-excel-lie-cuo-luan-zen-me-jiu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-biao-ge-zhan-jin-excel-lie-cuo-luan-zen-me-jiu/</guid>
+      <pubDate>Thu, 12 Nov 2026 01:05:08 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-03-768x432.webp" alt=""/></p>
+<p>（本文转载，原文包含完整的免费处理链路与验收清单，另有一节第三方工具推荐，此处只保留免费方法与边界，原文链接见文末。）</p>
+<p>把 DeepSeek 里的表格粘到 Excel，结果整张表挤进第一列，或者满屏竖线、表头消失——这不是 Excel 坏了，而是你复制到的不是表格对象，是 Markdown 源码或者网页富文本。Excel 的单元格模型只认列分隔，认不出竖线和短横线这些符号。</p>
+
+<h2>一、先认症状和原因</h2>
+<ul><li>整张表挤进第一列，或通过大量竖线分隔；</li><li>表头消失，或与数据行混在一起；</li><li>数字被识别成文本，无法求和或排序；</li><li>表格里有换行、公式或特殊符号时，错列更严重。</li></ul>
+<p>对话窗口里显示的是渲染后的表格，但复制时拿到的可能是两种东西：一是 Markdown 表格源码，用竖线表示列、用短横线表示分隔行，网页能渲染它，Excel 不会自动把它转成表格；二是带样式但列结构不稳定的混合富文本，长回答里的复杂表格尤其容易在粘贴时塌陷。</p>
+<h2>二、三步走：先要 CSV，再从文本导入</h2>
+<p>最稳的免费做法，是让模型直接输出 CSV，或者标准 Markdown 表格，再用 Excel 的「数据 → 从文本/CSV」导入。</p>
+<ul><li>让模型输出 CSV：直接说「请把上面的表格输出为 CSV」。逗号分列、换行分行，Excel 打开即正确分列。</li><li>只要表格时，要求「只给标准 Markdown 表格，不要解释」，避免说明文字混进单元格。</li><li>Excel 导入：数据 → 从文本/CSV → 选择文件 → 按分隔符分列 → 加载。</li></ul>
+<p>验证标准只有三条：列数等于表头列数、表头独立成行、数字可以直接计算。目标如果是 Word 正式文档，思路一样，先把表格转成标准 Markdown 表格再粘贴，只是落点从单元格变成文档里的表格对象。</p>
+<p>顺带说一句，Markdown 表格在规范里本来就是一段带分隔符的纯文本，不是二维结构——这解释了为什么「看着是表、粘过去不是表」。理解这一点，后面所有操作都是围绕「先拿到有明确分隔符的文本」来做。</p>
+<h2>三、已经粘乱了，怎么救</h2>
+<p>不用重新问一遍。选中乱掉的那一整列，点「数据 → 分列」，选「分隔符号」，勾「其他」并填上竖线，一路下一步，列就拆开了。如果粘进来的是制表符或空格分隔，就在这一步换成对应的分隔符。</p>
+<p>补救的边界也要清楚：合并单元格、公式、中文样式复杂的表格，拆完仍要人工核对；日期、金额、百分比最容易被误转成文本或错误格式，导入后先看这三类。</p>
+<h2>四、验收清单与合规</h2>
+<ul><li>保留 DeepSeek 的原始回答，方便回退重做。</li><li>先明确目标：是 Excel 数据处理、Word 交付，还是 PDF 留档，三条路线的中间格式不一样。</li><li>导入后核对列数、表头、数字格式，特别是日期和金额。</li><li>表格含客户名单、财务数据等敏感信息时，先确认隐私与合规，再决定要不要贴给公网模型。</li></ul>
+<p>一句话总结：别跟「粘贴」较劲，让模型给你能分列的数据——CSV 或标准 Markdown 表格，剩下的交给 Excel 的导入和分列。这个思路在 Word、Numbers、飞书表格里同样成立。如果经常要处理多轮对话里的表格，可以让模型每次都沿用同一套列名，导入后再合并，能省掉不少对齐的功夫。</p>
+<p>本文转载自腾讯云开发者社区（作者：DS小哥） 《DeepSeek 表格复制到 Excel 后列数错乱怎么恢复？》，原文链接：<a href="https://cloud.tencent.com.cn/developer/article/2736347">https://cloud.tencent.com.cn/developer/article/2736347</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-03-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：接进日常工作流的四个场景与心得</title>
+      <link>https://www.kmhgame.com/deepseek-jie-jin-ri-chang-gong-zuo-liu-de-si-ge-chang-jing/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-jie-jin-ri-chang-gong-zuo-liu-de-si-ge-chang-jing/</guid>
+      <pubDate>Thu, 12 Nov 2026 01:05:07 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-02-768x432.webp" alt=""/></p>
+<p>（本文转载，原文为一位 Python 后端开发者的真实使用记录，包含好用与翻车的两面，此处保留场景与心得，原文链接见文末。）</p>
+<p>三个月前，他把 DeepSeek 接进了日常工作流：写代码、查资料、写文档、排错。用他的话说，这不是广告，也不是跑分评测，就是一个普通开发者的真实使用记录——包括好用的地方，和让他抓狂的地方。</p>
+
+<h2>一、四个固定场景</h2>
+<p>写代码。日常补全还是靠 IDE，遇到不熟悉的库或者要写复杂逻辑时，才把需求连同上下文丢给 DeepSeek。上个月写一个订单对账模块，他把规则描述清楚后，模型给出的实现比他自己想的更简洁，还主动指出了并发场景下的重复对账问题。</p>
+<p>查资料。以前遇到报错先搜，现在先把报错信息贴给 DeepSeek。它能给出定位思路，也省掉了搜索结果里的 SEO 垃圾文章。代价是知识有截止日期，涉及最新框架版本的问题偶尔会一本正经地胡说八道。</p>
+<p>写文档。接口文档是他最讨厌的活之一，现在把代码片段贴过去，让它按团队模板生成接口说明，准确率相当高——依据是真实代码，不是瞎编。周报、复盘同理，先给素材再让它组稿。</p>
+<p>排错。遇到诡异的 bug，把堆栈、相关代码、自己的排查过程整理成一段话发过去。它给的方向未必直接命中，但常能让人换个思路，相当于多了一个不要钱的结对伙伴。</p>
+<h2>二、两次实战：一次省了两天，一次翻车</h2>
+<p>一次是内存泄漏。服务运行几天后内存缓慢上涨，他查了两天没找到根因。把堆 dump 的采样信息和相关代码发过去，模型指出可疑点是缓存里持有大对象的引用；顺着这个方向，在一处消息消费逻辑里找到了没释放的引用。修复还是他自己做的，但排查范围被缩小了一大半。</p>
+<p>另一次是翻车。他问一个第三方库新版本的 API 用法，模型信誓旦旦给了一段代码，运行直接报错——那个 API 在最新版里早就改名了，只能回官方文档核对。这件事之后他养成了一个习惯：涉及版本、API 名的答案，一律以官方文档为准。</p>
+<h2>三、三条心得</h2>
+<ul><li>上下文质量决定回答质量。同一个问题，「帮我看下这个报错」和「以下是报错堆栈 + 相关代码 + 我排查过什么，帮我分析」得到的答案完全是两个级别。把 AI 当实习生，信息给得越足，活干得越好。</li><li>只信可验证的输出。代码、数据、接口参数这类能跑起来验证的内容，放心交给它；知识、观点、建议这类无法立刻验证的，心里要留个问号。</li><li>效率提升真实存在，但要会用。三个月下来，日常开发效率大约提升 20%–30%，省下的时间主要来自查资料和写文档；但前期要投入时间调教提示词、磨合工作流，不是装上就见效的魔法。</li></ul>
+<h2>四、怎么开始：从最小的闭环试</h2>
+<p>他的建议很朴素：挑一两个高频、重复、你明确知道「对错」的环节先试起来，比如接口文档、报错定位，别一上来就追求全流程 AI 化。DeepSeek 对他不是替代者，而是放大器——放大熟悉领域的产出效率，也在不熟悉的领域帮他快速建立认知。</p>
+<p>工具是好的，但最终判断力还在自己手里。这句话放在哪个模型上都成立。</p>
+<p>本文转载自腾讯云开发者社区（作者：编程小白狼） 《把DeepSeek接入日常工作流后，我的真实体验》，原文链接：<a href="https://cloud.tencent.com.cn/developer/article/2775506">https://cloud.tencent.com.cn/developer/article/2775506</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-02-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：用创造模式给自己造七个插件</title>
+      <link>https://www.kmhgame.com/deepseek-yong-chuang-zao-mo-shi-gei-zi-ji-zao-qi-ge-cha-jian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-yong-chuang-zao-mo-shi-gei-zi-ji-zao-qi-ge-cha-jian/</guid>
+      <pubDate>Thu, 12 Nov 2026 01:05:06 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-01-768x432.webp" alt=""/></p>
+<p>（本文转载，原文含七个插件的完整提示词与逐项耗时统计，此处保留实测过程与结论，原文链接见文末。）</p>
+<p>11 月 2 日，DeepSeek Harness 官方第一次单独给「创造模式」发了宣传视频，顺手公开了视频里 7 个插件的提示词。官方写得很谦虚：有些插件经过多轮对话反复打磨，one-shot 提示词不一定能完全复刻视频中的效果。作者的做法很直接——7 条提示词原样复制，每个只跑一轮，中途不修改，结果 7 个插件全部跑通。</p>
+
+<h2>一、创造模式到底在做什么</h2>
+<p>它不是让模型写一段代码给你复制，而是你用一句话描述想要的功能，Agent 自己写插件、自己安装，界面上就多出一个入口，连重启都不用。这个能力在 8 月 13 日 Harness 开源那天就有了，只是官方直到 11 月才把提示词公开。</p>
+<p>作者全部用默认设置：模型 DeepSeek-V4.1-Flash、推理等级 High、权限「工作区内修改」。也就是说，下面这些结果不是调参调出来的。</p>
+<h2>二、七个插件里，哪几个真能干活</h2>
+<ul><li>视频剪辑台（CUTROOM）：深色剪辑界面，裁切、分割、撤销，最后用 FFmpeg 导出 MP4。追加一句「把第一段视频删掉，第二段只留前 4 秒，第三段挪到最前面再导出」，不到 1 分钟就得到 12 秒、1920×1080 的成片，顺序和时长都对。这一轮用了 288 万 token，花 7 分钱。</li><li>论文阅读器：上传 PDF 后 15 页按原样渲染，选中文字弹出高亮、添加笔记、提问三个按钮，提问会自动生成「请解释这段话的意思，以及在论文论证里起什么作用」。只支持 PDF，原因是 DOCX、EPUB 必然重新排版，没法完整保留原始版式。</li><li>一键换肤：5 套风格由模型自己挑，选中后整个应用跟着变，不只是插件。</li><li>海报设计工作台：直接用上 Harness 官网的 shader 背景和英文字体，模型还把字体文件打包进了插件。</li><li>3D 地标馆：四座建筑全部用代码一块块搓出来，渲染器也是自己写的，没用任何现成 3D 库；埃菲尔铁塔用了 1342 个三角面，可拖动旋转、滚轮缩放。</li></ul>
+<p>也有翻车的。3D 地标馆里的悉尼歌剧院，模型说生成了 5 片曲面壳体，打开一看只有 3 片，还又薄又尖。会话统计插件则把价格写死成 2025 年的美元旧价——输入 0.28、缓存命中 0.028、输出 0.42 美元每百万 token，想看到准确数字得追问一句，让它按官网人民币价改过来。</p>
+<h2>三、8.36 元是怎么算出来的</h2>
+<p>七轮实测合计消耗 1.47 亿 token，按闲时价格算 8.36 元。便宜的关键不是模型小，而是缓存命中率高达 98.4%：DeepSeek-V4.1-Flash 闲时每百万输入 token，缓存命中 0.02 元、未命中 1 元，输出 4 元，高峰期价格翻倍。</p>
+<ul><li>海报设计工作台 1.42 元、视频剪辑台 1.45 元，是两个最贵的；</li><li>3D 地标馆 1.34 元、Transformer 3D 可视化 1.27 元；</li><li>会话统计 1.10 元、论文阅读器 1.05 元；</li><li>最便宜的一键换肤 0.73 元。</li></ul>
+<p>时间成本也要算进去：最快的一个用了 29 分 41 秒，最慢的 41 分 15 秒，中间还得守在电脑前点批准。一分钟一块钱，前提是你愿意等。</p>
+<h2>四、想自己试，三个提醒</h2>
+<ul><li>提示词照抄，别自作主张优化。作者原样复制、一轮成功，改过的版本未必还有这个命中率。</li><li>权限默认是「工作区内修改」，Agent 装插件、改文件都在工作区里，别一上来就放开全盘。</li><li>官方自己承认 one-shot 不一定能复刻多轮打磨的效果，跑出来差一点是正常的，接着对话补需求即可。</li></ul>
+<p>以后想给 Harness 加个小功能，不一定非要等官方。30 分钟、1 块钱，自己造一个——这是创造模式最有意思的地方。</p>
+<p>本文转载自掘金（作者：AI信息Gap） 《DeepSeek「创造模式」真香！7 个插件一轮搞定，附官方提示词》，原文链接：<a href="https://juejin.cn/post/7703821356807569427">https://juejin.cn/post/7703821356807569427</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261112-0905-01-768x432.webp"/>
+    </item>
+    <item>
+      <title>《永泉》Steam 已解锁，国区现价 ¥46.75</title>
+      <link>https://www.kmhgame.com/yong-quan-steam-yi-jie-suo-guo-qu-xian-jia-46-75/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/yong-quan-steam-yi-jie-suo-guo-qu-xian-jia-46-75/</guid>
+      <pubDate>Thu, 12 Nov 2026 00:54:18 GMT</pubDate>
+      <category>游戏热点</category>
+      <description><![CDATA[<p>11月12日，《永泉》（Springs, Eternal）已在 <a href="https://store.steampowered.com/app/3677850/">Steam</a> 解锁。国区原价 ¥55，现价 ¥46.75，优惠 15%。店面标明首发优惠至 11 月 26 日。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/yongquan-cover-460x215.webp"/></figure>
+<p>做过《Gone Home》和《Tacoma》的 Fullbright，把新故事放进一座夜里的温泉山庄，画面做成低保真的抖动像素，看着像上世纪90年代末的电脑和主机游戏。止水温泉藏在松林覆盖的山里，水汽把小路和旅馆窗户罩得模模糊糊。你提着手电筒走夜路，也会钻进洞穴，一步一步都带着对她的回忆。山庄里还住着十多个迷途的人。有人能争上一整晚，有人等着给你刺一笔纹身。跟谁聊过，常常能打开和下一个人的话头。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/yongquan-cover-460x215.webp"/>
+    </item>
+    <item>
+      <title>恩希软件三季度营收约6,864.85亿韩元同比增90.7%、营业利润扭亏为盈，全年营收展望上修至2.8万亿韩元</title>
+      <link>https://www.kmhgame.com/en-xi-ruan-jian-san-ji-du-ying-shou-yue-6-864-85-yi-han/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/en-xi-ruan-jian-san-ji-du-ying-shou-yue-6-864-85-yi-han/</guid>
+      <pubDate>Thu, 12 Nov 2026 00:27:44 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>恩希软件三季度营收686,485百万韩元同比增90.7%，营业利润扭亏为盈；净利润同比大降，全年营收展望上修至2.8万亿韩元。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ncsoft-q3-cover-1024x640.webp"/></figure>
+<p>686,485百万韩元，约合6,864.85亿韩元。这是恩希软件（NCSOFT）2026年第三季度的合并营收，比上年同期的360,036百万韩元高出九成。营业利润119,635百万韩元，上年同期还亏损7,467百万韩元。往利润表下半截看，数字就没那么亮：税前利润37,229百万韩元，同比下降91.4%；净利润19,989百万韩元，同比下降94.2%。</p>
+<p>11月11日，公司向韩国金融监督院提交了<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261111800311">第三季度合并财务报表营业（暂定）实绩公示</a>，并发布<a href="https://fizz-download.playnccdn.com/download/v2/buckets/nc-company/files/1a1c919994b-ba37e306-9baa-445c-8cc0-815d3c5b3000">业绩说明资料</a>。数字按韩国采用国际财务报告准则（K-IFRS）的合并口径编制。公示写明，外部审计人审查尚未完成，后续可能调整。</p>
+
+<h2>营收同比几乎翻倍，环比已从高位回落</h2>
+<p>先看整张成绩单。下表金额单位为百万韩元，第三季度期间为2026年7月1日至9月30日；同比、环比取自公示原表。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年Q3</th><th>2026年Q2</th><th>环比</th><th>2025年Q3</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>686,485</td><td>770,501</td><td>-10.9%</td><td>360,036</td><td>+90.7%</td></tr><tr><td>营业利润</td><td>119,635</td><td>173,861</td><td>-31.2%</td><td>-7,467</td><td>扭亏为盈</td></tr><tr><td>税前利润</td><td>37,229</td><td>176,744</td><td>-78.9%</td><td>435,145</td><td>-91.4%</td></tr><tr><td>净利润</td><td>19,989</td><td>131,181</td><td>-84.8%</td><td>347,360</td><td>-94.2%</td></tr><tr><td>归属母公司净利润</td><td>15,874</td><td>124,640</td><td>-87.3%</td><td>346,699</td><td>-95.4%</td></tr></tbody></table></figure>
+<p>前三季累计同样来自这份公示，期间为2026年1月1日至9月30日。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年前三季</th><th>2025年前三季</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>2,014,369</td><td>1,102,707</td><td>+82.7%</td></tr><tr><td>营业利润</td><td>406,773</td><td>12,832</td><td>+3,070.1%</td></tr><tr><td>税前利润</td><td>401,264</td><td>433,110</td><td>-7.4%</td></tr><tr><td>净利润</td><td>303,598</td><td>348,914</td><td>-13.0%</td></tr></tbody></table></figure>
+<p>前三季营业利润增幅看起来很大，是因为上年同期只有12,832百万韩元。说明资料把累计营收写成2兆144亿韩元、营业利润4,068亿韩元，累计营业利润率20%；单季营业利润率则写为17%。这是公司对公示数字的四舍五入表述。</p>
+<p>和上一季比，营收和营业利润都在下降。第二季度是这一年前三季里最高的一季，第三季度从那个高点退回来一截，并不改变同比扭转的方向。</p>
+<h2>《Lineage Classic》托住PC，休闲游戏已经能看见份额</h2>
+<p>说明资料把季度营收拆成四块：PC 289,381百万韩元，同比增长165%，环比下降16%；传统移动游戏162,230百万韩元，环比下降12%；移动休闲171,905百万韩元，约占当季营收的25%；其他62,969百万韩元。四项相加，正好是公示里的686,485百万韩元。</p>
+<p>PC这边，主要靠两款相对较新的产品。《Lineage Classic》第三季度营收1,587亿韩元，公司说仍保持稳定，上线后累计营收4,278亿韩元。《AION 2》（《永恒之塔2》）第三季度营收526亿韩元，上线后累计3,386亿韩元。传统三款移动游戏合计1,622亿韩元，环比少了12%。</p>
+<p>说明资料写，移动休闲前三季累计营收3,771亿韩元，约占累计营收的19%，JustPlay是主要拉动之一。海外营收占比来到54%。</p>
+<p>《AION 2》还有一笔不能直接算进第三季度营收的数字。公示附注写：该作全球服务自2026年9月30日开启抢先体验，到11月10日的42天里，累计支付额约1,103亿韩元，含事前Founders Pack，并且按玩家支付额统计，与会计营收可能不一致。9月30日已是第三季度最后一天，这笔支付大部分落在季后，不宜和当季526亿韩元的会计营收混成一个数。</p>
+<h2>营业利润转正，净利润仍压在营业外和去年基数上</h2>
+<p>营收和营业利润都比一年前好看，税前利润和净利润却掉下来，是因为营业外这一项换了方向。说明资料列报，第三季度营业外损益为亏损82,405百万韩元；上年同期营业外收益高达442,612百万韩元，把当时的税前利润推到了435,145百万韩元。说明资料列出了金额，没有再拆变动原因。</p>
+<p>营业利润已经转正。净利润的同比下降，主要发生在营业利润之下。</p>
+<h2>全年营收展望收到2.8万亿韩元</h2>
+<p>公司同时上修了年度营收展望。说明资料把2026年全年营收从原先的2.0万亿至2.5万亿韩元，调整为2.8万亿韩元；其中核心游戏（既有IP与新IP）2.25万亿韩元，移动休闲0.55万亿韩元。对2027年，公司给出的营收展望是3.2万亿至3.4万亿韩元，较2026年预估增长14%至21%。</p>
+<p>2.8万亿韩元是全年展望。前三季累计营收2,014,369百万韩元，约合2.01万亿韩元，离这个目标，还要看第四季度能不能补上剩下的部分。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ncsoft-q3-cover-1024x640.webp"/>
+    </item>
+    <item>
+      <title>Krafton三季度营业利润同比降35.5%、净亏684亿韩元，前三季累计营收仍增50.9%</title>
+      <link>https://www.kmhgame.com/krafton-san-ji-du-ying-ye-li-run-tong-bi-jiang-35-5-jing/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/krafton-san-ji-du-ying-ye-li-run-tong-bi-jiang-35-5-jing/</guid>
+      <pubDate>Thu, 12 Nov 2026 00:22:10 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>Krafton三季度暂定营业利润同比降35.5%、当季净亏684亿韩元；营收同比仍增11.6%，前三季累计营收同比增50.9%。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/krafton-q3-cover-1024x576.webp"/></figure>
+<p>营业还在赚钱，净利润已经落到亏损一侧。2026年第三季度，Krafton暂定合并营业利润为2,250亿韩元，同比下降35.5%；当季净利润亏损684亿韩元，上年同期则是盈利3,694亿韩元。营收没有跟着掉下去，这一季仍有9,714亿韩元，同比增长11.6%。</p>
+<p>11月10日，Krafton（KRAFTON, Inc.，韩国交易所代码259960）向韩国金融监督院电子公示系统提交了<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261110800492">合并财务报表营业（暂定）实绩</a>。期间为2026年7月1日至9月30日，按韩国采用国际财务报告准则（K-IFRS）的合并口径编制。公示写明，这些数字是暂定数，可能随外部审计人的会计审阅结果而变更。</p>
+<p>下表金额单位为亿韩元，为暂定合并数字。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年Q3</th><th>2026年Q2</th><th>环比</th><th>2025年Q3</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>9,714</td><td>12,902</td><td>-24.7%</td><td>8,706</td><td>+11.6%</td></tr><tr><td>营业利润</td><td>2,250</td><td>4,109</td><td>-45.2%</td><td>3,486</td><td>-35.5%</td></tr><tr><td>税前持续经营利润</td><td>-808</td><td>942</td><td>—（转亏）</td><td>4,867</td><td>—（转亏）</td></tr><tr><td>净利润</td><td>-684</td><td>-299</td><td>-128.6%</td><td>3,694</td><td>—（转亏）</td></tr><tr><td>归属母公司净利润</td><td>-641</td><td>-274</td><td>-134.3%</td><td>3,675</td><td>—（转亏）</td></tr></tbody></table></figure>
+<p>第二季度已经净亏299亿韩元，这一季亏损扩大到684亿。营业利润仍是正的2,250亿，税前持续经营利润则转到-808亿。公示没有说明营业利润以下的亏损来自哪些科目。</p>
+<p>前三季是另一组对照，期间为2026年1月1日至9月30日。累计营收36,330亿韩元，同比增长50.9%；累计营业利润11,975亿韩元，同比增长13.8%。公司<a href="https://www.gamespress.com/KRAFTON-ANNOUNCES-THIRD-QUARTER-2026-RESULTS">英文业绩新闻稿</a>和<a href="https://prtimes.jp/main/html/rd/p/000000440.000082433.html">日本法人新闻稿</a>把这两项写成“该累计期间的历史新高”，并称累计营业利润已达到2025年全年营业利润的114%。</p>
+<p>累计净利润仍有4,158亿韩元，同比下降45.0%；累计税前持续经营利润7,325亿韩元，同比下降27.4%。单季转亏，还没有把前三季整体拉到亏损线下面，但累计利润已经比去年同期瘦了一截。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年前三季</th><th>2025年前三季</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>36,330</td><td>24,069</td><td>+50.9%</td></tr><tr><td>营业利润</td><td>11,975</td><td>10,519</td><td>+13.8%</td></tr><tr><td>税前持续经营利润</td><td>7,325</td><td>10,095</td><td>-27.4%</td></tr><tr><td>净利润</td><td>4,158</td><td>7,564</td><td>-45.0%</td></tr><tr><td>归属母公司净利润</td><td>4,233</td><td>7,547</td><td>-43.9%</td></tr></tbody></table></figure>
+<h2>PC下滑，移动和其他业务补上</h2>
+<p>公司新闻稿给出的三季度营收构成是：PC 2,389亿韩元，同比下降32.5%；移动 5,043亿韩元，同比增长3.2%，环比增长12%；主机 86亿韩元，同比下降15.9%；其他 2,196亿韩元，同比增长1,117.8%。其他营收里包括ADK集团的广告和内容收入1,984亿韩元。</p>
+<p>公司新闻稿写，第三季度营业利润为2,250亿韩元，其中计入了参加gamescom 2026等活动相关的费用。</p>
+<p>新闻稿还写，PUBG IP前三季累计营收同比增长11%。PC和主机上的《PUBG: BATTLEGROUNDS》月活跃用户继续保持两位数增长，9月游戏与动画《咒术回战》联动；移动端则把增收部分归因于暑期档与《火影忍者》、法拉利等全球IP联动。</p>
+<p>《深海迷航2》（Subnautica 2）全球累计销量已超过500万套。新闻稿并写，该作在Steam上的好评率为91%，愿望单约445万份；公司计划在年底推出早期体验2.0大型更新，并把正式发售作为下一阶段重点。面向新兴市场的轻量版《BGMI Air》预定12月10日上线，新闻稿称预约人数已超过1,400万；8月在gamescom公开的新作《PUBG: DED.NET》已在10月进行闭门测试，公司准备于2027年发行。</p>
+<p>按2月公布的股东回报方针，公司在前三季约回购4,000亿韩元自有股份，并实施996亿韩元规模的减资分红；今年新回购加上原已持有的1,177亿韩元，合计注销5,176亿韩元规模自有股份，相当于已发行股份总数的4.4%。11月3日董事会再决定追加回购3,000亿韩元并全部注销。新闻稿称，计入这项计划后，2026年股东回报总额为9,172亿韩元，是2023年开始股东回报以来的年度最大规模。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/krafton-q3-cover-1024x576.webp"/>
+    </item>
     <item>
       <title>史克威尔艾尼克斯中期营收约1,631.79亿日元同比增21.9%，通期上修但经常利润展望仍低于上年</title>
       <link>https://www.kmhgame.com/shi-ke-wei-er-ai-ni-ke-si-zhong-qi-ying-shou-yue-1-631-79/</link>
@@ -1280,563 +1428,6 @@ W3 ｜____｜____｜____％｜…｜…｜…</code></pre>
 <li>价格与倍数可能变更；决策前再打开 <a href="https://x.ai/pricing">x.ai/pricing</a> 核一次。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-supergrok-weekly-usage-estimate-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Grok：新闻／突发检索的时间窗纪律</title>
-      <link>https://www.kmhgame.com/grok-xin-wen-tu-fa-jian-suo-de-shi-jian-chuang-ji-lyu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-xin-wen-tu-fa-jian-suo-de-shi-jian-chuang-ji-lyu/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:52:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>查突发别只说“最近”。先写死时间窗与时区；X 侧可机械限日，网页侧只能靠提示＋核对发稿时间。窗外旧闻一律降级或删掉。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-news-breaking-time-window-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方模型页口径：不开检索工具时，Grok <strong>没有</strong>训练截止之后的实时事件知识；要新闻／突发，先启用网页／X 检索。（<a href="https://prompt-architects.com/blog/188-grok-prompt-templates-real-time-data-prompts">Prompt Architects 对照 docs.x.ai/models</a>；核验日以原文为准）证据强度：高（官方模型说明经第三方复核引用）。</li>
-<li><strong>X Search</strong> 有 <code>from_date</code>／<code>to_date</code>（<code>YYYY-MM-DD</code>；数据自 <code>from_date</code> 当日 00:00 UTC 起，到 <strong>不含</strong> <code>to_date</code>）。查单日须把 <code>to_date</code> 设成次日。（<a href="https://docs.x.ai/developers/tools/x-search">X Search｜xAI Docs</a>）证据强度：高。</li>
-<li><strong>Web Search</strong> 文档列出域名白／黑名单与看图等参数，<strong>没有</strong>同等日期过滤器。网页侧时间窗只能写进提示，并要求每条带来源发稿时间再人工剔窗外。（<a href="https://docs.x.ai/developers/tools/web-search">Web Search｜xAI Docs</a>；<a href="https://prompt-architects.com/blog/188-grok-prompt-templates-real-time-data-prompts">Prompt Architects 对照表</a>）证据强度：高／中高。</li>
-<li>官方 cookbook“Topics to Morning Briefing”把固定窗口＋记忆已报故事当成日更范式：X 用日期参数收口，再用上次简报时刻判断“新／更新／旧”。（<a href="https://docs.x.ai/cookbook/examples/topics-to-morning-briefing">topics-to-morning-briefing</a>）证据强度：高（官方示例；偏 API）。</li>
-<li>消费端 grok.com／App：未见与 API 同级的日期表单公开说明时，把窗口写进提示，并要求列出每条来源的发帖／发稿时间；打不开或窗外的删掉。按钮名以现页为准（<strong>待核</strong>）。证据强度：中（提示层纪律，非机械保证）。</li>
-<li>与站内《Grok 检索少幻觉》《竞品公开情报检索》衔接：少幻觉管核链接；竞品篇管周更表；本稿专攻 <strong>新闻／突发的时间窗怎么立、怎么验</strong>。</li>
-<li>官方提醒：Grok 可能出错，用前须自行核验。（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）证据强度：高。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>产品群里有人甩一句：“Grok 说竞品今早降价了。”你点开链接，是三个月前的旧稿；另一条“突发”其实来自训练印象，检索痕迹都没有。新闻翻车常死在<strong>没把时间窗写死</strong>：旧闻、传闻和今日动态糊成“最新”。</p>
-<p>突发检索要的是窗口内发生了什么、证据链能否点开、窗外材料有没有混进来。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：API 日期参数与 cookbook＝高；消费端提示纪律＝中（请求而非机械保证）；UI 模式名标待核。</strong></p>
-<h4>1. 先立窗口，再开口</h4>
-<p>每次新闻／突发提问先填这四格（可写在提示最上方）：</p>
-<figure><table><thead><tr><th>字段</th><th>怎么填</th><th>例</th></tr></thead><tbody><tr><td>主题</td><td>事件／产品／主体，别用“最近大新闻”</td><td>【产品 A】定价页是否变更</td></tr><tr><td>时间窗</td><td>起止时刻＋时区；突发用小时级</td><td>过去 6 小时；或 2026-11-08 00:00–12:00 Asia/Shanghai</td></tr><tr><td>一手优先</td><td>官网域名、官方 X 账号（无 @）</td><td>example.com；OfficialHandle</td></tr><tr><td>窗外怎么处理</td><td>默认降级／删除</td><td>窗外材料标“窗外背景”，不进“突发”栏</td></tr></tbody></table></figure>
-<p>没有这四格，模型只能自由发挥“最近”，旧训练记忆更容易混进来。</p>
-<h4>2. 分清两套约束：X 可机械限日，网页靠提示</h4>
-<p>API／开发者侧（旁证，可迁移到提问习惯）：</p>
-<ul>
-<li><strong>X Search</strong>：设 <code>from_date</code>／<code>to_date</code>。官方写明区间是 UTC 日粒度，<code>to_date</code> <strong>不含</strong>当日；查 11-08 单日应 <code>from_date=2026-11-08</code>、<code>to_date=2026-11-09</code>。（<a href="https://docs.x.ai/developers/tools/x-search">X Search</a>）</li>
-<li><strong>Web Search</strong>：可限域名，<strong>文档未提供</strong> <code>from_date</code>／<code>to_date</code>。时间约束只能写在 prompt，并强迫模型打印每条来源的发布日期，你再剔窗外。（<a href="https://docs.x.ai/developers/tools/web-search">Web Search</a>）</li>
-</ul>
-<p>消费端若没有日期表单：把同一规则写进自然语言：“只使用窗口内来源；每条必须带来源时间戳；窗外单独成节或删除”。提示只是<strong>请求</strong>，到不了 API 级硬门闩；所以后面必须人工对时。</p>
-<h4>3. 可抄突发检索提示（改括号即用）</h4>
-<pre><code>任务：新闻／突发检索（不是写评论）
-主题：【一句话】
-时间窗：【起】至【止】，时区 Asia/Shanghai
-一手优先：网页【域名】；X【账号，无 @】
-请：
-1) 只报道窗口内可核来源支撑的事实；窗外材料若不得不提，单独一节“窗外背景”，禁止写进“突发／最新”。
-2) 输出表：时间（来源原时区＋换算上海）｜一句话事实｜一手或二手｜证据强度(高/中/低)｜可点 URL
-3) 每条必须带来源发帖／发稿时间；给不出时间的条目删掉或标“时间未知＝不得当突发”。
-4) “已确认／单一帖传闻／证据不足”分三节；禁止编链接、编时间戳、把训练记忆写成今日新闻。
-5) 文末附“本回答实际打开的链接清单”；打不开的不要留。
-若窗口内无结果：明确写“窗口内未检索到”，不要用旧闻顶上。</code></pre>
-<h4>4. 对时检查清单（人工，突发场景 2–5 分钟）</h4>
-<p>每条关键结论过一遍：</p>
-<ol>
-<li><strong>有没有检索痕迹</strong>：可点链接或明确检索说明；全无链接＝未接地草稿，补问或作废。  </li>
-<li><strong>对时</strong>：来源时间戳是否落在你的窗口；跨时区先换算到 Asia/Shanghai。  </li>
-<li><strong>对题</strong>：是否同一事件（同名产品／旧版调价页直接丢）。  </li>
-<li><strong>一手／二手</strong>：官网／官方账号／监管文书 vs 自媒体转述；转述默认≤中。  </li>
-<li><strong>窗外隔离</strong>：窗外材料不得改写为“今早／刚刚”。  </li>
-<li><strong>对抗一轮（高风险）</strong>：再问“请专门找窗口内的澄清与反证；找不到写明关键词。”</li>
-</ol>
-<p>官方 cookbook 日更简报还强调：记住已报过的故事，标 new／update／old，避免同一突发被反复当成新闻。（<a href="https://docs.x.ai/cookbook/examples/topics-to-morning-briefing">Morning Briefing</a>）消费端可用一句话代替记忆文件：“以下标题已覆盖，只报增量：【列表】。”</p>
-<h4>5. API 日更可抄窗口习惯（可选）</h4>
-<p>若你走 xAI API：按 cookbook，<code>searchWindow()</code> 用上次覆盖日到今天；因 <code>to_date</code> 不含当日，窗口末日要设成<strong>明天</strong>才包进今天。X 只有日粒度时，可用提示里的上次简报时刻＋𝕏 <code>since:</code> 算子往下收。网页侧仍无日期参数，继续靠发稿时间字段验收。计费与 <code>max_turns</code> 收口见官方示例页；本稿不写死单价。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：窗口写在提示第一行。</strong> 写在文末时，模型更容易先按“最新印象”生成再搜。  </li>
-<li><strong>诀窍：网页结果逼它打印发稿时间。</strong> 没有日期字段，你无法验收 Web Search 是否守窗。  </li>
-<li><strong>诀窍：单日 X 查询记得 <code>to_date</code>＝次日。</strong> 官方示例与说明一致；设成当天会漏掉当日帖。  </li>
-<li><strong>诀窍：空窗直说空窗。</strong> “窗口内未检索到”比用旧闻充数安全。  </li>
-<li><strong>反例：只说“最近／最新／突发”不给起止。</strong> 旧稿与训练记忆最容易混进“今天”。  </li>
-<li><strong>反例：把 API 日期过滤当成消费端已保证。</strong> 消费端无表单时，提示只是请求。  </li>
-<li><strong>反例：一条未对时的链接写进通稿标题。</strong> 对时失败＝不得当突发。  </li>
-<li><strong>反例：用多代理扫全世界却不收窗口。</strong> 更深检索更耗额度，也更容易带回窗外噪声。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：grok.com／官方 App 的<strong>新闻／突发提问时间窗纪律</strong>，以及 API 侧 X／Web 日期能力差异的可迁移习惯。  </li>
-<li>不覆盖：Imagine、语音播报产品评测、企业合规取证流程。  </li>
-<li>消费端检索／多代理按钮文案、免费档次数：<strong>以 2026-11-08 起账号现页为准</strong>，文中未实测全地区全套餐。  </li>
-<li>cookbook 为官方 API 示例；消费端无同等 <code>memory.json</code> 时，用提示里的“已覆盖标题列表”代替。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-news-breaking-time-window-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Claude：把会议记录压成“决策／待办／开放问题”三栏</title>
-      <link>https://www.kmhgame.com/claude-ba-hui-yi-ji-lu-ya-cheng-jue-ce-dai-ban-kai-fang-wen/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-ba-hui-yi-ji-lu-ya-cheng-jue-ce-dai-ban-kai-fang-wen/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:48:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>粘贴转写或潦草笔记，让 Claude 只吐三栏：已定决策、待办（负责人＋日期）、开放问题。缺负责人／日期写 UNASSIGNED／TBD，禁止编造。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-meeting-notes-three-columns-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>Claude <strong>不会</strong>自己入会录音；Anthropic 公开文档也没有“会议录音机器人”。你得先有转写／笔记，再粘贴或上传。（第三方对照：<a href="https://scribbl.co/post/claude-meeting-notes">Scribbl 归纳</a>；官方上传类型见帮助中心）证据强度：高（能力边界）。</li>
-<li>单次聊天：粘贴转写＋固定输出合同，比只说“总结一下”更稳。三栏骨架：决策｜待办｜开放问题。（第三方可抄提示：<a href="https://aitoolstime.com/prompts/claude-meeting-notes-to-action-items">AI Tools Time</a>；<a href="https://claude.wulu.ai/workflows/meetings">Mastering Claude 工作流</a>）证据强度：中。</li>
-<li>决策＝会上<strong>已同意</strong>的事；一人提议、无人附和，进开放问题，别写进决策栏。（Knack Meeting Minutes skill 口径）证据强度：中。</li>
-<li>待办一行一个动词，<strong>一个</strong>负责人；共担＝无人负责。日期未说就写 TBD／not set，不要补“像样的周五”。（同上）证据强度：中。</li>
-<li>系列会可放进 Project Knowledge：上周纪要＋本周转写同项目内对照，标“仍开放／已关闭”。Free≤5 个 Project；名／描述 Claude 看不到。（<a href="https://support.claude.com/en/articles/9517075-what-are-projects">Anthropic：What are projects?</a>；<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How to create and manage projects</a>）证据强度：高。</li>
-<li>发出去前人工对照原文：人名、数字、是否真拍板。模型会把讨论写成承诺。（多家提示库共同约束）证据强度：中高。</li>
-<li>本稿错开站内“<a href="https://www.kmhgame.com/grok-ba-chang-xian-cheng-zheng-li-cheng-ke-zhuan-fa-ji-yao/">Grok 长线程可转发纪要</a>”：工具与场景不同；本稿专攻 <strong>Claude＋会议转写 → 三栏纪要</strong>。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>周一早会结束，你把自动转写整坨丢给 Claude：“帮我写纪要。”它回了一页工整表格：负责人都齐，周五 deadline 也齐。你对了一眼录音：“下周五前出方案”其实是有人随口说的；“小李跟一下”从没点名到具体人。纪要却写得像已经立项。</p>
-<p>问题多半出在输出合同。会议纪要要的是会<strong>产出</strong>的三样东西：定了什么、谁做什么、还有什么没决。散文摘要好看，却最容易把提议写成决策、把空缺补成假日期。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：官方 Project／上传能力＝高；三栏提示与防编造纪律＝中（第三方可抄模板，非 Anthropic 官方产品功能名）。</strong></p>
-<h4>1. 先有转写，再找 Claude</h4>
-<ol>
-<li>从 Zoom／Teams／Meet／Otter 等导出文字稿（TXT／DOCX／PDF 均可）。Claude 聊天侧接受文档与图片类上传；<strong>录音文件本身</strong>不在 Anthropic 公开“可上传类型”的常规文档列表里，要先变成字。（上传细则以 <a href="https://support.claude.com/">support.claude.com</a> 现页为准，标待核具体上限。）</li>
-<li>单次会：新开一条聊天，粘贴或附件上传即可。</li>
-<li>系列会：建／打开一个 Project，把上周已核过的纪要放进 Project Knowledge，本周转写可粘贴进项目内新聊，或上传后点名文件名。Free 最多 5 个 Project；项目名和描述 Claude 读不到，客户名与角色表要写进提示或 Knowledge。</li>
-</ol>
-<h4>2. 三栏输出合同（可直接改括号粘贴）</h4>
-<pre><code>会议：【名称】｜日期：【YYYY-MM-DD】｜时区：Asia/Shanghai
-出席：【姓名＋角色】；缺席但相关：【…】
-今日基准日（用来把“下周五”换成具体日期）：【YYYY-MM-DD】
-原始转写／笔记：
-【粘贴或写明附件文件名】
-
-只根据原文输出，禁止编造未出现的负责人、日期、数字、引语。
-
-## 摘要
-最多 3 句。不重复后面的待办列表。
-
-## 决策
-- 只用过去式写会上已同意的事项（例：同意延期发版至 11-20）。
-- 一人提议、无人明确同意 → 不要进本栏，改入“开放问题”。
-
-## 待办
-每行一条，格式：
-- [ ] 【动词＋可交付物】 — Owner: 【一人｜UNASSIGNED】 — Due: 【YYYY-MM-DD｜TBD】
-规则：一个条目一个负责人；共担时选一个 driver，另一人写“需复核：××”。日期原文没有就写 TBD，禁止推测。
-
-## 开放问题
-- 【问题】｜谁提出｜要谁／什么信息才能关单
-
-## 需澄清
-原文暧昧处（两人可能都是负责人、日期互相打架）单列，勿擅自裁定。</code></pre>
-<p>第三方模板同源约束见 <a href="https://aitoolstime.com/prompts/claude-meeting-notes-to-action-items">AI Tools Time</a>、<a href="https://getknack.ai/@knack/meeting-minutes">Knack Meeting Minutes</a>、<a href="https://claude.wulu.ai/workflows/meetings">Mastering Claude</a>：只收录说过的话；提议≠决策；缺字段显式标空。</p>
-<h4>3. 系列会：带上上周待办再压一轮</h4>
-<p>若 Knowledge／附件里已有上周纪要，追加一句：</p>
-<pre><code>对照【上周纪要文件名】：标出仍开放、已关闭、逾期未提的待办；
-不要把上周未完成项静默删掉。</code></pre>
-<p>这是提示层工作流；Claude 没有自带任务系统。关闭与否仍以你人工核对为准。</p>
-<h4>4. 发出去前的 90 秒抽检</h4>
-<p>对照转写抽这几处，写缺就标，别让模型补：</p>
-<ul>
-<li>每个决策是否真有同意信号（点头／“就这么定”／明确拍板人）</li>
-<li>每个 Owner 是否在出席名单里说过那句话</li>
-<li>每个 Due 是否原文出现或可由“今日基准日”唯一换算</li>
-<li>专名、版本号、金额有没有被 ASR 听岔（Kubernetes→communities 一类）</li>
-</ul>
-<p>抽检降低带错状态的风险；它不证明转写本身完整。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：三栏分着写，别挤成一段“会议总结”。</strong> 分栏后提议与决策才拆得开。</li>
-<li><strong>诀窍：UNASSIGNED／TBD 当信号。</strong> 空着比假周五安全；发出去前再人工填。</li>
-<li><strong>诀窍：待办用动词开头。</strong> “看一下定价”不如“起草定价页 diff 并 @法务”。</li>
-<li><strong>诀窍：角色表写进提示。</strong> 转写里只有花名时，Claude 不知道谁是客户方。</li>
-<li><strong>反例：只说“帮我总结会议”。</strong> 模型爱写聊天流水账，决策与待办糊成一团。</li>
-<li><strong>反例：把“我们应该……”全写进决策。</strong> 无同意信号的句子进开放问题。</li>
-<li><strong>反例：指望 Claude 自己入会。</strong> 先要转写工具；Claude 管的是会后压栏。</li>
-<li><strong>反例：敏感客户纪要不脱敏就塞进共享 Project。</strong> Team／Enterprise 共享范围以现页权限为准；本稿不写死按钮路径。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：claude.ai（及官方桌面端同等聊天）上，<strong>已有转写／笔记 → 决策／待办／开放问题三栏</strong>的可抄提示与抽检。</li>
-<li>不覆盖：Zoom／Meet 机器人选型、实时字幕产品评测、法务级会议笔录认证。</li>
-<li>上传体积、单聊附件数、Project Knowledge 是否已切 RAG：以 Anthropic 帮助中心与你账号现页为准，<strong>勿写死次数</strong>。</li>
-<li>MCP／第三方会议连接器可减少手动导出，能力随连接器而变；本稿默认“导出粘贴”，不绑定任一付费笔记 App。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-meeting-notes-three-columns-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Grok：别把周更流程写进自定义指令</title>
-      <link>https://www.kmhgame.com/grok-bie-ba-zhou-geng-liu-cheng-xie-jin-zi-ding-yi-zhi-ling/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-bie-ba-zhou-geng-liu-cheng-xie-jin-zi-ding-yi-zhi-ling/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:47:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>人设只留长期成立的身份和禁止项。每周五整理本周变更、按模板输出，先搜 A 再对 B，这些是流程，该贴进当条提示或 Skills。写进人设，问天气也可能被绑架。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-custom-instructions-vs-prompt-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>长期自定义说明／人设类设置（若你界面有，名称以现页为准）会作用于后续对话。把“每周五按某模板整理变更”写进去，无关问题也可能被同一套步骤拖走。官方 FAQ 写过：你用功能和措辞控制 Grok 如何回应，输出仍须自行核验。（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）证据强度：高（须核验）；流程写错层的翻车＝中（使用观察）。</li>
-<li>可重复流程（周更或变更日志，以及本周数据）应放在当条提示，或做成可复制的工作流贴纸。官方 Skills 页面把格式规则和 workflow steps 列为一次教会、跨对话复用的对象。（<a href="https://x.ai/news/grok-skills">Skills in web, iOS, and Android</a>）证据强度：高。</li>
-<li>若要它到点自己跑，官方 Automations 是“描述一次任务，按日程或触发器执行”；可选 weekly，每次运行都是全新请求，带着同一份说明和当时的数据。（<a href="https://x.ai/news/grok-automations">Automations in Grok</a>）证据强度：高。</li>
-<li>Custom Agents（若你界面有）适合作命名专家口吻，仍应只留身份和禁止项，不要把周五 SOP 写进人设正文。菜单位置与槽位数以现页为准（待核）。第三方分层说明见 <a href="https://aitoolsrecap.com/Blog/grok-agent-settings-explained-2026">Grok Agent Settings</a>。证据强度：中。</li>
-<li>人设里该留的三行：你是谁／常用语言，默认怎么交稿，以及永远不要把无关问题当成周更任务。字符上限社区称 2026 年改过多次，本稿不写死数字。（<a href="https://saint-jean.co/en/blog/ai-context-account-project-settings">AI Context: account vs project</a>）证据强度：中。</li>
-<li>官方公开文章介绍了 Skills 与 Automations；本稿未登录 grok.com 现页逐项核对入口。第三方观察称公开页未见单独的“聊天用已保存提示词”列表，日常周更仍可靠自己的贴纸粘贴。（<a href="https://x.ai/news/grok-skills">Skills</a>／<a href="https://x.ai/news/grok-automations">Automations</a>／<a href="https://www.prompttray.app/guides/save-prompts-in-grok">How to Save Prompts in Grok</a>）证据强度：中。</li>
-<li>与“人设怎么写才不翻车”错开：旧文讲互斥口吻和 forever 戏；本稿只谈稳定偏好与可重复流程的分工。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你把这段写进了自定义指令：“每周五整理本周变更，按 XX 模板输出，先搜索来源 A，再对照来源 B。”保存之后很满意，觉得以后不用重复交代。</p>
-<p>例如你第二天只问今天天气：它有可能先去搜 A，或套上变更日志模板，把闲聊拖进周五工序。这是流程写进人设后的常见风险示意，不是某次实测逐字记录。周报助手一旦变成全局人格，问一句闲话也可能被同一套步骤牵着走。</p>
-<p>稳定偏好可以跟人走遍所有对话。带着日期、数据源和步骤顺序的流程不行。那是一次任务，或一项你可以随时唤起的技能，不该写进人设。</p>
-<p>翻车往往长这样：人设里没有“仅在周更时生效”的开关时，模型更容易把流程句当成默认工序。你问天气，它可能先搜 A；你改邮件语气，它也可能顺手套模板。流程越具体，抢戏风险越高。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：Skills／Automations／FAQ＝官方（高）；入口名称与字符上限＝第三方或现页，本稿不写死点击路径（中）。</strong></p>
-<h4>先把句子分到两个盒子</h4>
-<p>先问自己，这条规则下周五还成立、问天气时也成立吗？</p>
-<p>成立的句子可以进长期自定义说明／人设类设置：你做游戏编辑，默认用中文，不确定就写不确定，不要编链接。不成立的句子是流程：“每周五”“本周”“先搜 A 再对 B”“按 XX 模板”。它们绑定了日历和数据。</p>
-<p>Custom Agents 也走同一条线。给它起名“周报助手”可以，正文仍只能写身份和禁止项。周五怎么做、数据从哪来，留给当条提示或 Skills。</p>
-<p>可以把分工记成三句。长期成立的身份和禁止项进人设；同一套步骤要反复用、但每次数据不同，做成 Skill 或自己保存的贴纸；到点无人值守才交给 Automations。Workspaces 或 Projects（若你界面有）适合隔离某一个栏目的文件和历史，仍不要把周五 SOP 写进全局指令。</p>
-<p>稳定偏好的入口名称因客户端而异（有的第三方指南写作 Settings／Customize 一类）。本稿不写死点击路径：在设置里找到长期身份／自定义说明（或等价项），只放身份与禁止项；找不到就先用人设贴纸思路，以登录后界面为准。</p>
-<h4>人设里该留的三行</h4>
-<p>把下面三行贴进长期自定义说明／人设类设置，按自己的身份改括号。不要在后面追加周五流程。</p>
-<pre><code>我是【游戏编辑／独立开发／运营】，默认使用中文简体，专名可保留英文。
-默认先给结论再列要点；数字、日期、链接不确定时写“不确定”，不要编。
-不要为了人设强行走某一固定工序；我没有点名周更或变更日志时，按普通问题回答。</code></pre>
-<p>这三行管身份、默认交稿方式和一条硬禁止。禁止项专门挡住“把无关问题当成周更”。旧文里的互斥口吻、forever 戏，仍然不要写；本稿不再展开那一套检查表。</p>
-<h4>周更提示贴纸：每次换数据再贴</h4>
-<p>每周真正做周更时，新开对话（或唤起 Skill），把贴纸整段贴上，只改日期和素材：</p>
-<pre><code>任务：整理【YYYY-MM-DD 至 YYYY-MM-DD】本周变更，输出给【同事／读者】看。
-
-步骤：
-1) 先根据我提供的材料列出变更事实，不要先写评价。
-2) 需要外部核对时，先查【来源 A】，再对照【来源 B】；对不上就并列两边原文，不要私自抹平。
-3) 按下面模板输出，缺的字段写“未见／待补”，禁止编造版本号、日期和链接。
-
-模板：
-- 本周范围：
-- 上线／合并的功能（一条一行，带来源）：
-- 修复与回滚：
-- 未完成或推迟：
-- 需要人工确认的矛盾：
-
-材料：
-【粘贴 changelog、提交列表、公告原文，或 @ 相关文件】
-
-完成后先给一段不超过八十字的结论，再给正文。不要加开场白，不要升华。</code></pre>
-<p>官方 Skills 页写过：格式和 workflow steps 可以教一次，跨对话记住；也可以直接让 Grok 把刚磨好的流程存成 skill。若你界面有 Skills，用这张贴纸跑通一次，再请它保存。唤起方式以你界面为准；本稿不指定斜杠或其它快捷键。没有 Skills 入口就继续用贴纸粘贴。</p>
-<p>若你希望周五到点自己跑，且界面提供 Automations：说明读起来像一条聊天，选 weekly、选时区里的时间；每次运行都是新请求，同一份说明，用当时的数据。可以先 Run now 看一遍。Automations 适合“到点执行”；你人还在、要改这一周素材时，贴纸更合适。</p>
-<p>第三方写过：x.ai 公开页没有单独列出一个“聊天用已保存提示词”功能。找不到入口就别假装有，把贴纸放在你自己的笔记里。</p>
-<h4>改完人设，用无关问题验收</h4>
-<p>新开一条对话，问两句。旧线程可能还带着改之前的习惯，生效范围待核。</p>
-<ol>
-<li>“今天天气怎么样？”它如果开始搜来源 A 或套周更模板，说明流程还留在人设里，删掉再存。</li>
-<li>“按贴纸帮我做本周变更。”这时它才应该走步骤和模板。</li>
-</ol>
-<p>人设改短之后，周更质量不该下降。步骤都在贴纸或 Skill 里，每次都能换本周的日期和材料。若天气问答已经干净、周更贴纸却漏步骤，去改贴纸，别把步骤重新塞回人设。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：日期、数据源和步骤顺序，这三样不要进人设。</strong> 它们会过期，也会在闲聊里抢戏。</li>
-<li><strong>诀窍：人设写“没点名就当普通问题”。</strong> 比只写“请专业一点”更能挡住工序绑架。</li>
-<li><strong>诀窍：同一套周更先手动跑通，再存成 Skill，最后才考虑 Automation。</strong> 官方 Automations 也建议先测 Run now。</li>
-<li><strong>诀窍：Custom Agent 一个名字对应一种长期身份。</strong> “周报助手”可以拒绝把天气写成周报，但不要把本周数据写进人设。</li>
-<li><strong>反例：把“每周五整理本周变更、按 XX 模板输出，先搜 A 再对 B”写进长期自定义说明／人设。</strong> 下一句若只是问天气，仍可能被同一套步骤拖走。</li>
-<li><strong>反例：把公司手册和本周数据表整份粘进人设。</strong> 手册进工作区或附件；本周数据进当条材料区。</li>
-<li><strong>反例：改完指令还在旧对话里验收。</strong> 新开一条再问天气。</li>
-<li><strong>反例：界面没有 Skills 就硬写并不存在的快捷唤起。</strong> 以现页为准，没有就继续用贴纸。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：grok.com／官方 App 上，稳定偏好与可重复周更流程应分开放哪一层。</li>
-<li>不覆盖：人设互斥口吻、forever 戏、何时整段留空（见站内“人设怎么写才不翻车”）。</li>
-<li>菜单文案与字符上限，以及 Custom Agents 槽位数、Skills 调用方式和免费／付费差异：一律以登录后界面为准（待核）。本稿不写死上限数字，也不写死点击路径。</li>
-<li>企业侧 Grok Bot 的审批与 Custom Rules 是另一套配置，不与消费端人设混用。</li>
-<li>自定义不会取消官方提醒：Grok 可能给出不准确信息，重要结论须自行核验。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-custom-instructions-vs-prompt-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Codex：只读探索陌生仓库的提问顺序</title>
-      <link>https://www.kmhgame.com/codex-zhi-du-tan-suo-mo-sheng-cang-ku-de-ti-wen-shun-xu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/codex-zhi-du-tan-suo-mo-sheng-cang-ku-de-ti-wen-shun-xu/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:44:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>陌生仓库先别让 Agent 改文件。用 read-only 沙箱按固定提问顺序摸清结构、指令来源与一条关键路径，再决定要不要开写。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-readonly-unfamiliar-repo-ask-order-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方 sandbox 文档写明：未把工作目录标为可信前，CLI <strong>默认偏只读</strong>；也可显式 <code>--sandbox read-only</code>（可配 <code>--ask-for-approval on-request</code>）。只读可检查文件与回答问题，编辑／部分命令需批准（<a href="https://github.com/openai/codex/blob/main/docs/sandbox.md">Codex sandbox.md</a>）。证据强度：高。</li>
-<li>提问顺序建议（本稿工作流）：①先问加载了哪些指令文件 → ②自上而下要子系统地图 → ③追一条业务路径并要求 <code>path:line</code> 证据 → ④要可复现的 build／test／lint 命令 → ⑤明确“本回合禁止改文件”。证据强度：中（可抄，非单一官方清单）。</li>
-<li>Codex 启动时会合并 <code>AGENTS.md</code>／<code>AGENTS.override.md</code>（全局→仓库根→子目录，后出现者覆盖前者；默认合计约 32 KiB 上限）（<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md</a>）。过时或恶意仓库指令会带偏第一轮答案。证据强度：高。</li>
-<li>OpenAI Cookbook 的探索提示强调：先想清楚要读哪些文件，再<strong>并行批量读</strong>，避免无必要的逐文件串行；交付偏工作代码而非空计划（<a href="https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide">Codex Prompting Guide</a>）。证据强度：高（官方 cookbook）。</li>
-<li>迭代工作流 recipe 给了“Perform a read-only discovery pass…”模板：以仓库现状为准，读 AGENTS／计划类文件与清单，<strong>写之前先汇总</strong>（<a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Iterating development workflows with Codex</a>）。证据强度：高。</li>
-<li>与已上站“AGENTS.md 最小模板”“先读再改开工清单”错开：本稿只谈<strong>陌生仓第一小时的提问顺序</strong>，不展开长期规则怎么维护。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>接手一个从没见过的 monorepo，README 写着“跑起来很简单”。你随手开 Agent，三分钟后它已经在改配置、装依赖。更稳的做法是：这一回合只允许读，按顺序把“谁在指挥它、目录怎么分、一条请求怎么走、怎么验证”问清楚，再开第二回合动手。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：沙箱旗标与 AGENTS 发现＝官方高；五步提问顺序＝本稿工作流（中）。</strong></p>
-<h4>0. 开只读会话（先锁手）</h4>
-<p>在仓库根（假设示例；请按你本机 Codex 版本用 <code>codex --help</code> 核对旗标）：</p>
-<pre><code>codex --sandbox read-only --ask-for-approval on-request</code></pre>
-<p>官方表意：只读浏览时可读文件、答问题；要改文件、跑部分命令或访问网络时再要你批准。也可用 <code>/approvals</code> 把可信仓临时切回 Read Only，用 <code>/status</code> 看当前可写根。未信任的供应商代码／收购仓：不要急着点 Trust；不信任时项目内 <code>AGENTS.md</code> 的加载行为以你当前版本说明为准，先问清它读了什么。</p>
-<h4>1. 第一问：你现在听谁的？</h4>
-<pre><code>先不要改任何文件。列出本回合已加载的指令来源（全局与仓库内 AGENTS.md／AGENTS.override.md 等），按优先级说明。若某文件过时或互相打架，只指出冲突，不要自行调和后开改。</code></pre>
-<p>目的：避免过时 AGENTS 把“必须跑某套已删除脚本”写进第一轮结论。learn.chatgpt.com 建议可用类似 “List the instruction sources you loaded.” 做核对。</p>
-<h4>2. 第二问：给我一张可核对的地图</h4>
-<pre><code>只读探索本仓库。输出：
-1) 顶层目录各自职责（一句话）；
-2) 主要应用／包入口文件路径；
-3) 你尚不确定的三点。
-每条结论附 path:line 或具体路径；不要臆造不存在的包名。</code></pre>
-<p>Cookbook 提醒：先规划要读的文件，再并行读取；只有下一步依赖上一步结果时才串行。</p>
-<h4>3. 第三问：追一条真实路径</h4>
-<p>选一个你真正关心的用户动作（登录、下单、导出报表……）：</p>
-<pre><code>只读追踪“【具体用户动作】”的调用链。从入口（路由／CLI／job）列到持久化或外部调用。每一步给 path:line。若中断，标明断在哪、还缺读哪些文件。不要提修复补丁。</code></pre>
-<p>一条链比“帮我全面了解架构”更不容易得到正确的废话。</p>
-<h4>4. 第四问：怎么证明它还活着</h4>
-<pre><code>根据仓库内现有脚本与文档，列出：安装依赖、启动、单测、lint 的**实际命令**（原文引用路径）。命令在文件中找不到就写 UNKNOWN，禁止按其他项目习惯编造。</code></pre>
-<p>把确认过的命令，之后再考虑写进精简版 <code>AGENTS.md</code>（另回合、可写会话）；本回合仍只读。</p>
-<h4>5. 第五问：收束，并显式禁止写</h4>
-<pre><code>汇总：子系统地图、已追踪的那条路径、验证命令、开放问题。本回合禁止创建／修改任何文件，包括文档与 AGENTS.md。若要落盘 ARCHITECTURE 笔记，先给出草稿文本，等我批准后再开可写会话。</code></pre>
-<p>OpenAI 迭代 recipe 里的 discovery pass 也要求：先呈范围与路径，<strong>写之前等人确认</strong>。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：地图 → 单路径 → 验证命令，这个顺序别反。</strong> 先要“全面重构建议”时，模型更容易跳过证据直接开改（在可写模式下伤害更大）。</li>
-<li><strong>诀窍：每条重要结论要 path:line。</strong> 没有行号的“大概在 auth 附近”下一步很难复查。</li>
-<li><strong>诀窍：并行读，串行只留给真正依赖的步骤。</strong> Prompting Guide 把“先想齐再一批读完”写成探索默认。</li>
-<li><strong>诀窍：陌生仓先不要 Trust + Full Access。</strong> sandbox 文档把 Full Access／<code>--yolo</code> 标成需非常慎重。</li>
-<li><strong>反例：第一句就 “fix the build”。</strong> 构建脚本都还没核对时，Agent 可能改错包管理器锁文件。</li>
-<li><strong>反例：默认信任仓库里的 AGENTS.md。</strong> 收购代码或过时说明会变成高优先级用户消息。</li>
-<li><strong>反例：只读回合里顺手让它“顺便写个 ARCHITECTURE.md”。</strong> 那已是写操作；先拿草稿，再开 workspace-write。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>Codex CLI／Agent 面对陌生仓库时的只读提问顺序</strong>；云端 Codex、IDE 内嵌面板的按钮文案可能不同，以你客户端为准。</li>
-<li><code>--sandbox</code> 与审批策略组合以 <a href="https://github.com/openai/codex/blob/main/docs/sandbox.md">sandbox.md</a> 与当前 <code>codex --help</code> 为准；版本升级后旗标别名可能变化，<strong>待核本机帮助</strong>。</li>
-<li>不覆盖：具体语言栈的架构评审清单、安全审计（密钥扫描等需另流程）。</li>
-<li>只读不是形式：若配置了可能绕过边界的审批自动化，请按官方／发行说明自查；不确定时保持人工批准。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-readonly-unfamiliar-repo-ask-order-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Claude：免费／Pro／Team 能力差一张表——按任务选型</title>
-      <link>https://www.kmhgame.com/claude-mian-fei-pro-team-neng-li-cha-yi-zhang-biao-an-ren/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-mian-fei-pro-team-neng-li-cha-yi-zhang-biao-an-ren/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:40:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>先看任务要不要 Claude Code、要不要多人共享项目、一周会不会撞额度；再对照 Free／Pro／Team 公开能力表选型，别按“感觉贵”下单。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-free-pro-team-task-pick-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>公开标价（<a href="https://claude.com/pricing">claude.com/pricing</a>，核验日 2026-11-09）：<strong>Free</strong> $0；<strong>Pro</strong> 月付约 $20，年付折合约 $17／月（年付 $200 一次）；<strong>Team</strong> 至少 2 人，Standard 席位月付 $25／年付折合 $20，Premium 席位月付 $125／年付折合 $100。价格不含适用税，地区价以升级页为准。证据强度：高（官方定价页／Team 帮助页）。</li>
-<li>用量机制：Free／Pro 都有<strong>每 5 小时</strong>与<strong>每周</strong>限额；Team 各席位另有周限，Standard 约 <strong>1.25×Pro</strong> 单会话用量，Premium 约 <strong>6.25×Pro</strong>（<a href="https://support.claude.com/en/articles/9266767-what-is-the-team-plan">Team 计划说明</a>）。精确条数官方不写死，以账号 Settings → Usage 为准。证据强度：高／中（倍数官方，条数待核现页）。</li>
-<li>Claude Code：定价页对比表写明 Free <strong>无</strong>、Pro 起 <strong>有</strong>；Pro／Max／Ultra 帮助页写“一订阅覆盖网页／桌面／移动端 Claude 与终端 Claude Code”。证据强度：高。</li>
-<li>Projects：帮助中心写明<strong>全员可用</strong>，Free 最多 <strong>5</strong> 个；付费侧知识近上下文上限可自动开 RAG；<strong>项目共享／协作仅 Team／Enterprise</strong>（<a href="https://support.claude.com/en/articles/9517075-what-are-projects">Projects</a>）。证据强度：高。</li>
-<li>选型口诀（本稿工作流，非官方）：个人试水／轻量写作 → Free；个人日常写稿＋终端改代码／常撞限 → Pro；≥2 人要 SSO、集中账单、共享项目 → Team。更高个人档 Max／Ultra 本稿只点名，不展开选型。</li>
-<li>与已上站“<a href="https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/">建第一个 Project</a>”“<a href="https://www.kmhgame.com/claude-ba-feng-ge-zhi-nan-sai-jin-project-zhi-ling-de-ke/">风格指南塞进 Project 指令</a>”错开：本稿只谈<strong>档位能力差与任务选型</strong>，不讲指令怎么写。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>同事问你：要不要直接上 Team？你打开升级页，看见 Free、Pro、Team，再往下还有 Max、Ultra。任务其实就三类：偶尔问一句、自己天天写＋改代码、小组要共享知识库。档位差主要卡在<strong>用量、Claude Code、Projects 数量／共享、管理能力</strong>，不是“字写得更漂亮”。</p>
-<p>下文按官方公开定价页与帮助中心编译；未登录你的账号现页，精确剩余额度与按钮文案以你客户端为准。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：价格与能力差＝官方高；“按任务选型”决策树＝本稿工作流（中）。</strong></p>
-<h4>1. 先填三问，再看价</h4>
-<ol>
-<li>这周主要任务是聊天写作，还是要进终端／IDE 用 <strong>Claude Code</strong>？</li>
-<li>要不要把手册、术语表放进 <strong>Project Knowledge</strong>，并且<strong>多人同改</strong>？</li>
-<li>过去两周有没有反复撞上 5 小时或周限？（看 Settings → Usage，不要猜。）</li>
-</ol>
-<p>三问答完，再打开 <a href="https://claude.com/pricing">claude.com/pricing</a> 对照下表。</p>
-<h4>2. 能力差一张表（公开信息，核验日 2026-11-09）</h4>
-<figure><table><thead><tr><th>维度</th><th>Free</th><th>Pro</th><th>Team（Standard／Premium）</th></tr></thead><tbody><tr><td>标价（美元，约）</td><td>$0</td><td>月付 $20；年付折合约 $17</td><td>至少 2 席；Standard $25／$20；Premium $125／$100</td></tr><tr><td>用量</td><td>每 5 小时＋每周有限</td><td>比 Free 更多的 5 小时／周限</td><td>单席周限；Standard≈1.25×Pro 单会话；Premium≈6.25×Pro</td></tr><tr><td>Claude Code</td><td>定价页：无</td><td>有（与聊天共享订阅用量）</td><td>帮助页：席位含 Pro 侧能力含 Claude Code</td></tr><tr><td>Projects</td><td>可用，最多 5 个</td><td>可用；付费可 RAG</td><td>可用；<strong>可共享协作</strong>（Team／Enterprise）</td></tr><tr><td>管理／安全</td><td>个人账号</td><td>个人账号</td><td>SSO、集中账单、角色权限、支出上限等</td></tr><tr><td>适合谁（本稿）</td><td>试水、轻量问答、单人小项目</td><td>个人主力写作／编码</td><td>小队共享知识库与合规需求</td></tr></tbody></table></figure>
-<p>说明：Max（约 $100）、Ultra（约 $200）是更高个人用量档，不在本题选型主轴；Team 席位用量按人计、不能转赠。价格与倍数以官方页为准，可能变更。</p>
-<h4>3. 按任务选型（可抄）</h4>
-<p><strong>任务 A：注册试试、偶发翻译／摘要、Artifact 小稿</strong> </p>
-<p>选 <strong>Free</strong>。聊天、联网搜索、建文件／跑代码、Artifacts、Memory、连接部分应用，定价页写在 Free 能力里。Project 先用到 5 个上限再说。</p>
-<p><strong>任务 B：个人日报／周报、长文档、终端里改仓库，一周多次撞限</strong> </p>
-<p>优先 <strong>Pro</strong>。帮助中心列的关键差：更多单会话用量、高峰优先、早期功能、<strong>Claude Code</strong>、更长的多步任务。Pro <strong>不含</strong> Claude Console 的 API 用量；要 API 另开 Console 付费。</p>
-<p><strong>任务 C：2 人以上要共享同一 Project、要 SSO／集中开票</strong> </p>
-<p>选 <strong>Team</strong>。最低 2 席；日常同事 Standard，重度用户可混搭 Premium。帮助中心写明：席位用量<strong>按人</strong>，一人撞限不影响他人；可预购 usage credits 在触顶后续用。</p>
-<p><strong>任务 D：个人已经 Pro，仍周周触顶</strong> </p>
-<p>先看 Usage 拆分与模型选择（长上下文、重附件更耗），再考虑 Max／Ultra 或 usage credits；<strong>不要</strong>为了“一个人用”去开 Team（Team 至少两人，且管理能力对你用不上）。</p>
-<h4>4. 下单前 60 秒核对清单</h4>
-<ul>
-<li>打开定价页，确认地区价与年付／月付。</li>
-<li>Settings → Usage：记下重置时间，别在重置前一天冲动升档。</li>
-<li>若要 Claude Code：确认当前是 Pro 及以上订阅，安装后用同一账号登录（见 <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-max-or-ultra-plan">Use Claude Code with Pro／Max／Ultra</a>）。</li>
-<li>若要共享项目：确认组织已是 Team／Enterprise；Free／Pro 个人档没有组织级共享。</li>
-</ul>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：用“会不会用到 Claude Code／共享”二分，而不是用“我重不重要”。</strong> 不写代码的个人写手，Pro 的核心增量常是用量与模型选择，不是 Team 的 SSO。</li>
-<li><strong>诀窍：Team 席位按人配，不按“公司共享一桶”。</strong> 一人打满不影响同事，也别指望把闲置额度借给别人。</li>
-<li><strong>诀窍：Free 的 5 个 Project 先吃满再谈升级。</strong> 许多“知识库不够”其实是项目拆太多或材料没进 Knowledge。</li>
-<li><strong>反例：看见 Team 就以为“更聪明”。</strong> 公开材料强调的是用量倍数、管理与协作，不是单独的“更强模型包”。</li>
-<li><strong>反例：把论坛流传的“Free 每天 N 条”写进对内规范。</strong> 官方写明条数随消息长度、附件、模型变化；以 Usage 为准。</li>
-<li><strong>反例：Pro 用户把 API 调用当成订阅内权益。</strong> Pro 帮助页写明 Console API 另计。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>个人 Free／Pro 与小团队 Team 的公开能力差＋按任务选型</strong>；Enterprise、Nonprofit 折扣、地区税另查。</li>
-<li>Max／Ultra、Fable 用量、API 月度 credits 只点到名，不写选型细表。</li>
-<li>“Projects”在定价页 Pro 的 plus 列表与帮助中心“Free 也可用、最多 5 个”并存时，<strong>以帮助中心＋你账号现页为准</strong>，已在表内按帮助中心写 Free 可用。证据强度：官方页表述需交叉读，标待核展示差异。</li>
-<li>价格与计划随时可能调整；下单前再打开官方定价页核一次。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-free-pro-team-task-pick-cover-800x450.webp"/>
-    </item>
-    <item>
-      <title>Claude：从零建翻译记忆与术语表 Project</title>
-      <link>https://www.kmhgame.com/claude-cong-ling-jian-fan-yi-ji-yi-yu-shu-yu-biao-project/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-cong-ling-jian-fan-yi-ji-yi-yu-shu-yu-biao-project/</guid>
-      <pubDate>Mon, 09 Nov 2026 07:38:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>从零搭术语一致 Project。术语表与禁翻表、好译例与错译反例进 Knowledge。指令写明以文件为准，未登记标 UNKNOWN，勿自创译名。新会话测四句。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-tm-glossary-project-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>项目知识库里的文件会进入该项目下所有聊天；项目指令约束行为与回复方式。项目名和描述 Claude 读不到。同项目聊天之间默认不共享上下文，除非写入知识库。（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How can I create and manage projects?</a>）证据强度：高（官方）。</li>
-<li>创建路径不必重走一遍：打开 <a href="https://claude.ai/projects">claude.ai/projects</a> 或左侧 Projects，点 “+ New Project”，再设指令与知识库。细节见官方帮助页。证据强度：高。</li>
-<li>术语向 Project 建议准备四类文件：术语表 glossary 与禁翻表 do-not-translate、好译例与常见错译反例。文件名带语言对和版本号；一词多义分行，不要让同一个源词独占一行。（文件结构综合公开术语表写法，见 <a href="https://www.booktranslator.app/blog/build-translation-glossary">How to Build a Translation Glossary</a>）证据强度：中（第三方可抄，非官方字段）。</li>
-<li>指令里写短规则：术语以 Knowledge 里的现行文件为准；禁翻表优先于术语表；未登记词标 UNKNOWN，禁止自创译名；好译例管语气，错译反例管“不要再犯”。官方建议指令保持简短。（项目管理页；指令宜短亦见 <a href="https://www.booktranslator.app/blog/claude-for-translation">Claude for Translation</a>）证据强度：高／中。</li>
-<li>付费档在项目知识接近上下文上限时可能自动启用 RAG，只检索相关片段。第三方据此建议：必须遵守的完整术语表，不要只指望知识库始终整份在场；10 到 20 个绝不能改的词可写进指令，完整表放在每次翻译请求开头。（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">RAG 行为见项目管理页</a>；放置策略见 BookTranslator）证据强度：高（会否切 RAG）／中（怎么放完整表）。</li>
-<li>改术语先改你外置的版本文件，再替换 Knowledge 里的副本；指令若写了版本号一并改掉。验收必须新开一条项目内聊天，用四句已知术语短句测试。证据强度：中（可跟做，官方无现成验收模板）。</li>
-<li>与“建第一个 Project”“风格指南塞进指令”“共享权限”“长文档分块”错开：本稿只谈术语一致与译法记忆怎么从零搭起来。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>同一份更新说明里，“Save Slot”先写成“存档位”，隔两段又变成“保存槽”。模式名 New Game+ 被译成了“新游戏+”，读着像功能介绍，不像专名。你并不是第一次提醒它。新开一条聊天，这些约定又回到训练默认。</p>
-<p>要稳住的是译法记忆：哪些词必须用指定译名，哪些词不准翻译，哪些写法已经判错过。Claude 的 Project 能把文件固定在容器里，让该项目下每条新聊天都能看见。它不是 Trados 或 memoQ 那种带强制替换的专业翻译记忆库。你仍然要抽查，而且要用下面的四句话验收，确认它真的在看你上传的表。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：创建入口与知识库／指令分工＝高；四类文件和指令骨架、更新与四句验收＝中（可抄模板）；RAG 出现后完整表再贴一遍＝中（第三方对官方 RAG 描述的落地）。</strong></p>
-<h4>1. 用一段话建好空项目，不要在这里迷路</h4>
-<p>登录后打开 <a href="https://claude.ai/projects">claude.ai/projects</a>，或把鼠标移到左侧点 Projects，右上角 “+ New Project”。填写名称和描述，方便你自己辨认即可。官方写明：Claude <strong>不会</strong>读取这两项，真正生效的是项目指令和知识库。付费团队若要设可见性，按帮助页选择仅自己与受邀者，或（管理员允许时）对组织开放。更完整的按钮说明见 <a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How can I create and manage projects?</a>。建好之后回到本稿，开始放术语文件。</p>
-<h4>2. 先准备四类文件，再上传</h4>
-<p>不要把所有名词都塞进一张表。公开术语表写法的共识是：只收那些译错会改变含义、造成界面混乱，或已经引发过返工的概念。一词多义必须分行，例如当动词的 craft 和当名词的 crafts 不是同一条。</p>
-<p>建议在仓库或网盘里用带版本号的文件名，和项目内保持同步：</p>
-<pre><code>glossary-en-zh-v2026-11.md
-do-not-translate-v2026-11.md
-examples-good-v2026-11.md
-examples-bad-v2026-11.md</code></pre>
-<p><strong>术语表 <code>glossary-en-zh-v2026-11.md</code>（可抄）</strong></p>
-<pre><code># glossary-en-zh-v2026-11
-语言对：en-US → zh-CN
-状态说明：draft＝未生效；approved＝现行；deprecated＝仅供识别旧译，禁止再用
-
-| 源术语 | 目标译法 | 词性／领域 | 语境例句 | 状态 | 备注 |
-| --- | --- | --- | --- | --- | --- |
-| Save Slot | 存档位 | 名词／UI | Select a Save Slot | approved | 不用“保存槽” |
-| craft | 制作 | 动词／系统 | Craft a potion | approved | 作名词时另开一行 |
-| party | 队伍 | 名词／战斗 | Add a member to your party | approved | 宴会义见下行 |
-| party | 宴会 | 名词／剧情 | The village holds a party | approved | 勿与队伍混淆 |</code></pre>
-<p><strong>禁翻表 <code>do-not-translate-v2026-11.md</code>（可抄）</strong></p>
-<pre><code># do-not-translate-v2026-11
-
-| 原文 | 原因 | 大小写 | 备注 |
-| --- | --- | --- | --- |
-| New Game+ | 模式官方名 | 保留写法 | 不要写成“新游戏+” |
-| HP | 界面数值缩写 | 全大写 | 不要写成“生命值”简称混用 |
-| Steam | 平台名 | 保留 | 句子里的普通蒸汽另议 |</code></pre>
-<p><strong>好译例 <code>examples-good-v2026-11.md</code></strong></p>
-<p>写 3 到 5 组已审过的原文／译文，并加一句“好在哪里”。只有形容词（“专业但不乱译”）时，模型很容易回到通用网文腔。</p>
-<pre><code># examples-good-v2026-11
-
-## 例 1｜UI 短句
-原文：Select a Save Slot before you continue.
-译文：继续之前，请先选择一个存档位。
-好在哪里：Save Slot 用了术语表里的“存档位”，没有写成“保存槽”。</code></pre>
-<p><strong>错译反例 <code>examples-bad-v2026-11.md</code></strong></p>
-<pre><code># examples-bad-v2026-11
-
-## 反例 1
-原文：Select a Save Slot
-错误译法：选择一个保存槽
-应用译法：选择一个存档位
-错在哪里：保存槽是已否决的旧译，见术语表备注。</code></pre>
-<p>把这四份文件从项目主页右侧知识库的 “+” 上传。上传后，它们会进入该项目内后续聊天的上下文。单次聊天里聊过的新译法<strong>不会</strong>自动带到下一聊，除非你写回文件并重新上传。</p>
-<h4>3. 指令里只写翻译规则，不粘整张表</h4>
-<p>打开 “Set project instructions”，把下面整块贴进去，按你的语言对和文件名改括号。长表、完整例句留在 Knowledge，指令只负责告诉它去看哪份文件、冲突时听谁的。</p>
-<pre><code>【ROLE】你是【语言对／产品线】的翻译助手。只在本项目内按下列规则翻译或审校。
-
-【SOURCES】
-- 术语以 Project Knowledge 中现行《glossary-【语言对】-vX》为准。
-- 禁翻以现行《do-not-translate-vX》为准；与术语表冲突时，禁翻表优先。
-- 语气与句式参考《examples-good-vX》；禁止再犯《examples-bad-vX》里的错误译法。
-- 你看不到项目名称和描述，不要把标题栏里的字当成已告知上下文。
-
-【ALWAYS】
-- 已登记术语必须使用目标译法，允许正常的单复数或句法变化，但不许换近义词。
-- 禁翻表中的原文保持原样，包括指定的大小写。
-- 先核对上述文件，再动笔。
-
-【UNKNOWN】
-- 源词未在术语表或禁翻表中出现：不要自创译名。
-- 译文里保留源词，并在段落后列出 “UNKNOWN: 源词｜你建议的候选（仅供人工裁定，不得直接当作已批准译名）”。
-- 禁止根据训练记忆“看着办”或沿用其他产品的习惯译名。
-
-【CONFLICT】
-- 两份 Knowledge 文件互相打架：点名文件名，停止发挥，等人工裁定。
-- 用户在当次聊天里给出的临时术语，只对当次有效；不要假定下次聊天还记得，除非已写入 Knowledge。
-
-【FORMAT】
-- 默认输出译文本身；若用户要求对照，使用“原文／译文”分段。
-- 不要总结或删段，也不要解释剧情，除非用户明确要求审校意见。</code></pre>
-<p>BookTranslator 的公开心得还补了一句很实用的话：付费项目一旦因为体积触发 RAG，知识库不再保证整份术语表都在场。他们的做法是指令里只放简短文风和 10 到 20 个绝不能改的词，完整批准表放在<strong>每次</strong>翻译请求的开头。官方没有公布“术语表一定会被检索到”的承诺。体积较大、或你已经看到项目提示启用检索时，按这个补丁做：指令仍然写“以 Knowledge 文件为准”，请求里再贴一遍现行完整表。</p>
-<p>可抄的请求头：</p>
-<pre><code>请将下面这段从【源语言】译为【目标语言】。
-完整术语以我粘贴的表为准，并与 Project Knowledge 中的 glossary／do-not-translate 核对；未登记词标 UNKNOWN，禁止自创译名。
-&lt;glossary&gt;
-（粘贴现行批准表）
-&lt;/glossary&gt;
-&lt;source&gt;
-（待译文本）
-&lt;/source&gt;</code></pre>
-<h4>4. 怎么更新术语</h4>
-<ol>
-<li>先改你外置的 Markdown 副本，更新日期或版本号，写一句变更说明（旧译与新译、适用范围）。</li>
-<li>把 Knowledge 里的旧文件换成新文件。不要只在聊天里口头宣布“从今天起改译”，下一聊看不见。</li>
-<li>若指令里写死了版本号（例如 v2026-11），同步改指令并保存。</li>
-<li>新开一条项目内聊天做下一节的四句验收。旧会话可能还带着改前的说法。</li>
-<li>被替换掉的旧译如果需要防回流，留在术语表里标 deprecated，或写进错译反例，不要默默删掉后指望模型忘记。</li>
-</ol>
-<p>草案行不要混进生效表。状态不是 approved 的条目，模型不该当作必须遵守的译法。公开术语表文也提醒：看起来整洁的表格，并不等于每一行都已批准。</p>
-<h4>5. 验收四句（必须新会话）</h4>
-<p>改完文件或第一次搭好项目后，在该项目里<strong>新开一条聊天</strong>，只发送下面四句（把括号换成你表里的真实条目）：</p>
-<pre><code>请逐句翻译，并在每句后用括号注明你依据的文件名。未登记的词按项目规则处理。
-
-1) Select a Save Slot before you continue.
-2) This run starts in New Game+.
-3) Open the aether kiln to refine the ore.
-4) Craft a potion for the party before the village party begins.</code></pre>
-<p>对应检查：</p>
-<ol>
-<li>已知术语：Save Slot 必须是“存档位”，不能是“保存槽”。</li>
-<li>禁翻：New Game+ 必须原样保留。</li>
-<li>未登记：aether kiln 应标 UNKNOWN，不能自创一个看起来很酷的译名。</li>
-<li>一词多义加已知动词：前一个 party 应是“队伍”，后一个应是“宴会”；craft 应是“制作”。若你的表与例句不同，就改成你自己的四句，逻辑不变：已知术语与禁翻、未登记与容易撞车的旧错译。</li>
-</ol>
-<p>答错其中一句，先别开始正式翻译。回头看文件是否上传成功，以及状态是不是 approved、指令里的文件名是否写错，修完再测一轮。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：文件名带语言对和版本号。</strong> 你对照外置副本时不容易拿错月的表；指令里也可以点名文件。</li>
-<li><strong>诀窍：绝不能改的 10 到 20 个词可以额外写进指令。</strong> 完整表仍以 Knowledge 和当次请求为准，避免只靠检索碰到其中一个词。</li>
-<li><strong>诀窍：好译例至少三组，且点明“好在何处”。</strong> 抽象风格句替代不了对照。</li>
-<li><strong>诀窍：客户稿上传前先看账号的隐私与模型改进相关设置。</strong> 以现页为准；未发布文本不要默认“丢进项目就没事”。</li>
-<li><strong>反例：只把关键译法写在项目名或描述里。</strong> 官方写明 Claude 读不到这两项。</li>
-<li><strong>反例：好译例和错译反例混在一张没有标记的表。</strong> 模型可能把旧错译当成可选用法。</li>
-<li><strong>反例：改了聊天里的说法，却不更新文件。</strong> 下一聊仍会回到旧表。</li>
-<li><strong>反例：未登记词让它“先译着，我们回头再统一”。</strong> 一次看着办，后面就会出现第三种译名。</li>
-<li><strong>反例：把词典式的大词表整份糊进指令。</strong> 指令变难维护，也更容易和 Knowledge 里的新表打架。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：在 claude.ai Project 里从零搭建“术语一致 + 译法记忆”的文件与指令、更新和四句验收。</li>
-<li>不覆盖：创建按钮的逐步截图（见“<a href="https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/">建第一个 Project</a>”），以及风格指南如何拆指令与 Knowledge（见“<a href="https://www.kmhgame.com/claude-ba-feng-ge-zhi-nan-sai-jin-project-zhi-ling-de-ke/">风格指南塞进 Project 指令</a>”）。Team 共享权限和长文档分块上传也不在本稿。</li>
-<li>本稿说的翻译记忆，是项目内可复用的术语与译例容器，不是 CAT 工具里带匹配率的 TM 记忆库，也不能替代人工审校。</li>
-<li>Claude Code 里用 CLAUDE.md 保存语言对和术语路径，是另一条产品线，入口与字段不同，不要和 claude.ai Projects 混用步骤。</li>
-<li>付费档是否已切 RAG、Free 档项目数量与知识容量，以你账号现页为准；指令字符上限官方未在本稿引用页写死，勿臆造。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-tm-glossary-project-cover-800x450.webp"/>
     </item>
   </channel>
 </rss>
