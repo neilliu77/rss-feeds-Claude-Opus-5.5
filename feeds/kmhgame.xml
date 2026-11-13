@@ -8,7 +8,107 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Thu, 12 Nov 2026 01:05:08 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 01:21:47 GMT</lastBuildDate>
+    <item>
+      <title>DeepSeek：素材给太少，期待给太高</title>
+      <link>https://www.kmhgame.com/deepseek-su-cai-gei-tai-shao-qi-dai-gei-tai-gao/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-su-cai-gei-tai-shao-qi-dai-gei-tai-gao/</guid>
+      <pubDate>Fri, 13 Nov 2026 01:21:47 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-03-768x432.webp" alt=""/></p>
+<p>（本文转载，原文另含深度思考开关与免费额度的说明，此处保留素材、模板与用法部分，原文链接见文末。）</p>
+<p>作者把 DeepSeek 当主力工具用了一个月，记了一本真实的账：周报从 50 分钟压到 12 分钟，一份 30 页的行业资料，摘要加提问从 2 小时压到 25 分钟，写长文大纲从 40 分钟压到 8 分钟。一天省两小时，不是玄学，是少了半夜那一小时。</p>
+<p>他的结论很直接：决定省不省时间的，不是工具多强，而是有没有把它放进「第一稿」和「整理」这两个位置。</p>
+
+<h2>一、卡点：素材给太少，期待给太高</h2>
+<p>大多数人输入一句「帮我写个年终总结」，然后抱怨 AI 写得像模板。它当然像模板——你给的信息量就是一句话，它只能还你一句话的放大版。</p>
+<p>管用的做法是把手头已有的东西全倒进去：聊天记录、会议纪要、待办清单，甚至自己写的半截草稿。素材越脏、越原始，它整理出来的价值越大；你给一份干净的成品，它反而没什么可做的。</p>
+<p>另一个隐形卡点是不敢追问。第一稿不满意就关掉，等于白跑。更省事的姿势是直接说「第二段太空，换成具体数字」「语气太正式，改成跟同事说话的感觉」。它改得比你想的听话。</p>
+<h2>二、角色加素材加格式，三段式</h2>
+<p>作者的固定模板是三层：你是谁（角色）→ 这是原始素材（贴进去）→ 按这个格式给我（结构）。</p>
+<blockquote><p>你是我的项目助理，以下是我这周的五条零散记录，请整理成周报，分本周推进、遇到的问题、下周计划三块，每条不超过两行，不要加评价性形容词。</p></blockquote>
+<p>差别在于：只给一句话，它只能编；给了素材和格式，它只能整理。编和整理，是两种完全不同的质量。</p>
+<p>格式要写到能验收：分几块、每块几行、要不要形容词，都写清楚。要求越具体，返工越少。</p>
+<h2>三、对话开头固定，后面只换素材</h2>
+<p>经常处理同一类任务，别每次新开对话。保持对话开头不变，后面换素材，模型对前面内容的缓存能命中，响应更快，上下文也更连贯。</p>
+<p>网页版不收费，这个习惯看不出价值；换成 API 就变成钱——缓存命中的那部分输入，价格只有未命中的几十分之一。同一套提示词反复用，前缀就该固定下来。</p>
+<h2>四、两个更省时间的用法</h2>
+<ul><li>当审稿人，而不是写手。自己先写完，让它挑毛病：逻辑断层在哪、哪句是废话、哪个论点没有支撑。判断比生成快，成品还是你的。</li><li>长文档先问结构，再读细节。拿到长资料别从头啃，先让它列出章节结构和每节一句话概括，扫一眼定位到真正需要的两三节，再细读。这一步能砍掉一大半无效阅读。</li></ul>
+<p>两个用法的共同点是：把「生成」换成「判断」。生成是让它替你想，判断是你想清楚、它帮你查漏。</p>
+<h2>五、避开高峰</h2>
+<p>纯经验：尽量避开中国大陆白天的工作时段，尤其上午九点到晚上六点。晚间和清晨的响应明显更顺。人多时网页版会提示「服务器繁忙，请稍后再试」，等一会儿再发就行。</p>
+<p>作者顺带核实了一件事：截至 2026 年 11 月，DeepSeek 网页版和 App 依然没有会员、没有 Plus 档，文件上传也不在付费墙后面。官方卖的是 API，卖给程序调用。</p>
+<p>把这几步跑顺：素材给全、模板给全、开头固定、高峰避开。剩下的，交给追问。</p>
+<p>本文转载自掘金（作者：AI原来如此） 《DeepSeek 免费后，每天省下两小时》，原文链接：<a href="https://juejin.cn/post/7707184266061594658">https://juejin.cn/post/7707184266061594658</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-03-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：联网搜索别把三步算一步</title>
+      <link>https://www.kmhgame.com/deepseek-lian-wang-sou-suo-bie-ba-san-bu-suan-yi-bu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-lian-wang-sou-suo-bie-ba-san-bu-suan-yi-bu/</guid>
+      <pubDate>Fri, 13 Nov 2026 01:21:46 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-02-768x432.webp" alt=""/></p>
+<p>（本文转载，原文为架构演练，不含线上事故或性能数据，原文链接见文末。）</p>
+<p>DeepSeek 在 10 月开放的 Search 与 Fetch 两个 API，给联网搜索类应用提供了两件明确的工具：前者按查询返回结构化网页结果，后者把单个网页取成 Markdown。很多应用把这两步揉成一句「模型上网了」，结果出了错不好查：搜索找到了页面，抓取失败；抓取拿到正文，关键段落被截断；模型给了结论，却没有引用原始出处。</p>
+<p>文章设计了一个具体场景：客服问「某个 API 版本最近有哪些变化」。系统要优先找官方更新日志，再找技术社区的迁移经验；不能仅凭摘要里一句话就宣布「已支持」，也不能把转载文章当成官方规格。检索、读取和回答分开记录，才能解释错误发生在哪一步。</p>
+
+<h2>一、一条查询留下三份证据</h2>
+<p>Search 返回的 title、url、snippet、summary、日期和排序信息，用来筛候选；Fetch 返回的正文，用来查原句；最终回答要指向与结论直接相关的 URL。三步各有各的证据，缺一份就没法复盘。</p>
+<p>两个边界要写死：检索结果为空，就记录「未找到」，不要让模型补一个看起来真实的网页；Fetch 被 403 或 404 拒绝，就换可访问的原始文档，不能把搜索摘要冒充成已读全文。</p>
+<p>建议每次提问留一条脱敏记录：question_id、原始问题、查询词、结果 URL、抓取状态、所用片段、最终引用 URL、回答时间。文档版本变了，答案要能回溯到当时那个页面。对「当前价格」「模型是否退役」这类会变的事实，回答里要显示核对日期，旧快照不能当成现在的报价。</p>
+<h2>二、控制上下文，而不是把十篇全文塞进去</h2>
+<p>搜索结果的排序不等于可信度。可以先按来源分层：官方规格、项目仓库、维护者讨论、第三方教程。每条候选只抓真正需要的页面，按段落挑能支持问题的片段，并保留段落出处。模型最终回答混合了多篇材料时，每个重要结论附近都要标出依据，没有出处的判断单独写成推断。</p>
+<p>一个常见的失败分支：同一个页面里「旧版本不支持」和「新版本支持」各有一节，摘要只截到后者。系统没存发布时间和版本号，模型就可能把新能力套到旧客户端上。处理办法不是加一句「请谨慎」，而是把版本写进检索条件，再用官方文档的适用范围交叉核对。</p>
+<p>还有一种失败是「URL 存在，但正文和问题无关」。可以把每条引用分成三类：直接支持结论、只提供背景、与结论相反。只有第一类放到关键判断附近，其他在解释里说明作用。引用条数多不等于可靠，一条精准的官方更新说明，比三条互相转述的目录页更能帮读者复核。</p>
+<h2>三、搜索费用和模型费用分开记账</h2>
+<p>按官方 Search/Fetch 指南 2026-11-10 的口径：两种接口分别按成功请求计费，不按返回条数；返回空搜索结果、失败或超时，不计这项成功请求。模型生成另有自己的 token 用量。</p>
+<p>一次用户提问可能触发一次 Search、两次 Fetch、数次模型请求，所以账本至少分三行。重试也要记录，否则「模型太贵」的结论可能只是掩盖了重复抓取。</p>
+<p>两个工具还有各自的账户级 QPS 边界，Fetch 另按域名限制。公开文档该缓存就缓存，尊重站点访问规则，别让多个 worker 同时抓同一页；收到 429 先看是哪个工具、哪条限制，再按规则退避，不要把模型请求的并发限制套到网页抓取上。</p>
+<p>生产监控也要按这两层拆：Search 空结果率、Fetch 失败率、模型无引用回答率，分别统计。如果只有一个「用户说答案错了」的指标，很难判断该修查询词、抓取器还是提示词。</p>
+<h2>四、上线前先跑一个固定测试集</h2>
+<p>文章建议准备八个问题：五个能在官方文档找到答案，两个只能在项目仓库找到答案，一个故意没有公开答案。每题先标好允许的证据 URL 和判定条件。最后一题应该明确回答「没有足够资料」，而不是为了凑完整答案，引用一篇相似但不相关的旧文章。</p>
+<p>测试集最好保留题目版本。资料变更后更新答案，不能悄悄改判定标准，让系统永远满分。</p>
+<p>Search 和 Fetch 是两个工具，模型引用是第三步，不是同一步。把这三步分开记录、分开监控、分开计费，出错时才知道该修哪一段。</p>
+<p>本文转载自腾讯云开发者社区 《给知识库接入实时搜索时，别把 Search、Fetch 和模型引用算成同一步》，原文链接：<a href="https://cloud.tencent.com.cn/developer/article/2780549">https://cloud.tencent.com.cn/developer/article/2780549</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-02-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：JSON 输出，合法不等于字段对</title>
+      <link>https://www.kmhgame.com/deepseek-json-shu-chu-he-fa-bu-deng-yu-zi-duan-dui/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-json-shu-chu-he-fa-bu-deng-yu-zi-duan-dui/</guid>
+      <pubDate>Fri, 13 Nov 2026 01:21:45 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-01-768x432.webp" alt=""/></p>
+<p>（本文转载，原文约 2.5 万字符，此处保留核心结论与四条路径的对比，原文链接见文末。）</p>
+<p>先看一个真实场景：把用户提交的报修工单抽成结构化字段写进数据库，字段是 ticket_id、title、priority、summary、contact_email，外加几个可选项。照着官方文档把 response_format 设成 json_object，第一次跑就成功，解析通过、字段齐全、类型正确，于是上线。一周后问题开始零星出现：priority 返回中文「中」而不是约定的 medium，被枚举校验拦下取了默认值；tags 有时是数组、有时是逗号分隔的字符串，前端渲染出六个单字标签；content 偶尔是空串，被最外层兜底 try 吞掉，那条工单从此消失。</p>
+<p>三条事故看起来是三件事，其实是同一件事的三个侧面：拿到的东西通过了语法检查，但没有通过合同检查。而 json_object 从设计上只负责前者。</p>
+
+<h2>一、官方原话：只保证是 JSON</h2>
+<p>官方 JSON Output 指南开篇写的是，确保模型输出合法的 JSON 字符串。Chat Completions 接口参考里对 response_format 的说明更直接：设成 json_object 后，保证模型生成的消息是合法 JSON。</p>
+<p>合法 JSON 是一个语法判断：花括号配对、引号闭合、逗号合法。它没有提到字段名、字段类型、取值范围、必填可选中的任何一项。「{a: 1}」和「{ticketId: 中, slaHours: 尽快}」在它眼里都是合格产物，一个字段不错可能只是运气。</p>
+<p>这一点不用推理，官方在 2024 年 5 月 17 日的更新日志里给过数：模型改进后，内部测试集的 JSON 解析率从 78% 升到 85%；应用侧再引入合适的正则，才进一步提到 97%。三个推论值得记下：97% 不是模型单独的成绩，是模型加你写的正则；97% 仍然不是 100%，每 1000 次调用就有 30 次解析失败，这些失败不会自己变成异常；这是 2024 年的数据，此后官方没有再公布过更新后的解析率。</p>
+<h2>二、四层保证，json_object 只管第一层</h2>
+<p>文章把「保证」拆成四层，才看得清 json_object 停在哪一层：</p>
+<ul><li>语法层：这串字符能不能被 JSON 解析器读进来。服务端管，这是它唯一的承诺。</li><li>结构层：字段名、类型、嵌套层级是否与约定一致。你的代码管。</li><li>取值层：枚举、单位、日期格式、空值怎么表示。你的代码管。</li><li>语义层：数字是不是真的、结论站不站得住。只能由人来核对。</li></ul>
+<p>结论很朴素：结构化输出的服务端保证停在第一层，剩下三层是你的工程活。</p>
+<h2>三、四条路，代价一条比一条贵</h2>
+<p>文章把 DeepSeek 现在能走的结构化输出路径全摊开，一共四条：</p>
+<ul><li>把字段说明写进提示词：最便宜，靠模型自觉。字段一多、嵌套一深，最先崩。</li><li>response_format 设成 json_object：服务端保证语法合法，不保证你的 schema。</li><li>text.format 用 json_schema：只是某些端点收 schema。文章的原话是同一个模型、三套协议、三个门。</li><li>tools 加 strict：Beta，约束最强，代价也最大。</li></ul>
+<p>有个细节值得记住：官方那个 97%，把应用侧正则算成了方案的一部分，不是兜底。你写上正则，等于承认模型自己到不了 100%。</p>
+<h2>四、上 strict 之前，先把 schema 过一遍</h2>
+<p>文章拿一个看起来完全正常的业务 schema 去跑严格模式，改了 8 处才通过。这不是模型挑剔，是 strict 对可选字段、嵌套对象、枚举这些写法有硬要求，平时写惯了的 schema 直接搬过去，大概率报错。</p>
+<p>成本也要算。把完整示例塞进提示词，常驻成本比重试一次还贵 2.78 倍：示例越长越稳，但每一轮都在为它付费。字段少的时候，多写两行校验代码，往往比多塞三百字示例划算。</p>
+<p>开了思考模式之后还有四条硬约束，踩中任何一条都会退回普通 JSON 输出。文章建议上线前逐条对照，别等线上脏数据堆起来才发现。</p>
+<h2>五、怎么选</h2>
+<ul><li>一次性脚本、内部工具：提示词加 json_object，配自己的校验，够用。</li><li>对外接口、要落库的数据：strict 或 json_schema，schema 先审计再上。</li><li>字段多、嵌套深：先砍字段。每多一个可选字段，就多一处可能对不上的地方。</li></ul>
+<p>结构化输出这件事，模型能保证的只有「能被解析」。字段对不对、值合不合理，从来是调用方的事。把这层预期摆正，比换哪个模型都管用。</p>
+<p>本文转载自CSDN（作者：Rosanci） 《一文读懂 DeepSeek 的结构化输出：只保证「是 JSON」，不保证「是你要的 JSON」》，原文链接：<a href="https://blog.csdn.net/Rosanci/article/details/167375353">https://blog.csdn.net/Rosanci/article/details/167375353</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-01-768x432.webp"/>
+    </item>
     <item>
       <title>DeepSeek：表格粘进 Excel 列错乱怎么救</title>
       <link>https://www.kmhgame.com/deepseek-biao-ge-zhan-jin-excel-lie-cuo-luan-zen-me-jiu/</link>
@@ -1308,126 +1408,6 @@ If a test goes red, revert or fix the refactor; do not edit tests to recover gre
 <p>细节与后续更新以 SEGA <a href="https://www.sega.co.jp/release/261109_1.html">11 月 9 日公告</a> 为准。</p>
 <hr/>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/sega-mail-leak-2026-11-cover-1024x537.webp"/>
-    </item>
-    <item>
-      <title>UE 5.9 MegaJam Preview 可下：Epic 自称首个主要靠 AI agent 打出来的引擎发布</title>
-      <link>https://www.kmhgame.com/ue-5-9-megajam-preview-ke-xia-epic-zi-cheng-shou-ge-zhu-yao/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/ue-5-9-megajam-preview-ke-xia-epic-zi-cheng-shou-ge-zhu-yao/</guid>
-      <pubDate>Tue, 10 Nov 2026 00:08:35 GMT</pubDate>
-      <category>AI</category>
-      <category>AI新闻</category>
-      <description><![CDATA[<p>2026 年 11 月 9 日起，Unreal Engine 5.9 MegaJam Preview 已可从 Epic Games Launcher、GitHub，以及 Linux 单独入口下载。Epic 在<a href="https://forums.unrealengine.com/t/unreal-engine-5-9-megajam-preview/2852840">开发者论坛</a>写明，这不是一次寻常的 Preview。完整 5.9 本来还在攒渲染和动画改动、计划明年再出；大约一周前，团队改主意，要赶在 11 月 12 日至 15 日的 <a href="https://forums.unrealengine.com/t/vibe-your-way-to-50k-the-2026-epic-ai-megajam-is-coming/2843973">2026 Epic AI MegaJam</a> 前，先把这版预览甩出来。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ue59-megajam-preview-cover-1024x576.webp"/></figure>
-<p>更扎眼的是 Epic 自己的定性。它称这是“首个主要用 agentic workflows 打出来的 Unreal Engine 发布”：少数人指挥一群 agent，把 UE6 开发分支上的 AI 工具迁到本预览，并实现 Web 作为目标平台。Web 侧代码由 agent 从虚幻引擎 4 已退役的 HTML5 平台起步写，工程师负责指导、审阅和测试。Epic 说，这么做是在学“多人并行指挥 agent 群建引擎”；它声称已经看见收益，能更快往 UE5 送修复和定向功能，同时不必把注意力从 UE6 上拉开。</p>
-<p>开发大约一周，QA 比往常更短。Epic 承认仍在清理部分 agent 写的代码，Web 渲染器里还有打算在正式 5.9 前重构的原型。毛边和缺件都在预期内，东西也会坏。预览期会继续修 bug，agent 也会帮忙分诊和快速响应。</p>
-<p>对人眼下最有用的，是编辑器里能直接接自家 coding agent。实验性的 Unreal Assistant 面板可连 Claude Code 或 Codex，也可接 Cursor、OpenCode，经 Unreal MCP 干活；MCP 随编辑器自动启动，工具面扩到渲染与源控、profiling 和调试，也覆盖玩法测试、几何、音频、UI 与关卡创建。另有实验性 Unreal Canvas：网页端和编辑器内都能用，提示词、参考图或自有场景可生成概念图与三维 mesh、视频，模型用自己的 API key。浏览器里直接跑项目也开了实验口子，走 WebAssembly 与 WebGPU、用移动端渲染器；眼下要求源码构建加 C++ 项目，Chrome 体验较好，cook 更久、偶发性能问题都还在。</p>
-<p>已知坑也不少。Mac／Linux 预编译包缺一部分 Wasm 支持文件，那两端要源码构建，官方计划本周出 QFE。新项目里 MCP 默认开着，但 Toolset 相关插件默认关，agent 拿不到关卡编辑工具，得先启用 All Toolsets，再连 agent。正式 5.9 仍排在明年；这版是给 jam 和好奇的人试的预览，别拿主工程硬转。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ue59-megajam-preview-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Take-Two第二财季净预订约16.01亿美元同比降18%，重申全年80亿至82亿美元</title>
-      <link>https://www.kmhgame.com/taketwo-di-er-cai-ji-jing-yu-ding-yue-16-01-yi-mei-yuan/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/taketwo-di-er-cai-ji-jing-yu-ding-yue-16-01-yi-mei-yuan/</guid>
-      <pubDate>Mon, 09 Nov 2026 21:32:32 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>Take-Two第二财季净预订约16.01亿美元同比降18%，略低于自身展望；重申全年80亿至82亿美元，GTA VI订11月19日发售。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/take-two-q2-2026-11-cover-1024x1325.webp"/></figure>
-<h2>关键财务数据表（据公司IR新闻稿／业绩演示）</h2>
-<p>单位：百万美元（IR原表，未经审计）。净预订是公司经营口径，不等于GAAP净营收。</p>
-<figure><table><thead><tr><th>项目</th><th>2027财年第二季度</th><th>公司披露的同比</th><th>2026财年第二季度</th></tr></thead><tbody><tr><td>净预订</td><td>1,601.3</td><td>-18%</td><td>1,960.5</td></tr><tr><td>其中：经常性消费支出</td><td>1,302.1（占81%）</td><td>-9%</td><td>1,428.3（占73%）</td></tr><tr><td>其中：完整游戏及其他</td><td>299.2（占19%）</td><td></td><td>532.2（占27%）</td></tr><tr><td>GAAP净营收</td><td>1,497.0</td><td></td><td>1,773.8</td></tr><tr><td>毛利</td><td>860.4</td><td></td><td>980.5</td></tr><tr><td>营业费用</td><td>977.9</td><td></td><td>1,078.5</td></tr><tr><td>营业亏损</td><td>117.5</td><td></td><td>98.0</td></tr><tr><td>GAAP净亏损</td><td>54.0</td><td></td><td>133.9</td></tr><tr><td>基本及稀释每股亏损（美元）</td><td>0.29</td><td></td><td>0.73</td></tr><tr><td>非GAAP EBITDA</td><td>92.2</td><td></td><td>116.7</td></tr></tbody></table></figure>
-<p>约亿美元速览（由百万美元÷100）：净预订约 <strong>16.013</strong> 亿，公司要点写作 <strong>16.0</strong> 亿；GAAP净营收约 <strong>14.97</strong> 亿，公司要点写作 <strong>15.0</strong> 亿；GAAP净亏损 <strong>0.54</strong> 亿；上年同期净预订约 <strong>19.605</strong> 亿、GAAP净营收约 <strong>17.738</strong> 亿、净亏损约 <strong>1.339</strong> 亿。精确核对以表内百万美元为准。</p>
-<p>与公司此前给出的第二季度展望对照（演示四舍五入至百万美元；展望出自2026年8月7日第一财季业绩稿，本季演示再次并列）：</p>
-<figure><table><thead><tr><th>项目</th><th>本季实际</th><th>此前展望</th></tr></thead><tbody><tr><td>GAAP净营收</td><td>1,497</td><td>1,420–1,470</td></tr><tr><td>营业费用</td><td>978</td><td>1,009–1,019</td></tr><tr><td>GAAP净亏损</td><td>54</td><td>157–140</td></tr><tr><td>GAAP每股亏损（美元）</td><td>0.29</td><td>0.84–0.75</td></tr><tr><td>净预订</td><td>1,601</td><td>1,620–1,670</td></tr><tr><td>经常性消费支出同比</td><td>-9%</td><td>-5%</td></tr></tbody></table></figure>
-<p>平台、渠道与地区（净预订，百万美元）：</p>
-<figure><table><thead><tr><th>项目</th><th>本季</th><th>占比</th><th>上年同期</th><th>占比</th></tr></thead><tbody><tr><td>主机</td><td>742.6</td><td>46%</td><td>907.9</td><td>46%</td></tr><tr><td>移动</td><td>707.6</td><td>45%</td><td>818.1</td><td>42%</td></tr><tr><td>PC及其他</td><td>151.1</td><td>9%</td><td>234.5</td><td>12%</td></tr><tr><td>数字在线</td><td>1,562.9</td><td>98%</td><td>1,871.2</td><td>95%</td></tr><tr><td>实体零售及其他</td><td>38.4</td><td>2%</td><td>89.3</td><td>5%</td></tr><tr><td>美国</td><td>968.2</td><td>60%</td><td>1,188.6</td><td>61%</td></tr><tr><td>海外</td><td>633.1</td><td>40%</td><td>771.9</td><td>39%</td></tr></tbody></table></figure>
-<p>2027财年全年展望（截至2027年3月31日）：</p>
-<figure><table><thead><tr><th>项目</th><th>本次</th><th>此前（第一财季）</th></tr></thead><tbody><tr><td>GAAP净营收</td><td>7,980–8,180</td><td>7,900–8,100</td></tr><tr><td>营业费用</td><td>4,078–4,098</td><td>4,150–4,170</td></tr><tr><td>GAAP净利润</td><td>109–142</td><td>104–143</td></tr><tr><td>稀释每股收益（美元）</td><td>0.57–0.75</td><td>0.55–0.75</td></tr><tr><td>净预订</td><td>8,000–8,200</td><td>维持不变</td></tr><tr><td>经常性消费支出同比</td><td>持平</td><td>维持不变</td></tr><tr><td>经营现金流</td><td>超过1,000</td><td>维持不变</td></tr><tr><td>资本开支</td><td>约290</td><td>维持不变</td></tr><tr><td>非GAAP EBITDA</td><td>1,024–1,082</td><td>993–1,053</td></tr></tbody></table></figure>
-<p>第三财季展望（截至2026年12月31日，公司首次给出；净利润口径以新闻稿为准）：</p>
-<figure><table><thead><tr><th>项目</th><th>展望</th></tr></thead><tbody><tr><td>GAAP净营收</td><td>3,270–3,420</td></tr><tr><td>营业费用</td><td>1,162–1,182</td></tr><tr><td>GAAP净利润</td><td>250–276</td></tr><tr><td>稀释每股收益（美元）</td><td>1.30–1.44</td></tr><tr><td>净预订</td><td>3,350–3,500</td></tr><tr><td>经常性消费支出同比</td><td>约+12%</td></tr><tr><td>非GAAP EBITDA</td><td>651–698</td></tr></tbody></table></figure>
-<p>2026年11月9日美东收盘后，Take-Two Interactive Software, Inc.（纳斯达克代码：TTWO）在投资者关系网站发布<a href="https://take2-games.com/ir/news/take-two-interactive-software-inc-reports-results-fiscal-4">2027财年第二季度业绩</a>，期间截至2026年9月30日。新闻稿时间戳为美东16:05。同日的<a href="https://www.businesswire.com/news/home/20261109226921/en/">Business Wire通稿</a>与<a href="https://ir.take2games.com/static-files/01437b0a-6d3d-4f80-a2ac-5cecdb0c573f">业绩演示</a>关键金额一致。这份季报出来的时候，《侠盗猎车手VI》还有十天就要上线。</p>
-<p>公司自己的经营口径叫净预订（Net Bookings）：当期数字或实体卖出的产品与服务净额，也包括许可费、周边和游戏内广告。本季净预订1,601.3百万美元，约16.01亿美元，同比降18%，上年同期1,960.5百万美元。公司要点把这个数写成16.0亿美元。它略低于公司在第一财季给自己订的16.20亿至16.70亿美元区间。</p>
-<p>业绩演示把缺口拆开了。NBA 2K27于9月4日在PlayStation 5、Xbox Series X|S、Switch 2和PC发售，公司称发售顺利，净预订是该系列历史上第二高，但仍低于内部预测。移动业务符合计划。《侠盗猎车手》系列则超过了预测。经常性消费支出同比降9%，占净预订的81%；公司原先按下降约5%来规划。演示写明：NBA 2K和移动业务都下降了，《侠盗猎车手》系列是上升的。</p>
-<p>GAAP这一侧，账不像预订数字那么紧。净营收1,497.0百万美元，约14.97亿美元，高于此前14.20亿至14.70亿美元的展望，上年同期1,773.8百万美元。其中游戏收入1,376.0百万美元，广告收入121.0百万美元。净亏损收窄到54.0百万美元，合每股0.29美元；上年同期亏损133.9百万美元，合每股0.73美元。公司原先按亏损1.57亿至1.40亿美元、每股亏损0.84至0.75美元来展望。营业费用977.9百万美元，也低于1,009百万至1,019百万美元的区间。非GAAP EBITDA为92.2百万美元，上年同期116.7百万美元。</p>
-<p>净预订和GAAP营收对不上，差在递延。管理调节表里，递延净营收及相关成本变动为+104.3百万美元：1,497.0加104.3，正好是1,601.3。通俗来说，有一部分已经卖掉的数字商品，要等后续服务履行完才记进营收。</p>
-<p>拆开看，完整游戏及其他的净预订从上年同期532.2百万美元降到299.2百万美元。主机净预订742.6百万美元，占46%；移动707.6百万美元，占45%；PC及其他151.1百万美元，占9%。数字在线占98%。美国占60%，海外占40%。对公司净预订贡献最大的产品是NBA 2K、《侠盗猎车手》系列、Toon Blast、Match Factory!、Empires &amp; Puzzles、《无主之地》系列、Words With Friends、《荒野大镖客》系列、Color Block Jam、WWE 2K和Zynga Poker。</p>
-<p>董事长兼首席执行官Strauss Zelnick在新闻稿里说：《侠盗猎车手VI》还有十天发售，预订持续达到前所未有的水平，公司预计这会是历史性的一年，并重申2027财年净预订80亿至82亿美元的展望。业绩演示写得更直白：预订远高于最初预期，数字很快会自己说话。两份材料都没有给出预订的金额或份数。</p>
-<p>全年展望里，净预订维持80.00亿至82.00亿美元不变，经常性消费支出按同比持平来规划，经营现金流仍是超过10亿美元，资本开支约2.90亿美元。有改动的是GAAP数字：净营收上修到79.80亿至81.80亿美元，此前是79.00亿至81.00亿美元；营业费用下调到40.78亿至40.98亿美元；净利润109百万至142百万美元，稀释每股收益0.57至0.75美元。公司假设《侠盗猎车手》系列上升，依据包括《侠盗猎车手VI》终极版所含的追加内容；NBA 2K按高个位数增长；移动业务下降，理由是去年Color Block Jam基数高，以及Zynga多款成熟产品的趋势会放缓。演示还写，NBA 2K计划推出系列有史以来规模最大、也最创新的一套游戏内内容，公司据此认为经常性消费会在下半年加快。</p>
-<p>第三财季是《侠盗猎车手VI》所在的季度，公司第一次给出数字。净预订33.50亿至35.00亿美元，GAAP净营收32.70亿至34.20亿美元，净利润2.50亿至2.76亿美元，稀释每股收益1.30至1.44美元。经常性消费支出按同比约增12%来规划，假设仍是《侠盗猎车手》系列因终极版明显增长、NBA 2K增长、移动下降。</p>
-<p>上半年合计，净营收3,030.9百万美元，净亏损88.1百万美元，合每股0.47美元，净预订2,987.2百万美元。经营现金流为流出173.5百万美元，上年同期为流入83.7百万美元；购置固定资产163.3百万美元。截至2026年9月30日，现金及现金等价物1,149.4百万美元，短期投资524.2百万美元。公司仍按全年经营现金流超过10亿美元来展望。</p>
-<p>7月1日以来已经发出的，是7月14日的《侠盗猎车手在线》Kortz Center Heist夏季更新，以及9月4日的NBA 2K27。《侠盗猎车手VI》订于2026年11月19日在PlayStation 5和Xbox Series X|S发售。新闻稿里已经点名、日期仍写待公布的，还有Zynga的Top Goal和CSR 3，2K的PGA TOUR 2K27、WWE 2K27、Project ETHOS和BioShock下一作，以及Ghost Story Games的Judas。</p>
-<p>净预订没到自己画的线，公司把原因写在NBA 2K27上，又把全年80亿至82亿美元原样留下，把更大的一块画给接下来这个有《侠盗猎车手VI》的季度。预订比最初预期高多少，新闻稿和演示都没有写出金额或份数。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/take-two-q2-2026-11-cover-1024x1325.webp"/>
-    </item>
-    <item>
-      <title>Grok：SuperGrok／更高档位值不值得——按周用量粗算</title>
-      <link>https://www.kmhgame.com/grok-supergrok-geng-gao-dang-wei-zhi-bu-zhi-de-an-zhou-yong/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-supergrok-geng-gao-dang-wei-zhi-bu-zhi-de-an-zhou-yong/</guid>
-      <pubDate>Mon, 09 Nov 2026 08:10:00 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>别凭“听说 SuperGrok 香”下单。先看官方定价页现行档位与周用量池倍数，用自己两到三周的 Usage 粗算，再决定停在哪一档。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-supergrok-weekly-usage-estimate-cover-800x450.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>现行自助档位是 <strong>The X Subscription</strong>（<a href="https://x.ai/pricing">x.ai/pricing</a>，核验日 2026-11-09）：<strong>Free</strong> $0 Limited；<strong>Plus</strong> $8 Base；<strong>Premium</strong> $30≈<strong>4×</strong>Plus；<strong>Super</strong> $100≈<strong>15×</strong>；<strong>Ultra</strong> $200≈<strong>50×</strong>。价格不含适用税。证据强度：高。</li>
-<li>介绍文写明 Premium 含 “benefits of SuperGrok、Cursor Pro、X Premium+”（原先合计约 $90／月的卖点打包进 $30）。现有 SuperGrok／Cursor／X Premium 订户可<strong>保留旧计划</strong>，或以账单为准<strong>自选</strong>改订 The X Subscription；官方<strong>未公布</strong>旧 SKU→Super／Ultra 对照或自动迁移表（<a href="https://x.ai/news/x-subscription">Introducing The X Subscription</a>）。证据强度：高。</li>
-<li>付费席位有一份<strong>按周刷新的一等用量池</strong>，在 Grok 与 Cursor 自有模型表面共享；Chat／Imagine／Voice／Bot 等均可从池里扣，不同产品耗速不同。Cursor 里<strong>第三方模型</strong>不进周池，走 Additional Usage（<a href="https://docs.x.ai/x-subscription/usage-limits">Usage limits</a>）。证据强度：高。</li>
-<li>粗算纪律（本稿工作流）：连续记录 2～3 个周重置周期的触顶日与产品拆分 → 用触顶频率判断升档；偶发超限优先 top-up，常态触顶再升一档。</li>
-<li><a href="https://docs.x.ai/grok/faq">Grok 网站／App FAQ · Should I upgrade my plan or buy credits?</a>：相对反复购买 Extra Usage Credits，升到更高计划通常能以更低的单次有效成本获得显著更多周用量；偶尔超限可用 top-up，经常触顶则长期看升级更可能更值。界面菜单名以账号现页为准。证据强度：高（FAQ 原文）。</li>
-<li>与已发“免费档限速与付费省额度”错开：本稿专攻<strong>现行更高档（Premium／Super／Ultra）值不值得</strong>的周用量粗算，并澄清旧 SuperGrok 计划与新订阅的关系（可保留／自选，无官方价档映射）。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>朋友还在问“要不要 SuperGrok”。你打开 <a href="https://x.ai/pricing">x.ai/pricing</a>，页上已经是 Free／Plus／Premium／Super／Ultra。名称在变，问题没变：一周真实用量吃到哪一档的池子，钱才花在刀刃上。</p>
-<p>本稿按官方公开定价页、订阅介绍、Usage limits 与 Grok FAQ 编译；未登录你的账单现页，旧计划是否仍显示、精确剩余百分比以账号为准。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p><strong>证据强度：现行档位价与倍数＝官方高；粗算表＝本稿工作流（中）；旧计划发票金额＝待核现页。</strong></p>
-<h4>1. 先看现行公开档，别自行做旧名对照表</h4>
-<figure><table><thead><tr><th>现行档（The X Subscription）</th><th>公开月价（约）</th><th>一等周池相对 Plus</th><th>公开要点（摘自定价／介绍文）</th></tr></thead><tbody><tr><td>Free</td><td>$0</td><td>Limited</td><td>有限用量</td></tr><tr><td>Plus</td><td>$8</td><td>Base</td><td>Grok Chat／Voice／Imagine／Build、Cursor 等（见现页）</td></tr><tr><td>Premium</td><td>$30</td><td>约 4×</td><td>介绍文：含 SuperGrok、Cursor Pro、X Premium+ 原合计约 $90／月的 benefits 打包；含 Grok Bot 等</td></tr><tr><td>Super</td><td>$100</td><td>约 15×</td><td>Everything in Premium＋更高用量等（见现页）</td></tr><tr><td>Ultra</td><td>$200</td><td>约 50×</td><td>Everything in Super＋更高用量等（见现页）</td></tr></tbody></table></figure>
-<p>说明：SuperGrok／SuperGrok Plus／SuperGrok Heavy 等旧名在官方新闻与 Bot 文档中真实出现，但 The X Subscription <strong>未公布</strong>“旧 SKU → Super／Ultra”对照或自动迁移表。旧订户可<strong>保留原计划</strong>，或以自己账单／发票为准<strong>自选</strong>改订新档；旧权益与标价以原计划为准。勿把 Grok Bot FAQ 里 legacy Cursor 与 SuperGrok 系列在 <strong>Bot 周用量</strong>上的档位对齐，写成 X Subscription 的订阅价档映射。</p>
-<h4>2. 打开 Usage，记两周数据（假设示例骨架）</h4>
-<p>以下为<strong>可抄记账骨架</strong>，数字请换成你账号真实值；未实测你的账户。</p>
-<pre><code>周次｜重置日｜档位｜周池用到约％｜最先被吃光的产品｜是否买过 top-up｜本周是否误用第三方模型
-W1 ｜____｜____｜____％｜Chat / Imagine / Voice / Bot / Cursor｜是/否｜是/否
-W2 ｜____｜____｜____％｜…｜…｜…
-W3 ｜____｜____｜____％｜…｜…｜…</code></pre>
-<p>路径常见写法：账号设置里的 <strong>Usage／用量</strong> 视图（docs 称 live usage view；Grok FAQ 写 Settings → Usage）。若你客户端菜单名不同，以现页为准（待核）。</p>
-<h4>3. 粗算：值不值得升一档</h4>
-<p>用公开倍数做<strong>相对</strong>估算，不编造“每周 N 条”：</p>
-<ol>
-<li><strong>Plus 够不够？</strong> 两周内周池很少超过约 70％、也几乎不用 Grok Bot／重度 Imagine，可留在 Plus（或继续 Free 试）。</li>
-<li><strong>要不要 Premium（介绍文中的旧 SuperGrok 权益打包档）？</strong> 需要 Bot、更快响应、图／视频与云端自动化，或周池常在重置前见底 → Premium 通常是“功能门槛＋4×池”的第一跳。官方介绍把它写成原先分开买 SuperGrok＋Cursor Pro＋X Premium+ 的 benefits 打包价。</li>
-<li><strong>Super（15×）还是 Ultra（50×）？</strong> 连续两周在 Premium 仍靠 top-up 续命、且拆分显示 Chat／Agent／Imagine 合计都重 → 先算 top-up 月花费是否接近升档差价。差价（标价相减，未含税，编辑心算）：Premium→Super 约 +$70／月；Super→Ultra 约 +$100／月。</li>
-<li><strong>决策树（可抄）</strong> </li>
-</ol>
-<p>   – 偶发一周打爆 → top-up 或等周重置（FAQ：低档上偶发加购方便）；  </p>
-<p>   – 连续 ≥2 周触顶或重度依赖 Bot／长视频 → 对照 FAQ“经常超限则长期看升级更可能更值”考虑升一档；  </p>
-<p>   – 只用社交权益、几乎不用 AI → 不必为“SuperGrok”名头买 Super／Ultra。</p>
-<h4>4. 粗算时记得三笔“隐形账”</h4>
-<ul>
-<li><strong>周池共享</strong>：Grok 与 Cursor 一等用量同一池。白天 Cursor 狂改代码，晚上 Imagine 可能直接触顶。</li>
-<li><strong>第三方模型</strong>：Cursor 里换非一等模型，账单走 Additional Usage，周池看起来还多。</li>
-<li><strong>税与年付</strong>：定价页脚注写明价格不含适用税；年付折扣以现页为准，本稿表用月价便于心算。</li>
-</ul>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先问“我缺的是功能还是池子”。</strong> 没有 Bot／自动化需求时，为“SuperGrok”三个字跳到 Super，往往只是在买更大的倍数。</li>
-<li><strong>诀窍：用触顶频率决定升级，用产品拆分决定砍什么。</strong> Imagine／长视频耗池快，可先降重活再决定升档。</li>
-<li><strong>诀窍：旧订户先看账单再决定是否改订。</strong> 官方写可保留旧计划；是否改订取决于你是否还要 Cursor／X 权益打包与更大周池，<strong>不是</strong>系统自动把你挂到某个同名新档。</li>
-<li><strong>反例：把非公开价表上的旧档美元数，当成现行 The X Subscription 顶档价写入报销单。</strong> 现行公开自助顶档是 Ultra $200；旧计划金额以你发票为准。</li>
-<li><strong>反例：只看月价除以 30，忽略周重置。</strong> 一周打爆不等于月池按比例剩很多；付费一等用量是<strong>周池</strong>逻辑。</li>
-<li><strong>反例：从非官方代购“续 SuperGrok”。</strong> 定价页写明只通过官方订阅主体销售，其他来源可能被停用。</li>
-<li><strong>反例：拿 Grok Bot FAQ 的 legacy 用量对齐句，填进“旧 SKU＝新价档”对照表。</strong> 那是 Bot 周用量档对齐，不是 X Subscription 迁移表。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：<strong>个人自助现行档如何用周用量粗算 Premium／Super／Ultra 值不值得</strong>；并说明旧 SuperGrok 等计划可保留或自选改订、无官方价档映射。</li>
-<li>不覆盖：Teams／Enterprise 合同价、API 预付包、Cursor 第三方模型单价表、旧 SKU 与新档的一一对应（官方未给）。</li>
-<li>Free 精确限额、Settings 菜单是否仍叫 Usage、你账号旧计划现显示名与金额，一律<strong>待核现页</strong>。</li>
-<li>价格与倍数可能变更；决策前再打开 <a href="https://x.ai/pricing">x.ai/pricing</a> 核一次。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-supergrok-weekly-usage-estimate-cover-800x450.webp"/>
     </item>
   </channel>
 </rss>
