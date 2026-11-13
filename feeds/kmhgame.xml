@@ -8,7 +8,61 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Fri, 13 Nov 2026 09:31:50 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 10:19:42 GMT</lastBuildDate>
+    <item>
+      <title>史克威尔艾尼克斯验证本地 Nemotron：基本任务能跑，单独做游戏做不成</title>
+      <link>https://www.kmhgame.com/shi-ke-wei-er-ai-ni-ke-si-yan-zheng-ben-di-nemotron-ji-ben/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/shi-ke-wei-er-ai-ni-ke-si-yan-zheng-ben-di-nemotron-ji-ben/</guid>
+      <pubDate>Fri, 13 Nov 2026 10:19:42 GMT</pubDate>
+      <category>AI</category>
+      <category>AI新闻</category>
+      <description><![CDATA[<p>史克威尔艾尼克斯工程师在社内 H100 上验证本地 Nemotron 3.5：聊天和脚本等基本任务能完成，但让它单独做一款寻宝游戏，中途停住，完全不成游戏。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/se-nemotron-local-verify-cover-1024x576.webp"/></figure>
+<p>11 月 10 日，NVIDIA 在东京办了开发者活动 Agentic AI Day Japan 2026。史克威尔艾尼克斯 AI 与引擎开发部门的 AI 工程师藤井翔太，讲了他们把生成式 AI 接到游戏开发平台上的验证。<a href="https://pc.watch.impress.co.jp/docs/news/2155676.html">PC Watch</a> 发了较完整的现场报道，<a href="https://ai.watch.impress.co.jp/docs/news/2155320.html">AI Watch</a> 对同一场活动也有记录。</p>
+<p>他们在公司内部的 H100 环境里跑了 NVIDIA 的视觉语言模型 Nemotron 3.5 Super VL，参数规模标注为 120B-A12B。报道配图说明，部署位置是 NVIDIA DGX。所谓本地大语言模型，就是把模型放在自己的机器上跑，数据不必送到外部云端。</p>
+<p>藤井先谈到 3A 游戏开发变贵，并引用了经济产业省今年 2 月公布的数据，稿件未见具体数字。他的判断是，写文档和策划案，再就是写代码、做内部工具和测试，这些环节都能用上 AI。但 ChatGPT、Claude 这类云端前沿模型本身也贵，“人做和 AI 做，哪个更贵，得看任务”。游戏还经常要喂 3D 场景和视频，一次消耗的文本量很大；策划案那种没有标准答案的来回讨论，上下文还会越攒越贵。本地模型除了费用，还有数据不出门、云端改版时输出不会跟着漂、也不用绑在外部接口上这些好处。他给出的使用前提，是用来辅助创作者。</p>
+<p>验证分四块。</p>
+<p>聊天这边，解释术语、回答“世界最高的山”这类短问题，以及带数字单位的计算、按格式出三个村名，都能答上来。“世界最高的山”这类短问题，Nemotron 用了 0.79 秒，比拿来对比的其他模型都快；题目一难，它反而比别的模型慢，速度快慢差得比较大。藤井的看法是，本地模型更适合简单对话。他们还塞进去一段龙在吃饭的视频，模型用大约 10.6 秒给出了准确理解。藤井说，这是他“个人比较吃惊的一点”。</p>
+<p>脚本这边，让它写一个把图像正负片反转的 Python 脚本，一次就写对，花了 22 秒。这类较简单的脚本，速度上给人的印象是 ChatGPT 和 Claude 还略快一些。再用 HTML 做一款能左右移动和跳跃、还有剑的命中判定和过关条件的小游戏，也是一次请求就跑起来了。藤井的小结是：聊天和脚本这些他本来就觉得能做的事，确实做了出来。</p>
+<p>动作生成没有只靠 Nemotron。它负责把脚步位置和时间写成 JSON，再交给 NVIDIA 的动作生成模型 Kimodo 在虚幻引擎里出动作。Kimodo 的全称是 Kinematic Motion Diffusion，可以根据文字或少量姿势生成整段动作。演示里，角色能抬脚跨过地上的杆。按同样办法，搬运、跳过沟，还能攀上 1.2 米的台，或从 1.1 米高的杆下钻过去，基本步行都能生成。</p>
+<p>有意思的是改脚滑。跨杆行走一开始在虚幻里大约滑了 16.4 厘米，让 Nemotron 按计划、执行、检查、改进的循环去改，滑步收到了大约 1.7 厘米。关键帧加多了，效果反而变差。完成度最高的一次，只指定了 6 个关键帧；关键帧再往上加，多余动作会变多，脚会滑，手也会被定住。障碍物当时没加碰撞，把多段动作接起来时，会出现脚穿模。藤井仍然觉得，只靠位置和关键帧就能串成这一串，比预想中顺。他给自己记的改进项是：先定好评价标准和修改方针。</p>
+<p>最后测的是 MCP。这是一套让 AI 调用外部软件的约定。虚幻引擎 5.8 和 Blender 5.1 之后，都有官方的实验性 MCP 服务。让它在 Blender 里做一棵树，再放到虚幻场景里，这一步跑通了。可一旦题目改成“做一款寻宝游戏”，从生成物件到把游戏跑起来，本地模型单独做，中途停住，完全不成游戏。后来他们先让 Claude Code 列出所需任务，再用 NVIDIA 的模型路由库 NeMo Switchyard 来分配：简单的给 Nemotron，难的分给 ChatGPT 等前沿模型。一部分物件开始能动了，游戏还是没有做完。</p>
+<p>藤井的结论很克制。基本操作本地模型扛得住；自由度高的课题，现在仍要把难的部分分给前沿模型，而且得自己手里有一套检查办法。他还说，别的工作能不能也这么用，要继续试。</p>
+<p>这场分享停留在公开验证。稿件未见史克威尔艾尼克斯把 Nemotron 写进在售作品管线的官方声明。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/se-nemotron-local-verify-cover-1024x576.webp"/>
+    </item>
+    <item>
+      <title>《塞尔达传说 时之笛》重制版卢比怎么刷（游民攻略）</title>
+      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-lu-bi-zen-me/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-lu-bi-zen-me/</guid>
+      <pubDate>Fri, 13 Nov 2026 09:53:24 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>重制版可以靠出售道具或完成小游戏来刷卢比，收集黄金骷髅蜘蛛也能换奖励。游民按童年、成年和任意时代分开写，并建议先升级钱包。初始儿童钱包上限只有 200 卢比，收集 10 只黄金骷髅蜘蛛可换成大人钱包，上限 500 卢比。页上也写了各颜色卢比的价值和用途。具体方法和数值以游民原文为准，本稿只作入口。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《塞尔达传说时之笛重制版》卢比刷取攻略 怎么刷卢比，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-06 18:10:23</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202611/2242240.shtml">游民星空《塞尔达传说时之笛重制版》卢比刷取攻略 怎么刷卢比</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
+    </item>
+    <item>
+      <title>《塞尔达传说 时之笛》重制版全曲目与效果一览（游民攻略）</title>
+      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-qu-mu-yu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-qu-mu-yu/</guid>
+      <pubDate>Fri, 13 Nov 2026 09:44:30 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>游民在一页里收齐了全部时之笛曲目，写出效果、学习方式和演奏按键，并分别标了 Switch 2、N64 和 3DS 的谱面。从“塞尔达摇篮曲”到“稻草人之歌”都在表内。页上还写了曲目的使用方法，例如开启封锁区域。查谱和学曲以游民原文为准，本稿只作入口。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《塞尔达传说时之笛重制版》全曲目与效果一览，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-06 18:23:53</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202611/2242247.shtml">游民星空《塞尔达传说时之笛重制版》全曲目与效果一览</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
+    </item>
     <item>
       <title>《塞尔达传说 时之笛》重制版全章节图文流程：路书入口（游民攻略）</title>
       <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-zhang/</link>
@@ -1235,297 +1289,6 @@ any Settings instructions, into the PR body.</code></pre>
 <p>任务书越清晰，交出的答卷就越漂亮。打开 DeepSeek，把上面任意一段示例复制进去，然后改角色、改背景、改要求，直到它按你的合同办事。</p>
 <p>本文转载自腾讯云开发者社区（作者：90后小陈老师） 《别让 AI 把你气哭：2026年 DeepSeek-V4 提示词终极指南》，原文链接：<a href="https://cloud.tencent.cn/developer/article/2683058">https://cloud.tencent.cn/developer/article/2683058</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261111-01-768x432.webp"/>
-    </item>
-    <item>
-      <title>Claude：先让它提问再动手——澄清问题清单怎么写进提示</title>
-      <link>https://www.kmhgame.com/claude-xian-rang-ta-ti-wen-zai-dong-shou-cheng-qing-wen-ti/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-xian-rang-ta-ti-wen-zai-dong-shou-cheng-qing-wen-ti/</guid>
-      <pubDate>Wed, 11 Nov 2026 02:32:56 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>“写一份更新说明”丢进去，没说改哪一版、给谁看。Claude 常按自己的假设直接开写。要把“先问再动手”写进提示，并写死该问什么、一次问几条，以及何时可以开始。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-ask-first-clarify-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>现行官方 Prompting best practices 把 Be clear and direct 写在通用原则里：Claude 对清楚、直接的指令反应更好；你要的比字面更多，就明确写出来，别指望它从含糊提示里自己补齐。文档把它比作 brilliant but new employee，缺的是你的规范和工作流上下文。检验办法：把提示给几乎不知情的同事看，同事会困惑，它往往也会。（<a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct">Prompting best practices</a>）</li>
-<li>旧文档里曾单独成篇的 “Claude isn’t psychic” 和 “Let Claude think”，现页已 404。相近口径收进同一份最佳实践：把背景和动机写清楚；步骤顺序重要时用编号列表；思考能力要按模型另行配置，不等于会先向你收集缺口。</li>
-<li>官方给过两套相反的默认。一套是意图不清时推断并动手，用工具补细节，不要猜参数。另一套是意图含糊时先给信息，接着做研究、给建议，没被明确要求就不要改文件、不要开工。要“先提问再动手”，必须把后一套写进提示，不能只写“写得好一点”。（<a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct">同上，Tool usage</a>）</li>
-<li>社区里常见的抱怨是：提示稍不清楚，Claude 会按自己的假设直接执行。这不是官方保证，但说明只靠一句客气话不够，要把问单写死。（<a href="https://www.reddit.com/r/ClaudeAI/comments/1vz3rlc/why_doesnt_claude_ask_more_questions_before/">Reddit r/ClaudeAI</a>）</li>
-<li>澄清问单至少写四块：已经确定且禁止再问的事，必须先问的缺口，提问条数上限，以及可以开始的条件。问完必须停住等回答，不要边问边猜。</li>
-<li>本篇和站内《先约束再需求》骨架错开：那篇写角色、边界、任务、格式、验收；本篇只谈澄清问题怎么写进提示。骨架里的“信息不足先提问”，要在这里落实成可抄问单。（<a href="https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/">Claude「先约束再需求」提示词骨架</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>编辑把一句“写一份更新说明”丢进对话。没写是 1.4 还是 1.5，没写给玩家看还是给渠道看，也没写哪些数字还不能对外。</p>
-<p>Claude 没有先停下来。它补了一段看起来完整的变更列表，版本号和发布范围都是猜的。</p>
-<p>这是示意，不是某次逐字实测。官方把这类含糊提示当成低效写法：你要的比字面更多，就得明确写出来，不能靠模型推断。社区里也有人问，为什么变量缺了，它仍按自己的假设往下做。</p>
-<p>补一句“有问题先问我”往往不够。它可能问个没完，也可能问了两句就自己填上答案开写，还可能把你已经写过的读者对象再问一遍。要把问单写成规则。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<h4>1. 先列出已确定和未确定</h4>
-<p>打开对话前，自己先写两列。已确定的，进提示里的“不要再问”。未确定而且会改变成品的，进“必须先问”。</p>
-<p>会改变成品的，通常包括给谁看和哪一版，以及交付物是什么；也包括哪些材料能用，哪些数字或措辞不能写，以及长度、结构和截止日期。不会改变成品的背景闲聊，不要进问单。</p>
-<h4>2. 把“先问再动手”写成步骤，别只写一句客气话</h4>
-<p>官方建议，步骤顺序重要时用编号列表。这一条正好适用：先写清单，再等待，最后才动手，顺序不能倒。</p>
-<p>官方在工具使用一节给过两种默认，方向相反。一套是意图不清就推断并动手，用工具去发现缺的细节，不要猜参数。另一套是意图含糊就先给信息，接着做研究、给建议，用户没明确要求改，就不要改、不要开工。网页聊天里你要的是后一套。不写进去，模型完全可能走前一套。</p>
-<p>下面是可抄提示，按你的题目改括号。这里的“最多 5 个问题”是为了防止问个没完的工作上限，不是官方限额，可以改成 3 个或 7 个。</p>
-<pre><code>任务：【一句话交付物，例如：为【产品】写一份面向【读者】的更新说明】
-
-已经确定、不要再问：
-- 读者：【例如：已购买的玩家，不是渠道】
-- 版本：【例如：只写 1.5，不提未公布的后续版本】
-- 不能写：【例如：具体收入数字、未公开日期】
-- 材料范围：【例如：只根据我粘贴的补丁要点，不自行补网上传闻】
-
-动手前必须先问清楚的缺口（只问这些，不要延伸）：
-1) 【会改变全文结构的问题，例如：更新说明要不要包含已知问题】
-2) 【会改变语气或长度的问题】
-3) 【会改变能否动笔的问题，例如：对外名称是否已冻结】
-
-提问规则：
-- 一次最多问【5】个问题。先问会挡住动笔的，不问已写在“已经确定”里的事。
-- 每个问题给 2～3 个可选答案，并允许我说“暂不确定”。
-- 列出问题后停住，等待我逐条回复。不要在同一条回复里开始写正文，也不要替我选一个“看起来合理”的答案。
-- 我回复后，先用五行列出：已确定／你仍缺的／你将采用的假设／还不能写的／可以开始还是还要再问。然后等我确认“开始”。
-- 只有在“必须先问”的缺口都有答案，或我明确说“按这些假设开始”之后，才写正文。
-- 写正文时不要把问单再复述一遍。</code></pre>
-<p>把“写一份更新说明”套进上面的提示时，已经确定的可以是：读者是已购买的玩家，只写 1.5，不写收入数字。必须先问的可以是：要不要写已知问题；篇幅按商店短说明还是按公告长文；对外名称是否已冻结。</p>
-<p>不要问要不要写得更活泼（初稿后再调），也不要问你更喜欢哪一种标题句式，更不要把材料里已经写明的版本号再确认一遍。</p>
-<p>如果某一条挡住动笔的问题你回了“暂不确定”，它应把这条写成假设，不要自己拣一个常见做法填上。没有你的“开始”，仍然不要写正文。比如“已知问题”你还没定，它可以列出“方案 A：不写；方案 B：只写已公开的两条”，等你挑，不要在正文里擅自加一段。</p>
-<p>你逐条回复后，它应先交出类似下面的五行，再等你说“开始”：</p>
-<pre><code>已确定：读者=已购买的玩家；版本=只写 1.5；不写收入数字。
-仍缺：无（或：对外名称你标记为暂不确定）。
-将采用的假设：已知问题按方案 A，不写进正文。
-还不能写：未公开日期、收入数字。
-状态：可以开始／还要再问【具体哪一条】。</code></pre>
-<p>这五行是给你核对用的，不是第二份更新说明。假设写错，在这里改，比改完整稿便宜。</p>
-<p>这条问单可以贴在当次聊天的开头。同一类任务反复出现，也可以写进该项目的指令，让项目内新聊天默认先问。项目指令怎么建、风格指南怎么拆，见站内旧文，这里只提醒：指令里同样要写“已经确定不要再问”和“列出问题后停住”，只写“先提问”仍然太软。</p>
-<p>写到一半冒出新的缺口，再用同一套规则：先停下来，只问挡住下一步的问题，然后等你回复。不要既改正文又追问。两件事混在一条里，你很难判断它改的是哪一个假设。</p>
-<h4>3. 问什么、问多少以及何时可以开始</h4>
-<p>问什么：只问会改变成品的缺口。读者和版本、范围和禁写项，以及格式，优先排前面。模型偏好、要不要再开一个小节，能等初稿后再说。</p>
-<p>问多少：官方没有规定条数。上面的上限是为了防止问个没完。原则是一次问完挡住动笔的问题，不要拆成一串连环追问。材料一多，也可以按官方建议，用 XML 标签把问单和原文材料分开，避免它把补丁要点里的句子再当成问题问你。这不是必须步骤。</p>
-<p>何时可以开始，用三条硬条件。满足一条就能写，但要先亮出假设：</p>
-<ol>
-<li>“必须先问”的缺口都有了明确答案。</li>
-<li>剩下的不确定不会改变结构，它已列出将采用的假设，并且你回复了“开始”。</li>
-<li>你明确说“按这些假设开始”。</li>
-</ol>
-<p>禁写项、读者或版本还缺，不要开始。缺的只是小标题要不要加粗，可以开始。</p>
-<h4>4. 和“先约束再需求”怎么接</h4>
-<p>站内那篇骨架把角色、边界、任务、格式、验收写在前面，验收里有“信息不足先提问”。本篇把这一句展开成问单。可以先贴骨架，再贴上面的提问规则；也可以把问单嵌进验收段。不要只保留“信息不足先提问”六个字，那仍然太软。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：把“已经确定”写成禁止再问。</strong> 漏了这一块，它常把读者和版本再问一遍。</li>
-<li><strong>诀窍：给每个问题备选答案。</strong> 比开放题好收，也更容易发现它在问已经确定的事。</li>
-<li><strong>诀窍：要求它停住。</strong> 官方强调步骤顺序要用列表写清。不写“列出问题后停住”，它可能问完直接开写。</li>
-<li><strong>诀窍：回复后先看那五行对照，再让它动笔。</strong> 假设写错了，这一步比改第二稿便宜。</li>
-<li><strong>反例：只写“有问题先问我”。</strong> 太软。它可能问个没完，也可能问了两句就猜。</li>
-<li><strong>反例：问了不等回答就猜。</strong> 问单还在，正文已经按它选的“更常见做法”写完了。</li>
-<li><strong>反例：把已经钉死的事再问一遍。</strong> 读者、版本和禁写项写在提示里了，仍来问“这是给谁看的”。</li>
-<li><strong>反例：把思考开关当成提问。</strong> 官方现页谈的是模型怎么思考，不是自动向你收集缺口。要问，还是得写进提示。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：claude.ai 网页或桌面聊天里，把澄清问题清单写进当次提示或项目指令。</li>
-<li>不覆盖：提示词总骨架，见站内《Claude「先约束再需求」提示词骨架》。也不覆盖 Claude Code 里 Ask／只读和自动改的切换，那是另一条产品线。</li>
-<li>“最多 5 个问题”是可改的工作上限，不是官方限额。</li>
-<li>“Claude isn’t psychic”“Let Claude think”旧标题现页已 404，不要按旧独立篇名去找步骤。以现行 Prompting best practices 为准。</li>
-<li>先提问不是所有任务的默认。有些编码场景，官方反而建议意图不清时用工具去发现细节、不要空猜。你要的是提问还是动手，写死在提示里。</li>
-<li>它仍可能漏问或问偏。问单降低乱猜的机会，不取消你终审。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-ask-first-clarify-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Claude：Projects 知识库过期了怎么更新，避免旧文件继续被引用</title>
-      <link>https://www.kmhgame.com/claude-projects-zhi-shi-ku-guo-qi-le-zen-me-geng-xin-bi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-projects-zhi-shi-ku-guo-qi-le-zen-me-geng-xin-bi/</guid>
-      <pubDate>Wed, 11 Nov 2026 02:29:38 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>价目表改了，知识库里旧文件还在。官方说这些文件会用于该项目所有聊天，过期文档会导致过期回答。先移走旧文件再上传新版，并开一条新聊天验收。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-projects-kb-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>知识库在项目主页右侧。官方写明：上传到这里的内容会用于该项目内所有聊天；可随时添加和移除内容。添加入口是 “+”。删除或替换单个文件的按钮文案，帮助页没有逐步写出，以你登录后现页为准。不要把整个项目 Delete 掉来“更新一份文件”。官方的 “Delete” 和弹窗 “Yes, delete.” 是删整个项目。（<a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">How can I create and manage projects?</a>；<a href="https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects">RAG for projects</a>）</li>
-<li>Claude Academy 写过：保持知识库更新；过期文档会导致过期回答；文件名要写清楚，例如用 <code>Q4-2025-Sales-Report.pdf</code>，不要用 <code>report.pdf</code>；提问时可点名文件。（<a href="https://academy.claude.com/courses/claude-101/introduction-to-projects">Introduction to projects</a>）</li>
-<li>付费档（Pro、Max、Ultra、Team、Enterprise）在知识接近上下文上限时会自动启用 RAG，容量最多约扩到 10 倍，并用 project knowledge search tool 只取相关片段。你会看到 RAG 已启用的视觉提示。知识量降回阈值以下时，可能自动切回整段进上下文。官方没有“自动忽略旧版本”的口径。新旧文件同时在，两边都可能被检索到。（<a href="https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects">RAG for projects</a>）</li>
-<li>项目文件单文件上限 30MB。帮助页写条数不限，但又写总内容须能放入上下文窗口。付费档的 RAG 是另一条扩容说明。具体以现页为准，本稿不展开分块上传。（<a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude">Upload files to Claude</a>）</li>
-<li>从 Google Drive 添加到私有项目的 Google Docs 会从网盘同步最新版。共享项目不能用这条 Drive 添加路径。普通上传不会自己同步，要手工替换。（<a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Use Google Workspace connectors</a>）</li>
-<li>从零建项目和长文档分块，以及风格指南怎么拆进指令、术语表怎么搭，见站内旧文，本稿不重讲。（<a href="https://www.kmhgame.com/claude-jian-di-yi-ge-project-mian-fei-zui-duo-5-ge-zhi-shi/">建第一个 Project</a>；<a href="https://www.kmhgame.com/claude-zhang-wen-dang-chao-xian-fen-kuai-shang-chuan-yu/">长文档超限</a>；<a href="https://www.kmhgame.com/claude-ba-feng-ge-zhi-nan-sai-jin-project-zhi-ling-de-ke/">风格指南塞进 Project 指令</a>；<a href="https://www.kmhgame.com/claude-cong-ling-jian-fan-yi-ji-yi-yu-shu-yu-biao-project/">翻译记忆与术语表 Project</a>）</li>
-<li>验收必须新开一条项目内聊天，问一个新旧版本答案会变的问题，并要求它写出依据的文件名和摘句。旧聊天记录里可能还留着旧数字，不能当作已经更新的证明。</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>价目表 11 月改过一版。项目知识库里还躺着去年的 <code>pricing-2025.pdf</code>。有人把新表 <code>pricing-2026-11.pdf</code> 也传上去，以为新文件会压过旧的。</p>
-<p>新开一条聊天问现行公开价，回答里出现的仍是去年的档位。这是示意，不是某次逐字实测。</p>
-<p>官方没写“后上传的文件自动替换旧版”。它写的是：这里的文件会用于该项目下所有聊天；过期文档会导致过期回答。两边都在，两边都可能被用到。付费档若已切到 RAG，检索的是全部已上传内容里的相关片段，旧切片同样可能被取到。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<h4>1. 先盘点，再动手</h4>
-<p>打开该项目。知识库在主页右侧。把现行文件名抄下来，标出哪一份已被替换、哪一份仍有效。若必须留一份历史对照，单独标明，并且提问时禁止把它当现行依据。</p>
-<p>创建路径、免费最多 5 个项目，以及风格指南如何拆进指令，见上面列出的站内旧文，这里不重复。</p>
-<p>如果账号已被迁到官方所说的 Projects 新版本（beta，先从 Claude Code 和部分 Pro／Max／Ultra 用户开始），界面可能不同，以下步骤以你登录后现页为准。本稿写的是现行 claude.ai 聊天里带知识库的项目。</p>
-<h4>2. 替换顺序：先移走旧的，再上传新的</h4>
-<p>建议按这个顺序，不要颠倒：</p>
-<ol>
-<li>在知识库里找到旧文件，按现页提供的移除或删除操作把它拿掉。帮助页只写了可以添加和移除，没有逐步写出单个文件的按钮文案，不要照猜测去点。尤其不要点项目右上角三点菜单里的 “Delete”，以及弹窗里的 “Yes, delete.” 那是删除整个项目。</li>
-<li>确认旧文件名已经从列表里消失。</li>
-<li>点 “+”，上传新版。项目文件单文件上限是 30MB；支持的类型以上传帮助页为准。</li>
-<li>新文件名带主题和版本，例如 <code>pricing-policy-v2026-11-01.pdf</code>，不要再叫 <code>final-final.pdf</code>。Claude Academy 也建议用描述性文件名，便于检索。</li>
-<li>如果项目指令里写了旧文件名或旧规则，打开 “Set project instructions”（有的界面写 “Instructions”），改到与新版一致，再点 “Save instructions”。</li>
-<li>普通上传不会随外部文档自动更新。只有添加到私有项目的 Google Docs 会从 Drive 同步最新版；共享项目不能走这条添加路径。按钮若写作 “Drive” 或 “Add from Google Drive”，以现页为准。</li>
-</ol>
-<p>下面是可抄的替换和验收清单。</p>
-<pre><code>项目名称：____________________
-替换日期：____________________
-
-移走（旧版，不再作为现行依据）：
-- 文件名：____________________  旧关键数字／条款：__________
-
-新上传（现行依据）：
-- 文件名：____________________  新关键数字／条款：__________
-- 版本号或日期已写进文件名：是／否
-
-项目指令是否点名了旧文件或旧规则：是／否
-若是，已改为：____________________  并已保存：是／否
-
-验收（必须新开一条项目内聊天，不要续旧聊）：
-- 提问：请只根据知识库现行文件，回答【因版本而改变的问题】。先写出你依据的文件名和原文摘句。如果出现【旧文件名或旧数字】，明确标出，不要当成现行答案。
-- 现行答案是否与新文件一致：是／否
-- 是否仍把旧文件或旧数字当成现行依据：是／否
-- 若项目显示已启用 RAG，是否看到它在检索项目知识：是／否／不适用</code></pre>
-<h4>3. 用新聊天验收，不要拿旧聊天当证明</h4>
-<p>官方写过：除非写入知识库，项目内各条聊天不共享上下文。反过来说，旧聊天里已经出现的旧引用，还留在那条对话的历史里。知识库更新后，要新开一条项目内聊天再问。</p>
-<p>验收问的必须是新旧版本答案会不一样的问题。只问“你读了哪些文件”不够。</p>
-<p>付费档若已启用 RAG，回答过程中可能会看到 project knowledge search tool。这只能说明它在检索，不能说明检索到的一定是新版。旧文件还在，旧切片仍可能被取到。所以验收仍然看：它依据的文件名和摘句，是不是新版。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：文件名带版本号或日期。</strong> Academy 的对比是 <code>Q4-2025-Sales-Report.pdf</code> 和 <code>report.pdf</code>。验收时也对文件名，不对“最新那份”这种口头称呼。</li>
-<li><strong>诀窍：先移走再上传。</strong> 列表里先看到旧名消失，再点 “+”。</li>
-<li><strong>诀窍：指令和知识库一起改。</strong> 指令还写着“以 2025 价目为准”，知识库改了也不稳。</li>
-<li><strong>诀窍：私有项目里的 Google Docs 若已从 Drive 添加，改源文档即可同步；共享项目里的上传件仍要手工替换。</strong></li>
-<li><strong>反例：只上传新版，旧版留着“备用”。</strong> 两边都在，旧规则仍可能被引用。第三方培训材料也把这写成主要风险，这不是官方保证，但和“所有已上传文件都会被使用”的官方口径一致。</li>
-<li><strong>反例：在旧聊天里接着问“再读一遍现行价”。</strong> 历史里的旧数字还在，不能当验收。</li>
-<li><strong>反例：把整个项目 Archive 或 Delete 掉，只为了换一份文件。</strong> 归档不重置内容，取消归档后知识库原样回来；删除是去掉整个项目。</li>
-<li><strong>反例：用新文件名覆盖式命名，却没确认旧文件是否还在列表里。</strong> 帮助页没有“同名自动覆盖”的口径，以现页实际列表为准。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：claude.ai 现行 Projects 知识库里，过期文件如何替换，以及如何验收新会话不再把旧版当现行依据。</li>
-<li>不覆盖：从零建项目和长文档分块，以及风格指南拆法、术语表搭建，见上面列出的旧文。也不覆盖项目共享权限细表。</li>
-<li>若账号已迁到 Projects 新版本（beta），知识库或 Library 的界面可能不同，以现页为准。</li>
-<li>项目记忆是另一层，本稿不展开。单聊或项目页的 Memory 开关，以现页为准。</li>
-<li>上传页写项目文件须能放入上下文窗口，付费档 RAG 又写可扩容约 10 倍。两者并存，容量以账号现页提示为准，勿把 10 倍理解成固定字节数。</li>
-<li>知识库更新不替代你对数字和条款的终审。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-projects-kb-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Codex：把失败的 CI 日志贴进去时，怎么限制改动范围</title>
-      <link>https://www.kmhgame.com/codex-ba-shi-bai-de-ci-ri-zhi-tie-jin-qu-shi-zen-me-xian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/codex-ba-shi-bai-de-ci-ri-zhi-tie-jin-qu-shi-zen-me-xian/</guid>
-      <pubDate>Wed, 11 Nov 2026 02:26:12 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>把失败的 CI 日志贴进 Codex，它可能顺手改无关文件换绿。公开工单写过：本要改 8 个文件，结果动了 37 个。提示里先锁允许路径，交付时看 git diff –stat。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-ci-scope-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>ChatGPT Learn 的 Best practices 建议提示里写 Goal、Context、Constraints 和 Done when。Context 包括哪些文件和目录，以及文档、例子或报错和这次任务有关；Constraints 写标准、架构，以及安全要求和约定；Done when 是完成前必须为真的事，例如测试通过、行为改变，或某个 bug 不再复现。（<a href="https://learn.chatgpt.com/guides/best-practices">Best practices</a>）</li>
-<li>同一页建议把反复奏效的规矩搬进 <code>AGENTS.md</code>，并写清约束、怎样算做完、如何验证。文件要短，先写实际会用到的命令和禁止事项。（<a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md</a>）</li>
-<li>官方把 issue 做成可测 PR 的用例要求更硬：先读说明并跑已有基线检查，基线失败就先报告阻碍；范围要写文件或组件边界，也要写明确排除项；只做满足验收标准的最小改动，不要扩大已经谈妥的范围。测试失败后，不要靠删断言或放宽检查换绿。（<a href="https://learn.chatgpt.com/use-cases/issue-to-tested-pr">Turn an issue into a tested pull request</a>）</li>
-<li>Cookbook 把每个阶段写成有范围、非目标、验收标准和验证命令的计划，要求先复现再实施，验证命令必须真实跑过，计划里的命令不能抄成“已经通过”。（<a href="https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex">Iterating development workflows with Codex</a>）</li>
-<li>本篇把这些口径落到“贴失败 CI 日志”这一步：先摘失败要点，在提示里声明允许路径和禁止事项，要求先复现再做最小修复，交付时贴 <code>git diff --stat</code>。不要顺手改无关呆警，不要改无关格式，不要为了变绿改测试。后一条站内已有专文，这里只提醒，不重讲分轮提示。（<a href="https://www.kmhgame.com/codex-yong-ce-shi-wen-jian-dang-wan-cheng-ding-yi-xian-hong/">Codex：用测试文件当完成定义，先红后绿再重构</a>）</li>
-<li>社区里有过范围失控的公开记录。openai/codex 仓库工单 #11985 写：用 <code>codex exec --full-auto</code> 做一次针对 8 个文件的修复，实际改了 37 个文件，其中大量改动与任务无关。官方随后以材料不足关闭，并请补充会话详情。这是公开经验，不是产品保证。（<a href="https://github.com/openai/codex/issues/11985">Issue #11985</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>CI 红了。你把整段日志贴进 Codex，或 Cursor 里的 Codex，只补一句“修到绿”。它很快回你：测试过了。</p>
-<p>你打开 <code>git diff --stat</code>，真正失败的那条测试只动了两处。旁边却多出一串文件。别的目录里的 lint 呆警被清掉了，日志没点名的文件被重新格式化，还有一条精确断言被改成“有值就算过”。绿灯是换来的，范围已经散了。</p>
-<p>这是范围失控的示意，不是某次逐字实测日志。日志越长，模型越容易把所有发红的地方都当成这轮任务。</p>
-<p>失败回合怎么 rewind、脚本怎么补 <code>--help</code> 和退出码、多文件重构怎么写完成定义，站内各有专文，那些纪律还要用。本篇只攻一件事：日志已经贴进去了，怎么用提示、Constraints 和 <code>AGENTS.md</code>，把改动锁在本次失败相关的文件和测试上。相关旧文见文末来源。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<h4>先摘失败要点，不要把整段日志当成任务书</h4>
-<p>贴日志之前，先自己抽出这几项：失败的 job 名，真正执行的命令，失败的测试或规则名，第一条报错，以及退出码。前面已经绿过的步骤可以丢掉，它们会把信号淹没。</p>
-<p>第三方公开指南 Hidden Logic Lab 写过类似经验：只贴失败步骤，从第一条报错接到最终退出码。这不是 OpenAI 官方保证，但和“先给对的 Context”是同一方向。（<a href="https://www.hiddenlogiclab.com/use-cases/cursor-fix-failing-ci">Fix a failing CI job from the logs</a>）</p>
-<p>Best practices 把 Context 解释成：哪些文件、目录、文档、例子或报错和这次任务有关。整段日志常常只会把 Context 变吵。</p>
-<h4>提示按 Goal、Context、Constraints、Done when 写死边界</h4>
-<p>Best practices 的默认四件套，正好用来锁范围。Goal 写这次只修哪一次失败，Context 则补上失败要点和允许改的路径。Constraints 要写死：不准顺手清无关呆警，不准改无关格式，也不准为了变绿改测试或放宽断言。Done when 写成，同一条失败命令在本地复现后变绿，并且 <code>git diff --stat</code> 只落在允许路径里。</p>
-<p>常驻纪律放进 <code>AGENTS.md</code>。本轮允许改哪些路径、这一次失败对应哪条命令，仍要写在当条提示里。<code>AGENTS.md</code> 管每次都成立的规矩，提示管这一轮的合同。</p>
-<p>下面这段是可抄的常驻纪律。测试命令换成你仓库里的真实脚本。</p>
-<pre><code>## CI failure fixes stay in scope
-
-- When given a failing CI log, first extract the failing job, command,
-  test or rule name, first error, and exit code.
-- Reproduce the failure with the focused command before editing.
-- Edit only the allowed paths named in the current prompt.
-- Do not fix unrelated linter warnings, reformat files the log did not
-  name, or change files outside the allowed list.
-- Do not delete tests, add skip, or weaken assertions to make CI green.
-- Stop with the exact command, exit code, a short excerpt, and
-  `git diff --stat`.
-- If the failure cannot be reproduced, or the fix would require files
-  outside the allowed paths, stop and report. Do not expand scope
-  on your own.</code></pre>
-<p>本轮任务可以压成下面这类提示，路径和命令按项目替换。</p>
-<pre><code>Read AGENTS.md. This turn only fixes ONE CI failure. Do not refactor.
-
-Goal:
-Make the failing check below pass, with the smallest change.
-
-Context:
-- Failing job: 【job 名】
-- Command that failed: 【例如 npm test -- tests/payments/retry.test.ts】
-- First error / failing test or rule: 【第一条报错或测试名】
-- Allowed paths: 【src/payments/** 和对应测试文件】
-
-Constraints:
-- Do not edit files outside the allowed paths.
-- Do not fix unrelated linter warnings or pre-existing nits.
-- Do not reformat files the log did not name.
-- Do not delete, skip, or weaken tests or assertions to get a green job.
-- Do not upgrade dependencies unless the log proves a version conflict.
-
-Done when:
-1) You first rerun the same command and paste the reproduced failure.
-2) You make the smallest fix, rerun the same command, and paste the
-   passing excerpt with the exit code.
-3) You paste `git diff --stat`. It must only include allowed paths.
-If you cannot reproduce the failure, or the fix needs other files, stop
-and report. Do not expand the scope yourself.</code></pre>
-<h4>先复现，再做最小修复</h4>
-<p>还没在本地用同一条命令把失败跑出来，就不要改产品代码。复现不了，先说明缺什么：是环境不一样，是日志被截断，还是失败来自基础设施。Hidden Logic Lab 也写过，超时或网络一类的 flaky job，可能重跑就绿，不要急着合并一个假修复。这仍是第三方经验。</p>
-<p>官方可测 PR 用例把顺序写得很清楚：先确认起点并跑已有检查，基线失败或必要检查跑不了，就先报告阻碍。实施时只做最小改动。收尾要记录命令和结果，以及被测到的提交或工作区状态，还有没跑的检查。未跑过的检查不能写成通过。</p>
-<h4>交付时看 git diff –stat，你自己再点几下</h4>
-<p>Codex CLI 能在本地仓库里读文件、改文件，并跑你机器上已有的命令。（<a href="https://developers.openai.com/codex/cli">Codex CLI</a>）CLI 文档还写了 <code>/permissions</code>：运行前可以查看沙箱和可写根目录，决定它何时能不经询问就改文件或跑命令。具体按钮和斜杠命令，以你客户端现页为准。</p>
-<p>模型自称完成后，先看它贴出来的 <code>git diff --stat</code>，再自己跑同一条命令。至少核对这四件事：</p>
-<ol>
-<li>允许路径以外有没有文件被改？</li>
-<li>有没有顺手修日志没点名的 lint 呆警，或重排无关格式？</li>
-<li>测试文件、夹具或快照有没有被改瘦，断言有没有被放宽？为变绿去改测试，这轮就算作废。</li>
-<li>报告里的命令和摘录，是观察结果，还是把计划原文抄过来了？</li>
-</ol>
-<p>任何一项对不上，不要在已经跑偏的对话里接着“再修一下”。先丢掉超范围的改动，把允许路径写得更窄，再开一轮。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先摘失败要点，再贴日志。</strong> job 名和命令，以及第一条报错和退出码，比整段控制台输出更有用。</li>
-<li><strong>诀窍：允许路径和禁止事项写在同一条提示里。</strong> 只写“做最小修复”，模型仍可能把相邻呆警当成顺便能做的好事。</li>
-<li><strong>诀窍：完成证据是命令、退出码，外加 <code>git diff --stat</code>。</strong> 口头说“已经绿了”不够。</li>
-<li><strong>诀窍：常驻纪律放进 <code>AGENTS.md</code>，本轮路径放进提示。</strong> 少把每次都成立的规矩反复堆进对话。</li>
-<li><strong>反例：整段日志加一句“修到绿”。</strong> 最常见的结果是无关文件、格式和测试一起被动。</li>
-<li><strong>反例：为了变绿去改断言、给用例加 skip，或改掉夹具。</strong> 官方可测 PR 用例写明，不要靠删断言或放宽检查换绿。分轮怎么把测试文件锁成完成合同，见站内另一篇，这里不重讲。</li>
-<li><strong>反例：默认模型会守住范围。</strong> 工单 #11985 记录过一次 8 个文件的任务改出 37 个文件。官方要求补充会话详情后关闭，它只能当成你必须自己看 diff 的理由。</li>
-<li><strong>反例：把已归档的 Autofix CI cookbook 整段抄进仓库，当成“贴日志”的标准做法。</strong> 官方现页已标明该例归档，并提醒不要照抄那种把密钥和写权限捆在一起的布局。本篇不教自动修 CI 流水线。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：在本地用 Codex CLI，或 IDE、Cursor 里的 Codex，把失败的 CI 日志贴进去之后，如何用提示、Constraints 和 <code>AGENTS.md</code> 限制改动范围。不保证某一版本的斜杠命令或按钮文案长期不变，以你客户端现页和 <code>codex --help</code> 为准。</li>
-<li>不覆盖：失败回合 rewind，以及脚本 <code>--help</code> 与退出码、测试文件分轮提示，还有多文件重构的完成定义。那些题目站内已有专文。</li>
-<li>不覆盖：把 Codex 接进 GitHub Actions、失败后自动开 PR。官方 Cookbook 有过 Autofix 示例，现页已标归档。本篇只谈把日志贴进去的交互写法。</li>
-<li>云端是否同等执行提示里的本地命令，以该环境现页为准。生产热修、密钥和部署仍须独立审批。写了 Constraints 也不保证模型绝不越界。<code>git diff --stat</code> 和你自己复跑命令，仍是最后一道门。超时、基础设施或 flaky 失败，未必该用改代码来换绿。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-ci-scope-cover-1024x576.webp"/>
     </item>
   </channel>
 </rss>
