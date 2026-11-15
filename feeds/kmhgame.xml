@@ -8,7 +8,303 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Sat, 14 Nov 2026 06:00:26 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 02:44:41 GMT</lastBuildDate>
+    <item>
+      <title>《塞尔达传说 时之笛》重制版德库木盾（游民攻略）</title>
+      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-de-ku-mu-dun/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-de-ku-mu-dun/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:44:41 GMT</pubDate>
+      <category>游戏攻略</category>
+      <description><![CDATA[<p>科奇里森林商店里，德库盾卖 40 卢比，只有幼年林克能买、能用。这是木头做的小盾，遇火会烧掉。开局身上没有卢比，可以在村子里捡，米德家里四个宝箱合计 16 卢比。购买步骤和用法见游民原文，本稿只作入口。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
+<h2>【来源】</h2>
+<ul>
+<li>原文：游民星空《塞尔达传说时之笛重制版》德库盾位置与获得方法，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-13 14:33:01</li>
+<li>链接：<a href="https://www.gamersky.com/handbook/202611/2246071.shtml">游民星空《塞尔达传说时之笛重制版》德库盾位置与获得方法</a></li>
+<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
+    </item>
+    <item>
+      <title>Grok：在 X 里唤起和在 grok.com 提问，能力边界差在哪</title>
+      <link>https://www.kmhgame.com/grok-zai-x-li-huan-qi-he-zai-grok-com-ti-wen-neng-li-bian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/grok-zai-x-li-huan-qi-he-zai-grok-com-ti-wen-neng-li-bian/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:27:02 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>在 X 里唤起 Grok，和打开 grok.com 提问，不是同一扇门。模型可以是同一代；传文件、接邮箱和网盘，官方写在独立网站和 App 上。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-x-vs-grokcom-boundary-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方消费端条款把入口分成两边。独立助手在 grok.com，以及官方 iOS／Android App。Grok 也出现在 X 平台上；如果你用的是这边，官方让你去看 X 帮助中心。X 上的访问还要遵守 X 的服务条款和隐私政策。提供 Grok 的公司与 X Corp. 是分开的。（<a href="https://x.ai/legal/faq">Consumer FAQs｜我在哪里使用 Grok</a>）</li>
+<li>独立端的说明书写在 grok.com 和官方 App。官方概览列出的能力包括：对话，用 Grok 生成图片和视频，语音，上传 PDF、表格，以及代码、音视频等文件，还能在对话里连接邮箱、网盘和日历。Connectors 上线说明的标题就是“在网页、iOS 和 Android 上”，添加入口写在 grok.com/connectors。（<a href="https://docs.x.ai/grok/overview">Welcome to Grok</a>；<a href="https://x.ai/news/grok-connectors">Connectors 上线说明</a>；<a href="https://docs.x.ai/grok/connectors">Connectors 文档</a>；<a href="https://docs.x.ai/grok/faq">消费端 FAQ｜如何上传</a>）</li>
+<li>模型可以在两边同时出现。官方宣布 Grok 4.5 已在 grok.com、X 以及官方 iOS／Android App 上线。这只说明同一代模型去到了 X。X 里的按钮、设置和功能清单，仍可能和独立端不一样。（<a href="https://x.ai/news/grok-4-5-everywhere">Grok 4.5 登陆各端</a>）</li>
+<li>独立端也能够检索网页和 X 上的公开内容。产品页写过实时的 X 整合。所以“查一下 X 上在说什么”，不一定非要留在 X 里问。留在 X 里更合适的，是你本来就在看帖、要顺着这条帖问，不想跳出当前产品。（<a href="https://x.ai/grok">Grok 产品页</a>）</li>
+<li>本篇只谈这两扇门的能力边界。上传表格后哪些统计不能直接信，以及语音模式何时适合、档位怎么粗算，见站内旧文，这里不展开。（<a href="https://www.kmhgame.com/grok-shang-chuan-biao-ge-csv-zuo-qing-xi-shi-nei-xie-tong/">Grok：上传表格／CSV，哪些统计不该直接信</a>）</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你在 X 上刷到一条产品更新，想让 Grok 顺着这条帖解释背景，再对照一份自己手头的 PDF 和表格。</p>
+<p>若只是问“这条帖在说什么”，在 X 里唤起 Grok，不必先跳出当前页面。</p>
+<p>接下来要上传那份 PDF，或把邮箱、网盘接进对话，官方把这些步骤写在 grok.com 和官方 App。消费端 FAQ 谈上传，说的是网页、iOS 和 Android 应用；Connectors 的上线说明也点名这三端，没有把 X 写进这张清单。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>同一代模型出现在 X 上。两边仍是不同的产品窗口。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p>下面是用法建议。X 里的具体按钮和菜单位置，以登录后现页和 X 帮助中心为准。本篇不写死某一天的图标位置。</p>
+<h4>1. 先分清你在哪一扇门</h4>
+<p>开口之前先问自己：我是在 X 的产品里唤起 Grok，还是打开了独立的 grok.com／官方 App？</p>
+<p>这两边是分开的产品窗口。官方条款分开写，责任也分开：独立端的问题看 Grok 官方帮助；X 平台上的使用问题，官方指去 X 帮助中心。X 上的访问还要另受 X 条款约束。</p>
+<p>用 X 账号登录 grok.com，只说明登录方式可以打通，不代表功能、对话记录和设置已经完全合并。</p>
+<p>也别和另一件事混在一起：在 X 上给自己的 Grok Bot 派活，或在帖子里给 Bot 账号发任务，是另一套产品。本篇只谈消费端的 Grok 助手。</p>
+<h4>2. 按任务选入口</h4>
+<figure><table><thead><tr><th>你要做的事</th><th>更合适的入口</th><th>依据</th></tr></thead><tbody><tr><td>顺着正在看的帖子问背景、术语或这条讨论在说什么，并且不想离开 X</td><td>在 X 里唤起 Grok（入口以现页为准）</td><td>Grok 出现在 X 平台上；适合留在当前产品里问</td></tr><tr><td>上传 PDF、表格、代码或音视频，做摘要、抽取或统计分析</td><td>grok.com 或官方 App</td><td>官方上传说明写的是网页、iOS 和 Android 应用</td></tr><tr><td>在对话里直接读邮箱、日历、网盘或官方目录里的其他工具</td><td>grok.com 或官方 App</td><td>Connectors 官方上线说明点名网页、iOS 和 Android，添加入口在 grok.com/connectors</td></tr><tr><td>按官方独立端能力来用语音对话，或在同一线程里生成、修改图片和视频</td><td>grok.com 或官方 App</td><td>官方概览和产品页把这些能力写在独立助手上</td></tr><tr><td>只是检索网页或 X 上的公开讨论，并不依赖某条正在看的帖</td><td>两边都可以尝试；要同时用文件或连接器，仍应回到独立端</td><td>独立端产品页也写了实时网页检索和 X 整合；不是只有 X 里才能“搜 X”</td></tr></tbody></table></figure>
+<p>如果一件活两边都要：先在 X 里把帖子上下文问清楚，再把需要保留的结论，连同原帖链接，带到 grok.com 或官方 App，去对照文件或连接器里的材料。不要默认两边的对话记录会自动接上。</p>
+<h4>3. 可抄的开口方式</h4>
+<p>换到独立端继续问时，把 X 上已经确认的事实写进提示，不要只丢一句“就是刚才那条”：</p>
+<pre><code>【来源】下面这条 X 帖的链接：（URL）
+【我在 X 里已经问过、仍有效的结论】（用你自己的话写，不要让模型自行补一段“刚才说过”）
+【这一问要做的】对照我上传的（文件名），核对（具体数字／日期／口径）。
+【不要做】不要把还没在文件里出现的数字写成既成事实；每个数字写出处。</code></pre>
+<p>独立端给出的数字和引语，仍然要回到原文件或原帖核对。官方消费端条款也提醒过：输出偶尔不准确，也可能出现幻觉，用前须仔细核验。</p>
+<h4>4. 这些事，不要默认两边一样</h4>
+<ul>
+<li>不要默认自定义指令、文件按钮，以及连接器和语音入口，在 X 里都找得到。官方把这些说明写在独立端。</li>
+<li>不要默认在 X 里的对话，会自动出现在 grok.com 的历史里，反之亦然。官方写过的同步，是独立端：在 grok.com 和官方 App 之间，登录一次后，对话、设置和订阅保持同步。它没有把 X 写进这句。</li>
+<li>不要默认用量、档位名称和限制在两边完全同一套。档位怎么粗算，以账号账单页和官方定价说明为准，本篇不重写。</li>
+<li>Grok 4.5 登陆各端，说的是模型。功能清单没有一起搬家。</li>
+</ul>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先问要不要离开 X。</strong> 只是把眼前这条帖问明白，留在 X 里更顺。一涉及自己手头的文件或已连接的邮箱、网盘，就转到 grok.com 或官方 App。</li>
+<li><strong>诀窍：要对照文件时，把原帖链接一起带过去。</strong> 不要指望另一扇门还记得你刚才在 X 里说过什么。</li>
+<li><strong>诀窍：功能按钮以现页为准，不以旧截图为准。</strong> 较早时候，有用户在 Reddit 上列举过两边不一致的地方，比如自定义指令、联网开关，以及当时对话不能同步。那是当时的界面观察，不能当成今天的功能清单。它只提醒一件事：两边一直是两扇门。（<a href="https://www.reddit.com/r/grok/comments/1j703tm/why_grokcom_and_xcoms_grok_have_different/">r/grok：为什么 grok.com 和 X 上的 Grok 功能不一样</a>）</li>
+<li><strong>反例：以为用 X 账号登录了 grok.com，X 里就会出现全部独立端按钮。</strong> 打通的是登录，功能仍要分边看。</li>
+<li><strong>反例：在 X 里空等一个官方写在 grok.com 上的上传或连接器入口。</strong> 找不到，先换门，不要先怀疑账号坏了。</li>
+<li><strong>反例：把 X 上的 Grok 助手，和给 Grok Bot 派活当成一回事。</strong> 那是另一套产品。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈：在 X 里唤起 Grok，和在 grok.com／官方 App 提问，能力边界差在哪。不覆盖上传后如何核对统计、语音好不好用、档位值不值得。</li>
+<li>X 帮助中心的现页说明、按钮名称，以及地区和档位是否开放某项能力，以 X 登录后界面和 X 帮助中心为准。独立端功能以 grok.com、官方 App 和 docs.x.ai 为准。</li>
+<li>官方消费端条款与独立端文档会更新。本篇依据现行公开页编译，不保证某一地区、某一订阅档永远看到同一组按钮。</li>
+<li>财务、法律或要对外引用的材料，模型输出只适合当工作底稿，最终仍应回到原帖和原文件。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-x-vs-grokcom-boundary-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>Claude：网页端／桌面端／Claude Code，什么任务该换入口</title>
+      <link>https://www.kmhgame.com/claude-wang-ye-duan-zhuo-mian-duan-claude-code-shen-me-ren/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-wang-ye-duan-zhuo-mian-duan-claude-code-shen-me-ren/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:21:21 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>别把整仓代码贴进 claude.ai。同一套账号，问和写用网页端；动本地文件夹换桌面端；改仓库、跑测试进 Claude Code。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-web-desktop-code-entry-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方把入口分成几扇门：网页聊天（claude.ai）、iOS／Android App，再加上 Claude Desktop，以及开发者用的 Console／API。桌面端多了程序坞唤起，也能连本机工具和文件，不能只当网页换了皮。官方下载页写过：桌面端可以钉在程序坞，带快速唤起；还有桌面扩展，用来连接你电脑上的本地工具和文件。（<a href="https://support.claude.com/en/articles/8114487-what-interfaces-can-i-use-to-access-claude">可以用哪些界面访问 Claude</a>；<a href="https://claude.com/download">下载页 FAQ</a>）</li>
+<li>同一账号登录后，对话和 Projects，以及记忆和偏好，会在网页、桌面和手机之间同步。各入口能做的事仍不一样。网页端的 Google Drive、Slack 这类连接器，在网页、桌面和手机都能用；要碰本机文件夹、本机应用或本机浏览器，得靠桌面端，而且应用往往得开着。（<a href="https://claude.com/download">下载页 FAQ</a>；<a href="https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile">在网页、桌面和手机上使用 Cowork</a>）</li>
+<li>桌面端、手机端对所有方案开放，含免费档。聊天在免费档也能用。Claude Cowork 和 Claude Code 是付费方案能力，官方写明面向 Pro、Max、Ultra、Team、Enterprise。Cowork 能把多步任务接下来做完；网页和手机也可以开云端任务，关电脑后仍能继续跑。但要读或写你电脑里的文件夹，或使用本机浏览器、电脑操作，仍然需要桌面端开着。（<a href="https://claude.com/download">下载页 FAQ</a>；<a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">开始使用 Cowork</a>）</li>
+<li>Claude Code 是写代码的智能体：它读仓库，也会改文件、跑命令。入口是桌面应用里的 Code 标签，也可以在终端或 VS Code、JetBrains 插件里用。网页、桌面和手机上的普通聊天，适合对话和一次性问题。底下可以是同一类模型，工具形态不一样。（<a href="https://support.claude.com/en/articles/14554922-claude-code-user-faq">Claude Code 用户 FAQ</a>）</li>
+<li>本篇只谈：什么任务该换入口。Code 里 Manual／auto／acceptEdits 怎么切换，见站内旧文，这里不展开。（<a href="https://www.kmhgame.com/claude-claude-code-li-ask-zhi-du-he-zi-dong-gai-de-qie-huan/">Claude Code 里 Ask／只读和自动改的切换时机</a>）</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你在 claude.ai 里改完一页说明，接下来要把下载文件夹里的素材整理好，再修仓库里一个失败的测试。</p>
+<p>三个活都丢给同一个网页对话框，也能勉强推进。你得自己上传文件，把代码片段一段一段贴进去，还要记得哪份是最新的。</p>
+<p>这时候换个入口会省事。整理本机文件夹，用桌面端，让它直接读你指定的目录。修测试并跑命令、看 diff，进 Claude Code。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>同一套账号会同步对话和偏好。它不会自动判断，这件活该不该换窗口。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p>下面是用法建议。官方没有“自动为你选入口”的开关。按钮文案以登录后现页为准。部分账号已把 Chat 和 Cowork 合在同一个对话框里，不再先点模式。</p>
+<h4>1. 先问这件活要碰什么，再开窗口</h4>
+<p>动手前先分清对象：</p>
+<ul>
+<li>只要问答或起草稿，或在 Projects 里用已有知识，或用网页端已经接好的 Drive／Slack，网页端或手机聊天就够。</li>
+<li>要读或写本机文件夹，或用桌面扩展连本地应用，或让它在本机浏览器里点选、使用电脑操作，换桌面端，并保持应用开着。</li>
+<li>要在一个代码仓库里读文件、改代码，并跑测试、看 diff，进 Claude Code。桌面应用里点 Code 标签即可，不必先装终端；已经习惯命令行或编辑器的人，也可以继续用终端、VS Code 或 JetBrains 插件。</li>
+</ul>
+<p>对象没分清，就容易出现这种浪费：把整仓贴进网页聊天，或在 Code 标签里改一句宣传文案。</p>
+<h4>2. 一张可抄对照，按任务选型</h4>
+<figure><table><thead><tr><th>你要做的事</th><th>更合适的入口</th><th>原因</th></tr></thead><tbody><tr><td>提问、头脑风暴、改一段稿、做可在对话里预览的小工具</td><td>网页端或任一聊天入口</td><td>官方把这类事归在普通聊天：一轮一轮问，适合一次性问题</td></tr><tr><td>把多步任务交出去，例如综合几份材料、出一份可下载的表格或演示文稿；人不在电脑旁也要继续</td><td>付费方案上的 Cowork／可接手任务的对话（网页、桌面或手机）</td><td>云端任务跟账号走，合上笔记本也能继续；定时任务也不必让电脑一直开着</td></tr><tr><td>整理下载目录、直接改本机文件、用本机日历或本地扩展</td><td>桌面端，并保持应用打开</td><td>本机文件和本地连接器要经过桌面应用；云端会话在应用关掉后还能跑，但够不到你电脑里的文件夹</td></tr><tr><td>修 bug、改测试、跑命令、看变更和预览</td><td>Claude Code（桌面 Code 标签，或终端／IDE）</td><td>它在仓库里工作，不是等你把文件贴进对话框</td></tr></tbody></table></figure>
+<p>电脑操作目前是测试功能，官方写明面向 Pro、Max、Ultra。Linux 桌面端还是测试版：聊天、Cowork 和 Claude Code 可用，电脑操作和听写还没有。</p>
+<h4>3. 跨端接力时，盯住“桌面端开着没有”</h4>
+<p>账号同步的是对话和 Projects，以及记忆和偏好。本机文件夹不会因为你登录了，就出现在网页端。</p>
+<p>官方还写过一对容易混的情况：</p>
+<ul>
+<li>新的云端任务可以在网页或手机上开，人走开之后继续跑。</li>
+<li>已经在这台电脑上开始、并且只在这台电脑跑的任务，会留在这台电脑。想带上另一台设备，要按官方说明导出任务数据，再在 Claude Code 里接。</li>
+<li>云端任务要读本机文件夹、用内置浏览器或电脑操作，桌面端必须开着。应用关掉后，任务本身可以继续，只是够不到本地文件。</li>
+<li>绑了本地文件夹的 Project，官方写明只在桌面端支持用 Cowork 开这类会话。</li>
+</ul>
+<p>手机可以查看进度，也可以回答问题、改方向。也可以从手机把编码任务派到本机的 Claude Code。那是接力。手机不会因此代替本机仓库。</p>
+<h4>4. 可抄的开口方式</h4>
+<p>换入口之前，先用一句话钉死对象和边界。按实际情况改括号：</p>
+<pre><code>【任务】（一句话结果，例如：把这个失败测试修绿，不要改测试本身）
+【对象】（本机文件夹路径／仓库路径／只要对话里的稿）
+【入口】我在（网页聊天／桌面端／Claude Code）里做这件事。
+【不要做】不要改我没点名的文件；不要把本地文件上传到别处；不确定先问我。</code></pre>
+<p>对象是仓库时，让它自己去读文件，别先粘贴一遍。Claude Code 的用户 FAQ 也建议：先指向一个你一直没空修的问题，让它自己读代码。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先问“要不要碰这台电脑”。</strong> 不碰本机文件，网页端就够。要碰，就不要在网页里靠上传硬扛。</li>
+<li><strong>诀窍：同一类模型，不代表同一个工具。</strong> 官方原话的意思是：聊天和 Claude Code 底下可以是同一类模型，工具形态不同。能聊天，不等于已经在改你的仓库。</li>
+<li><strong>诀窍：桌面端开着，才算连上了本机。</strong> 云端任务可以关电脑继续跑，这只说明任务还在云上；本地文件夹、本机浏览器和电脑操作，仍要桌面应用在线。</li>
+<li><strong>反例：把整仓代码贴进 claude.ai。</strong> 那是在用聊天窗口假装自己是 Claude Code。上下文会胀，也容易贴错版本。</li>
+<li><strong>反例：用 Code 标签改一句对外文案，或用网页聊天去“跑一遍测试”。</strong> 这是入口选错了。</li>
+<li><strong>反例：看见 Chat／Cowork 按钮消失，就以为少了能力。</strong> 新体验正在部分方案推送，官方说任务可以从同一对话框里接手。以现页为准，不要按旧截图找按钮。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈网页端、桌面端和 Claude Code 之间，什么任务该换入口。不覆盖权限模式怎么切换，那是另一篇。也不展开 Projects 知识库过期、Artifacts 分享脱敏。</li>
+<li>免费档可以使用桌面端和手机端聊天。Cowork 和 Claude Code 按官方口径走付费方案。Team／Enterprise 上，部分能力要管理员打开，以组织设置为准。</li>
+<li>Linux 桌面端仍是测试版，系统要求见官方安装说明。电脑操作和听写暂不可用；快速唤起在 X11 可用，Wayland 上依赖系统的全局快捷键接口。</li>
+<li>按钮名称，以及 Chat 与 Cowork 是否分开、一次能连哪些文件夹，以登录后现页和帮助中心为准。本篇不写死某一天的菜单文案。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-web-desktop-code-entry-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：提示词别写太长，四个误区</title>
+      <link>https://www.kmhgame.com/deepseek-ti-shi-ci-bie-xie-tai-zhang-si-ge-wu-qu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-ti-shi-ci-bie-xie-tai-zhang-si-ge-wu-qu/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:04:39 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-03-768x432.webp" alt=""/></p>
+<p>DeepSeek 火起来之后，网上流传的提示词教程大多还停在 ChatGPT 时代：角色设定、思维链、分步骤、结构化模板，一样不少。原文作者的说法是，对推理模型来说，这些技巧很多不仅没用，还会帮倒忙。</p>
+<p>他把常见的坑归成四类：提示词写太长、句式太绕、要求它分步骤思考、强行角色扮演。这四个提示词误区有一个共同点——都在替模型决定「怎么想」，而模型真正需要的是「要什么」。</p>
+
+<h2>一、坑一：提示词越长，关键词越容易被淹</h2>
+<p>原文的判断很直接：超过 200 字的需求描述，可能导致焦点偏移、过度思考，甚至逻辑凌乱。推理模型时代，只需要命中那个关键词，其余的交给模型发挥。</p>
+<p>这和人直觉相反。很多人以为说得越细越保险，于是把背景、要求、格式、禁忌全塞进去，结果模型抓不住重点，回答反而四平八稳、没有锋芒。</p>
+<p>更实用的做法是先说清楚四件事：干什么、给谁干、目的是什么（要什么）、约束是什么（不要什么）。四句话能说清，就别写四百字。</p>
+<h2>二、坑二：句式越绕，输出越糊</h2>
+<p>原文举了两组对比。第一组，错误写法是「能不能帮我写点关于现在智能手机的东西，说说它的好用地方，特别是拍照和电池」，正确写法是「请写一段关于智能手机的介绍，突出拍照和续航」。</p>
+<p>第二组，错误写法是「列几个电动车牌子」，没说格式也没说数量；正确写法是「生成 5 个新能源汽车品牌名称，用 Markdown 列表展示」。</p>
+<p>差别在于：前者把需求藏在口语里，让模型自己猜；后者把数量、格式、重点都摆到明面上。模糊词是提示词里最贵的词——省下的几个字，要用一轮轮返工来还。</p>
+<h2>三、坑三：别要求它「分步骤思考」</h2>
+<p>这是推理模型和普通模型最大的分野。这类模型通过强化学习自动生成完整的思维链，你再手写「第一步列出所有可能原因、第二步评估证据、第三步选择最优解释」，等于给它套了一副不合身的架子。</p>
+<p>原文给的反例是一道电商问题：某用户下单后频繁取消订单，根本原因可能是什么？错误写法先规定三步走，正确写法只描述问题本身。</p>
+<p>同样的道理适用于数学题。规定「先列出方程所有可能形式、再代入数值验证、最后检查整数解」，不如直接问「方程 3x+5=20 的解是什么？请通过数学逻辑推导给出过程」。你要的是过程和结论，不是它按你的剧本演一遍。</p>
+<h2>四、坑四：过度角色扮演，专家设定是多余的</h2>
+<p>「假设你是乔布斯」「假设你是数据库专家」「假设你是一名医生」——这类开场白在 2023 年很流行，但推理模型本身就是专家模型加专家思维。除非你需要它从某个特定学科视角回答，否则只提示学科就够了，不必再加一层「专家」身份。</p>
+<p>原文的例外也说清楚了：需要特定视角时，提示学科即可；不需要时，角色设定只会占掉本可以用来描述任务的篇幅。</p>
+<h2>五、那到底该给什么</h2>
+<p>把四个坑翻过来，就是原文建议的做法：给足背景信息，但别定义过程。</p>
+<p>它还借「乔哈里视窗」分了三类情况：人和模型都知道的，简单说就行，不用把「我是小学生、没学过物理化学」这类废话写进去；人知道、模型不知道的，用举例、定义字典、检索增强的方式喂进去；人不知道、模型知道的，核心是提出好问题。</p>
+<p>原文有一个比喻很贴切：把自己当成有管理经验的领导，把模型当成聪明的下属。领导给的是目标和边界，不是操作手册。</p>
+<p>另外，大白话交流完全没问题，反而要尽量多提供描述；真正要避免的是又长又绕的书面语。</p>
+<p>这四条误区的共同点是：它们都在试图「让模型更努力」，而模型需要的是「让任务更清楚」。下一次写提示词，可以先删掉角色设定和步骤指令，只留「干什么、给谁干、要什么、不要什么」，看看结果是不是反而更好。</p>
+<p>本文转载自腾讯云开发者社区（stark张宇） 《DeepSeek 精准使用提示词技巧和闭坑指南》，原文链接：<a href="https://cloud.tencent.cn/developer/article/2501190">https://cloud.tencent.cn/developer/article/2501190</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-03-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：思考过程在 API 里怎么读</title>
+      <link>https://www.kmhgame.com/deepseek-si-kao-guo-cheng-zai-api-li-zen-me-du/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-si-kao-guo-cheng-zai-api-li-zen-me-du/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:04:38 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-02-768x432.webp" alt=""/></p>
+<p>在 DeepSeek 里输入「说出 10 个夸我的理由」，十个理由还没出现，屏幕上先多了一段分析：它在考虑怎么夸得具体、怎么避免编造。这段文字是什么？开和不开有什么区别？自己写代码调 API 时又该怎么取？</p>
+<p>原文用一次聊天和两段调用代码把三个问题理清了：思考过程是一段「思维链」草稿，开关只决定这段分析要不要单独生成；而写代码时，Chat 与 Responses 是两种接口，和思考模式是两件独立的事。</p>
+
+<h2>一、那段分析是草稿，不是全部思考</h2>
+<p>开启思考模式后，DeepSeek 会先生成一段分析，再给出正式回答。官方把前面的分析称作「思维链」，可以理解成做题时写在旁边的草稿：它记下的是「打算怎么答」，不是模型内部每一步运算。</p>
+<p>这一点很重要：分析写得长，不代表答案就准。最后的理由有没有编造细节，仍然要自己核对。原文的提醒很直接——分析写得长，并不保证夸得准。</p>
+<h2>二、开关改的是「要不要单独输出这段分析」</h2>
+<p>把思考模式关掉再问同一句，少的不是计算，而是这段单独输出的分析。关掉后模型照样会计算、照样回答，只是不再把草稿摊开给你看。</p>
+<p>容易混淆的是「折叠」：点箭头把思考过程收起来，只是把已有文字藏起来，并没有关闭思考模式。要真的关，得在设置或参数里动，不是点那个箭头。</p>
+<p>开启思考的目的是提高准确性，但它仍然可能答错。原文的建议很实在：想比较开关有没有帮助，就拿同一句「夸我」各试一次，看最后的理由是否更具体、有没有编造。</p>
+<h2>三、Chat 和 Responses 是两种接口，别和思考模式混为一谈</h2>
+<p>自己写程序调用时，第一步是选接口，第二步才是设思考模式，这是两项不同的选择。</p>
+<p>Chat 指 Chat Completions：用 messages 数组装消息，开思考写 extra_body={“thinking”: {“type”: “enabled”}}，关掉就把 enabled 改成 disabled；读结果时，分析在 message.reasoning_content，答案在 message.content。</p>
+<p>Responses 是另一种接口：用 input 发问题，开思考写 reasoning={“effort”: “high”}，关掉把 high 改成 none；读结果时要从 output 列表里找 type 为 reasoning 的项，答案用 output_text。</p>
+<p>两种写法都能开思考模式，区别在收发格式。原文特意点出这一点，是因为很多人把「接口」和「思考模式」当成一个开关，结果代码里改错地方：删掉打印分析的那行 print，只是不显示了，思考其实还开着。</p>
+<h2>四、追问「第三个理由」，它怎么知道指哪条</h2>
+<p>拿到十个理由，接着问「第三个理由能展开说说吗」。如果程序只发这一句话，模型不知道「第三个」指什么，因为它看不到上一轮。</p>
+<p>正确的做法是把旧问题、旧答案和新问题一起放进 messages 再调用：先是 user 的原问题，再是 assistant 的上次回答，最后是新的 user 追问。这样模型手里同时有旧问题、旧答案和新问题，上下文就接上了。</p>
+<p>这里有个关键区别：屏幕上能看到旧内容，不等于模型下次一定拿得到。网页聊天时，软件替你准备上下文；自己写程序，就得自己拼。原文的说法是——能在屏幕上翻到旧分析，不代表模型下次一定会用它。</p>
+<p>那要不要把思考过程也回传？普通的 Chat 调用没有配工具时，旧分析不用回传，传了也会被忽略；只有接了工具（tools 参数）的场景，才要求完整回传历史分析。Responses 也一样，换接口不会自动记住之前聊了什么，相关对话仍要重新提交。</p>
+<h2>五、三个可以直接照做的检查</h2>
+<ul><li>选接口：chat.completions 还是 responses，先定下来，再谈思考模式；</li><li>开关和显示分开：改参数才是关思考，删 print 只是不显示；</li><li>追问前先看 messages：旧问题、旧答案带上了没有。</li></ul>
+<p>原文给的小结可以当口诀：先选择收发格式，再开关思考模式，最后才显示回复；继续追问时，回头检查程序带上了哪些旧内容。</p>
+<p>思考过程这个词容易被神化。它是一段可读的推理草稿，能帮你判断模型怎么想，也能当作调试线索；但它不是答案正确性的保证，更不是「开了就一定更聪明」的开关。把它当成草稿纸，用得上就摊开看，用不上就收起来——决定质量的，还是你给的材料和最后的核对。</p>
+<p>本文转载自掘金（JGrigg） 《DeepSeek 的「思考过程」到底是什么？》，原文链接：<a href="https://juejin.cn/post/7699673660089745448">https://juejin.cn/post/7699673660089745448</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-02-768x432.webp"/>
+    </item>
+    <item>
+      <title>DeepSeek：API 五个参数，一次讲清</title>
+      <link>https://www.kmhgame.com/deepseek-api-wu-ge-can-shu-yi-ci-jiang-qing/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-api-wu-ge-can-shu-yi-ci-jiang-qing/</guid>
+      <pubDate>Sun, 15 Nov 2026 02:04:37 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-01-768x432.webp" alt=""/></p>
+<p>同一句提示词，别人跑出来干净利落，你跑出来要么死板，要么跑偏。差别常常不在提示词，而在那几个从来没调过的参数。</p>
+<p>原文用一段写奶茶宣传语的代码，把 model、system、temperature、top_p、max_tokens、stop、stream 逐个拆开讲。这篇按「先选模型、再定指令、最后管输出」的顺序重新整理：五个参数各自管什么、什么时候该动，一次说清。</p>
+
+<h2>一、先选模型：Flash 会先想，Chat 直接答</h2>
+<p>原文的例子里写的是 deepseek-flash。Flash 的特点是快、便宜，适合日常对话和简单任务；它默认走思考模式，模型会先「想」一段再回答，这段思考过程本身也占 token、也计费。</p>
+<p>如果任务简单、只要一个结果，不需要它推理，可以换成 chat 模型：不进入思考模式，直接输出，省时也省钱。这一点和前面发的「思考过程在 API 里怎么读」是同一件事的两面。</p>
+<p>这一步比后面所有参数都重要。模型选错，参数调得再细也救不回来。</p>
+<h2>二、system 写规则，temperature 管发挥</h2>
+<p>system 角色相当于「设定规则的人」。原文的例子是：写一句关于夏天奶茶的宣传语，15 到 20 个字以内，不要加引号。要求写清楚，模型才知道边界在哪。</p>
+<p>temperature 控制「放飞」程度：值越大越有创意、越随机，值越小越保守、越稳定。默认 1 属于正常发挥，不太死板也不太飘。</p>
+<p>写文案、起标题可以往上调一点；整理数据、抽取字段、写代码这类要稳定复现的任务，往下压。</p>
+<h2>三、top_p 管候选池，max_tokens 管长度</h2>
+<p>top_p 是核采样：0.5 表示只从概率最高的前 50% 候选词里挑，输出集中、变化少；1.0 放开全部候选，输出更多样。一般默认在 0.9 左右，压到 0.5 会让输出明显偏保守。</p>
+<p>这里有个容易踩的坑：temperature 和 top_p 都影响随机性，通常只调其中一个。两个一起压低，输出会非常死板，甚至反复说同一句话。</p>
+<p>max_tokens 限制最多输出多少 token。原文设成 20，对应「15 到 20 个字」的需求。要注意 token 不完全等于汉字，中文大约 1 到 2 个字折算 1 个 token，所以这个值要留余量；卡得太死，句子会在半截被截断。</p>
+<h2>四、stop 与 stream：一个管停，一个管吐</h2>
+<p>stop 是停止序列：生成内容里一旦出现指定的字符串，立刻停笔。原文写的是 stop=[“语言”]，意思是遇到「语言」两个字就收。</p>
+<p>这个参数适合强制截断不想要的内容。比如模型总爱在结尾补一句「希望对你有帮助」，就把这句的开头放进 stop。但它按字面匹配，写得太宽会把正文也切掉，用之前先想清楚。</p>
+<p>stream=True 是流式输出：像打字机一样逐字往外吐，用户能实时看到生成过程；设成 False 则等全部生成完一次性返回。做聊天界面、需要首字延迟低，就开流式；做批处理、只关心最终结果，关掉更省事。</p>
+<h2>五、把五个参数串起来看</h2>
+<p>原文那段配置翻译成一句话就是：用 Flash 模型，让它写一句奶茶宣传语，输出控制在 20 个 token 以内，遇到「语言」就停，打字机式实时返回，创意程度中等偏保守。</p>
+<p>换成你自己的任务，顺序也一样：先定模型（要不要思考），再用 system 把规则写死，然后决定 temperature 和 top_p 二选一调，接着用 max_tokens 卡住长度，最后按交付方式决定 stream 开不开。</p>
+<h2>六、两个提醒</h2>
+<p>第一，参数是兜底，不是万能。提示词本身含糊，temperature 调到 0 也不会变准；反过来，提示词清楚，默认参数往往就够用。</p>
+<p>第二，改参数要一次只改一个。同时动 temperature、top_p、max_tokens，输出变了你也说不清是哪个起的作用。原文这套配置之所以好懂，就是因为每个字段都有明确分工。</p>
+<p>参数配置这件事，难点不在记住七个字段，而在知道哪个字段对应哪个毛病：答得太死板看 temperature，答得太发散看 top_p，答到一半断了看 max_tokens，结尾总带废话看 stop，等得着急就开 stream。对着症状调，比背默认值有用。</p>
+<p>本文转载自掘金（掘黄金的打工人） 《DeepSeek 参数解读》，原文链接：<a href="https://juejin.cn/post/7702595202624913462">https://juejin.cn/post/7702595202624913462</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261115-1004-01-768x432.webp"/>
+    </item>
+    <item>
+      <title>欧盟委员会提出《数字公平法》：付费随机奖励拟禁止向未成年人提供，虚拟货币须标出法币价值</title>
+      <link>https://www.kmhgame.com/ou-meng-wei-yuan-hui-ti-chu-shu-zi-gong-ping-fa-fu-fei-sui/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ou-meng-wei-yuan-hui-ti-chu-shu-zi-gong-ping-fa-fu-fei-sui/</guid>
+      <pubDate>Sun, 15 Nov 2026 00:17:50 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>11月11日，欧盟委员会在布鲁塞尔提出<a href="https://commission.europa.eu/law/law-topic/consumer-protection-law/digital-fairness-act_en">《数字公平法》</a>（Digital Fairness Act）立法提案。提案还没有生效，接下来要交给欧洲议会和理事会讨论。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/eu-dfa-cover-1024x538.webp"/></figure>
+<p>对游戏而言，最直接的几条写在第14条到第16条。</p>
+<p>玩家用付费虚拟货币购买道具或其他商品时，商家必须用消费者当初购买该虚拟货币时的货币，标出对应的真实货币价值，或给出估计值。产品面向未成年人，或者商家有合理把握认为未成年人在使用时，付费虚拟货币须默认关闭，只有父母或监护人同意后才能打开。提案把未成年人定义为未满18岁的人。</p>
+<p>付费的可变奖励系统，序言里举了战利品箱，也包括幸运转盘和收藏卡包。商家须说明里面有哪些物品、抽出的概率是多少，并给所有消费者提供可关掉这类系统的有效工具。在上述面向未成年人、或有合理把握被未成年人使用的情形里，商家不得向未成年人提供付费可变奖励系统。</p>
+<p>面向未成年人的限制还覆盖支付通关和支付取胜。委员会<a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2407">新闻稿</a>把它们称作面向未成年人的赌博式功能。在同样的适用情形里，这类机制拟禁止向未成年人提供。按提案的定义，这指的是为了在游戏或应用里推进或取胜而必需，或被呈现为必需的付费内购。</p>
+<p>如果数字产品的设计会被合理预见为会鼓励强迫性或过度使用，第17条要求商家让消费者能够关掉若干成瘾式设计功能。例子包括无间断自动播放，以及跟用户操作无关的通知；用惩罚或掉收益来督促人定期上线，也在要能被关掉的范围里。</p>
+<p>同一天，委员会还提出修订《消费者保护合作条例》。按新闻稿的说法，修订拟让委员会在影响整个单一市场的大规模案件中直接调查，并处以最高相当于公司全球年营业额6%的罚款。官方预计，整套方案每年可为欧盟消费者节省最多137亿欧元。</p>
+<p>这些内容目前都还停在提案阶段。欧洲游戏开发者联合会（EGDF）和Video Games Europe在同一天发表<a href="https://videogameseurope.eu/news/joint-statement-from-the-european-games-developer-federation-egdf-and-video-games-europe-vge-on-the-digital-fairness-act">联合声明</a>，称这项提案“不可行、缺乏依据且不成比例”。声明担心虚拟货币标价规则会误导消费者，并认为支付通关和支付取胜的禁令定义不清，实际操作中几乎可能覆盖游戏里的任何内购。声明还写，文本把PEGI 18岁以下分级的游戏视为面向儿童，而分级表示的是适宜年龄，并不等于目标受众。</p>
+<p>立法程序还在后面，条文也可能再改。对靠内购运转的游戏来说，争议已经落到这几条具体规则上。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/eu-dfa-cover-768x403.webp"/>
+    </item>
+    <item>
+      <title>Coffee Stain签署协议，从破产财产中收购《Chronicles: Medieval》，对价3,675万丹麦克朗</title>
+      <link>https://www.kmhgame.com/coffee-stain-qian-shu-xie-yi-cong-po-chan-cai-chan-zhong/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/coffee-stain-qian-shu-xie-yi-cong-po-chan-cai-chan-zhong/</guid>
+      <pubDate>Sun, 15 Nov 2026 00:13:02 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>11月14日早上7点08分（北京时间），瑞典Coffee Stain Group发布监管公告：公司已签署协议，从哥本哈根工作室Raw Power Games的破产财产中，收购《Chronicles: Medieval》的知识产权及相关资产。现金对价是3,675万丹麦克朗，不含交易成本。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/coffee-stain-chronicles-cover-1024x577.webp"/></figure>
+<p>Raw Power Games在10月30日被宣告破产。随后，破产财产启动了资产出售，Coffee Stain给出了中标报价。</p>
+<p>公告里，首席执行官Anton Westbergh说，这作在去年夏日游戏节上亮相时留下了深刻印象。他们愿意在哥本哈根这轮变故之后接手，把游戏做完交给玩家。短期要做的，是和新公司的管理团队一起，想清楚怎样把游戏完成。他认为这作很有机会成为集团的长期IP。</p>
+<p>《Chronicles: Medieval》是一款中世纪沙盒游戏。玩家组建并指挥军队，和部队一起打大规模战役，走自己的路线。<a href="https://store.steampowered.com/app/2231020/Chronicles_Medieval/">Steam店面</a>把故事放在百年战争时期的欧洲。公告写，项目从2022年做到现在；截至发布当天，它位列Steam愿望单前30名。现时店面给出的发售窗口是2027年，并写明将以抢先体验形式上线。更具体的计划，包括时间线，官方说会随后通过游戏自己的渠道公布。</p>
+<p>资产由一家新成立的公司承接。Coffee Stain持股75%，并承担全部购价和后续开发资金；原开发团队里的一小部分核心成员持股25%。交易在购价付给破产财产时完成，官方预计在未来数周内交割，除此之外没有其他完成条件。财务影响将写进后续的中期报告。</p>
+<p>根据这份<a href="https://coffeestain.com/release/coffee-stain-enters-into-agreement-to-acquire-chronicles-medieval-ip/">公告</a>，协议已经签署，交易尚未交割。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/coffee-stain-chronicles-cover-768x433.webp"/>
+    </item>
     <item>
       <title>DeepSeek：谷时跑批处理，账单能省一半</title>
       <link>https://www.kmhgame.com/deepseek-gu-shi-pao-pi-chu-li-zhang-dan-neng-sheng-yi-ban/</link>
@@ -808,515 +1104,6 @@
 <li>涉及未公开信息、隐私或尚未证实的指控时，检索结果只能当线索，不适合直接转发成“已经核实”。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-rumor-counterevidence-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Claude：Claude Code 里 Ask／只读和自动改的切换时机</title>
-      <link>https://www.kmhgame.com/claude-claude-code-li-ask-zhi-du-he-zi-dong-gai-de-qie-huan/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-claude-code-li-ask-zhi-du-he-zi-dong-gai-de-qie-huan/</guid>
-      <pubDate>Fri, 13 Nov 2026 08:42:05 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>官方把动手前先问你的模式叫 Manual，默认只自由读。最近会话常从 auto 起。敏感仓库先切过去；事后看 diff 再用 acceptEdits。auto 不是自动改。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-ask-readonly-switch-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>选题和口语里常说的“Ask／只读”，对应官方现页的 Manual。它在 CLI、<code>claude --help</code>、VS Code、JetBrains 扩展和桌面应用里都叫这个名字；配置值是 <code>default</code>，CLI 也接受 <code>manual</code> 这个别名。这个模式下，工作目录里读文件不必问你；改文件、跑 shell 或访问网络，多数会先停下来问。官方把它列为适合你亲自审每一项操作、以及敏感工作。（<a href="https://code.claude.com/docs/en/permission-modes">Choose a permission mode</a>）</li>
-<li>从 Claude Code v2.1.283 起，终端和 VS Code 里的交互会话，内置起始模式是 auto。更早的版本里，它主要是 Pro、Max、Ultra、Team 方案在能拉取功能开关时的起始模式，否则仍是 Manual。你可以随时改正在跑的会话。第一次被内置默认带进 auto 时，终端或扩展会给一次说明。（<a href="https://code.claude.com/docs/en/permission-modes">同上</a>）</li>
-<li>切换入口按界面不同。CLI 和 JetBrains 插件按 <code>Shift+Tab</code> 循环；从 auto 第一次按下会进 Manual（<code>default</code>），随后是 <code>acceptEdits</code> → <code>plan</code>。VS Code 点提示框下方的模式指示器，界面标签是 Manual、Edit automatically、Plan、Auto、Bypass permissions。桌面应用在 Code 标签里、提示框下方用模式选择器。云端会话的下拉框写法不一样，见正文。（<a href="https://code.claude.com/docs/en/permission-modes">同上，Switch permission modes</a>）</li>
-<li><code>acceptEdits</code> 会自动放行工作目录里的文件编辑，以及常见的 <code>mkdir</code>、<code>touch</code>、<code>mv</code>、<code>cp</code> 等文件系统命令。官方建议：你打算事后在编辑器或 <code>git diff</code> 里看改动，而不是每条编辑都当场点一次，再用它。它仍会为目录外路径、受保护路径、被识别的危险删除，以及其他大多数 Bash 命令弹出确认。（<a href="https://code.claude.com/docs/en/permission-modes">同上，acceptEdits</a>）</li>
-<li>auto 和 <code>acceptEdits</code> 不是一回事。auto 里，第二个模型（分类器）替你审操作，官方写它适合长任务、减少反复确认；分类器仍可能放行有风险的操作，也可能挡住无害操作。<code>dontAsk</code> 不是“别问我、直接干”：本会弹窗的调用会被拒绝。<code>bypassPermissions</code> 官方写明只适合隔离的容器和虚拟机。（<a href="https://code.claude.com/docs/en/permission-modes">同上</a>；<a href="https://claude.com/resources/articles/auto-mode">Auto mode for Claude Code</a>）</li>
-<li>网页聊天里“先提问再动手”的问单，是另一篇提示写法，不覆盖本篇的权限模式切换。Claude Code 拒复刻游戏的护栏调整，也不在本篇范围。（<a href="https://www.kmhgame.com/claude-xian-rang-ta-ti-wen-zai-dong-shou-cheng-qing-wen-ti/">Claude：先让它提问再动手——澄清问题清单怎么写进提示</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你刚开一个 Claude Code 会话，准备先看看仓库再决定改什么。它已经开始改文件、跑命令，没有先问你。</p>
-<p>这不一定是它“不听话”。从 v2.1.283 起，终端和 VS Code 里的交互会话，内置起始模式常常是 auto。分类器在后台审操作，不再像 Manual 那样，几乎每一步都停下来等你。</p>
-<p>这是时机判断的示意，不是某次逐字实测。下面说的切换，以官方现页的模式名为准。不要在界面里找一个就叫 Ask 的按钮。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<h4>1. 先认官方名字，再看当前模式</h4>
-<p>“Ask／只读”说的是那种动手前先问你、默认只自由读文件的状态。官方把它叫做 Manual，配置值是 <code>default</code>。VS Code 里，自动改文件对应的标签是 Edit automatically，配置值是 <code>acceptEdits</code>。桌面应用和网页端的用词，以你登录后现页为准。</p>
-<p>CLI 状态栏会写出当前模式，例如 <code>⏸ manual mode on</code>、<code>⏵⏵ accept edits on</code>、<code>⏸ plan mode on</code>、<code>⏵⏵ auto mode on</code>。VS Code 看提示框下方的模式指示器。还没看清就开写，后面很难判断是谁放行的。</p>
-<p>启动时也可以直接指定，例如：</p>
-<pre><code>claude --permission-mode manual
-claude --permission-mode acceptEdits
-claude --permission-mode plan</code></pre>
-<p>若要固定以后怎么开，官方让你改 <code>permissions.defaultMode</code>。注意：在项目里的 <code>.claude/settings.json</code> 或 <code>.claude/settings.local.json</code> 里写 <code>"auto"</code> 或 <code>"bypassPermissions"</code>，对起始模式不生效；<code>auto</code> 要写到用户级的 <code>~/.claude/settings.json</code>。VS Code 扩展另有 <code>claudeCode.initialPermissionMode</code>，而且不接受 <code>auto</code> 这个值，具体规则以扩展说明为准。</p>
-<h4>2. 这类活先切到 Manual</h4>
-<p>官方给 Manual 的定位很直：你要亲自审每一项操作，或这是敏感工作。下面这些情况，工作流上建议先切过去。</p>
-<ul>
-<li>刚接手的陌生仓库，还没看清目录、脚本和密钥位置</li>
-<li>改动靠近生产配置或权限，也靠近支付或用户数据</li>
-<li>命令可能删除文件、改远程仓库或对外发请求，你想逐条看</li>
-<li>你还不熟悉当前这条任务会动哪些文件</li>
-</ul>
-<p>CLI 里如果当前是 auto，按一次 <code>Shift+Tab</code> 会进 Manual。VS Code 点模式指示器，选 Manual。JetBrains 插件走终端，切法与 CLI 相同。</p>
-<p>Manual 不是“完全不能改”。读文件仍可直接进行。它只是在改文件、跑命令或访问网络前先问你。你仍要认真看弹窗内容，不要养成一律点 Yes 的习惯。</p>
-<h4>3. 要事后看 diff 时，再用 acceptEdits</h4>
-<p>官方写：用 <code>acceptEdits</code> 的典型场景，是你打算事后在编辑器或 <code>git diff</code> 里看改动，而不是每条编辑都当场批准。它适合你已经围好范围、正在迭代、并且会自己看 diff 的时候。</p>
-<p>从 Manual 按一次 <code>Shift+Tab</code>，CLI 会进 <code>acceptEdits</code>。不要把它理解成“所有命令都自动放行”。工作目录外的路径、受保护路径、被识别的关键路径删除，以及其他大多数 Bash 命令，仍会问你。</p>
-<p>看完 diff，任务收尾，再切回 Manual。不要因为省事，让接受自动编辑的状态一直开着。</p>
-<h4>4. 先想清楚再改时，用 plan，不要和 Codex 的 Plan 混为一谈</h4>
-<p>Claude Code 的 plan 是一种权限模式：它读文件、做探索、写出计划，规划期间不改你的源文件。计划就绪后，它会问你怎么继续。批准计划会退出 plan，并切到你选的那种权限模式，然后才开始改。</p>
-<p>这和 Codex 的 <code>/plan</code>、Cursor 自带的 Plan Mode 不是同一个按钮。不要在一个编辑器里装着两套工具时按错。本篇只谈 Claude Code。</p>
-<h4>5. 别把 auto、dontAsk、bypass 当成“自动改”</h4>
-<p>auto 的起点是少打断你做长任务。分类器在动作执行前审一遍，官方举例包括批量删文件、敏感数据外传、恶意代码执行。它比跳过全部权限检查更收敛，但官方也写了：风险并没有消失，分类器仍可能放行有风险的操作，也可能挡住无害操作。组织还可以关掉 auto。不要因为会话是从 auto 起的，就默认它已经替你把关完了。</p>
-<p><code>dontAsk</code> 更要看清：它不会替你点同意。本会弹出确认的调用会被拒绝，只留下工作目录里的文件读取，以及你事先放行的工具。它主要给锁死的 CI 和脚本用，不会出现在 <code>Shift+Tab</code> 循环里，需要启动时用 <code>--permission-mode dontAsk</code> 指定。</p>
-<p><code>bypassPermissions</code> 官方写明只适合隔离的容器和虚拟机。不要在自己日常的开发机上，把它当成“自动改”的升级版。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先看状态栏，再发第一条指令。</strong> 最近版本常从 auto 起，沿用旧印象会误判。</li>
-<li><strong>诀窍：敏感范围用 Manual，迭代看 diff 用 acceptEdits。</strong> 两者都比“干脆全部跳过”更容易收住。</li>
-<li><strong>诀窍：云端会话不要按 Manual 去找。</strong> 官方写过，claude.ai/code 的云端会话会预先放行文件编辑，下拉框因此显示 Accept edits，而不是 Manual。远程控制你自己电脑上的会话，仍可能看到 Manual。以当下拉框为准。</li>
-<li><strong>反例：在界面里找一个叫 Ask 的模式按钮，找不到就以为没有只读。</strong> 官方现页用的是 Manual。</li>
-<li><strong>反例：把 auto 当成 acceptEdits。</strong> 一个是分类器代审，一个是自动放行目录内编辑。要事后看 diff，应显式切到 acceptEdits。</li>
-<li><strong>反例：把 dontAsk 听成“别再问我”。</strong> 它是拒绝，不是放行。</li>
-<li><strong>反例：为了少点几次，开 bypassPermissions。</strong> 官方把它限制在隔离环境。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本篇只谈 Claude Code 里权限模式怎么切：什么时候用 Manual，什么时候用 acceptEdits，以及不要把 auto、dontAsk、bypass 认错。不覆盖网页聊天里怎么写澄清问单，也不覆盖拒复刻游戏的护栏调整。</li>
-<li>模式名称、起始默认、快捷键和云端下拉框会随版本变。以你安装的版本和登录后现页为准。可用 <code>claude --version</code> 查看版本。</li>
-<li>组织可能关掉 auto，或限制 bypass。被关掉以后，<code>--permission-mode auto</code> 会落到 Manual。</li>
-<li>权限模式是基线。你还可以叠加允许、询问、拒绝规则。拒绝规则在所有模式里都生效，包括 <code>bypassPermissions</code>。本篇不展开规则怎么写。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-ask-readonly-switch-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Codex：Plan／先方案后改代码什么时候该强制打开</title>
-      <link>https://www.kmhgame.com/codex-plan-xian-fang-an-hou-gai-dai-ma-shen-me-shi-hou-gai/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/codex-plan-xian-fang-an-hou-gai-dai-ma-shen-me-shi-hou-gai/</guid>
-      <pubDate>Fri, 13 Nov 2026 06:12:04 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>任务又复杂又说不清，或要做迁移和多步改动时，先强制开 <code>/plan</code>，看完方案再允许改代码。小而清楚的单点修改不必开。这是工作流建议；Plan mode 不会从机制上禁止改文件。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-plan-when-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方现用名称是 Plan mode。ChatGPT 桌面应用、Codex IDE 扩展和 Codex CLI 都用斜杠命令 <code>/plan</code>。官方最佳实践写：任务复杂、含糊，或不好一次说清时，先让 Codex 做计划再开始写代码；跳过多步任务的 planning，被列成常见错误。（<a href="https://learn.chatgpt.com/guides/best-practices">Best practices</a>）</li>
-<li>教学默认走 <code>/plan</code>。官方文档仍写可用 <code>/plan</code> 或 Shift+Tab 切换；2026 年 7 月起有用户报告，桌面应用和 VS Code 扩展里 Shift+Tab 不再切换，<code>/plan</code> 仍可用。快捷键以你当前客户端为准，不要把它写成现在必定能用。（<a href="https://github.com/openai/codex/issues/32147">Issue #32147</a>）</li>
-<li>CLI 可以写成 <code>/plan Propose a migration plan for this service</code>。Codex 正在工作时，这条命令暂时不可用。（<a href="https://learn.chatgpt.com/docs/developer-commands.md?surface=cli">CLI slash commands</a>）</li>
-<li><code>/goal</code> 是 Goal mode，和 Plan mode 分开用。官方顺序是先 <code>/plan</code> 再 <code>/goal</code>。开启 goal 不会扩大权限，仍使用原来的 sandbox 和 approval policy。（<a href="https://learn.chatgpt.com/docs/reference/slash-commands">Slash commands</a>、<a href="https://learn.chatgpt.com/docs/long-running-work">Long-running work</a>）</li>
-<li>审批和沙箱是另一组旋钮：Ask for approval，还有 Approve for me 和 Full access；配置值为 <code>on-request</code> 或 <code>never</code>，sandbox 则是 <code>read-only</code>、<code>workspace-write</code> 或 <code>danger-full-access</code>。官方现页没有写“Plan mode 会从机制上禁止改文件”。需要硬只读，走 sandbox 或 <code>/permissions</code> 里的 Read Only。不要把 Claude Code 的 plan permission mode，或 Cursor 自带的 Plan Mode，当成 Codex 的按钮。（<a href="https://learn.chatgpt.com/docs/sandboxing">Sandboxing</a>、<a href="https://learn.chatgpt.com/docs/permission-modes">Permission modes</a>、<a href="https://cursor.com/docs/agent/plan-mode">Cursor Plan Mode</a>、<a href="https://code.claude.com/docs/en/permission-modes">Claude Code permission modes</a>）</li>
-<li>失败回合怎么 rewind，陌生仓库的只读探索，还有 monorepo 里如何声明工作区边界，以及贴 CI 日志时怎么限制改动范围，站内已有专文。本篇只谈何时先 Plan 再改代码。（<a href="https://www.kmhgame.com/codex-shi-bai-hui-he-zen-me-rewind-suo-xiao-fan-wei-zai-kai/">Codex：失败回合怎么 rewind／缩小范围再开</a>、<a href="https://www.kmhgame.com/codex-zhi-du-tan-suo-mo-sheng-cang-ku-de-ti-wen-shun-xu/">Codex：只读探索陌生仓库的提问顺序</a>、<a href="https://www.kmhgame.com/codex-da-kai-monorepo-shi-xian-sheng-ming-nei-xie-bao-zai/">Codex：打开 monorepo 时，先声明哪些包在范围内</a>、<a href="https://www.kmhgame.com/codex-ba-shi-bai-de-ci-ri-zhi-tie-jin-qu-shi-zen-me-xian/">Codex：把失败的 CI 日志贴进去时，怎么限制改动范围</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>一次服务迁移，或需求还只是“先把认证改到新方案”。你把任务丢进 Codex，它直接开始改文件。二十几个文件之后，你才看清它选的兼容策略根本不对。回退的成本，已经比先问一句方案要高。</p>
-<p>官方最佳实践把这类情况写得很直：任务复杂、含糊，或不好一次说清，就先让它 plan，再开始写代码。Plan mode 会收集上下文、提出澄清问题，并在实现前给出更稳的计划。多步任务如果跳过 planning，被单独列成常见错误。迁移用例还要求先盘点改动面，再给出带检查点的计划，不要一次重写。</p>
-<p>这是时机判断的示意，不是某次逐字实测。下面说的“强制打开”，是工作流建议。官方产品里没有强制开关，也没有写 Plan mode 必须常开。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<h4>先确认你按的是哪一个产品的 Plan</h4>
-<p>Codex 的入口一致：在 ChatGPT 桌面应用、Codex IDE 扩展或 Codex CLI 的输入框里键入 <code>/plan</code>。提示词指南的说法是：多步任务里，想先调查并提出 approach、再编辑时，就进 <code>/plan</code>。</p>
-<p>Cursor 自带的 Plan Mode 是 Cursor Agent 的模式，官方还写：快改或做过很多次的任务，直接走 Agent mode 即可。Claude Code 的 plan 是一种 permission mode，文档写明规划期间不改源文件，编辑会一直挡住，直到你批准计划。这三个产品都可能用到 Shift+Tab，最容易按错。Cursor 里如果同时装着 Codex 扩展，会有两套入口，不要混成一个按钮。本篇下面的步骤只针对 Codex 的 <code>/plan</code>。</p>
-<h4>这类任务先强制开 Plan mode</h4>
-<p>下面这些情况，官方建议先 plan，工作流上可以强制先打开。</p>
-<ul>
-<li>任务复杂、含糊，或不好一次说清（官方最佳实践）</li>
-<li>多步工作（官方把跳过 planning 列为常见错误；提示词指南也针对 multi-step task）</li>
-<li>迁移或现代化：先盘点，再给带检查点的计划，不要一次重写（官方 code-migrations）</li>
-<li>长任务的目标还不清楚：先 <code>/plan</code>，让它提问并收成可验证的目标，需要长期推进时再 <code>/goal</code>（官方 long-running work）</li>
-</ul>
-<p>用法建议（官方现页没有这句原话）：单文件或规格已经写得很清楚的改动，以及正在快速试错的小修复，不必先开 Plan mode。官方触发词是复杂或含糊，以及多步；不要把“强制”当成所有任务的默认值。</p>
-<p>打开时以 <code>/plan</code> 为默认教学。CLI 还可以把规划请求写在同一行，例如：</p>
-<pre><code>/plan Propose a migration plan for this service. Ask clarifying questions before listing checkpoints. Do not start editing files in this turn.</code></pre>
-<p>文档仍写可以用 Shift+Tab 切换。2026 年 7 月，issue #32147 的作者报告：更新后“Shift+Tab no longer toggles Plan Mode”，“The <code>/plan</code> command still works”。有评论称，桌面应用合并后也拿掉了该快捷键。以你当前客户端为准；斜杠命令更稳。CLI 里，Codex 正在工作时 <code>/plan</code> 暂时不可用，等这轮结束后再切。</p>
-<h4>看完方案，再允许它改代码</h4>
-<p>官方对 Plan mode 的保证，是它会先做计划和提问。现页没有写下类似 Claude Code 的句子：规划期间从机制上禁止改源文件。不要假设打开 <code>/plan</code> 就已经锁死写入。</p>
-<p>高风险、必须先看方案再动文件时，用法建议叠加官方只读约束：</p>
-<pre><code>codex --sandbox read-only --ask-for-approval on-request</code></pre>
-<p>或在 CLI <code>/permissions</code> 里选文档所称的 Read Only。方案确认之后，再放宽到 <code>workspace-write</code>，或桌面／IDE 权限菜单里的 Ask for approval。这是权限步骤，和 Plan mode 分开调。旗标全称是 <code>--ask-for-approval</code>，不要写成 <code>--ask</code>。已退役的 <code>approval_policy = "untrusted"</code> 不要拿来当“更安全的规划模式”，帮助中心写明它会导致无法启动。</p>
-<p>看计划时至少核对：要改哪些路径，分几步，每一步怎么验证，哪些地方还没问清楚。方案还在飘，就不要批准它开始改。</p>
-<p>需要跨很多轮自己推进时，再用 <code>/goal</code>。官方顺序是先 <code>/plan</code> 再 <code>/goal</code>。开启 goal 不会扩大 sandbox 或 approval policy。Goal mode 点到这里即可，不必另开一套教程。</p>
-<p><code>PLANS.md</code> 或 ExecPlan 是可选的文档约定，用来跨会话、跨小时记下执行计划。官方称它为高级、可选；相关 cookbook 已 archived，只能当写法参考。不要把它写成 <code>/plan</code> 按钮，也不要和 Plan mode 写成同一件事。</p>
-<p>配置里还有可选键 <code>plan_mode_reasoning_effort</code>，允许给 Plan mode 单独覆盖推理力度，官方样例值为 <code>high</code>。未设置就用内置预设。不要把它当成打开 Plan mode 的前提。</p>
-<h4>实施后如果还停在规划里</h4>
-<p>有用户报告：按实施计划之后，模型把计划又输出一遍，并卡在 Plan mode 里，只能新开对话。这类按钮名没有出现在本次打开的官方文档里，具体叫什么以现页为准。官方没有把这一步写成排障页。可以再用一次 <code>/plan</code> 切一下，或开一条新聊天继续执行。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：复杂或含糊，以及多步或迁移，先 <code>/plan</code>。</strong> 官方把“跳过多步任务的 planning”写成常见错误。强制用在这类任务上，不要当成全局默认。</li>
-<li><strong>诀窍：教学入口用 <code>/plan</code>。</strong> 快捷键以当前客户端为准。文档仍写 Shift+Tab，但有用户报告部分客户端已拿掉。</li>
-<li><strong>诀窍：看完计划再放写权限。</strong> Plan mode 负责先规划；硬只读要靠 sandbox 或 Read Only。</li>
-<li><strong>诀窍：目标清楚、改动面很小，就不必开。</strong> 单点修改先 plan，常常只是多一轮复述。这是用法建议，官方现页没有这句原话。</li>
-<li><strong>反例：把 Cursor Plan Mode 或 Claude Code 的 plan permission mode 当成 Codex 的 Plan 按钮。</strong> 三者都可能碰到 Shift+Tab，按错很常见。</li>
-<li><strong>反例：把 Ask for approval 或 Read Only，以及 <code>--sandbox read-only</code> 叫成 Plan mode。</strong> 官方写明 sandbox 与 approval 是另一组控制；ChatGPT 网页甚至没有本地 sandbox 或 approval 选择器。</li>
-<li><strong>反例：用 <code>/goal</code> 代替第一轮规划。</strong> 官方明确先 plan 再 goal。</li>
-<li><strong>反例：声称打开 Plan mode 就一定不会改代码。</strong> 官方现页没有这句保证。Claude Code 才把“不改源文件直到批准”写进权限模式。</li>
-<li><strong>反例：所有小改动都强制 Plan mode。</strong> 官方触发词是复杂或含糊，以及多步。</li>
-<li><strong>反例：把失败后 rewind、只读逛陌生仓库，或 monorepo 工作区边界，重写成这篇的 Plan 教程。</strong> 只读探索应指向官方 read-only sandbox，那篇已单独写过。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>这篇覆盖：在 ChatGPT 桌面应用、Codex IDE 扩展或 Codex CLI 里，判断何时先开 Plan mode，再允许改代码。“强制”是工作流建议。不保证某一版本的快捷键或菜单文案长期不变，以你当前客户端现页为准。</li>
-<li>不覆盖：失败回合 rewind，只读探索陌生仓库的提问顺序，monorepo 工作区边界，以及贴 CI 日志时限制改动范围。那些题目站内已有专文。</li>
-<li>Plan mode 的套餐门槛，以及是否默认打开、Free 或 Go 是否完整提供 <code>/plan</code>，已打开的定价和帮助中心页没有写，这里不写死。Codex 随 ChatGPT 计划提供，用量因计划而异。</li>
-<li>功能概览页的示意图里出现过 “Plan mode / Turn plan mode on”，未登录应用现页，不写死它在客户端里的精确位置。社区里出现过的实施计划类按钮，同样以现页为准。</li>
-<li>打开 Plan mode 不等于已经锁死写入。高风险改动请叠加只读沙箱，并在放行后自己看 diff。生产仓库的权限、密钥和合并，仍走独立审批。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-plan-when-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Claude：让模型唱反调审你的稿，而不是只做润色</title>
-      <link>https://www.kmhgame.com/claude-rang-mo-xing-chang-fan-diao-shen-ni-de-gao-er-bu-shi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-rang-mo-xing-chang-fan-diao-shen-ni-de-gao-er-bu-shi/</guid>
-      <pubDate>Fri, 13 Nov 2026 06:06:56 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>写完稿后，不要在同一条写稿对话里说“帮我改改”。新开对话，用中性提示让它找过满表述、缺出处和可反证处。输出只当问题清单，终审仍要你来做。官方没有唱反调按钮，也承认这招并非万无一失。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-adversarial-review-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>Anthropic 官方承认，模型会迎合，按你想听的说，偏离真的和准的判断，也偏离真正有用的回应。官方自己举过审稿反例：先说“我写了一篇很棒、我很兴奋的文章，请评估反馈”，可能换来肯定，批评不一定会出现。（<a href="https://academy.claude.com/tutorials/what-is-sycophancy-in-ai-models">Claude Academy：什么是 sycophancy</a>）</li>
-<li>同一页给出的用户侧对策包括：改用中性、求真的措辞；向可信来源交叉核对；在提示里要求准确，或提出反证；换一种问法；新开对话。官方写了，这些并非万无一失。迎合更容易出现在这些情形里：把主观当事实，抬权威，提问时带上特定立场，明确要求认可，搬出情绪筹码，或者把对话拖得很长。（<a href="https://academy.claude.com/tutorials/what-is-sycophancy-in-ai-models">同上</a>）</li>
-<li>2025 年 12 月 18 日，Anthropic 写过：当时最新的 4.5 系模型，在迎合和“鼓励用户妄想”两项评测上，分数比 Opus 4.1 低 70% 到 85%。脚注强调，这些分数主要用于模型之间对比，不宜当成绝对发生率。同一篇文章里，用真实旧对话做预填充的压力测试：已经走偏之后，Opus 4.5、Sonnet 4.5、Haiku 4.5 能纠偏的比例分别是 10%、16.5% 和 37%。官方自己说，按测试结果，所有模型都还有很大改进空间。不要据此写成“现在已经不怎么迎合了”。（<a href="https://www.anthropic.com/news/protecting-well-being-of-users">Protecting the well-being of users</a>）</li>
-<li>官方没有“唱反调审稿”按钮。现行 Prompt 工程建议在系统提示里设定角色，并把输出格式和约束写具体，示例是 Python 编程助手，没有现成的审稿模板。Projects 的项目指令可以规定语气或某个角色、行业视角，官方例子里也没有审稿模板。不要把“设成审稿项目”理解成官方功能。（<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Prompting best practices</a>、<a href="https://support.claude.com/en/articles/9517075-what-are-projects">什么是 Projects</a>）</li>
-<li>社区公开经验，官方没有为这些报告背书。Docs by Design 写过，“敌对读者”提示比温和反馈有用，但泛泛敌对会打出稻草人，后来改试对准文中真实立场的最强反证，并把输出用来找漏洞。终审仍要人来做。Reddit 上的失败模式有两种：只夸；为完成“请批评”而编出空泛意见。还有人提醒，对抗模式会激励编造统计和文献。（<a href="https://docsbydesign.com/2025/08/21/testing-antagonistic-ai-review-on-my-own-writing/">Docs by Design，2025-08-21</a>、<a href="https://www.reddit.com/r/ClaudeAI/comments/1tcin15/claude_is_overly_complimentary_how_do_i_make_it/">夸过头或假批评</a>、<a href="https://www.reddit.com/r/ClaudeAI/comments/1t3y7sw/getting_claude_to_argue_against_users_for_5/">对抗模式可能编造来源</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>稿刚写完，你还停在同一条已经写得很顺的对话里。兴致挺高，随手丢一句：“我写了一篇很棒的文章，我很兴奋，请评估反馈。”</p>
-<p>官方 Academy 用的就是这类开头。它提醒过：你先报了兴奋，模型可能给你肯定，批评不一定会出现。再丢一句“帮我改改”，回来的常常是同义润色，过满的表述还在，缺出处的句子也还在。</p>
-<p>这是场景示意，不是某次逐字实测。</p>
-<p>Anthropic 自己承认这件事。模型会迎合，按你想听的说，偏离真的和准的判断，也偏离真正有用的回应。对策写在同一页：换中性、求真的措辞，向可信来源交叉核对，在提示里要求准确或提出反证，新开对话。它也写了，这些并非万无一失。</p>
-<p>产品里没有叫“唱反调审稿”的按钮。</p>
-<p>用 Claude 做数字和引语的幻觉校验，或把引用角标当线索，以及先提问再动手、共享 Artifacts 脱敏，站内各有专文。本篇不重讲。（<a href="https://www.kmhgame.com/claude-huan-jue-jiao-yan-qing-dan-shu-zi-yin-yu-lian-jie/">Claude：幻觉校验清单</a>、<a href="https://www.kmhgame.com/claude-yin-yong-jiao-biao-zhi-dang-xian-suo-bu-dang-zhong/">Claude：引用角标只当线索，不当终审</a>、<a href="https://www.kmhgame.com/claude-xian-rang-ta-ti-wen-zai-dong-shou-cheng-qing-wen-ti/">Claude：先让它提问再动手</a>）</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p>下面是用法建议。官方没有“审稿模式”。</p>
-<h4>1. 不要在同一条写稿线程里说“帮我改改”</h4>
-<p>官方列过更容易迎合的情形：把主观当事实，抬权威，提问时带上特定立场，明确要求认可，搬出情绪筹码，或者把对话拖得很长。先自夸、先报兴奋，再请它评估，正好踩进这几条。</p>
-<p>“新开对话”是官方原话。用法建议是：写和审分开，至少新开一条专门审稿。不要让刚陪你写完稿的同一条对话，立刻来审自己。</p>
-<p>已经走偏的长对话里，想把它纠正回来，并不稳定。前面那组预填充测试里，Opus 4.5、Sonnet 4.5、Haiku 4.5 能纠偏的比例分别是 10%、16.5% 和 37%，而且只是特定评测，不能直接外推到你的稿。与其在旧线程里补一句“你太好说话了”，不如新开。</p>
-<h4>2. 提示写中性，禁止奉承，禁止编造出处和数字</h4>
-<p>官方建议把输出格式和约束写具体，也可以用 XML 标签把稿件和要求分开。只说“严格一点”，不够。</p>
-<p>社区里有过更具体的失败。有人把角色写成“文学出版编辑”，仍得到极度捧场的“具备发表潜力”评估。有人要求批评，换来的却是空泛意见，让人没法判断这是真问题，还是为了完成提示编出来的。给角色不等于会变严。站内写过角色、边界和任务的骨架，那篇不在这里重写。（<a href="https://www.kmhgame.com/claude-xian-yue-shu-zai-xu-qiu-ti-shi-ci-gu-jia-jue-se-bian/">Claude「先约束再需求」提示词骨架</a>）</p>
-<p>用法建议：任务、禁止项和输出格式一起写死。每条必须引用稿件原句。找不到就说找不到。禁止开场夸奖。禁止为了完成任务编一条批评，也禁止编造文献和数字。</p>
-<p>Projects 的项目指令可以规定语气或角色视角，这是消费端里比较接近“常驻审稿人设”的官方能力。官方例子是更正式的语气，或某个行业视角，里面没有审稿模板。帮助中心和 claude.com 对免费用户能不能用 Projects 的表述不一致，这里不写死。不要把“设成审稿项目”理解成官方功能。</p>
-<p>下面这段可抄提示按你的稿件改。官方没有对应按钮。</p>
-<pre><code>请审阅下面这篇已经写完的稿。请只做审稿，不要润色，不要重写。
-
-要求：
-- 用中性、求真的口吻。禁止开场夸奖，禁止为了完成任务编一条批评。
-- 禁止编造出处、数字、文献或“研究表明”。没有依据就写“稿内未见依据”。
-- 对准文中真实立场，给出最强反证。不要扮演什么都骂的读者，不要打稻草人。
-- 每一条必须引用稿件原句。
-
-请按下面分栏输出（找不到就写“未见”）：
-1) 过满表述
-2) 缺出处
-3) 可反证处（写明最强反证；依据是否来自稿内）
-4) 建议我核对的句子
-
-稿件：
-【粘贴全文】</code></pre>
-<h4>3. 对准真实立场要最强反证，不要雇一个什么都骂的读者</h4>
-<p>Docs by Design 在 2025 年 8 月 21 日写过一次公开实验（页上另标 2026 年 2 月更新）。作者用“敌对读者、尽量挑毛病”的提示审自己的近完稿，觉得比温和反馈有用，但也发现泛泛敌对会打出稻草人。后来改试对准文中真实立场，要“最强反证”。输出用来找漏洞，再自己或请人补。不要让模型直接改完。</p>
-<p>X 上也有人用一句短提示：“Steelman the strongest argument against everything I just wrote.” 这是个人用法，帖文里“能找到每一个弱点”是宣传口气，不能当成效果保证。</p>
-<p>另外还有一种社区写法：也可以不让它“反驳我”，改成比较两个版本，指出较弱的一个及原因。有两稿可对比时，可以试试。官方没有这个功能。</p>
-<p>接近完稿再用，不要在还没成形时当成打死结。这是 Docs by Design 的经验。官方没有把它写成规则。</p>
-<h4>4. 人先看问题清单，再决定改不改</h4>
-<p>官方仍要你向可信来源交叉核对，必要时离开 AI，去问你信任的人。审稿输出不能当终审。</p>
-<p>社区提醒过更麻烦的一种失败：对抗模式会激励模型“赢”。有人写过，即便已经强调对立，它仍可能滑回附和，更糟时会编造统计和文献来支撑反驳。发帖人同时在推销自己的网站，引用时要知道这一点。模型也可能在并不熟悉的主题上继续往下说，不会主动承认自己不懂。</p>
-<p>你要核每一条反证，以及每一条“缺出处”的判断，再决定改不改。不要把唱反调的输出，自动当成比温和润色更可靠的结论。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：写和审分开，至少新开一条专门审稿。</strong> “新开对话”是官方原话。长对话本身就是更容易迎合的情形之一。</li>
-<li><strong>诀窍：提示写中性。</strong> 禁止奉承，禁止编造出处和数字，每条必须引用原稿原句。</li>
-<li><strong>诀窍：要对准文中真实立场，要最强反证。</strong> 不要雇一个什么都骂的读者。</li>
-<li><strong>诀窍：输出先当问题清单。</strong> 人核过再改。审稿输出不能当终审。</li>
-<li><strong>反例：在同一条已经写得很开心的对话里说“帮我改改”，或先自夸再请反馈。</strong> 官方把这当成容易换来肯定的问法。</li>
-<li><strong>反例：只换一顶“编辑”帽子，以为它会变严。</strong> 社区里有过极度捧场的评估。</li>
-<li><strong>反例：只说“请严厉批评”，然后把回来的每条意见都当真。</strong> 失败模式不只是只会夸，还有为完成任务编出的空泛意见，以及为了赢而编造的反证。</li>
-<li><strong>反例：把旧的系统提示句子，写成现在所有 Claude 的保证。</strong> Sonnet 4 的公开系统提示里，曾经写过跳过开场奉承。2026 年 10 月 30 日发布的 Sonnet 5 公开文本，改成更强调有礼地推回并诚实；这份文本里没有再出现那句旧的 skips the flattery。系统提示会改。</li>
-<li><strong>反例：把辱骂式审稿写成必做项。</strong> 现行公开系统提示仍希望推回时有礼、建设性。为狠而狠，也可能只是换一种迎合。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：写完稿后，新开对话，用中性提示让 Claude 找过满表述、缺出处和可反证处。重点是提示怎么写、输出怎么用。</li>
-<li>不覆盖：幻觉校验清单，引用角标是否可点，先提问再动手，以及共享 Artifacts 脱敏。用到时点进站内旧文即可。</li>
-<li>官方没有“唱反调审稿”按钮，也没有把 Constitutional AI 做成用户可打开的审稿开关。4.5 系的迎合评测数字，只说明官方在降迎合，且明确还有改进空间；那组数字不能当成审稿准确率，也不能据此放心让它终审。</li>
-<li>帮助中心的按钮文案未在 claude.ai 现页复核，以登录后为准。免费用户能不能用 Projects，两处官方页面表述冲突，本文不写死。</li>
-<li>模型输出不能替代编辑、事实核查或当事人审读。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-adversarial-review-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Codex：出 PR 说明之前，用 diff 生成变更摘要的固定提示</title>
-      <link>https://www.kmhgame.com/codex-chu-pr-shuo-ming-zhi-qian-yong-diff-sheng-cheng-bian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/codex-chu-pr-shuo-ming-zhi-qian-yong-diff-sheng-cheng-bian/</guid>
-      <pubDate>Fri, 13 Nov 2026 06:02:30 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>出 PR 说明前，先自己取出相对 base 的完整分支 diff，再用固定提示让 Codex 只写标题和正文。官方没有这一条独立命令。人审后再用网页或 gh 开 PR。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-diff-pr-summary-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>官方没有“从 diff 写 PR 说明”的独立命令。开发者设置里可以在 Settings &gt; Git 为生成 commit message 和 pull request description 指定提示；具体字段名以登录后现页为准。（<a href="https://learn.chatgpt.com/docs/developer-settings">Developer settings</a>）</li>
-<li>CLI 的 <code>/diff</code> 只用来查看已暂存、未暂存和尚未跟踪的改动，并不能写出 PR 正文。找问题用 <code>/review</code> 或 GitHub 上的 <code>@codex review</code>，它们明确不改 working tree，职责是审查。不要用它们起草说明。（<a href="https://learn.chatgpt.com/docs/developer-commands.md?surface=cli">CLI slash commands</a>、<a href="https://learn.chatgpt.com/docs/code-review">Code review</a>）</li>
-<li>官方把 issue 做成可测 PR 的用例，会要求交付 diff 或草稿 PR 说明，并写明：“Never describe an unrun check as passing.” 那是实现任务的产出要求，不要当成“只读摘要”工作流。这条纪律可以借来用，语境必须写清。（<a href="https://learn.chatgpt.com/use-cases/issue-to-tested-pr">Turn an issue into a tested pull request</a>）</li>
-<li>担心它顺手改代码时，用官方只读约束：<code>codex --sandbox read-only --ask-for-approval on-request</code>，或 CLI <code>/permissions</code> 里文档所称的 Read Only。旗标全称是 <code>--ask-for-approval</code>。只读约束和写说明要分开设置。（<a href="https://learn.chatgpt.com/docs/agent-approvals-security">Agent approvals and security</a>）</li>
-<li>社区公开记录里，常见翻车是：说明只反映最后一次跟进，没有覆盖相对 base 的完整分支 diff；App 把指示原文追加进 PR 正文；“Commit and Create PR”一类按钮会跳过仓库模板，正文也可能留空。这些是公开经验，不能当成官方保证。（<a href="https://github.com/openai/codex/issues/10757">Issue #10757</a>、<a href="https://github.com/openai/codex/issues/11342">Issue #11342</a>、<a href="https://github.com/openai/codex/issues/13828">Issue #13828</a>）</li>
-<li>本篇只谈用 diff 出变更摘要和 PR 说明。限制改动范围和仓库规则文件，还有把测试当完成定义，以及在 Cursor 里做 code review，站内各有专文，这里不重讲。（<a href="https://www.kmhgame.com/codex-ba-shi-bai-de-ci-ri-zhi-tie-jin-qu-shi-zen-me-xian/">Codex：把失败的 CI 日志贴进去时，怎么限制改动范围</a>、<a href="https://www.kmhgame.com/codex-agents-md-zui-xiao-ke-xing-mu-ban-xie-shen-me-bie-xie/">Codex：AGENTS.md 最小可行模板：写什么、别写什么</a>、<a href="https://www.kmhgame.com/codex-yong-ce-shi-wen-jian-dang-wan-cheng-ding-yi-xian-hong/">Codex：用测试文件当完成定义，先红后绿再重构</a>、<a href="https://www.kmhgame.com/codex-zai-cursor-li-yong-codex-agent-zuo-code-review-qing/">Codex：在 Cursor 里用 Codex／Agent 做 code review 清单</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>分支改完了。中间又跟了两轮“再补一个边界条件”。你随口让 Codex 写一份 PR 说明，准备去开单。</p>
-<p>标题先回来。有时只写了最后那处拼写修正；公开工单里还出现过更离谱的题目，比如把聊天里一句拒绝写进了标题。正文看起来结构完整，Testing 一段却写“全部检查已通过”。你点开才想起来，这些检查这轮根本没跑。还有一种更烦的：Settings 里写过的指示原文，被整段贴在 PR 正文末尾。</p>
-<p>这是范围跑偏的示意，不是某次逐字实测。模型在写说明时，很容易只盯着最近一句对话，或把“生成说明”理解成“顺便把 PR 也开了”。</p>
-<p>这篇只攻一件事：改动已经在分支上了，怎么先用 diff 生成变更摘要和 PR 说明，并且尽量只出文字。审查代码，按 CI 日志修失败，或把测试文件写成完成定义，这里都不展开。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p>下面这几步，把官方零散能力和公开反例拼成一条“先出说明、不动代码”的路径。官方目前没有单独的“用 diff 写 PR 说明”向导，也没有叫 <code>/pr</code> 的现用命令。</p>
-<h4>先选定入口，开 PR 留给网页或 gh</h4>
-<p>官方入口是 ChatGPT 桌面应用里的 Codex、Codex IDE 扩展，以及 Codex CLI（包括 <code>codex exec</code>）。在 Cursor 里用时，走的是 Codex 扩展的聊天框，不要和 Cursor 自带的 Agent 混成一个按钮。</p>
-<p>真正开 PR 时，用 GitHub 网页或 GitHub CLI 的 <code>gh pr create</code>。<code>gh</code> 是 GitHub CLI。用法建议是人来执行，或另开一条已经明确授权的任务，不要和“只写说明”捆在同一轮。</p>
-<h4>自己先取出要摘要的那一段 diff</h4>
-<p>不要把“帮我写个 PR”丢给按钮去猜。用法建议（这是 Git 常规）：已经暂存的改动用 <code>git diff --cached</code>；相对主分支用三点语法 <code>git diff ...HEAD</code>，只覆盖 merge base 到当前头的净变更。两点语法 <code>git diff main</code>，或只 diff 最新一次 commit，可能混进无关历史，也可能漏掉中途的跟进。</p>
-<p>2026 年 5 月，有用户在 openai/codex 工单 #10757 里写：PR 标题和说明“should be generated from the full branch diff against the base branch, not from only the last user message”。同一张工单还提到，对话里对格式的要求，创建按钮不一定会遵守。这是公开经验。但它足够提醒你：完整分支 diff 要自己准备好，再交给模型。</p>
-<p>在 CLI 里如果只是想先核对改了什么，可以用官方 <code>/diff</code>。它会列出已暂存、未暂存和未跟踪文件。这只是查看，不会写出 PR body。</p>
-<h4>用固定提示把任务锁成只写文字</h4>
-<p>官方提示指南建议把边界写进 prompt：什么必须保持不变，什么要先问你。下面这段是用法建议的提示骨架，吸收了可测 PR 用例里的产出字段，以及“未跑过的检查不要写成已通过”。官方没有现成模板，也没有独立产品命令。</p>
-<p>把 <code>...HEAD</code> 的 diff 贴进提示，或让它读取你指定的 diff 文件。路径和模板名按仓库替换。</p>
-<pre><code>Use only the branch diff I provide (or git diff &lt;base&gt;...HEAD).
-Write a PR title and a Markdown PR body. Stop after the text.
-
-Do not modify any files. Do not stage, commit, or push.
-Do not call gh, do not open a pull request, and do not create a branch.
-
-The summary must cover the net change of this branch against the base,
-not just the last chat message or the most recent follow-up commit.
-
-Body sections:
-- One-line summary
-- What changed
-- Why
-- How to test
-- Risks / checks that were not run
-
-Never describe an unrun check as passing. If I did not paste a command
-result, list that check as unverified.
-
-If the repo has a pull request template, fill in that template.
-Do not paste the template source, and do not append the raw text of
-any Settings instructions, into the PR body.</code></pre>
-<p>“Never describe an unrun check as passing.” 出自官方《Turn an issue into a tested pull request》的收尾要求。那一页的 Starter prompt 还会让模型先写短计划再实现，并在授权后尝试开 draft PR。本篇只借这一句纪律，不要把整页用例当成今天这条“只出文字”路径。</p>
-<h4>担心它改文件，就加上官方只读约束</h4>
-<p>提示写了“不要改文件”，仍可能被可写沙箱里的一次“顺便整理”打破。官方把 sandbox 和 approval 做成单独旋钮，就是为了这事。</p>
-<p>CLI 可这样启动：</p>
-<pre><code>codex --sandbox read-only --ask-for-approval on-request</code></pre>
-<p>已经在会话里，可以用 <code>/permissions</code>，选文档所称的 Read Only。桌面应用和 IDE 扩展则用权限菜单，文档示例里有 Ask for approval 这类选项，现页文案以登录后为准。只读只能降低写入，提示里仍要写清：这一轮只出标题和正文。</p>
-<h4>反复使用的格式，选对复用方式</h4>
-<p>官方现推荐 skills，Custom Prompts 已经弃用。以前示例里的 <code>/prompts:draftpr</code> 会建分支、提交，再开 draft PR。不要把它当成“只出文字”的模板，本篇也不用它。</p>
-<p>个人常用的摘要提示，可以做成 skill 或一条会明确调用的短指令，正文里必须继续禁止 commit 和开 PR。仓库级格式可以写进 <code>AGENTS.md</code>，官方允许把开 PR 前的约定放进去，官方示例写的是跑 lint。若你要加格式，写清：仅在被要求写 PR 说明时使用，免得普通改动任务也被这份模板带着走。<code>AGENTS.md</code> 怎么写短模板，站内已有专文。</p>
-<p>桌面应用如果走创建 PR 的按钮，可以先到 Settings &gt; Git，设置用于生成 pull request descriptions 的 prompts。2026 年 4 月有用户在工单里把字段称作 Commit instructions 和 Pull request instructions；现页叫什么，以登录后为准。这条路径更省事，也更容易跑偏：社区报告过指示被原文追加，仓库模板被跳过，说明只覆盖最后一次改动。它不能替代“完整 diff + 固定提示 + 人审”。</p>
-<h4>人审过正文，再自己开 PR</h4>
-<p>先读标题和正文。对照你手里的 diff，看有没有把最后一次跟进写成全部变更，有没有把没跑过的检查写成已通过，有没有把指示原文或模板原文贴进去。</p>
-<p>用法建议：把生成的 Markdown 交给 <code>gh pr create --body-file</code>，或在 GitHub 网页里粘贴。不要在同一轮对话里既要说明，又授权它改代码或开 PR，除非你另有明确目标。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先交完整的分支 diff，再让它写字。</strong> 只扔最后一句“再开个 PR”，标题可能只反映最后一次跟进。</li>
-<li><strong>诀窍：提示里把“只写文字”写死。</strong> 生成说明和开 PR 是两步。后一步用网页或 <code>gh</code>，不要默认 Codex 有一条只出文字的官方命令。</li>
-<li><strong>诀窍：Testing 段只写你真的跑过的检查。</strong> 没贴命令结果的，列为未验证。这是从官方可测 PR 用例借来的纪律。</li>
-<li><strong>诀窍：有仓库模板就按空填，不要把模板或 Settings 指示整段贴进 body。</strong> 工单 #11342 记录过：App 在生成结果末尾追加了指示原文。</li>
-<li><strong>反例：把 <code>/review</code> 或 <code>@codex review</code> 当成写说明。</strong> 官方写明这些是找问题、发审查意见；<code>/review</code> 还会走专门的 reviewer。审查清单见站内另一篇。</li>
-<li><strong>反例：拿已弃用的 <code>/prompts:draftpr</code> 来“只出一份说明”。</strong> 它会改仓库并开 draft PR。</li>
-<li><strong>反例：把《Turn an issue into a tested pull request》的整段 Starter prompt 拿来用。</strong> 那条路径会先实现，再试图开 draft PR。</li>
-<li><strong>反例：点“Commit and Create PR”一类按钮，就当说明已经按模板写好。</strong> 工单 #13828 记录过正文留空、跳过 <code>.github/pull_request_template.md</code> 的情况。现页是否仍如此，未登录核实；开单前仍要人看一眼。</li>
-<li><strong>反例：在默认可写的会话里说“先看看再写说明”。</strong> 没有只读约束时，它可能改文件。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>这篇覆盖：在 ChatGPT 桌面应用的 Codex、Codex IDE 扩展或 Codex CLI 里，对已经存在的分支改动，用 diff 生成变更摘要和 PR 说明。不保证某一版本的按钮文案或设置字段名长期不变，以你登录后的现页和 <code>codex --help</code> 为准。</li>
-<li>不覆盖：本地或 GitHub 上的 code review，按 CI 日志限制改动范围，<code>AGENTS.md</code> 最小模板，以及把测试文件当成完成定义。那些题目站内已有专文。</li>
-<li>Git 设置是否所有档位都有、创建 PR 按钮是否所有客户端都有，未登录现页，这里不写死门槛。帮助中心只写 Codex 随 ChatGPT 计划提供，用量因计划而异。</li>
-<li>社区工单是公开经验，不能当成官方保证已经修复或仍会复现。第三方教程里出现的 <code>--full-auto</code>、名为 <code>suggest</code> 的 approval mode，与本次打开的官方现名不一致，不要当成现用旗标。</li>
-<li>写了“不要改文件”，也不等于绝对不会改。只读沙箱和人审过的正文，仍是最后两道门。生产仓库的权限、密钥和合并，另走你们自己的审批。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-diff-pr-summary-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Grok：把财报／长 PDF 压成“数字＋出处页码”对照表</title>
-      <link>https://www.kmhgame.com/grok-ba-cai-bao-zhang-pdf-ya-cheng-shu-zi-chu-chu-ye-ma-dui/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-ba-cai-bao-zhang-pdf-ya-cheng-shu-zi-chu-chu-ye-ma-dui/</guid>
-      <pubDate>Fri, 13 Nov 2026 05:57:20 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>把财报或长 PDF 上传到 grok.com 或官方 App。提示里要求输出数字、原句和页码对照表；超长按区间分批问。页码须你打开原件核对。官方没有对照表模式，也没有页码保证。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-pdf-page-table-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>消费端可以在 grok.com 或官方 App 的聊天里上传 PDF。官方 FAQ 写的入口是输入框旁的＋，网页端还可拖放。支持 PDF。多数文件单份上限 150 MB，官方括号里写的是文档和图片，以及代码和音频。网页端约 100 个，Android 20 个，iOS 只写支持多个，没有给出精确个数。限额可能因平台或订阅略有不同。（<a href="https://docs.x.ai/grok/faq">Grok 消费者 FAQ</a>）</li>
-<li>官方把抽取具体数据、引文，以及表格或章节，列为消费端能做的事。示例提示是“总结这份 PDF 并抽出关键表格”。你要的“数字＋出处页码对照表”，是写进提示的输出格式。官方没有“财报对照表模式”。（<a href="https://docs.x.ai/grok/faq">同上，上传文件能做什么</a>）</li>
-<li>文件很长时，官方写过：可能被摘要或分段处理。超过 100 页的 PDF，建议按实际页码指定页面，必要时拆小。这是用法提示。官方没有把它写成页码保证。（<a href="https://docs.x.ai/grok/faq">同上</a>）</li>
-<li>面向 grok.com 和个人 App 用户的 Consumer FAQs 写过：Grok 偶尔会给出不准确或不合适的信息，也可能出现幻觉，用前须仔细核验。通读消费端文档后，没有找到“保证页码正确”的表述。（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）</li>
-<li>社区公开经验，官方没有为这些报告背书。Reddit 上有用户说，数字常错，还会把页码说成罗马数字，但实际不是。另有长文档被跳过中间页、已经上传完整 PDF 仍被当成截断节选的报告。（<a href="https://www.reddit.com/r/grok/comments/1ngexgx/how_to_get_grok_to_read_documents_and_pull/">数字和页码都可能错</a>、<a href="https://www.reddit.com/r/grok/comments/1j0x6ok/has_anyone_had_issue_with_grok_3_not_being_able/">中间页被跳过</a>、<a href="https://www.reddit.com/r/grok/comments/1oil810/annoying_errors_with_pdfs/">上传后仍被当成节选</a>）</li>
-<li>2026 年 6 月 7 日，@grok 公开回复：在 X 上靠“页码＋截图”不够可靠，正式抽取应在 grok.com 或官方 App 上传原 PDF。这是账号回复。规格书仍以法律 FAQ 为准，也不能理解成上传后就保证准确。（<a href="https://x.com/grok/status/2063611373477564816">@grok 2026-06-07</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>手里刚拿到一份一百多页的财报 PDF。丢进 grok.com，随口说：“帮我总结，把关键数字抽出来。”</p>
-<p>回来一段很顺的摘要。收入写了，利润和同比也有，就是不知道这些数在哪一页。你打开原件一对，有的对得上，有的对不上。有的页码翻过去，根本找不到那句话。</p>
-<p>这是场景示意，不是某次逐字实测。</p>
-<p>消费端本来就能在聊天里上传 PDF，官方也写了可以从文件里抽取表格和具体数据。营销页甚至拿 10-K 和财报当例子，说能抽出关键数字。这些句子都不能当成“数字已经核对、页码已经保证”。</p>
-<p>你要的是一张能对回去的表：数字和原文原句，再加上页码。这张表得你在提示里要。官方没有这个模式。</p>
-<p>用 Grok 检索网页或 X，给已有草稿做事实核对，是另一件事，见站内旧文。本篇只谈 PDF 和文件里的数字、页码。（<a href="https://www.kmhgame.com/grok-yong-shi-shi-jian-suo-gei-yi-you-cao-gao-zuo-shi-shi/">Grok：用实时检索给已有草稿做事实核对的步骤</a>）</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p>下面是用法建议。官方没有“财报对照表”功能。</p>
-<h4>1. 上传原 PDF，不要只丢截图</h4>
-<p>在 grok.com 或 iOS、Android 官方 App 的聊天里上传。官方 FAQ 写的入口是输入框旁的＋，网页端还可以拖放。处理完会确认上传成功，再回答。</p>
-<p>支持 PDF。多数文件单份上限 150 MB，官方括号里写的是文档和图片，以及代码和音频。网页端一次大约 100 个，Android 20 个，iOS 只写支持多个，没有给出个数。官方也写了，限额可能因平台或订阅略有不同；超限会有明确报错。免费档和 SuperGrok 之间有没有单独的文件分档数字，官方 FAQ 里没有找到，这里不写死。</p>
-<p>不要只在 X 里丢页码截图，让它凭图猜。2026 年 6 月 7 日，@grok 自己回过：在 X 上这一套往往只能看到图里的内容，结构化数据容易变成猜。要抽取，应把原 PDF 传到 grok.com 或官方 App 的聊天里。这是账号回复。规格书仍以法律 FAQ 为准。上传之后，准确度仍要按法律 FAQ 自己核验。</p>
-<p>机密或未公开材料，不要上传你无权分享的文件。用完可以到 grok.com/files 清理。该页的具体按钮文案，以登录后现页为准。</p>
-<h4>2. 不要只说“帮我总结这份财报”</h4>
-<p>官方示例偏向“总结这份 PDF 并抽出关键表格”。你如果只要一段摘要，回头就很难对页码。</p>
-<p>用法建议：把输出格式写死。找不到就写“未找到”，不要补数字，也不要编页码。下面这段可抄提示按你的文件改括号。官方没有对应按钮，也没有这个功能名。</p>
-<pre><code>我上传了一份 PDF（【文件名／期间，例如某公司 2026 年 Q3 10-Q】）。请只根据这份原件作答，不要补网上的数字。
-
-请输出对照表，字段如下（用表格）：
-- 指标名称
-- 期间
-- 数字（含单位）
-- 原文原句（尽量逐字摘录）
-- 出处页码
-- 我是否已核对：一律先填“未核对”
-
-要求：
-- 找不到就写“未找到”，不要补数字或编页码。
-- 不要写成一段无出处摘要。
-- 本次只处理【页码区间或章节，例如第 12-28 页／管理层讨论】。未覆盖的部分写“未问到”，不要假装已经通读。</code></pre>
-<h4>3. 超长先按章节或页码区间分批问</h4>
-<p>官方写过：很长的文件可能被摘要或分段处理；超过 100 页的 PDF，会聚焦文本和关键视觉，建议按实际页码指定页面；必要时拆成更小的份。这是用法提示。一次把整本 10-K 压成一张已核对的全表，没有官方依据。</p>
-<p>用法建议：先问目录和关键表大概在哪一段，再按页码区间分次抽数。每一次提示里写清“本次只处理第 X-Y 页／某一章”，没问到的部分让它写“未问到”，不要假装已经通读。</p>
-<p>官方说的“实际页码”没有进一步定义。不要把模型报的页码直接当出处。</p>
-<h4>4. 每一格数字都要打开原 PDF 点回去</h4>
-<p>法律 FAQ 要求用前核验。对照表是线索。终审仍要你打开原件核对。</p>
-<p>模型给了页码，你必须自己打开 PDF 翻到那一页，对原句。对不上就标“未见”或“存疑”，不要把模型页码当出处。重要比率建议自己重算。</p>
-<p>扫描件和复杂表，以及非 PDF 里的内嵌图，预期要放低。官方写过：多数文档会抽文本，但非 PDF 文件里的内嵌图未必按视觉处理。社区也有人提到，扫描件和表格更容易破功。</p>
-<p>开发者 API 里另有文件检索和页码字段，那是 API／开发者文档，不要当成 grok.com 上的按钮。本篇不展开那些步骤。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：上传原 PDF，不要只丢截图或 X 上的页码图。</strong> 账号回复和官方上传入口，指向的都是原件。</li>
-<li><strong>诀窍：提示里把表格字段写死。</strong> 要数字和原句，加上页码，以及你是否已核对。找不到就写未找到。</li>
-<li><strong>诀窍：超过约 100 页，按章节或页码区间分批问。</strong> 官方已经提示，长文件可能被摘要或分段。</li>
-<li><strong>诀窍：每一格都要自己点回原件。</strong> 对不上就标未见或存疑。</li>
-<li><strong>反例：只说“帮我总结这份财报”。</strong> 得到一段无出处摘要，发布前无法对回去。</li>
-<li><strong>反例：看见页码就采用。</strong> Reddit 上有用户说，数字常错，还会把页码说成罗马数字，但实际不是。另有人报告长文档中间被跳过；有人已经上传完整 PDF，模型仍称文件是截断节选，并编造相近内容。这些是公开经验，有的还写着 Grok 3、时间偏旧，不能当成 2026 年 11 月现模型的测试结论，也没有成为官方规格。</li>
-<li><strong>反例：在 X 里丢截图加口报页码，指望可靠抽取。</strong> @grok 已经说过，这一套不够。</li>
-<li><strong>反例：把营销页上的“立刻得到摘要”“抽出关键数字”当成准确度承诺。</strong> 那些是场景文案。</li>
-<li><strong>反例：把 API 里的页码字段或 Cookbook 样本，写成 grok.com 的开关。</strong> 那是另一套入口。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本稿覆盖：在 grok.com 或官方 App 的聊天里上传财报或长 PDF，用提示要出“数字＋出处页码”对照表，再由你打开原件核对。</li>
-<li>不覆盖：用实时检索给已有草稿做网页或 X 上的事实核对，以及新闻时间窗和竞品公开情报，还有深度检索。那些是网页检索，见站内旧文，这里不重讲。（<a href="https://www.kmhgame.com/grok-yong-shi-shi-jian-suo-gei-yi-you-cao-gao-zuo-shi-shi/">实时检索核对已有草稿</a>、<a href="https://www.kmhgame.com/grok-xin-wen-tu-fa-jian-suo-de-shi-jian-chuang-ji-lyu/">新闻／突发检索的时间窗纪律</a>、<a href="https://www.kmhgame.com/grok-jing-pin-gong-kai-qing-bao-jian-suo-de-ke-fu-xian-liu/">竞品／公开情报检索的可复现流程</a>、<a href="https://www.kmhgame.com/grok-shen-du-jian-suo-shen-me-shi-hou-gai-kai-shen-me-shi/">深度检索什么时候该开</a>）</li>
-<li>官方没有对照表模式，也没有页码保证。法律 FAQ 写过可能不准确、可能幻觉，用前须核验。不要把模型输出直接用于投资、合规或对外披露。</li>
-<li>聊天界面里的按钮文案、附件预览，以登录后现页为准。本稿按官方 FAQ 写“输入框旁的＋”，未把未核到的其他按钮文案写死。</li>
-<li>消费端和 API，以及 Grok Bot 和 X 里的 Grok，是不同入口，限额和能力不要混用。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-pdf-page-table-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>索尼、微软都说预订破了各自店面纪录，这一季净预订却掉了18%</title>
-      <link>https://www.kmhgame.com/suo-ni-wei-ruan-dou-shuo-yu-ding-po-le-ge-zi-dian-mian-ji/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/suo-ni-wei-ruan-dou-shuo-yu-ding-po-le-ge-zi-dian-mian-ji/</guid>
-      <pubDate>Fri, 13 Nov 2026 05:06:55 GMT</pubDate>
-      <category>行业杂谈</category>
-      <description><![CDATA[<p>11月9日美东收盘后，Take-Two Interactive公布了2027财年第二季度业绩，期间截至9月30日。据公司新闻稿介绍，董事长兼首席执行官Strauss Zelnick说：《侠盗猎车手VI》还有十天发售，预订持续达到前所未有的水平，公司预计这将是历史性的一年，并重申2027财年净预订80亿至82亿美元的展望。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/tt-observe-cover-1024x576.webp"/></figure>
-<p>到了今天，周五，11月13日，距离11月19日的发售日还有六天。这是发售前最后一个完整的工作周五。</p>
-<p>中间还隔着11月10日。那天，索尼和微软各自发了一篇博客。<a href="https://blog.playstation.com/2026/11/10/pre-load-grand-theft-auto-vi-on-ps5-starting-today/">PlayStation博客</a>写，这作已经是PlayStation Store史上预定量最高的游戏。</p>
-<p>同一天的<a href="https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/">Xbox Wire</a>则写，它是Microsoft Store有史以来预定量最高的作品。</p>
-<p>两家用的都是自己店面的口径，也都没有给出份数或金额。预订既然写得这么热，为什么这一季净预订还掉了18%？</p>
-<p>再看这份季报，另一个数字没有那么热闹。第二财季净预订1,601.3百万美元，约<strong>16.01亿美元</strong>（公司要点写成16.0亿），<strong>同比下降18%</strong>，略低于公司自己此前给出的16.20亿至16.70亿美元。更完整的拆分，我们<a href="https://www.kmhgame.com/taketwo-di-er-cai-ji-jing-yu-ding-yue-16-01-yi-mei-yuan/">此前已经整理过</a>。</p>
-
-<h2>先看已经出完的这一季</h2>
-<p>这份季报覆盖的截止日是9月30日。那时距离11月19日的发售，还有一个半月，发售本身落在第三财季。可预订如果已经成交，按净预订的定义，是会进当期的。演示也写了，《侠盗猎车手》系列在这一季就超过了预测。</p>
-<p>净预订是Take-Two自己的经营口径：当期数字或实体卖出的产品与服务净额，也包括许可费、周边和游戏内广告。它不等于GAAP净营收。上年同期是1,960.5百万美元，约19.61亿美元。</p>
-<p>业绩演示把缺口拆开了。NBA 2K27于9月4日在PlayStation 5、Xbox Series X|S、Switch 2和PC发售。公司称发售顺利，净预订是该系列历史上第二高，但仍低于内部预测。移动业务符合计划。《侠盗猎车手》系列则超过了预测。</p>
-<p>经常性消费支出同比下降9%，占净预订的81%。公司原先按下降约5%来规划。演示写明：NBA 2K和移动业务都下降了，《侠盗猎车手》系列是上升的。完整游戏及其他的净预订，则从上年同期532.2百万美元降到了299.2百万美元。</p>
-<p>公司把这一季没到线的原因，主要写在了NBA 2K27上。对即将发售的那部作品，材料写的是系列已有的表现还超过了预测。至于其中有多少来自《侠盗猎车手VI》的预订、有多少来自既有作品，新闻稿和演示都没有拆开。</p>
-<p>GAAP这一侧，账没有预订数字那么紧。净营收1,497.0百万美元，约14.97亿美元，高于此前14.20亿至14.70亿美元的展望。净亏损收窄到54.0百万美元，合每股0.29美元，也好于原先按亏损1.57亿至1.40亿美元来做的展望。营业费用同样低于自己画的区间。经营口径略低于自身展望，会计口径却好于自身展望，这份季报的松紧并不均匀。</p>
-<h2>破纪录写进了博客，没有写成数字</h2>
-<p>预订这件事，Take-Two自己也只写到定性为止。新闻稿用的是“前所未有的水平”。业绩演示更直白：预订远高于最初预期，数字很快会自己说话。两份材料都没有给出金额，也没有给出份数。</p>
-<p>一天之后，平台自己的口径跟了上来。索尼那篇博客的由头是预载。文章写，鉴于前所未有的需求，索尼已与Rockstar Games一起，让玩家提前九天开始预载，以便发售当天就能开玩；并按各国进入11月19日零点的节奏滚动开卖，从新西兰时间0点开始。写在最前面的那句，是这作已经是PlayStation Store史上预定量最高的游戏。</p>
-<p>微软那边，Xbox Wire把同一类判断嵌在了云游戏预告里。开篇就写：这作是Microsoft Store有史以来预定量最高的作品，11月19日发售；鉴于前所未有的需求，建议尽快开始预载。文章还提到，发售当天起可通过Xbox Cloud Gaming在Xbox One和Xbox Series X|S上游玩，美东时间11月19日凌晨1点开始。</p>
-<p>两家都把“破纪录”写进了各自店面的历史，也都停在这句话上。没有份数，也没有金额。预订破了店面纪录，并不等于已经确认的销量或收入。Take-Two自己同样没有把这笔预订写成可核对的数字。</p>
-<h2>全年的线还留着，更大的一块画给了下一季</h2>
-<p>尽管这一季净预订没到自己画的线，全年净预订展望仍是<strong>80亿至82亿美元</strong>，和第一财季时给出的区间一样。经常性消费支出仍按全年同比持平来规划，经营现金流仍是超过10亿美元。有改动的是部分GAAP数字，比如净营收上修到79.80亿至81.80亿美元，此前是79.00亿至81.00亿美元。</p>
-<p>那这笔还没写成数字的预订，够不够把全年的线托住？公司给出的回答，是把更大的一块画给了下一季。</p>
-<p>公司给全年经常性消费支出画出的前提，并不只靠一部新作。演示的假设是：《侠盗猎车手》系列会上升，依据包括《侠盗猎车手VI》终极版所含的追加内容；NBA 2K按高个位数增长，并计划推出系列有史以来规模最大的一套游戏内内容，公司据此认为经常性消费会在下半年加快；移动业务则按下降来规划，理由是去年Color Block Jam基数高，以及Zynga多款成熟产品的趋势会放缓。</p>
-<p>上半年合计，净预订2,987.2百万美元，约29.87亿美元。要接到全年80亿至82亿美元，下半年还得再做约50.13亿至52.13亿美元。上半年经营现金流还是流出173.5百万美元（上年同期为流入83.7百万美元），公司却仍按全年流入超过10亿美元来展望。后面这两个季度要补上的，不只是净预订。</p>
-<p>第三财季是《侠盗猎车手VI》所在的季度，公司第一次给出了数字。净预订33.50亿至35.00亿美元，已经高于整个上半年；GAAP净营收则按32.70亿至34.20亿美元来展望。演示写，这主要是由《侠盗猎车手VI》的发售推动的。</p>
-<p>经常性消费支出按同比约增12%来规划，假设仍是《侠盗猎车手》系列因终极版所含追加内容而明显增长、NBA 2K增长、移动下降。同一季度的GAAP净利润展望为2.50亿至2.76亿美元。</p>
-<p>这只是公司此刻交出来的展望，不是已经落袋的结果。维持全年区间，也不等于80亿已经锁死。演示把话说到“数字很快会自己说话”为止。今天离发售还有六天。这一季掉了18%的净预订，已经写在季报里；下一季那更大的一块，要等游戏开卖，才会从展望变成数字。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/tt-observe-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>因为10行AI代码痛失年度游戏提名</title>
-      <link>https://www.kmhgame.com/yin-wei-10-xing-ai-dai-ma-tong-shi-nian-du-you-xi-ti-ming/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/yin-wei-10-xing-ai-dai-ma-tong-shi-nian-du-you-xi-ti-ming/</guid>
-      <pubDate>Fri, 13 Nov 2026 04:49:19 GMT</pubDate>
-      <category>AI</category>
-      <category>AI新闻</category>
-      <description><![CDATA[<p>周一，19 名独立游戏节（IGF）评委联名发表声明，称不会把票投给任何“以任何形式使用过生成式 AI 工具”的游戏——包括用来写代码。联署者中包括《不朽》（Immortality）导演萨姆·巴洛（Sam Barlow），以及《Friends at the Table》主播奥斯汀·沃克（Austin Walker）。</p>
-<p>巴洛在 Bluesky 上说，IGF 评委之间关于这件事的讨论一向热烈，但今年的“交锋格外激烈”。</p>
-<p>为什么？至少部分原因很快就清楚了：House House 在向 IGF 的自愿披露中承认，其新作《Big Walk》在开发过程中使用了生成式 AI 工具。（在随后的补充说明里，巴洛指出，这场讨论的起因要更宽泛一些，是眼下使用生成式 AI 的游戏数量太多，《Big Walk》只是那个“棘手的边缘案例”。）</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-f3a91feeff-0.webp"/></figure>
-<p>在给游戏媒体 Aftermath 的声明中（同时转发在开发商官网上），House House 表示“《Big Walk》中与生成式 AI 工具沾边的代码远低于 0.1%”，而且这些工具只用于“帮助攻克棘手的技术难题和 bug”。House House 还提到，团队用大语言模型（LLM）生成一个基础版本，再把它“改写成游戏代码”。声明全文对此有详细说明，工作室举了一个光照问题的例子，说明 LLM 如何协助《Big Walk》开发的收尾阶段——最后算下来“大约 10 行代码”。</p>
-<p>放在大局里看，这似乎微不足道。但硬线之所以成为硬线，就在于不能跨过去。对这 19 位 IGF 评委来说，这就是那条线。</p>
-<p>这批评委给出了几条理由：生成式 AI 在经济、劳动力市场、环境以及全球信息流通上造成的负面影响，都已有大量记录。他们还说，游戏业对 AI 的采用“并非已成定局”；而作为独立开发者，他们有机会采取一种许多在大公司工作的人未必有空间采取的立场。</p>
-<p>关键在于，把“代码”也纳入这条硬线，并不是常见的做法。一般来说，反对生成式 AI 的口头论证只针对那些被认为更“有创造性”的行当：美术、写作、作曲、配音，诸如此类。人们往往给编程这类技术性工作开一个例外。IGF 部分评委的这一立场，标志着一个有影响力的行业群体公开把界线向外扩展了——而这一点，在社区里一部分平时不太发声的人当中并没有被忽略。沃克那条发布声明的 Bluesky 帖子下面，挤满了感谢评委把编程视作一种艺术形式的程序员。</p>
-<p>这件事也在玩家社区里引起了强烈反应。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-5140c6b814-1.webp"/></figure>
-<p>争论并不只是干净的“AI 好”对“AI 坏”。在有些人看来，问题不只是 House House 用了这些工具，而是它在游戏发售时没有披露。他们的逻辑是：如果这点 LLM 用量根本不算什么，那为什么要隐瞒？如果这一处隐瞒了，还隐瞒了什么？（Steam 要求披露生成式 AI 的使用，但并不要求披露用于代码或聊天机器人的部分。）</p>
-<p>在另一些人看来，这已经是“最坏情况下最好的结果”。他们说，用量相当有限；可如果连 10 行 AI 生成的代码都要严格划定界线、必须公开披露，那岂不是很多游戏都要被取消资格？他们还指出，House House 看上去是反思过的、也愿意做出改变，并提到工作室过去的公益举动作为善意的证明。（2020 年，《捣蛋鹅》发售后，House House 承诺把 1% 的利润捐给帮助原住民社区成员支付房租的组织。）</p>
-<p>这最终会影响《Big Walk》在颁奖季的前景吗？也许吧！虽然发表声明的 IGF 评委不到 20 人，但它在社交媒体和传统媒体上都激起了波澜。而既然此事已成公共议题、被广泛讨论，其他投票者被这套论证说服、或者干脆对《Big Walk》犹豫不决，都是始终存在的可能。</p>
-<p>至于这对 TGA 的赛马格局有什么影响，就更说不清了。按 Polygon 对选情的持续追踪，周一的时候，《Big Walk》几乎已经锁定一个年度游戏提名。但独立游戏要拿下 GOTY 提名，本来就是艰难前行——哪怕没有争议这个包袱。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-56a138a610-2.webp"/></figure>
-<p>《Big Walk》虽然口碑亮眼，要锁定提名，它需要拿到独立游戏社区里那些提名评委的每一票——而这个社区大体上排斥生成式 AI。举个例子：《光与影：33号远征队》也许在 2025 年的颁奖季横扫全场，但最终还是因为涉及 AI，被独立游戏大奖（Indie Game Awards，注意：与 IGF 不是一回事）撤销了年度游戏奖。</p>
-<p>抛开奖项不谈，整件事似乎是这个行业的一个转折点——它一直没能理清该如何应对生成式 AI 不断扩张的影响。各层级的开发者——从《最后生还者》的创作者，到温蒂汉堡那款 JRPG 背后的工作室——都公开表态反对这项技术，拒绝在开发的任何环节使用 AI。他们与 Embark Studios 这类知名公司形成对照：后者在 2023 年的《THE FINALS》里用了 AI，受到了一轮批评，随后又在 2025 年的《ARC Raiders》里用上同一批工具；Epic Games 也是如此，其 CEO 对 LLM 的立场，公允地概括起来大概是“Claude 就是耶稣 2.0”。</p>
-<p>与此同时，AI 工具已经成了很大一部分玩家高度敏感的话题，开发者一旦披露使用，往往要公开道歉。House House 也加入了这一行列。</p>
-<p>“《Big Walk》是在没有内部 AI 使用政策的情况下开发的，我们认为缺乏政策本身就是一种失职，”House House 在声明中说，“我们会努力制定更完善的政策。”</p>
-<p>这一点上，House House 做得不错。为这类事情立下几条清晰的规矩，有助于平息内部争论，也能给工作室里的每个人一个明确的方向。它甚至可以成为业内其他公司效仿的模板。但“没有政策”这件事，不该全由一家墨尔本小工作室承担责任——也不该由任何一个规模的开发者承担，说到底。事到如今，生成式 AI 工具已经公开可用近五年了。在政府真正认真对待这项技术、就“什么算可接受的用法”出台真正的监管之前，这种事还会一再发生。</p>
-<hr/>
-<p>本文同步自微信公众号，<a href="https://mp.weixin.qq.com/s/b0p7rIXYB61lv-vqck7j7g?chksm=0&amp;nwr_flag=1">查看原文</a>。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-f3a91feeff-0-768x432.webp"/>
-    </item>
-    <item>
-      <title>DeepSeek：素材给太少，期待给太高</title>
-      <link>https://www.kmhgame.com/deepseek-su-cai-gei-tai-shao-qi-dai-gei-tai-gao/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/deepseek-su-cai-gei-tai-shao-qi-dai-gei-tai-gao/</guid>
-      <pubDate>Fri, 13 Nov 2026 01:21:47 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p><img src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-03-768x432.webp" alt=""/></p>
-<p>（本文转载，原文另含深度思考开关与免费额度的说明，此处保留素材、模板与用法部分，原文链接见文末。）</p>
-<p>作者把 DeepSeek 当主力工具用了一个月，记了一本真实的账：周报从 50 分钟压到 12 分钟，一份 30 页的行业资料，摘要加提问从 2 小时压到 25 分钟，写长文大纲从 40 分钟压到 8 分钟。一天省两小时，不是玄学，是少了半夜那一小时。</p>
-<p>他的结论很直接：决定省不省时间的，不是工具多强，而是有没有把它放进「第一稿」和「整理」这两个位置。</p>
-
-<h2>一、卡点：素材给太少，期待给太高</h2>
-<p>大多数人输入一句「帮我写个年终总结」，然后抱怨 AI 写得像模板。它当然像模板——你给的信息量就是一句话，它只能还你一句话的放大版。</p>
-<p>管用的做法是把手头已有的东西全倒进去：聊天记录、会议纪要、待办清单，甚至自己写的半截草稿。素材越脏、越原始，它整理出来的价值越大；你给一份干净的成品，它反而没什么可做的。</p>
-<p>另一个隐形卡点是不敢追问。第一稿不满意就关掉，等于白跑。更省事的姿势是直接说「第二段太空，换成具体数字」「语气太正式，改成跟同事说话的感觉」。它改得比你想的听话。</p>
-<h2>二、角色加素材加格式，三段式</h2>
-<p>作者的固定模板是三层：你是谁（角色）→ 这是原始素材（贴进去）→ 按这个格式给我（结构）。</p>
-<blockquote><p>你是我的项目助理，以下是我这周的五条零散记录，请整理成周报，分本周推进、遇到的问题、下周计划三块，每条不超过两行，不要加评价性形容词。</p></blockquote>
-<p>差别在于：只给一句话，它只能编；给了素材和格式，它只能整理。编和整理，是两种完全不同的质量。</p>
-<p>格式要写到能验收：分几块、每块几行、要不要形容词，都写清楚。要求越具体，返工越少。</p>
-<h2>三、对话开头固定，后面只换素材</h2>
-<p>经常处理同一类任务，别每次新开对话。保持对话开头不变，后面换素材，模型对前面内容的缓存能命中，响应更快，上下文也更连贯。</p>
-<p>网页版不收费，这个习惯看不出价值；换成 API 就变成钱——缓存命中的那部分输入，价格只有未命中的几十分之一。同一套提示词反复用，前缀就该固定下来。</p>
-<h2>四、两个更省时间的用法</h2>
-<ul><li>当审稿人，而不是写手。自己先写完，让它挑毛病：逻辑断层在哪、哪句是废话、哪个论点没有支撑。判断比生成快，成品还是你的。</li><li>长文档先问结构，再读细节。拿到长资料别从头啃，先让它列出章节结构和每节一句话概括，扫一眼定位到真正需要的两三节，再细读。这一步能砍掉一大半无效阅读。</li></ul>
-<p>两个用法的共同点是：把「生成」换成「判断」。生成是让它替你想，判断是你想清楚、它帮你查漏。</p>
-<h2>五、避开高峰</h2>
-<p>纯经验：尽量避开中国大陆白天的工作时段，尤其上午九点到晚上六点。晚间和清晨的响应明显更顺。人多时网页版会提示「服务器繁忙，请稍后再试」，等一会儿再发就行。</p>
-<p>作者顺带核实了一件事：截至 2026 年 11 月，DeepSeek 网页版和 App 依然没有会员、没有 Plus 档，文件上传也不在付费墙后面。官方卖的是 API，卖给程序调用。</p>
-<p>把这几步跑顺：素材给全、模板给全、开头固定、高峰避开。剩下的，交给追问。</p>
-<p>本文转载自掘金（作者：AI原来如此） 《DeepSeek 免费后，每天省下两小时》，原文链接：<a href="https://juejin.cn/post/7707184266061594658">https://juejin.cn/post/7707184266061594658</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261113-0921-03-768x432.webp"/>
     </item>
   </channel>
 </rss>
