@@ -8,7 +8,434 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Sun, 15 Nov 2026 03:23:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 02:48:41 GMT</lastBuildDate>
+    <item>
+      <title>Claude vs Grok：同一篇稿做“引语与数字核对”谁更省事</title>
+      <link>https://www.kmhgame.com/claude-vs-grok-tong-yi-pian-gao-zuo-yin-yu-yu-shu-zi-he-dui/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-vs-grok-tong-yi-pian-gao-zuo-yin-yu-yu-shu-zi-he-dui/</guid>
+      <pubDate>Mon, 16 Nov 2026 02:48:41 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>稿已写成、出处也在稿里，用 Claude 对照引语和数字往往更省事。要查网上有没有更新或更正，Grok 的实时检索可能更快。两边的表只是线索，终审是打开原文。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-vs-grok-quote-number-check-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>本篇比的是：一篇已经写成的稿，引语是不是原话，数字能不能对上出处，谁做起来更省事。它不是幻觉校验清单，不是引用角标怎么用，也不是竞品定价变更核查。Grok 单兵给已有草稿做事实核对的步骤，站内另有专文，这里只对照“引语＋数字”这一截谁更省手。（<a href="https://www.kmhgame.com/claude-huan-jue-jiao-yan-qing-dan-shu-zi-yin-yu-lian-jie/">Claude：幻觉校验清单</a>；<a href="https://www.kmhgame.com/claude-yin-yong-jiao-biao-zhi-dang-xian-suo-bu-dang-zhong/">Claude：引用角标只当线索，不当终审</a>；<a href="https://www.kmhgame.com/grok-vs-claude-tong-yi-dao-jing-pin-ding-jia-bian-geng-he/">Grok vs Claude：同一道“竞品定价变更核查”谁更稳</a>；<a href="https://www.kmhgame.com/grok-yong-shi-shi-jian-suo-gei-yi-you-cao-gao-zuo-shi-shi/">Grok：用实时检索给已有草稿做事实核对的步骤</a>）</li>
+<li><strong>Claude</strong>：官方 Help 写明，开启 Web search 后，回复带 citations、源链接，必要时还有相关引语。重要信息要交叉核对引用来源。你把 URL 交给它时，它也可以 web fetch 该页全文。Team／Enterprise 要由 Owner 先在组织设置的 Capabilities 里打开；若你用的是新体验，可能没有手动开关，该搜时它自己搜。免费档去 fetch 长文，会占用额度。支持的模型以该页现列为准。（<a href="https://support.claude.com/en/articles/10684626-enable-and-use-web-search">Enable and use web search</a>）</li>
+<li><strong>Grok</strong>：产品页把 Search 写成实时搜索网页和 𝕏，引用来自网上的原始来源，并与 𝕏 做实时整合。开发者文档另有 <code>web_search</code>、<code>x_search</code> 和 Citations 说明：默认会给出检索过程中遇到的全部来源列表，但不保证每一条都写进最终回答；打开文内引用，也不保证每句都标来源。这些是能力口径，不等于 grok.com 上每个按钮都叫这个名字。聊天里怎么打开检索，以登录后现页为准。（<a href="https://x.ai/grok">Grok 产品页</a>；<a href="https://docs.x.ai/developers/tools/web-search">Web Search</a>；<a href="https://docs.x.ai/developers/tools/x-search">X Search</a>；<a href="https://docs.x.ai/developers/tools/citations">Citations</a>）</li>
+<li><strong>谁更省事，取决于你要核什么。</strong> 稿已写成、出处 URL 已在稿里：把稿和源页交给 Claude，让它出“原文／稿件／是否一致／链接”对照表，再由你点开引用，往往更省事。要查这个数字在公开网页上是否已更新、有没有更正声明：Grok 的实时网页检索，以及 𝕏 上的澄清，可能更快；但社交帖不能当终审。</li>
+<li>可抄同一套提示，两边各跑一次，禁止顺手改稿。两边给出的对照表都只是线索。终审是打开原文核对。不要写成永远选某一家。</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>编辑手里已经有一篇待发稿。稿里引了发言人的一句话，还写了两个关键数字，出处 URL 已经附在文末。</p>
+<p>有人把全文丢给模型，附加一句“核对一下，顺手把导语改顺”。</p>
+<p>一份对完表看起来很整齐，导语也被重写，原来的限定词没了。另一份很快找到网上一个更新的数字，却没先核稿里那句引语是不是原话。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>本篇要做的，只是“引语是不是原话，数字能不能对上出处”。谁更省事，先看任务落在哪一头：对已有出处，还是找新的公开更正。从零核查竞品定价变没变，是另一篇的事。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<h4>1. 两边共用同一套提示</h4>
+<p>不要把“核对”和“重写”捆在一次请求里。提示里把这件事写死。把稿件里的引语、数字和声称出处列清楚，要求输出对照表，不要让它顺手改稿。</p>
+<pre><code>任务：核对下面这篇已经写好的稿件。只核引语是不是原话，以及数字是否对得上出处。不要重写稿件，不要改导语或口吻。
+
+【稿件全文或需要核对的段落】
+（粘贴）
+
+【稿件声称的出处】
+1) （URL，或文件名／页码／段落）
+2) …
+
+请先列出你实际打开或检索到的来源，再输出对照表，列包括：
+项目（引语／数字）｜稿件写法｜原文写法｜是否一致｜可点链接或页码／段落｜说明
+
+对不上或找不到，就写“不一致”或“未见”，不要编造成“一致”。
+媒体转述和社交讨论可另列旁证，不得单独当作原文已经核对。
+未完成对照表之前，不要先给结论口号。</code></pre>
+<p>主张很多时，先自己把引语和数字抽成清单再丢给模型，比整篇丢进去只说“帮我核对”更不容易漏。</p>
+<h4>2. 按任务选更省事的一边</h4>
+<figure><table><thead><tr><th>你要做的事</th><th>更省事的一边</th><th>依据</th></tr></thead><tbody><tr><td>出处 URL 已在稿里，要对引语是否原话、数字是否对得上该页，并尽量落到页码或段落</td><td>通常更偏 Claude：把稿和源页一并交给它，用 citations 和 web fetch 出对照表，你再点开源链接</td><td>官方 Help：回复含 citations、源链接和适当引语；可 fetch 你给的 URL；并提醒交叉核对来源</td></tr><tr><td>要查这个数字在公开网页上是否已更新，或官方是否另发过更正</td><td>通常更偏 Grok：实时网页检索，以及 𝕏 上的澄清，可能更快找到新声明</td><td>产品页：实时搜索网页和 𝕏，引用来自原始来源</td></tr><tr><td>稿里的事实带明确时间点，检索需要先框住时间窗</td><td>先把时间窗写进提示；具体怎么立时间窗，见站内旧文，本篇不重讲</td><td><a href="https://www.kmhgame.com/grok-xin-wen-tu-fa-jian-suo-de-shi-jian-chuang-ji-lyu/">Grok：新闻／突发检索的时间窗纪律</a></td></tr><tr><td>两边都跑完了</td><td>对照表只当线索。你打开原文，抽查引语和数字。社交帖再快，也不能当终审</td><td>用法约定：终审在人，不在模型</td></tr></tbody></table></figure>
+<p>Claude 这边还要注意入口。Team／Enterprise 要管理员先打开组织能力，成员才能在对话里用 Web search。若你用的是新体验，可能看不到手动开关。免费档去 fetch 一篇长文，会占用额度，官方举例说过：让它摘要一篇约 10,000 词的文章，会比普通检索更吃用量。这些以 Help 现页为准。</p>
+<p>Grok 这边，把官方出处 URL 写进提示，仍然有用。实时检索的长处是找更新和 𝕏 上的澄清，不是自动取消“先对稿里那条出处”。开发者文档里的工具名，只用来说明它具备网页检索、X 检索和引用能力，不要到 grok.com 上找一个同名按钮。</p>
+<h4>3. 人工终审：打开原文</h4>
+<p>模型跑完，核对还没完。你自己至少做这几步：</p>
+<ol>
+<li>打开对照表里的官方链接，核对引语是不是原话，数字的口径、日期和单位是否同一套。</li>
+<li>若 Grok 引用了 𝕏 帖：点进原帖，确认是官方号或当事人账号、未删，再决定它能不能进旁证。它不能单独替代原文。</li>
+<li>写成“一致”的行也要抽查。写成“未见”或“不一致”的行，必须由人裁定。</li>
+<li>只改对不上的句子。不要让模型借核对的机会重写导语。</li>
+</ol>
+<p>两边都可以跑同一套提示。差的是检索习惯和引用呈现，不是谁替你做完终审。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：出处 URL 先写进提示。</strong> 只丢产品名或发言人姓名，容易搜到转述稿，引语会对错版本。</li>
+<li><strong>诀窍：引语和数字分开列。</strong> 一句话里既有原话又有数字，模型容易只对上其中一项，就写成全部一致。</li>
+<li><strong>诀窍：禁止顺手改稿，写进提示里。</strong> 核对和重写捆在一起，限定词最容易在“改顺”时被拿掉。</li>
+<li><strong>诀窍：Grok 找到新数字时，先问是更正，还是另一口径。</strong> 更新的报道不一定推翻稿里那条已注明日期的出处。</li>
+<li><strong>反例：问“你觉得这段引得对不对”。</strong> 那是印象题，出不了对照表。</li>
+<li><strong>反例：把 𝕏 上的澄清直接写进正文，当作官方原文已经核对。</strong> 社交帖只适合进旁证，终审仍是打开原文。</li>
+<li><strong>反例：拿“永远更准的那一家”当结论。</strong> 对已有出处，和找公开更正，不是同一件事。</li>
+<li><strong>反例：一次对照表当永久结论。</strong> 公开页会改；工作流是可重复核对，不是一锤定音。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈：同一篇已经写成的稿，做引语和数字核对，谁更省事。不重写幻觉校验清单，不重写引用角标的用法，不重开 Grok 单兵核对草稿的逐步流程，也不把竞品定价变更核查再写一遍。</li>
+<li>没有自行测过正确率，也没有“我们对照了多少篇稿”的数字。文中的“往往更省事”“可能更快”是按官方能力和任务类型做的相对判断。</li>
+<li>消费端按钮文案、套餐是否包含检索、免费档额度，以及 Claude 新体验是否还保留手动开关，以各产品登录后现页为准。</li>
+<li>官方也提醒过：模型输出可能不准确。财务、法律或要对外引用的材料，对照表只适合当工作底稿，最终仍应回到原文。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-vs-grok-quote-number-check-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>Grok：什么该开新会话，什么该续旧线程</title>
+      <link>https://www.kmhgame.com/grok-shen-me-gai-kai-xin-hui-hua-shen-me-gai-xu-jiu-xian/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/grok-shen-me-gai-kai-xin-hui-hua-shen-me-gai-xu-jiu-xian/</guid>
+      <pubDate>Mon, 16 Nov 2026 02:41:02 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>材料还在、活还没做完，就续旧线程。任务换了，或旧指令已经打架，就开新会话。开新窗不会自动清掉跨聊天记忆；要这次不进历史，用官方 Private Chat。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-new-chat-vs-thread-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方产品页把“Threads and follow-ups”写成：可以在任意对话里继续问，上下文还在。登录后，过去的对话可以在历史里找到。grok.com 上，消费端 FAQ 把历史入口写成右上角那枚带三条横线和放大镜的图标；iOS App 则是点左上角头像，进入会话历史页。图标位置若和现页不一致，以登录后界面为准。（<a href="https://x.ai/grok">Grok 产品页</a>；<a href="https://x.ai/legal/faq">Consumer FAQs｜会话历史</a>）</li>
+<li>续旧线程，适合同一件还没做完的活：材料已经在这条线程里，你要在同一份稿上再改一刀。开新会话，适合任务已经换成另一件完全不同的事；旧线程里混进了互相打架的指令；或者模型已经沿着错误前提走远，你不想它继续吃那堆错上下文。续旧的依据见产品页；何时换窗是用法判断，不是官方条文。（<a href="https://x.ai/grok">Grok 产品页</a>）</li>
+<li>开一个普通新会话，不等于自动忘掉人设和记忆。产品页单独写了“Memory across chats”：会记住你的偏好和过去的对话。它还写了 Custom instructions，用来按你的风格和需要调整回答。官方 Skills 说明也写过：一次教会的偏好、格式规则和流程步骤，会在之后的对话里复用。这些都不会因为你新开一条就自动关掉。开关叫什么、能不能逐条查看或删除记忆，公开页没有写全，以登录后现页为准。（<a href="https://x.ai/grok">Grok 产品页</a>；<a href="https://x.ai/news/grok-skills">Skills in web, iOS, and Android</a>）</li>
+<li>要让这一次对话不出现在可见历史里，官方给的是 Private Chat。消费端 FAQ 写：点屏幕右上角幽灵形状的图标即可开启；开启后，这段对话你自己也看不到历史，并会在 30 天内从系统中删除。隐私政策补了一句：因法律、合规或安全需要，也可能保留更久。FAQ 还写：在提供该功能的情况下，Private Chat 里的内容和互动不用于模型训练。普通新会话做不到这件事。（<a href="https://x.ai/legal/faq">Consumer FAQs｜Private Chat</a>；<a href="https://x.ai/legal/privacy-policy">Privacy Policy</a>）</li>
+<li>换会话时如果还要带走已经核对过的事实，先自己提炼几条要点，再贴进新窗口。不要只丢一句“就是刚才那篇”。长线程怎么收成可转发纪要，见站内旧文，这里不重写骨架。自定义指令和单次提示怎么分工，以及 X 里唤起和 grok.com 是不是同一扇门，也各有专文。（<a href="https://www.kmhgame.com/grok-ba-chang-xian-cheng-zheng-li-cheng-ke-zhuan-fa-ji-yao/">Grok：把长线程整理成可转发纪要的固定骨架</a>；<a href="https://www.kmhgame.com/grok-bie-ba-zhou-geng-liu-cheng-xie-jin-zi-ding-yi-zhi-ling/">Grok：别把周更流程写进自定义指令</a>；<a href="https://www.kmhgame.com/grok-zai-x-li-huan-qi-he-zai-grok-com-ti-wen-neng-li-bian/">Grok：在 X 里唤起和在 grok.com 提问，能力边界差在哪</a>）</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你在同一条线程里改一篇稿。改到一半，又让它顺手查另一款产品的定价，再回来改导语。旧的口径还在，新的指示又叠上去。模型开始把两件事的数字写进同一段。</p>
+<p>你再补一句“刚才那条不算，只改导语”，它仍可能咬住中间那轮跑偏的上下文。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>再补一刀提示，往往救不回来。先问自己：还该不该呆在这条线程里。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p>下面是用法判断清单，不是官方按钮教程。消费端 FAQ 写过的图标位置，若和你登录后的现页不一致，以现页为准。官方没有在消费端页面写死上下文窗口有多大，本篇也不编这个数字。</p>
+<h4>1. 先分清三件不是同一件事</h4>
+<p>一条线程里的上下文，是你在这条对话里已经说过、贴过、改过的内容。产品页说，继续在这条线程里追问，上下文还在。</p>
+<p>跨聊天记忆、自定义指令和 Skills，是另一层。它们可以在新会话里继续起作用。开新窗，通常带不走的是这一条线程里的来回，不是已经保存的偏好或技能。</p>
+<p>Private Chat 是第三件事。它不是“再开一条普通新聊天”。官方写的是：这段对话不进可见历史，并按上面的时限从系统中删除；在提供该功能时，也不用于训练。</p>
+<p>独立端（grok.com 和官方 App）登录一次后，对话、设置和订阅会在这些平台之间同步。本篇只谈独立端里要不要续同一条线程。X 里唤起和独立端是不是同一扇门，见上面那篇旧文，这里不展开。</p>
+<h4>2. 按任务做判断</h4>
+<figure><table><thead><tr><th>你遇到的情况</th><th>更合适的做法</th><th>依据</th></tr></thead><tbody><tr><td>同一件还没做完的活，材料、口径和上一刀修改都在这条线程里，你要接着改</td><td>续旧线程</td><td>产品页：可在对话中继续追问，上下文还在</td></tr><tr><td>换了完全不同的任务，旧材料帮不上忙，还可能把新问题和旧数字缠在一起</td><td>开新会话，需要的事实自己带过去</td><td>用法判断：避免旧上下文干扰新任务</td></tr><tr><td>旧线程里已经混进互相打架的指令，或模型沿着错误前提走远了</td><td>开新会话；把仍然有效、且你已核对过的要点写进新提示</td><td>用法判断：不要让它继续吃那堆错上下文</td></tr><tr><td>只要这次对话不出现在可见历史里，也不用于训练</td><td>用 Private Chat（幽灵图标，以现页为准），不要只开一条普通新聊天</td><td>消费端 FAQ、隐私政策</td></tr><tr><td>换窗时还要带走已经核对过的事实</td><td>先提炼几条要点再开新窗，不要只说“就是刚才那篇”</td><td>用法建议；纪要骨架见旧文</td></tr></tbody></table></figure>
+<p>判断时只问两句就够了：这条线程里的材料，下一问还用得上吗？它是在帮你，还是已经在干扰你？</p>
+<p>用得上，就续。在干扰，就换。不要靠猜窗口有多大来决定。</p>
+<h4>3. 换会话时可以这样开口</h4>
+<p>把还要用的事实写成你已经核对过的要点，再交代这一问要做什么。不要让模型自己补一段“刚才说过”。</p>
+<pre><code>【上一线程里已经核对、仍有效的要点】
+1) （用你自己的话写，并注明出处，不要让模型回忆）
+2) …
+
+【这一问要做的】（只写这一件）
+
+【不要做】不要沿用旧线程里已经作废的口径；没有写在上面的数字不要当成既成事实。</code></pre>
+<p>整理成长纪要再转发时，用旧文里的骨架。这里只需要带走几条还能用的事实。</p>
+<h4>4. 这些事，不要默认开新窗就能解决</h4>
+<ul>
+<li>不要默认开一条普通新会话，跨聊天记忆和自定义指令就一起清掉了。产品页把记忆写成会记住偏好和过去的对话；人设类设置也还在。</li>
+<li>不要默认开新窗，这段对话就不会进历史。普通新会话仍会出现在历史里。不进可见历史，要用 Private Chat。</li>
+<li>不要默认 Private Chat 的图标位置永远在右上角。FAQ 是这样写的，现页若不同，跟现页走。</li>
+<li>不要编造“窗口已经满了，所以必须新开”的 token 数字。官方消费端页面没有写死这个数。</li>
+</ul>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先问材料还在不在。</strong> 同一份稿、同一批已经贴进去的出处，续旧线程更省事。活已经换成另一件，早点换窗，比在旧线程里叠补丁干净。</li>
+<li><strong>诀窍：指令开始打架，就不要再补一刀提示。</strong> 你越解释“刚才那条不算”，旧上下文还在，模型越可能两边都吃。</li>
+<li><strong>诀窍：要隔离，用官方给的 Private Chat。</strong> 只开普通新聊天，解决的是这条线程的上下文，不是可见历史和训练。</li>
+<li><strong>诀窍：换窗时自己带要点。</strong> 新会话看不到旧线程里的来回。记忆可能会带上一些偏好和旧事实，但那不是你可以逐条点开核对的工作底稿。该带走的数字和口径，还是你自己写过去更稳。</li>
+<li><strong>反例：以为开新会话就等于换了一个“什么都不记得的 Grok”。</strong> 记忆、人设和 Skills 都还可能在。</li>
+<li><strong>反例：在已经跑偏的旧线程里反复说“忽略上面的”。</strong> 该换就换。</li>
+<li><strong>反例：把查定价、改导语、再写社交稿，全堆进同一条线程。</strong> 后一问很容易吃前一问的数字。</li>
+<li><strong>反例：需要不进历史，却只是新开一条普通聊天，事后再忘了去历史里删。</strong> 官方已经提供 Private Chat。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈：在 grok.com 和官方 App 里，什么该开新会话，什么该续旧线程。不覆盖 X 入口和独立端的功能差别，不重写长线程纪要骨架，也不展开自定义指令该写什么。</li>
+<li>跨聊天记忆的具体开关名称、能否查看或删除单条记忆，以及 Private Chat 是否完全不写入记忆，官方公开页没有写全。以登录后现页和现行条款为准，不要把猜测写成功能清单。</li>
+<li>官方没有公布消费端上下文窗口的 token 数。线程变长之后，早期细节可不可用，以你实际看到的表现为准，不要用一个编出来的数字做判断。</li>
+<li>界面图标、菜单名称和地区、档位是否开放某项能力，以登录后现页为准。消费端条款和产品页会更新。</li>
+<li>官方也提醒过：输出偶尔不准确，也可能出现幻觉，用前须仔细核验。财务、法律或要对外引用的材料，模型输出只适合当工作底稿。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-new-chat-vs-thread-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>Claude：自定义技能写完后怎么验收与小步迭代</title>
+      <link>https://www.kmhgame.com/claude-zi-ding-yi-ji-neng-xie-wan-hou-zen-me-yan-shou-yu/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-zi-ding-yi-ji-neng-xie-wan-hou-zen-me-yan-shou-yu/</guid>
+      <pubDate>Mon, 16 Nov 2026 02:34:23 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>技能写完先验收，再小步改。先测该不该加载，再看输出对不对。触发不对就优先改 description。一次改一处，改完用真实请求再测一遍。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-skill-acceptance-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>官方建议的验收顺序是：先测技能文件，若有 Claude Code 就先在那里试，上传后再确认会加载，最后衡量输出有没有变好。（<a href="https://claude.com/docs/skills/how-to">Create custom skills</a>）</li>
+<li>触发测试要准备两组句子：明显任务和换种说法都该加载；无关话题不该加载。（<a href="https://claude.com/resources/guides/the-complete-guide-to-building-skills-for-claude/testing-and-iteration">Testing and iteration</a>）</li>
+<li>功能测试看输出对不对，该跑的脚本有没有跑，以及出错时怎么表现。也可以对照没有技能时的基线。官方示例里的回合、失败调用和 token 数只是示例，不是你的实测数字。（同上）</li>
+<li>触发不对时，优先改 <code>description</code>。它是加载前 Claude 会读的部分。欠触发就补关键词和场景；过触发就写清不适用的边界。要用第三人称，写明做什么、何时用。（<a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">Skill best practices</a>）</li>
+<li>怎么从零建立技能并打包 ZIP，以及 Skills 和 Projects 怎么分工，见站内入门旧文。本篇只谈写完之后怎么验收、怎么迭代。（<a href="https://www.kmhgame.com/claude-zi-ding-yi-ji-neng-ke-fu-yong-liu-cheng-ru-men/">Claude：自定义技能／可复用流程入门</a>）</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>技能已经写好了。<code>SKILL.md</code> 在文件夹里，引用到的说明和脚本也放进去了。上传之后，有的请求会加载它，有的该用时却没用；有时加载了对，输出却还是老样子。</p>
+<p>这时候不要一上来把说明、示例和脚本一起大改。官方的办法更慢，也更稳。先验收会不会在该出现的时候加载，再看输出有没有变好，然后一次只改一处。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>从零创建技能并打包 ZIP 的步骤，入门旧文已经写过。下面只谈写完以后怎么测、怎么改。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p>下面是用法建议。菜单文案以登录后现页为准。</p>
+<h4>1. 按官方顺序验收：先文件，再加载，最后看输出</h4>
+<p>官方 how-to 把测试分成几步。先检查文件，再（若你用 Claude Code）在本地试，上传后确认它会加载，最后衡量输出有没有变好。</p>
+<p>上传前先看 <code>SKILL.md</code> 是否清楚，<code>description</code> 是否写对了适用时机，引用到的文件是否都在。校验命令怎么装，见官方页面，这里不把打包步骤再写一遍。</p>
+<p>用 Claude Code 的人，可以把技能放到 <code>~/.claude/skills/my-skill/SKILL.md</code>，在任意项目里启动 <code>claude</code>，用一句符合 description 的任务看它会不会自己加载，或直接输入 <code>/my-skill</code> 调用。加载不起来，先改 description。项目目录里也有加载位置，官方技能页有说明，本篇不把目录树再抄一遍。</p>
+<p>上传到 claude.ai 或桌面端之后，到 Customize &gt; Skills 打开这个技能。发几条应该触发的请求，并查看它的思考过程，确认技能确实被加载了。</p>
+<p>只确认会加载，还不够。还要看有技能之后，输出是否真的变好。</p>
+<h4>2. 准备两组触发句子，再做功能测试</h4>
+<p>触发测试的目标很具体：明显任务要能加载，换种说法也要能加载，无关话题不要加载。</p>
+<p>可抄一份清单，按你的技能改括号里的内容：</p>
+<pre><code>【应触发】
+- （最直白的那句任务，含技能要处理的对象或专名）
+- （换一种说法，意思相同）
+- （再换一种场景表述，仍然属于同一类任务）
+
+【不应触发】
+- （完全无关的问题）
+- （看起来像同一大类、其实不该由这个技能接手的请求）</code></pre>
+<p>官方示例用过“帮我建一个某工作区”这类句子，以及问天气、写代码或做表格这类不相关请求。那是示例形态，把专名换成你自己的技能即可。</p>
+<p>功能测试再看：输出对不对，该跑的脚本有没有跑，出错时怎么表现，边界情况会不会垮。</p>
+<p>若要证明技能有用，可以对照没有技能时的基线。官方示例里写过：没有技能时来回很多轮，还可能调用失败，token 消耗也更高；有技能后只问两句澄清、失败减少。那些数字是示例，不要当成你自己的结果。</p>
+<h4>3. 触发不对，优先改 description</h4>
+<p>Claude 在决定要不要加载技能之前，读到的是名称和 description。正文要等加载之后才会被读到。所以触发不对时，先改 description，不要先去改一大段步骤说明。</p>
+<p>欠触发：该用的时候没出现。补上关键词，写清适用场景，让“做什么”和“何时用”都具体一点。官方要求用第三人称来写，不要写成“我可以帮你……”或“你可以用它来……”。</p>
+<p>过触发：不相关的请求也加载了。把不适用的边界写进 description，收窄触发条件。</p>
+<p>官方还建议：先在一个难任务上迭代到能做成，再把成功的做法抽出来写进技能，然后扩展测试集。不要一开始就铺很多假想场景。</p>
+<h4>4. 一次改一处，用真实请求再测；skill-creator 可以帮手</h4>
+<p>每次改完，用真实请求再跑一遍，不要一次改一大包。改了 description，就先把应触发和不应触发的句子再测一遍。改了步骤或脚本，就再看功能测试有没有回退。</p>
+<p>官方提供的 <code>skill-creator</code> 可以帮忙出测试提示、查看结果并改技能。在 claude.ai 上，到 Customize &gt; Skills 打开，官方标明它来自 Anthropic。</p>
+<p>不同官方页对它会不会跑自动评测、给不给通过率和耗时，写法不完全一样。how-to 页把入口分开写：聊天里是一条一条跑测试提示，结果出现在对话中；在 Cowork 和 Claude Code 里，它还会用同一组提示做无技能基线对照，并行跑，并补上通过率、耗时和 token 数。Claude Code 里需要按官方说明安装为插件。完整指南的测试一章写过，它不跑自动化测试套件，也不给量化评估。一篇介绍更新的官方文章则写了评测和基准模式。</p>
+<p>先按你当前入口实际能看到的结果来用。能做基线对照就做，不能就手动跑有技能和无技能各一次。不要把其中一页的表述写成保证。</p>
+<p>把失败案例带回给 skill-creator 时，可以说清楚：用这次对话里出现的问题和处理办法，改技能里对应的那一处。</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先做触发测试，再谈输出好不好。</strong> 技能没加载，后面的功能测试没有意义。</li>
+<li><strong>诀窍：应触发和不应触发的句子成对准备。</strong> 只测“会不会出现”，测不出过触发。</li>
+<li><strong>诀窍：触发不对先改 description。</strong> 正文再完整，也不会在加载前被读到。</li>
+<li><strong>反例：一次同时改名称和 description，连步骤和脚本也动，然后说“好像好一点了”。</strong> 出了问题，你不知道是哪一处起的作用。</li>
+<li><strong>反例：只用官方示例里的回合数和 token 数，证明自己的技能变好了。</strong> 那些是示例，要用你自己的请求对照。</li>
+<li><strong>反例：技能已经能在难任务上做对，却迟迟不把成功做法写进去，继续靠临时口头提醒。</strong> 官方建议先做成一件难事，再抽取成技能。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈自定义技能写完之后的验收和小步迭代。不重写如何从零创建技能并打包 ZIP，也不重写 Skills 与 Projects 的分工，以及密钥怎么放。</li>
+<li>套餐、组织管理和分享范围，以登录后现页和帮助中心为准。Team／Enterprise 上如何分享技能，见官方说明，本篇不展开。</li>
+<li><code>skill-creator</code> 的菜单路径和评测能力可能随入口而变，以现页为准。</li>
+<li>本篇没有对某一份读者技能做实测。场景是示意。按钮名称若与截图不一致，以现页为准。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-skill-acceptance-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>Codex：需要联网安装依赖时，沙箱网络权限怎么开、怎么收</title>
+      <link>https://www.kmhgame.com/codex-xu-yao-lian-wang-an-zhuang-yi-lai-shi-sha-xiang-wang/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/codex-xu-yao-lian-wang-an-zhuang-yi-lai-shi-sha-xiang-wang/</guid>
+      <pubDate>Mon, 16 Nov 2026 02:24:30 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>要联网装依赖，别为了省事把沙箱整个放开。默认网络是关的。当次会话打开，装完收回去；若要常开，用代理把出站收到注册表域名。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-sandbox-network-cover-1024x576.webp"/></figure>
+
+<h2>要点</h2>
+<ul>
+<li>默认情况下，agent 的命令联网是关的。本地用操作系统强制的沙箱，通常只碰当前工作区；另有审批策略决定何时停下问你。（<a href="https://learn.chatgpt.com/docs/agent-approvals-security">Agent approvals &amp; security</a>）</li>
+<li>默认的 <code>workspace-write</code> 模式下，网络仍然关闭，除非你在配置里打开：<code>[sandbox_workspace_write]</code> 加上 <code>network_access = true</code>。（同上；<a href="https://learn.chatgpt.com/docs/config-file/config-reference">Configuration Reference</a>）</li>
+<li><code>network_proxy</code> 不会单独授权联网。它只在命令联网已经打开之后，按你配置的目的地策略收口。官方把三者关系写得很硬：网络关掉时，代理开了也不起作用；网络开了却不开代理，出站是未加约束的直接访问；两项都开，出站才受策略约束。（同上）</li>
+<li>只要装一次依赖，用当次会话打开即可。官方给过一次性 CLI 写法。打开代理却不写允许的域，外部目的地默认都进不去。装完换一局，回到默认关闭。（同上）</li>
+<li>日常 Auto 预设是 <code>--sandbox workspace-write --ask-for-approval on-request</code>。需要联网的命令，Codex 会来要审批。命令审批怎么设，见站内旧文，这里只谈网络怎么开、怎么收。（<a href="https://learn.chatgpt.com/docs/sandboxing">Sandbox</a>；<a href="https://www.kmhgame.com/codex-zhong-duan-ming-ling-shen-pi-yu-wei-xian-cao-zuo-zen/">Codex：终端命令审批与危险操作怎么设</a>）</li>
+</ul>
+<h2>正文</h2>
+<h3>场景</h3>
+<p>你让 Codex 在项目里安装依赖。包管理器一启动，不是报网络被拦，就是弹出审批，问能不能出网。</p>
+<p>这时候最省事的想法，是把沙箱解开，或者开一次“完全访问”，让它自己装完。官方没有把这种做法写成装包的推荐路径。<code>danger-full-access</code> 会同时拿掉文件系统和网络边界，不该只为了装几个包就用。</p>
+<p>这是场景示意，不是某次逐字实测。</p>
+<p>要做的是把网络权限打开，装完再收回去。若必须留在配置里，就给它加上目的地约束。</p>
+<h3>可跟做步骤／可抄工作流</h3>
+<p>下面是用法建议。按钮和菜单文案以登录后现页为准。</p>
+<h4>1. 先分清：网络开了没有，出站有没有收口</h4>
+<p>沙箱管命令技术上能碰什么，审批管越界时要不要问你。这两层怎么搭配，旧文已经写过。本篇只补网络这一层。</p>
+<p>默认的 <code>workspace-write</code> 可以在工作区里读写文件，并跑常规本地命令，但命令联网默认是关的。要打开，在 <code>config.toml</code> 里写：</p>
+<pre><code>[sandbox_workspace_write]
+network_access = true</code></pre>
+<p>这只决定“能不能出网”。出站要不要收口，是另一件事。</p>
+<p>官方把 <code>network_proxy</code> 写得很清楚：它不会单独授权联网，只改变“已经打开的网络”怎么被执行。配置参考里，这个功能默认关闭，并标成实验性。三者关系不要写反：</p>
+<ul>
+<li>网络关，代理开：网络仍关，代理不起作用。</li>
+<li>网络开，代理关：网络开着，而且是未加约束的直接出站。</li>
+<li>网络开，代理也开：网络开着，出站受你配置的策略约束。</li>
+</ul>
+<p>只打开代理、却忘了开 <code>network_access</code>，依赖还是装不上。反过来，只打开网络却不开代理，出站等于没有目的地限制。</p>
+<h4>2. 优先用当次会话打开，装完换回默认</h4>
+<p>日常可以继续用 Auto 预设：</p>
+<pre><code>codex --sandbox workspace-write --ask-for-approval on-request</code></pre>
+<p>需要联网的命令，Codex 会来问你。审批如果提供一次或本会话等范围，选能让这次安装做完的最窄范围。</p>
+<p>若安装会连续多次出网，与其一路点审批，不如开一局带网络的会话。官方给过一次性 CLI 示例。只打开开关时可以用布尔简写；同时写目的地策略时，用表格式：</p>
+<pre><code># 只打开网络，并启动代理（仍要自己补允许的域，否则外部目的地默认进不去）
+codex 
+  -c 'features.network_proxy=true' 
+  -c 'sandbox_workspace_write.network_access=true'
+
+# 打开网络，并只允许你写下的域
+codex 
+  -c 'features.network_proxy.enabled=true' 
+  -c 'features.network_proxy.domains={ "example.com" = "allow" }' 
+  -c 'sandbox_workspace_write.network_access=true'</code></pre>
+<p>把 <code>example.com</code> 换成你实际要用的注册表或包源主机名，以官方现页和你本机源为准。官方示例里出现过 <code>api.openai.com</code>，那不是通用包源。</p>
+<p>官方还写过：往策略里加域名规则，本身不会打开代理。要收口，代理和网络都得打开，允许列表也得写上。</p>
+<p>依赖装完，关掉这局，再开一局不带这些 <code>-c</code> 的会话，回到默认的网络关闭。不要把“长期在全局配置里放开所有出站”当成默认做法。</p>
+<h4>3. 若必须写进长期配置，同时把注册表域名收进允许列表</h4>
+<p>有人会把 <code>network_access = true</code> 写进 <code>~/.codex/config.toml</code>，省得每次加参数。可以，但要看清风险：网络开着、代理关着，就是未加约束的直接出站。</p>
+<p>更稳的长期写法是两项一起开，并把要用的注册表域名写成 <code>allow</code>。官方说，<code>domains</code> 默认是允许列表：在你补上 <code>allow</code> 规则之前，外部目的地都不会被放行。只开代理、不写允许的域，可能什么站都出不去，包自然也装不上。</p>
+<pre><code>[sandbox_workspace_write]
+network_access = true
+
+[features.network_proxy]
+enabled = true
+domains = { "example.com" = "allow" }</code></pre>
+<p>域名规则是允许列表优先。精确主机名只匹配自己；<code>*.example.com</code> 只匹配子域，不匹配 <code>example.com</code> 本身；<code>**.example.com</code> 则两者都匹配。<code>deny</code> 一律优先。全局 <code>*</code> 能放行未被拒绝的公网主机，官方建议能写窄就写窄。</p>
+<p>改完配置后，官方没有写死“必须新开一局才生效”。用法建议是用 <code>/status</code> 看 Permissions 是否已经带上 network access；没有的话，先核对键名，并确认当前正处于 <code>workspace-write</code>，必要时再新开一局。<code>/status</code> 在官方说明里，明确可以用来查看哪些目录算在工作区里。</p>
+<h4>4. 缓存目录若在工作区外，用 writable_roots，不要为此解开沙箱</h4>
+<p>工作区通常包括当前目录，以及 <code>/tmp</code> 这类临时目录。包管理器的缓存有时在工作区外，例如用户目录下的缓存文件夹。写不进去时，按官方提供的 <code>sandbox_workspace_write.writable_roots</code>，把那个目录加进去，路径以你本机为准。</p>
+<p>这是在保留沙箱的前提下多开一个可写根，不是把 <code>danger-full-access</code> 当作装包开关。可写根怎么在 monorepo 里划边界，见站内旧文，这里不展开。（<a href="https://www.kmhgame.com/codex-da-kai-monorepo-shi-xian-sheng-ming-nei-xie-bao-zai/">Codex：打开 monorepo 时，先声明哪些包在工作区边界内</a>）</p>
+<h3>真实用户诀窍／反例</h3>
+<ul>
+<li><strong>诀窍：先问“这次是不是只为了装依赖”。</strong> 是的话，用当次会话打开，装完换回默认。不要先改全局配置。</li>
+<li><strong>诀窍：打开网络的同时打开代理，并写下允许的域。</strong> 只开网络、不开代理，出站没有约束。</li>
+<li><strong>诀窍：改完用 <code>/status</code> 看一眼。</strong> 工作区目录在不在，网络权限有没有带上，比只看配置文件更直接。</li>
+<li><strong>反例：为了一次依赖安装，直接上 <code>danger-full-access</code> 或 <code>--yolo</code>。</strong> 官方把这种组合标成高风险，不推荐。</li>
+<li><strong>反例：只打开 <code>network_proxy</code>，以为这样就等于允许联网。</strong> 代理不授权联网。网络仍关着。</li>
+<li><strong>反例：打开网络和代理，却不写允许列表，然后怪包源连不上。</strong> 官方默认是允许列表，不写域就没有外部目的地。</li>
+</ul>
+<h3>适用边界</h3>
+<ul>
+<li>本篇只谈本地 Codex 在需要联网安装依赖时，网络权限怎么开、怎么收。范围包括 CLI、IDE 扩展或桌面端。不重写命令审批和高危操作的一般设法，也不展开 <code>AGENTS.md</code> 怎么写。仓库长期规则见站内模板文。</li>
+<li>现行 Codex Cloud 的联网设置，见 <a href="https://learn.chatgpt.com/docs/cloud">Codex Cloud</a> 里关于连接服务的说明。不要把 Legacy 云环境的两阶段条文套上去。Legacy 里，setup 阶段可以联网安装指定依赖，agent 阶段默认离线，除非给该环境打开互联网；为环境配置的密钥只在 setup 可用，agent 开始前会撤掉。Legacy 的互联网访问说明见 <a href="https://learn.chatgpt.com/docs/cloud/internet-access">Codex Cloud (Legacy): internet access</a>。</li>
+<li>命令网络代理过滤的是沙箱里跑起来的脚本和子进程。它不过滤网页搜索、应用或 MCP，也不过滤浏览器，以及客户端自己的模型和登录请求。这些走各自的开关。</li>
+<li>Linux 和 WSL2 上，沙箱还依赖系统组件，按官方沙箱页的安装说明处理，本篇不展开。</li>
+<li>键名和菜单文案，以及现页开关，以登录后的官方文档和客户端为准。本篇不写死某一天的界面用词。涉及生产数据、私有源认证或组织托管策略，本篇的用法建议不够，应另行按管理端要求处理。</li>
+</ul>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-sandbox-network-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>《侠盗猎车手VI》11月19日发售，标准版79.99美元</title>
+      <link>https://www.kmhgame.com/xia-dao-lie-che-shou-vi-11-yue-19-ri-fa-shou-biao-zhun-ban/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/xia-dao-lie-che-shou-vi-11-yue-19-ri-fa-shou-biao-zhun-ban/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:45:41 GMT</pubDate>
+      <category>游戏热点</category>
+      <description><![CDATA[<p>《侠盗猎车手VI》将于2026年11月19日（周四）发售。<a href="https://taketwointeractivesoftwareinc.gcs-web.com/news-releases/news-release-details/rockstar-games-announces-pre-orders-grand-theft-auto-vi/">标准版79.99美元</a>，<a href="https://www.playstation.com/en-us/games/grand-theft-auto-vi/">终极版99.99美元</a>。终极版包含贯穿Jason与Lucia故事的独家载具、武器与服饰等。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-release-cover-1024x576.webp"/></figure>
+<p>该作登陆PlayStation 5（含PS5 Pro Enhanced）和Xbox Series X|S。<a href="https://blog.playstation.com/2026/11/10/pre-load-grand-theft-auto-vi-on-ps5-starting-today/">PlayStation博客</a>写，PlayStation将按各市场11月19日当地午夜滚动开售。预下载已于11月10日开始，<a href="https://www.rockstargames.com/VI">Rockstar官方页</a>与PlayStation店面目前仍开放预下载。</p>
+<p><a href="https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/">Xbox Wire</a>写，发售日起可通过Xbox Cloud Gaming在Xbox One与Xbox Series X|S上游玩，美东时间11月19日凌晨1点开始，云端串流画质按Xbox Series S设定。Xbox One只提供云端串流，Xbox Series X与Series S还可本机预安装。</p>
+<p>故事发生在美国罪恶都市（Vice City）。Jason和Lucia一向清楚，局面从一开始就对他们不利。一次本以为容易得手的行动出了差错，两人落到这片阳光之地最暗的那一面，被卷进横跨Leonida州的犯罪阴谋。想活着走出去，只能比以往更倚仗彼此。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-release-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>PS5 出货破了 1 亿，可这一季日系两台主机都在少卖</title>
+      <link>https://www.kmhgame.com/ps5-chu-huo-po-le-1-yi-ke-zhe-yi-ji-ri-xi-liang-tai-zhu-ji/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/ps5-chu-huo-po-le-1-yi-ke-zhe-yi-ji-ri-xi-liang-tai-zhu-ji/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:29:30 GMT</pubDate>
+      <category>行业杂谈</category>
+      <description><![CDATA[<p>索尼互娱的<a href="https://sonyinteractive.com/en/our-company/business-data-sales/">业务数据页</a>上，现在写着一句很短的话。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/nikkei-twins-ps5-cover-1024x436.webp"/></figure>
+<p>PlayStation 5 累计全球硬件卖入，是“More than 100 million”，中文就是<strong>超过 1 亿</strong>。时点截至 2026 年 11 月 10 日。</p>
+<p>这行字写在累计卖入表的最上头。下面还列着 PS4、PS3，只是那些数字的截止日要早得多。</p>
+<p>先把口径说清楚。这是<strong>出货</strong>，也就是卖入，统计的是进入渠道的台数，不是已经交到玩家手里的台数。页注写明，数字里含退货和翻新品。官方也只写“超过 1 亿”，没有给出一个刚好落在 1.00 亿上的整数。</p>
+<p>再往前翻几个月。据索尼<a href="https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/26q2_supplement.pdf">补足资料</a>介绍，截至 2026 年 3 月 31 日，也就是上一财年结束时，PS5 累计卖入是 9,370 万台。</p>
+<p>同一份材料里，本财年第一季 160 万，第二季 260 万。加起来，到 9 月 30 日大约是 9,790 万。业务数据页上的季度表，也写着这两个单季数字。</p>
+<p>从季末的约 9,790 万，到 11 月 10 日的“超过 1 亿”，中间隔了一个多月。按 1 亿这条下限来算，至少还要再出大约 210 万，才够跨过这道线。这只是推算，索尼并没有单独公布过这 210 万。</p>
+<p>但这一季本身，卖台的节奏并不快。业务数据页和补足资料都写，2026 财年第二季 PS5 卖入 260 万台；上一财年同一季是 400 万。前两季加在一起，大约 420 万。机器还在往外走，只是没有一年前那么密。</p>
+<p>软件累计和月活，没有跟着 11 月 10 日一起改。同一页上，PS4 加 PS5 的软件累计卖入仍是“超过 17.95 亿”，月活用户约 1.27 亿，时点都停在 2026 年 9 月 30 日。月活那一行的页注写的是，基于索尼互娱估算。</p>
+
+<h2>任天堂这本账：台数少了，利润却上去了</h2>
+<p>11 月 5 日，任天堂交出了 2027 年 3 月期中間连结决算，期间到 2026 年 9 月 30 日。据<a href="https://www.nintendo.co.jp/ir/pdf/2026/261105.pdf">日文短信</a>介绍，主表以百万日元计。</p>
+<p>连结营收 966,041 百万日元，约 9,660 亿，同比减少 12.1%。营业利益 216,500 百万，约 2,165 亿，同比增加 <strong>49.1%</strong>。归母中間纯利益 220,917 百万，约 2,209 亿，同比增加 11.0%。更细的拆分，我们<a href="https://www.kmhgame.com/ren-tian-tang-2027-nian-3-yue-qi-zhong-jian-lian-jie-ying/">此前已经整理过</a>。</p>
+<p>硬件这边踩了刹车。<a href="https://www.nintendo.co.jp/ir/pdf/2026/261105_3.pdf">说明资料</a>把口径写在卖入上：Switch 2 上半期 649 万台，同比减少 37.4%。上年同期是 1,036 万台，基数不低。</p>
+<p>累计到 9 月 30 日，是 2,635 万台。任天堂没有再公布一份跟 11 月 10 日对齐的新累计。</p>
+<p>软件在往上走。Switch 2 软件上半期 2,449 万套，同比增加 18.8%。短信点到，7 月的《斯普拉遁 袭击者》卖了 242 万套，9 月的《火焰纹章 万紫千红》卖了 134 万套。</p>
+<p>数字销售约 2,496 亿日元，同比增加 60.5%，在游戏机软件营收里约占 60.7%。IP 关联收入等约 627 亿，同比增加 87.9%，短信把增量主要挂在《超级马力欧银河大电影》的观影收入上。</p>
+<p>营收掉了，利润为什么还上去？短信把机制写清楚了。软件卖得稳，营收里软件占比抬高；第 1 四半期又把此前记在销售成本里的美国 IEEPA 关税还付冲回，说明资料写约 3 亿美元。</p>
+<p>说明资料还写，还付对象主要是此前没有转嫁到售价、由公司自己承担的关税。营业利益之外，还有持分法投资利益约 608 亿、受取利息约 267 亿，経常利益被托到约 3,006 亿。</p>
+<p>往后看，通期指引一笔没改。短信写明，相对 5 月 8 日公布的业绩预计没有修正：营收 2,050,000 百万日元，约 2.05 兆；营业利益 370,000 百万，约 3,700 亿。Switch 2 通期硬件目标仍是 1,650 万台。</p>
+<p>上半期卖了 649 万，还没到这个目标的一半。指引原样放着，并不等于目标已经完成过半。</p>
+<h2>索尼这本账：主机少卖，分部利润跳得更厉害</h2>
+<p>不过索尼交出的是单季，不宜直接拿来跟任天堂这组上半期数字对加减。也是 11 月 5 日，索尼集团交出了 2026 财年第二季的数字，期间同样到 9 月 30 日。</p>
+<p>金融业务已于 2025 年 10 月 1 日分拆，下面说的都是持续经营口径。数字见于<a href="https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/26q2_sony.pdf">决算短信</a>和说明会资料。</p>
+<p>据<a href="https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/26q2_sonypre.pdf">说明会资料</a>介绍，表内以十亿日元计。这一季连结营收 3,429.4 十亿日元，约 3.4294 兆，同比增加 10%；营业利益 622.3 十亿，约 6,223 亿，同比增加 45%。</p>
+<p>游戏与网络服务（G&amp;NS）分部销售 1,208.5 十亿，约 1.2085 兆，同比增加 9%；营业利益 220.1 十亿，约 2,201 亿，同比增加 <strong>83%</strong>。更细的拆分，我们<a href="https://www.kmhgame.com/suo-ni-fy2026-q2-lian-jie-ying-shou-yue-3-4294-zhao-ri-yuan/">此前也整理过</a>。</p>
+<p>这 83% 该怎么读？说明会资料把原因写得很清楚。同比里，含上期记过的一笔 Bungie 部分无形资产等减值（31.5 十亿日元，约 315 亿），以及一笔此前资本化开发费用更正带来的费用（18.3 十亿日元，约 183 亿），这两项在这一季都不再出现。</p>
+<p>网络服务和第一方软件销售增加，也写在增收因素里。分部销售的增加里，还写了汇兑影响（+73.0 十亿日元，约 730 亿）。硬件销售则因台数减少而下降，被单独列在减项里。</p>
+<p>PS5 这一季卖入 260 万台，前两季合计约 420 万，和业务数据页上的季度表对得上。季末月活约 1.27 亿，补足资料注明是公司估算，时点仍是 9 月 30 日。</p>
+<p>全年指引相对 7 月上修了。说明会资料写，营收从 12,500 十亿日元调到 13,000 十亿，约 13.0 兆；营业利益从 1,720 十亿调到 1,870 十亿，约 1.87 兆。G&amp;NS 销售调到 4,830 十亿，约 4.83 兆；营业利益调到 700 十亿，约 0.70 兆。</p>
+<p>超过 1 亿已经写在官方页上，口径是出货。把任天堂的中間和索尼的这一季摊开，两台主机都在少卖，撑着利润的是软件和服务。账就对到这里。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/nikkei-twins-ps5-cover-768x327.webp"/>
+    </item>
+    <item>
+      <title>Nintendo Switch 2软件《塞尔达传说 时之笛》发售后4日全球累计突破520万套 - 妙游社</title>
+      <link>https://www.kmhgame.com/nintendo-switch-2-ruan-jian-sai-er-da-chuan-shuo-shi-zhi-di/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/nintendo-switch-2-ruan-jian-sai-er-da-chuan-shuo-shi-zhi-di/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:50:25 GMT</pubDate>
+      <description><![CDATA[<div>
+<p>任天堂宣布《塞尔达传说 时之笛》发售后4日全球累计销售突破520万套。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
+<p>该作2026年11月5日全球同步发售。11月11日<a href="https://www.nintendo.co.jp/corporate/release/2026/261111.html">日文新闻稿</a>称，全球累计突破520万套，为自行发行的Switch 2软件发售后4日最高；其中日本国内销售81万套。销量含盒装与下载版。<a href="https://www.nintendo.com/us/whatsnew/the-legend-of-zelda-ocarina-of-time-for-nintendo-switch-2-sells-over-5-2-million-units-worldwide-in-first-four-days/">美区What’s New</a>也写全球超过520万套。</p>
+ </div>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
+    </item>
+    <item>
+      <title>《巫师 3：狂猎 — 旧时曲》波兰语杰洛特仍由本人录制，AI 用来靠近旧声线</title>
+      <link>https://www.kmhgame.com/wu-shi-3-kuang-lie-jiu-shi-qu-bo-lan-yu-jie-luo-te-reng-you/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/wu-shi-3-kuang-lie-jiu-shi-qu-bo-lan-yu-jie-luo-te-reng-you/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:37:05 GMT</pubDate>
+      <category>AI</category>
+      <category>AI新闻</category>
+      <description><![CDATA[<p>2027年资料片《巫师 3：狂猎 — 旧时曲》的波兰语杰洛特，仍由雅采克·罗泽内克本人录制。因中风后声线变了，经他同意，再用 AI 把新录音调近十多年前的声音。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/witcher-sotp-cover-1024x575.webp"/></figure>
+<p>CD Projekt Red 没有就这次配音处理单独发新闻稿。游戏媒体 <a href="https://www.gamefile.news/p/witcher-3-jacek-rozenek-voice-ai-cd-projekt-respeecher">Game File</a> 在 11 月 11 日刊出了采访。记者 Stephen Totilo 问到了罗泽内克本人，以及 CD Projekt Red 本地化负责人 Mikołaj Szwed。<a href="https://www.gamesradar.com/games/the-witcher/cd-projekt-red-worked-with-an-ai-company-on-geralts-polish-voice-in-the-witcher-3-songs-of-the-past-with-the-original-actors-approval-after-health-concerns/">GamesRadar</a>、<a href="https://www.pcgamer.com/games/the-witcher/cd-projekt-used-ai-to-modify-the-voice-of-geralts-polish-actor-after-a-stroke-left-it-significantly-changed-this-was-a-special-case/">PC Gamer</a> 和 <a href="https://www.gamedeveloper.com/production/polish-voice-actor-for-geralt-returns-for-the-witcher-3-with-ai">Game Developer</a> 随后也写了同一条采访。</p>
+<p>资料片本身，CD Projekt Red 在今年 5 月 27 日就<a href="https://www.cdprojekt.com/en/media/news/the-witcher-3-wild-hunt-songs-of-the-past-announced/">官方宣布</a>过，巫师官网给出的简体中文名是<a href="https://www.thewitcher.com/us/zh-cn/news/52025/wu-shi-3-kuang-xi-jiu-shi-qu-qiang-xian-kan">《巫师 3：狂猎 — 旧时曲》</a>，档期是 2027 年。它接在 2015 年那作中间，新台词会跟当年的录音挨着播，有些战斗呼喊和短反应还会出现在老地图里。</p>
+<p>罗泽内克从系列一开始就在波兰语里给杰洛特配音。2019 年他中风，有好几个月没法说话。2021 年声音恢复了一些，他给 2022 年的次世代更新补过几句，后来对 Game File 说，那次录完“累极了”。恢复期他一天要练六七个小时。</p>
+<p>问题是新旧声线要并排出现。大约一年前，工作室把他请到公司，听他现在的声音。Szwed 说，声线比以前低，也更粗。他们担心玩家会在相邻的场景里，听到两个杰洛特。</p>
+<p>办法是：人还是他来演，片酬照付，所有新台词仍由他录。录音再交给 Respeecher。这是一家做语音转换的公司，用他当年《巫师 3》的台词训练模型，再把新录音往十二年前的声线上靠。罗泽内克同意了。他说，关键就是尽量接近十二年的声音，“我非常信任……这款游戏的创作者”。</p>
+<p>Respeecher 的合成语音师 Dmytro Vasylets 说，任务听起来简单，要让声音活而厚，也要年轻，像原作那样；真做起来花了几十个小时，还要处理“从来不会完全消失”的 AI 痕迹。最难的是那些细微的语气，还有喊和哼，以及怒、怕和笑。</p>
+<p>Szwed 把话说得比较死：这是特例，只因为健康原因才开这个口。公司合同要求，任何 AI 处理都要本人同意。他认为，在本人同意、而且是把事情往好处做的前提下，这算一种用得正经的办法。英文版杰洛特配音员 Doug Cockle 不会走这套。Szwed 还说，如果是时间线更晚的新作，声线变了反而说得通，他们不会这样改。他会不会继续为《巫师 4》配波兰语杰洛特，采访里没有定论。</p>
+<p>CD Projekt Red 跟 Respeecher 不是第一次合作。《赛博朋克 2077：往日之影》里，已故波兰语演员 Miłogost Reczek 的维克多，是在家属同意后用类似技术补上的。那是人已经不在了。这一次，人还在棚里。</p>
+<p>这套做法管的是同一款游戏里，十二年前的声音和现在的声音不能撞在一起。他们自己也不打算把它推广成常规。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/witcher-sotp-cover-768x431.webp"/>
+    </item>
+    <item>
+      <title>珍珠深渊三季度营收1,015.03亿韩元同比增18.1%、环比降47.3%，税前继续经营利润转亏</title>
+      <link>https://www.kmhgame.com/zhen-zhu-shen-yuan-san-ji-du-ying-shou-1-015-03-yi-han-yuan/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/zhen-zhu-shen-yuan-san-ji-du-ying-shou-1-015-03-yi-han-yuan/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:18:26 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>珍珠深渊三季度合并营收101,503百万韩元，同比增18.1%、环比降47.3%；营业利润同比降9.0%，税前继续经营利润转亏。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/pearl-abyss-q3-cover-1024x538.webp"/></figure>
+<p>101,503百万韩元，合1,015.03亿韩元。这是珍珠深渊（Pearl Abyss，韩国交易所代码263750）2026年第三季度的合并营收，比上年同期的85,973百万韩元高出18.1%，比上一季的192,611百万韩元低了47.3%。营业利润20,665百万韩元，同比下降9.0%，环比下降69.4%。税前继续经营利润是-25,097百万韩元，上一季和上年同期都还盈利，公示把它标成由盈转亏。净利润10,807百万韩元，同比下降62.7%，环比下降89.1%。</p>
+<p>11月12日，公司向韩国金融监督院提交了<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261112900686">第三季度合并财务报表营业（暂定）实绩公示</a>，并在<a href="https://www.pearlabyss.com/ko-KR/Board/Detail?_boardNo=15332">公司新闻室</a>发布了业绩说明，另附<a href="https://www.pearlabyss.com/ko-KR/Board/Detail?_boardNo=15329">第三季度说明材料</a>。数字按韩国采用国际财务报告准则（K-IFRS）的合并口径编制。公示写明，这些数字是暂定数，可能随外部审计人的审查结果而变更。</p>
+<p>下表金额单位为百万韩元，为暂定合并数字。第三季度期间为2026年7月1日至9月30日；同比、环比取自公示原表。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年Q3</th><th>2026年Q2</th><th>环比</th><th>2025年Q3</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>101,503</td><td>192,611</td><td>-47.3%</td><td>85,973</td><td>+18.1%</td></tr><tr><td>营业利润</td><td>20,665</td><td>67,625</td><td>-69.4%</td><td>22,713</td><td>-9.0%</td></tr><tr><td>税前继续经营利润</td><td>-25,097</td><td>79,615</td><td>由盈转亏</td><td>34,024</td><td>由盈转亏</td></tr><tr><td>净利润</td><td>10,807</td><td>99,542</td><td>-89.1%</td><td>28,995</td><td>-62.7%</td></tr><tr><td>归属母公司净利润</td><td>10,807</td><td>99,542</td><td>-89.1%</td><td>28,995</td><td>-62.7%</td></tr></tbody></table></figure>
+<p>前三季累计是另一组对照，期间为2026年1月1日至9月30日。累计营收622,612百万韩元，同比增长204.3%；累计营业利润300,387百万韩元，同比增长854.2%；累计净利润268,318百万韩元，同比增长3,849.3%。累计跳得这样高，是因为《红色沙漠》在这一年才开始贡献收入。</p>
+<figure><table><thead><tr><th>项目</th><th>2026年前三季</th><th>2025年前三季</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>622,612</td><td>204,583</td><td>+204.3%</td></tr><tr><td>营业利润</td><td>300,387</td><td>31,479</td><td>+854.2%</td></tr><tr><td>税前继续经营利润</td><td>282,515</td><td>24,840</td><td>+1,037.3%</td></tr><tr><td>净利润</td><td>268,318</td><td>6,794</td><td>+3,849.3%</td></tr><tr><td>归属母公司净利润</td><td>268,318</td><td>6,794</td><td>+3,849.3%</td></tr></tbody></table></figure>
+<p>公示还写：2026年4月30日董事会决定出售部分合并子公司后，芬里尔创作（Fenrir Creation，原 CCP ehf.）等子公司被划为中断经营，出售已于5月6日完成。本期、上期和上年同期的营收、营业利润和税前继续经营利润，因此都按继续经营口径编制。净利润这一行，公示没有写明是否同样只含继续经营。税前继续经营已经转亏，净利润仍是正数；公示未在本表拆出中断经营损益。</p>
+
+<h2>《红色沙漠》还在卖，这一季却已经过了首发高峰</h2>
+<p>同比能增收，是因为去年这个时候还没有《红色沙漠》。环比掉下去的，也主要是它。</p>
+<p>公司说明材料按 IP 拆了营业收益，单位是亿韩元，四舍五入后的合计数和公示营收有大约 1 亿韩元的尾差。《黑色沙漠》610 亿韩元，环比增 10.9%，同比降 23.3%，占 60%；《红色沙漠》406 亿韩元，环比降 70.2%，占 40%。材料写，《红色沙漠》第三季度约卖出 68 万套，当季平均售价约 5.9 万韩元，低于第二季度的约 6.3 万韩元，公司把售价下降归因于韩元走强和折扣销售。</p>
+<p>地区上，北美和欧洲占 68%，亚洲占 18%，韩国国内占 14%，海外合计 86%。平台上，PC 占 74%，主机占 19%，移动占 7%。</p>
+<p>10 月 30 日，首个 DLC《未知征途》（英文名 Charting the Unknown）全球上线。说明材料写，上线首日曾到过 Steam 销售第 8 位。公司还在准备《红色沙漠》的任天堂 Switch 2 版本，目标是 2027 年上半年推出，具体日程确定后再公布。</p>
+<h2>税前已经转亏，全年指引还在，四季度可能略低于原估计</h2>
+<p>公司说明材料把净利润下降主要归因于韩元走强带来的汇率影响。材料和公示对不上的地方，要分开看：说明材料注明按继续经营口径，并把第三季度净利润写作 108 亿韩元，与公示的 10,807 百万韩元一致，但材料里的同比、环比和公示表并不相同。上面的表格以公示为准。</p>
+<p>材料写，第三季度营收和营业利润符合公司内部预期；四季度则有可能因为汇率，小幅低于原先给出的指引。相对做计划时，汇率大约偏了 10%，而公司海外营收比重按第三季度计是 86%。2026 年全年营业收益展望仍是 7,098 亿至 7,438 亿韩元，其中《黑色沙漠》2,390 亿至 2,446 亿韩元（同比约降 4% 至 7%），《红色沙漠》4,689 亿至 4,973 亿韩元；全年营业利润展望 3,155 亿至 3,452 亿韩元，营业利润率 44.4% 至 46.4%。材料同时给出了第四季度区间：营业收益 872 亿至 1,212 亿韩元，营业利润 151 亿至 448 亿韩元。这些都是公司自己的估计，会随经营和汇率变化而变动。</p>
+<p>新作 Dokkaebi 的目标发行窗口是 2028 年下半年。公司说，今年内会公开开发进展。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/pearl-abyss-q3-cover-768x403.webp"/>
+    </item>
     <item>
       <title>《塞尔达传说 时之笛》重制版全部心之碎片（游民攻略）</title>
       <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-xin/</link>
@@ -613,284 +1040,6 @@
 <li>按钮名称、云端或本地 Agent 的权限范围，以登录后现页和当前环境为准。涉及生产数据、权限变更或依赖升级，本篇的禁令不够，那些应另行停下来做决定。</li>
 </ul>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/codex-dont-change-tests-to-pass-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Claude：长对话跑偏后怎么开摘要续聊，而不是接着将错就错</title>
-      <link>https://www.kmhgame.com/claude-zhang-dui-hua-pao-pian-hou-zen-me-kai-zhai-yao-xu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/claude-zhang-dui-hua-pao-pian-hou-zen-me-kai-zhai-yao-xu/</guid>
-      <pubDate>Sat, 14 Nov 2026 02:18:35 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>长对话跑偏了，别在原线程里接着改。先自己写一份纠正过的摘要，把决定、约束和已排除的错路写清楚，再开新对话续聊。自动压缩可能把错误结论一起带走。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-summary-handoff-new-chat-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>网页端和桌面端的长对话会碰到上下文窗口上限。官方帮助中心写过：付费方案里，若已开启代码执行，Claude 会在接近上限时自动摘要先前消息，让对话继续；你偶尔会看到它在“整理思路”（organizing its thoughts），这表示自动上下文管理在工作。完整聊天记录仍会保留，摘要之后也还能引用。触发自动管理的长对话会消耗更多用量；接近用量上限时，官方建议开新对话。（<a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work">用量与长度限制</a>）</li>
-<li>自动摘要不是纠偏。跑偏之后如果还在原线程里继续改，错误结论可能被写进摘要，后面会更难掰回来。更稳的做法是：你自己写一份纠正过的交接摘要，开新对话，只带上仍有效的决定和约束，以及已排除的错路、下一步。</li>
-<li>新对话不会自动带上整段旧线程。付费方案上，若开了记忆或允许搜索旧对话，新聊天仍可能把旧结论检索回来。开场要写明哪些结论已经作废。（<a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context">用聊天搜索和记忆接上旧上下文</a>）</li>
-<li>在 Claude Code 里，官方建议走错路时优先用 <code>/rewind</code>（或连按 Esc）回到出错之前，而不是在原处追加“那不行，改用另一套”。同一任务、上下文发胀时，可用 <code>/compact</code>，并加上焦点说明；换一项新任务，用 <code>/clear</code>，由你决定带哪些内容。（<a href="https://claude.com/resources/articles/using-claude-code-session-management-and-1m-context">Session management and 1M context</a>；<a href="https://code.claude.com/docs/en/context-window">Explore the context window</a>）</li>
-<li>本篇只谈长对话跑偏后如何摘要交接、开新对话续聊。先提问再动手的澄清清单、Projects 知识库过期更新，见站内旧文，这里不展开。（<a href="https://www.kmhgame.com/claude-xian-rang-ta-ti-wen-zai-dong-shou-cheng-qing-wen-ti/">先让它提问再动手</a>；<a href="https://www.kmhgame.com/claude-projects-zhi-shi-ku-guo-qi-le-zen-me-geng-xin-bi/">Projects 知识库过期了怎么更新</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你在同一条 Claude 对话里改稿，或推一件功能，已经来回十几轮。中途它认定了一个你早就更正过的产品名，或咬住一条你已经放弃的实现路径。你反复说“不对，我刚才改过了”，它道歉，下一句又用回旧版本。</p>
-<p>更麻烦的是，对话变长之后，它开始“整理思路”。自动摘要若把那条错误结论写进去，后面每一轮都会先看见这份被压缩过的“事实”。</p>
-<p>这是场景示意，不是某次逐字实测。</p>
-<p>长了以后官方可以自动摘要，好让对话继续。它不会自动判断哪些结论已经被你否决。纠偏要靠你写进交接，并换一个干净的窗口。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p>下面是用法建议。官方没有名为“摘要续聊”的单独按钮。</p>
-<h4>1. 先判断是跑偏，还是只是对话太长</h4>
-<p>如果只是窗口快满、任务方向仍对，网页端在已开启代码执行时，可能会自动摘要并继续；Claude Code 也可以 <code>/compact</code>，并写上焦点，例如“只保留登录改动的决定和未决问题，丢掉中间的排错过程”。</p>
-<p>一旦出现这些信号，就按跑偏处理：它反复使用你已更正的事实或数字；把两个任务的约束混在一起；为一条已经放弃的方案辩护；你纠正了好几轮，它仍回到旧结论。这时不要在原线程里再加一长串“我说的是另一回事”。</p>
-<p>在 Claude Code 里，如果出错之前那些读过的文件还要用，官方更建议 <code>/rewind</code> 回到分岔点，带着你刚刚学到的教训重新下指令，而不是把失败尝试留在上下文里继续补丁。网页端通常没法这样精确裁掉中间几轮，这时直接做摘要交接、开新对话更干净。</p>
-<h4>2. 摘要要你自己定稿，不要原文照贴</h4>
-<p>可以先让 Claude 根据当前对话起草一份交接。你必须改过再带走。重点留下仍有效的决定和约束，明确写出已经排除的错路、作废的数字或名称，以及下一步只做什么。需要继续用的文件，列成清单，新对话里重新附上，不要把整段失败尝试原样搬过去。</p>
-<p>可抄提示，在旧对话里让它起草，再由你删改：</p>
-<pre><code>【任务】为开新对话写一份交接摘要，不要继续在本线程里改正文或改代码。
-【必须写入】
-- 目标：现在要做到哪一步
-- 仍有效的决定和约束
-- 已经排除的做法，以及为什么排除（各用一两句）
-- 已更正、不得再使用的名称、数字或口径
-- 下一步只做什么，不要做什么
-- 新对话需要重新附上的文件清单
-【禁止】
-- 不要把已被否定的结论写成既定事实
-- 不要写“我们倾向于”“可能也可以”这类含糊未决，却又写得像已拍板
-- 不要复述失败过程的细节，只保留结论和教训</code></pre>
-<p>你改完后，开一条新对话，把这份摘要作为第一条消息。只重新附上下一步真正要用的文件。项目里已经放好的长期材料，不必整包再传一遍。</p>
-<h4>3. 新对话的第一句，写明哪些结论作废</h4>
-<p>新窗口不会自动读完整段旧线程。若你开了记忆，或允许搜索旧对话，它仍可能把旧结论检索回来。开场写清楚：上一线程里某某判断已作废，不要再采用；以本条摘要为准。需要它去旧对话里找某一份仍有效的材料时，再明确指出找哪一件，而不是笼统说“按我们上次说的继续”。</p>
-<p>在 Claude Code，若这是一项新任务，用 <code>/clear</code>，再贴上你写好的简报。官方的经验是：换任务就换会话，旧讨论会挤占后面要用的文件，也更费用量。<code>/compact</code> 省事，但摘要由模型决定保留什么，跑偏之后不如你自己写的简报干净。</p>
-<h4>4. 交接之后，先核对它是否还带着错</h4>
-<p>新对话的第一轮回复，先看它有没有沿用已作废的名称、数字或方案。一旦再现，马上打断，补一句作废声明，必要时再开一条，不要重新陷入长线程里的拉锯。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：跑偏就换窗，不要靠多说几句把它掰回来。</strong> 错误结论在原线程里会反复出现，自动摘要还可能把它写死。</li>
-<li><strong>诀窍：摘要必须经过你的手。</strong> 模型起草可以，但被否定的路径和数字要由你划掉。</li>
-<li><strong>诀窍：在 Claude Code，走错路时先考虑 rewind。</strong> 官方把“回到分岔点再下指令”写得比“在原处追加纠正”更优先。</li>
-<li><strong>反例：看着它“整理思路”就继续往下做。</strong> 那只说明自动上下文管理在工作，不说明摘要里的结论是对的。</li>
-<li><strong>反例：新对话里说“按上次的继续”，却不写哪些已经作废。</strong> 记忆或旧对话搜索可能把错的那版找回来。</li>
-<li><strong>反例：把失败排错的全过程贴进新窗口。</strong> 交接要的是教训和约束，不是再喂一遍跑偏的上下文。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本篇只谈：长对话方向跑偏，或错误结论已经卡住时，如何用纠正过的摘要开新对话续聊。不覆盖先提问再动手的澄清清单，也不展开 Projects 知识库过期后如何替换文件。</li>
-<li>自动上下文管理需要开启代码执行，且常见于付费方案；记忆和搜索旧对话也因方案和现页而异。按钮文案、是否对你的账号开放，以登录后现页为准。</li>
-<li>触及长度上限时，官方还建议开新对话，或把稳定材料放到项目里按需取用。那是窗口容量问题；本篇处理的是方向跑偏，两件事可以一起做，不要混成一次“继续聊”。</li>
-<li>没有一份摘要能替代你对关键事实的复核。交接写得再清楚，名称和数字仍要回到原始材料上对。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/claude-summary-handoff-new-chat-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>Grok：上传表格／CSV 做清洗时，哪些统计不该直接信</title>
-      <link>https://www.kmhgame.com/grok-shang-chuan-biao-ge-csv-zuo-qing-xi-shi-nei-xie-tong/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/grok-shang-chuan-biao-ge-csv-zuo-qing-xi-shi-nei-xie-tong/</guid>
-      <pubDate>Sat, 14 Nov 2026 02:14:08 GMT</pubDate>
-      <category>AI</category>
-      <category>使用心得</category>
-      <description><![CDATA[<p>把表格丢给 Grok，先别信它甩出来的合计和均值。自己先记下行数和一两个已知总数，再让它写出计算过程。对一下是不是漏了行，有没有把空值当零，或把小计加了两遍。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-csv-stats-not-trust-cover-1024x576.webp"/></figure>
-
-<h2>要点</h2>
-<ul>
-<li>消费端可以在 grok.com、iOS 和 Android 的对话里，点输入框旁的 +，或在网页端拖放，上传 CSV、XLSX 等表格。官方 FAQ 写过，Grok 能分析电子表格，也能根据 CSV 和 XLSX 做可视化。多数文件上限是每个 150 MB，限制可能因平台或套餐略有差别；超限会报错。（<a href="https://docs.x.ai/grok/faq">消费端 FAQ：如何上传</a>）</li>
-<li>同一页还写了：对话上下文会抽取并处理文件内容，超长文件可能被摘要，或分段处理。上传成功，不等于每一行都进了这一次计算。（同上）</li>
-<li>官方法律 FAQ 提醒过：Grok 偶尔会给出不准确或不合适的信息，也可能出现幻觉，用前须仔细核验。表格统计同样适用。（<a href="https://x.ai/legal/faq">Consumer FAQs</a>）</li>
-<li>官方 API cookbook《CSV to Answers》用实验说明了风险：模型也能直接读文件里的文本，于是可能跳过代码，口头估一个总数。他们对一个 167 KB、3,024 行的文件问某列合计，没跑代码的答案偏了三倍以上。上下文里这份文件只被看到一部分（约 50,000 token，按体积估应约 80,000）；沙箱磁盘上的副本是完整的，用代码才能数到全部行。这是 API 示例和官方实验，不是 grok.com 上的强制按钮。（<a href="https://docs.x.ai/cookbook/examples/csv-to-answers">CSV to Answers</a>）</li>
-<li>本篇只谈：上传表格做清洗和统计时，哪些数字不能直接信，以及怎么跟做核对。把财报或长 PDF 压成“数字＋出处页码”对照表，见站内旧文，这里不展开。（<a href="https://www.kmhgame.com/grok-ba-cai-bao-zhang-pdf-ya-cheng-shu-zi-chu-chu-ye-ma-dui/">Grok：把财报／长 PDF 压成“数字＋出处页码”对照表</a>）</li>
-</ul>
-<h2>正文</h2>
-<h3>场景</h3>
-<p>你从后台导出一张销售明细，上传给 Grok，问：“平均客单价多少？这个月比上个月涨了吗？”</p>
-<p>它很快回一个合计、一个均值，再跟一句趋势判断。数字看起来整齐，你差点就要写进周报。</p>
-<p>回头用 Excel 筛一下，才发现表里有小计行，空值被当成了 0，日期还跨了两个统计口径。也可能文件很大，模型只处理了前面一段，却把结果写成了全表结论。</p>
-<p>这是场景示意，不是某次逐字实测。</p>
-<p>官方允许你上传 CSV 和 XLSX，也举例问过“这份 CSV 里有什么趋势”。它不会在给出平均数之前，先替你核对行数和口径。这条纪律要你自己写进提示，并亲手对一下已知总数。</p>
-<h3>可跟做步骤／可抄工作流</h3>
-<p>下面是用法建议。消费端没有“统计核对”模式。</p>
-<h4>1. 先自己记下基准，再开口问结论</h4>
-<p>上传之前，在 Excel 或你常用的工具里先记下基准：文件名和工作表名，总行数和列名，日期范围，以及一两个你已经知道的总数，比如全表销售额或订单数。</p>
-<p>这些基准是对照尺。没有对照尺，模型给的“平均值涨了 12%”你没有办法当场拆穿。</p>
-<p>超长文件尤其要先做这一步。官方写过，很长的文件可能被摘要或分段处理。文件能传上去，不保证这一问覆盖了全部行。</p>
-<h4>2. 第一轮只做体检，先不要均值和涨跌</h4>
-<p>先让它报告用的是哪张表、看到多少行，各列看起来是什么类型，缺失和重复大概在哪，有没有小计行或合计行，以及准备怎么处理空值和筛选。未经你同意，不要擅自改记录、删除或合并记录，也不要直接给出业务结论。</p>
-<p>可抄提示，按你的表改括号：</p>
-<pre><code>【任务】先体检这张表，不要直接给均值、合计或涨跌结论。
-【文件】（文件名／工作表名）
-【请先报告】
-1. 你实际读取的工作表、行数、列名和主要字段类型
-2. 日期范围（若有日期列）
-3. 各列缺失情况；是否把空值、空白或占位符（如 N/A）算进了计算
-4. 是否存在重复键、小计行、合计行或明显的格式不一致
-5. 你打算采用的筛选、排除或清洗规则（先列出，等我确认后再计算）
-【禁止】
-- 未经确认不要改原始数据，也不要覆盖原文件
-- 不要把缺失值默认当成 0
-- 不要把小计行和明细行加在一起
-- 每一个数字都要写出计算方法和计算前、后的行数</code></pre>
-<p>行的含义要先问清。一张“销售表”可能一行是一笔订单，也可能一行是一个商品明细。按行数当订单数，口径会错。</p>
-<h4>3. 计算时要它出示过程，你对已知总数</h4>
-<p>确认清洗规则之后，再问合计和均值，以及分组对比。提示里写死：每个数字都用可检查的计算得来。消费端就要求它写出代码或逐步计算，并打印将要汇报的数字；同时回报计算前后的行数，以及排除了哪些行。</p>
-<p>然后你拿第 1 步记下的已知总数去对。对不上，先查它排除了什么、是否只处理了部分行，不要先改结论去迁就模型。</p>
-<p>官方 cookbook 里的做法更硬：强制先跑代码再回答，因为模型“看见过文件”之后，可能跳过计算直接估一个数。消费端未必有同样的强制开关，所以更要自己看过程、对基准。那次官方实验里，没跑代码的合计偏了三倍以上。不要把这个数字理解成 grok.com 上每次都会偏这么多。它说明的是风险方向：口头估计不能当作全表统计。</p>
-<h4>4. 这些统计，默认不要直接信</h4>
-<ul>
-<li>没有出示计算方法的合计或均值，以及中位数和占比</li>
-<li>把缺失值、空单元格直接当 0 之后的任何总数</li>
-<li>明细和小计混加，或把分组均值再拿来平均。分母不同的比率尤其危险</li>
-<li>只分析了样本或分段，却写成全表结论</li>
-<li>筛选条件、日期窗口、币种或时区没写清的同比和环比</li>
-<li>从趋势直接推出来的“原因”</li>
-</ul>
-<p>清洗规则可以让它提议，但要你点头后再算。官方也提醒过，输出可能不准确，用前须核验。关键数字最终应回到原表，或在你本机用 Excel、SQL 或 Python 复算一遍。</p>
-<h3>真实用户诀窍／反例</h3>
-<ul>
-<li><strong>诀窍：先对一个你已经知道的总数。</strong> 对上了，再信后面的分组数字。对不上，后面的表再漂亮也不要贴进周报。</li>
-<li><strong>诀窍：让它同时报告行数。</strong> 计算前后行数对不上，往往是偷偷筛了行，或只处理了部分文件。</li>
-<li><strong>诀窍：比率不要对比率做平均。</strong> 不同规模的转化率或折扣率，应该回到人数或金额再算，而不是把各行百分比加起来除以组数。</li>
-<li><strong>反例：上传成功就等于算过全表。</strong> 官方写过超长文件可能被摘要或分段处理。</li>
-<li><strong>反例：把 API cookbook 里的强制跑代码，当成 grok.com 的按钮。</strong> 那是官方实验和开发示例。消费端要靠提示把纪律写进去，再由你复算。</li>
-<li><strong>反例：问一句“有什么洞察”就交差。</strong> 洞察会把口径问题藏进流畅的句子里。</li>
-</ul>
-<h3>适用边界</h3>
-<ul>
-<li>本篇只谈：在 grok.com 或官方 App 里上传 CSV／XLSX 做清洗和统计时，哪些数字不能直接信。不覆盖把财报或长 PDF 压成“数字＋出处页码”对照表，那是另一篇。</li>
-<li>消费端没有“保证统计正确”的模式。提示可以要求它展示计算，不能代替你对原表。</li>
-<li>文件上限、一次能传多少个文件、具体按钮文案，以登录后现页和官方 FAQ 为准。多数文件单个不超过 150 MB，网页端一次大约可传最多约 100 个文件，Android 最多 20 个，限制可能因平台或套餐略有差别。</li>
-<li>财务、医疗、法律或要对外披露的数字，模型结果只适合当工作底稿，最终数字应在原系统或可复核的脚本里出。</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/grok-csv-stats-not-trust-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>GDC调查：34%受访者称过去两年被裁，主办方称样本更偏重受波及者</title>
-      <link>https://www.kmhgame.com/gdc-diao-cha-34-shou-fang-zhe-cheng-guo-qu-liang-nian-bei/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/gdc-diao-cha-34-shou-fang-zhe-cheng-guo-qu-liang-nian-bei/</guid>
-      <pubDate>Sat, 14 Nov 2026 00:24:55 GMT</pubDate>
-      <category>行业杂谈</category>
-      <description><![CDATA[<p>GDC发布11月版《游戏产业现状》调查，34%受访者称过去两年曾被裁员；主办方写明，样本比其他就业统计更偏重受裁员波及的人。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/gdc-soti-cover-1024x576.webp"/></figure>
-<p>GDC刚放出<a href="https://gdconf.com/state-of-the-game-industry-november-2026/">11月版《游戏产业现状》</a>调查。它在<a href="https://gdconf.com/gdc-knowledge-hub/">知识库</a>里被称为年度报告的第15期，并说明调查已经改到年底发布。页上最刺眼的数字是：过去两年里，34%的受访者曾被裁过；美国受访者里，这个比例是39%。</p>
-<p>这些数字看起来不好看，GDC自己先把口径写在了前面。官网写，他们已经连续三年用这份调查追踪裁员，比例一次比一次高，方向和其他行业观察一致；但调查里的升幅高于其他统计模型，更可能是受裁员波及的人更愿意填问卷。页上还写，这组样本比就业总量数据更为偏重，主办方因此把大约900名被裁受访者单列出来，去看他们后来的处境。</p>
-<p>站点<a href="https://www.kmhgame.com/2024-nian-41-de-kai-fa-zhe-shou-dao-cai-yuan-ying-xiang-gdc/">此前写过更早一轮GDC调查</a>。那一次的问法和时间范围都不同。</p>
-<p>在这约900人的被裁样本里，54%目前仍未就业，美国受访者中是59%；27%已经投出过100份以上的简历。另有一个不同口径的数字：过去12个月里，68%的3A工作室受访者表示，自己受到了裁员影响。这一问法统计的是受影响的比例。</p>
-<p>生成式AI的使用仍在往上走，观感却没有跟着热起来。40%的受访从业者说，生成式AI工具已经进入自己的工作，高于上年的36%；用上的人里，57%是每天都在用。55%的人则认为生成式AI正在给游戏行业带来负面影响，35%觉得正负参半，只有8%认为是正面的。官页把55%和上年的54%写成基本没有变化。不少受访者承认，重复劳动和前期调研、做原型时用得上这些工具，但对用它做创作或面向玩家的内容，反对声音仍然很大。负面观感最高的是QA和社区支持岗位，达到76%。</p>
-<p>平台和引擎这边，PC仍是最拥挤的方向，81%的受访者说下一款游戏会做PC。已上市的主机里，PlayStation 5（含Pro）占45%，Xbox Series X/S为37%，Steam Deck 32%，任天堂Switch 2为29%。还没上市的硬件也已经有人在做：21%的开发者已在为尚未发售的Steam Machine开发，10%把下一款游戏对准下一代PlayStation，8%对准Xbox下一代主机Project Helix。引擎方面，目前使用Unreal Engine的开发者占35%，低于上年的42%；Unity为28%，低于上年的30%；自研引擎则从19%升到23%。有11%的受访者目前在使用开源引擎Godot的独立工作室工作，上年这一比例是7%。VR、AR和MR相关开发掉到3%，上年是8%。</p>
-<p>工作时长和心情是另一组对照。在营销、商务以及培训和研究这些相关岗位里，57%的人平均每周工作超过40小时，开发者里这一比例是44%。过去12个月，65%的受访者说这份工作损害了自己的心理健康；86%的人则认为，在游戏行业工作比转到别的行业更有成就感。8%的受访者提到存在强制加班，这部分人里69%没有得到补偿，63%认为那次加班本可以避免。美国受访者中，80%支持游戏行业从业者组建工会。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/gdc-soti-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>娱美德三季度营收1,460.23亿韩元环比增34.9%、营业利润转正，同比营收仍降10.8%</title>
-      <link>https://www.kmhgame.com/yu-mei-de-san-ji-du-ying-shou-1-460-23-yi-han-yuan-huan-bi/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/yu-mei-de-san-ji-du-ying-shou-1-460-23-yi-han-yuan-huan-bi/</guid>
-      <pubDate>Sat, 14 Nov 2026 00:18:02 GMT</pubDate>
-      <category>游戏产业</category>
-      <description><![CDATA[<p>娱美德三季度合并营收146,023百万韩元，环比增34.9%、同比降10.8%；营业利润由亏转盈，增收主要来自《传奇》2、3 IP中国授权入账。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wemade-q3-cover-1024x537.webp"/></figure>
-<p>146,023百万韩元，约合1,460.23亿韩元。这是娱美德（Wemade，韩国交易所代码112040）2026年第三季度的合并营收，比上一季的108,274百万韩元高出34.9%，比上年同期的163,648百万韩元低了10.8%。营业利润26,386百万韩元，上一季还亏损20,962百万韩元，同比微增0.3%。净利润是5,205百万韩元，同比下降90.9%，环比增长50.6%。</p>
-<p>11月11日，公司向韩国金融监督院提交了<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261111900537">第三季度合并财务报表营业（暂定）实绩公示</a>，并在<a href="https://www.wemade.com/kr/news/%EC%9C%84%EB%A9%94%EC%9D%B4%EB%93%9C-2026%EB%85%84-3%EB%B6%84%EA%B8%B0-%EC%8B%A4%EC%A0%81%EB%B0%9C%ED%91%9C-7f897286">公司新闻室</a>发布了业绩说明。数字按韩国采用国际财务报告准则（K-IFRS）的合并口径编制。公示写明，这些数字是暂定数，可能随外部审计人的审查结果而变更。</p>
-<p>下表金额单位为百万韩元，为暂定合并数字。第三季度期间为2026年7月1日至9月30日；同比、环比取自公示原表。</p>
-<figure><table><thead><tr><th>项目</th><th>2026年Q3</th><th>2026年Q2</th><th>环比</th><th>2025年Q3</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>146,023</td><td>108,274</td><td>+34.9%</td><td>163,648</td><td>-10.8%</td></tr><tr><td>营业利润</td><td>26,386</td><td>-20,962</td><td>由亏转盈</td><td>26,308</td><td>+0.3%</td></tr><tr><td>税前持续经营利润</td><td>9,842</td><td>-1,747</td><td>由亏转盈</td><td>65,048</td><td>-84.9%</td></tr><tr><td>净利润</td><td>5,205</td><td>3,457</td><td>+50.6%</td><td>57,360</td><td>-90.9%</td></tr><tr><td>归属母公司净利润</td><td>15,209</td><td>10,308</td><td>+47.5%</td><td>62,060</td><td>-75.5%</td></tr></tbody></table></figure>
-<p>前三季累计是另一组对照，期间为2026年1月1日至9月30日。累计营收407,622百万韩元，同比下降3.5%；累计营业利润13,913百万韩元，上年同期亏损13,577百万韩元，公示将其标为扭亏为盈，没有另列同比增减率。累计净利润28,590百万韩元，同比增长239.4%。</p>
-<figure><table><thead><tr><th>项目</th><th>2026年前三季</th><th>2025年前三季</th><th>同比</th></tr></thead><tbody><tr><td>营收</td><td>407,622</td><td>422,302</td><td>-3.5%</td></tr><tr><td>营业利润</td><td>13,913</td><td>-13,577</td><td>扭亏为盈</td></tr><tr><td>税前持续经营利润</td><td>39,771</td><td>19,329</td><td>+105.8%</td></tr><tr><td>净利润</td><td>28,590</td><td>8,424</td><td>+239.4%</td></tr><tr><td>归属母公司净利润</td><td>47,397</td><td>11,255</td><td>+321.1%</td></tr></tbody></table></figure>
-<p>第三季度归属母公司净利润15,209百万韩元，高于合并净利润5,205百万韩元。公示没有拆这一差额的原因。</p>
-
-<h2>环比被授权入账托起来，在售游戏同比仍在下降</h2>
-<p>公司新闻室把环比增收主要归因于《传奇》2、3 IP的中国授权收入在这一季入账。同比少掉的部分，新闻室写的是已在运营的游戏收入下降。营业利润能比一年前多出0.3%，则是人工、广告宣传等费用整体下降的结果。</p>
-<p>环比数字是被授权入账托起来的。已经在运营的游戏，同比仍在下降。</p>
-<p>新闻室还写，公司正在准备约20款产品，包括《夜鸦W》《传奇5》和项目TAL（Project TAL），Hundred Note IP新作，以及项目IL、项目MO。《夜鸦W》的目标是2027年第二季度上线。《夜鸦》和《传奇4》将进入中国市场；其中《夜鸦》已在今年6月取得中国进口网络游戏版号，正在准备上线。</p>
-<h2>股东变更预定改到12月30日，尚未交割</h2>
-<p>股东变更是另一项已签约、尚未交割的安排。10月14日，公司向韩国金融监督院提交了<a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014900192">最大股东变更相关股份转让合同的定正公示</a>。公示买方为NeoPulse（韩文名네오펄스），国籍为大韩民国。现任最大股东朴瓘鎬（박관호）拟转让13,350,738股，持股比例39.33%。余款支付预定日和最大股东变更预定日，已由2026年10月30日改为2026年12月30日。</p>
-<p>公示写明，改期是因为合同约定的交易交割先行条件满足出现延迟；合同须在企业结合申报获批等先行条件全部满足或被豁免后，才发生效力。变更尚未交割。交割完成后，NeoPulse合计持股将达到13,663,791股、40.25%，其中含其现已持有的313,053股。余款支付日和交易结束日，仍可能随先行条件是否满足及何时满足再调整。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wemade-q3-cover-1024x537.webp"/>
-    </item>
-    <item>
-      <title>史克威尔艾尼克斯验证本地 Nemotron：基本任务能跑，单独做游戏做不成</title>
-      <link>https://www.kmhgame.com/shi-ke-wei-er-ai-ni-ke-si-yan-zheng-ben-di-nemotron-ji-ben/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/shi-ke-wei-er-ai-ni-ke-si-yan-zheng-ben-di-nemotron-ji-ben/</guid>
-      <pubDate>Fri, 13 Nov 2026 10:19:42 GMT</pubDate>
-      <category>AI</category>
-      <category>AI新闻</category>
-      <description><![CDATA[<p>史克威尔艾尼克斯工程师在社内 H100 上验证本地 Nemotron 3.5：聊天和脚本等基本任务能完成，但让它单独做一款寻宝游戏，中途停住，完全不成游戏。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/se-nemotron-local-verify-cover-1024x576.webp"/></figure>
-<p>11 月 10 日，NVIDIA 在东京办了开发者活动 Agentic AI Day Japan 2026。史克威尔艾尼克斯 AI 与引擎开发部门的 AI 工程师藤井翔太，讲了他们把生成式 AI 接到游戏开发平台上的验证。<a href="https://pc.watch.impress.co.jp/docs/news/2155676.html">PC Watch</a> 发了较完整的现场报道，<a href="https://ai.watch.impress.co.jp/docs/news/2155320.html">AI Watch</a> 对同一场活动也有记录。</p>
-<p>他们在公司内部的 H100 环境里跑了 NVIDIA 的视觉语言模型 Nemotron 3.5 Super VL，参数规模标注为 120B-A12B。报道配图说明，部署位置是 NVIDIA DGX。所谓本地大语言模型，就是把模型放在自己的机器上跑，数据不必送到外部云端。</p>
-<p>藤井先谈到 3A 游戏开发变贵，并引用了经济产业省今年 2 月公布的数据，稿件未见具体数字。他的判断是，写文档和策划案，再就是写代码、做内部工具和测试，这些环节都能用上 AI。但 ChatGPT、Claude 这类云端前沿模型本身也贵，“人做和 AI 做，哪个更贵，得看任务”。游戏还经常要喂 3D 场景和视频，一次消耗的文本量很大；策划案那种没有标准答案的来回讨论，上下文还会越攒越贵。本地模型除了费用，还有数据不出门、云端改版时输出不会跟着漂、也不用绑在外部接口上这些好处。他给出的使用前提，是用来辅助创作者。</p>
-<p>验证分四块。</p>
-<p>聊天这边，解释术语、回答“世界最高的山”这类短问题，以及带数字单位的计算、按格式出三个村名，都能答上来。“世界最高的山”这类短问题，Nemotron 用了 0.79 秒，比拿来对比的其他模型都快；题目一难，它反而比别的模型慢，速度快慢差得比较大。藤井的看法是，本地模型更适合简单对话。他们还塞进去一段龙在吃饭的视频，模型用大约 10.6 秒给出了准确理解。藤井说，这是他“个人比较吃惊的一点”。</p>
-<p>脚本这边，让它写一个把图像正负片反转的 Python 脚本，一次就写对，花了 22 秒。这类较简单的脚本，速度上给人的印象是 ChatGPT 和 Claude 还略快一些。再用 HTML 做一款能左右移动和跳跃、还有剑的命中判定和过关条件的小游戏，也是一次请求就跑起来了。藤井的小结是：聊天和脚本这些他本来就觉得能做的事，确实做了出来。</p>
-<p>动作生成没有只靠 Nemotron。它负责把脚步位置和时间写成 JSON，再交给 NVIDIA 的动作生成模型 Kimodo 在虚幻引擎里出动作。Kimodo 的全称是 Kinematic Motion Diffusion，可以根据文字或少量姿势生成整段动作。演示里，角色能抬脚跨过地上的杆。按同样办法，搬运、跳过沟，还能攀上 1.2 米的台，或从 1.1 米高的杆下钻过去，基本步行都能生成。</p>
-<p>有意思的是改脚滑。跨杆行走一开始在虚幻里大约滑了 16.4 厘米，让 Nemotron 按计划、执行、检查、改进的循环去改，滑步收到了大约 1.7 厘米。关键帧加多了，效果反而变差。完成度最高的一次，只指定了 6 个关键帧；关键帧再往上加，多余动作会变多，脚会滑，手也会被定住。障碍物当时没加碰撞，把多段动作接起来时，会出现脚穿模。藤井仍然觉得，只靠位置和关键帧就能串成这一串，比预想中顺。他给自己记的改进项是：先定好评价标准和修改方针。</p>
-<p>最后测的是 MCP。这是一套让 AI 调用外部软件的约定。虚幻引擎 5.8 和 Blender 5.1 之后，都有官方的实验性 MCP 服务。让它在 Blender 里做一棵树，再放到虚幻场景里，这一步跑通了。可一旦题目改成“做一款寻宝游戏”，从生成物件到把游戏跑起来，本地模型单独做，中途停住，完全不成游戏。后来他们先让 Claude Code 列出所需任务，再用 NVIDIA 的模型路由库 NeMo Switchyard 来分配：简单的给 Nemotron，难的分给 ChatGPT 等前沿模型。一部分物件开始能动了，游戏还是没有做完。</p>
-<p>藤井的结论很克制。基本操作本地模型扛得住；自由度高的课题，现在仍要把难的部分分给前沿模型，而且得自己手里有一套检查办法。他还说，别的工作能不能也这么用，要继续试。</p>
-<p>这场分享停留在公开验证。稿件未见史克威尔艾尼克斯把 Nemotron 写进在售作品管线的官方声明。</p>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/se-nemotron-local-verify-cover-1024x576.webp"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版卢比怎么刷（游民攻略）</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-lu-bi-zen-me/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-lu-bi-zen-me/</guid>
-      <pubDate>Fri, 13 Nov 2026 09:53:24 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>重制版可以靠出售道具或完成小游戏来刷卢比，收集黄金骷髅蜘蛛也能换奖励。游民按童年、成年和任意时代分开写，并建议先升级钱包。初始儿童钱包上限只有 200 卢比，收集 10 只黄金骷髅蜘蛛可换成大人钱包，上限 500 卢比。页上也写了各颜色卢比的价值和用途。具体方法和数值以游民原文为准，本稿只作入口。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
-<h2>【来源】</h2>
-<ul>
-<li>原文：游民星空《塞尔达传说时之笛重制版》卢比刷取攻略 怎么刷卢比，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-06 18:10:23</li>
-<li>链接：<a href="https://www.gamersky.com/handbook/202611/2242240.shtml">游民星空《塞尔达传说时之笛重制版》卢比刷取攻略 怎么刷卢比</a></li>
-<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全曲目与效果一览（游民攻略）</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-qu-mu-yu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-qu-mu-yu/</guid>
-      <pubDate>Fri, 13 Nov 2026 09:44:30 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>游民在一页里收齐了全部时之笛曲目，写出效果、学习方式和演奏按键，并分别标了 Switch 2、N64 和 3DS 的谱面。从“塞尔达摇篮曲”到“稻草人之歌”都在表内。页上还写了曲目的使用方法，例如开启封锁区域。查谱和学曲以游民原文为准，本稿只作入口。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
-<h2>【来源】</h2>
-<ul>
-<li>原文：游民星空《塞尔达传说时之笛重制版》全曲目与效果一览，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-06 18:23:53</li>
-<li>链接：<a href="https://www.gamersky.com/handbook/202611/2242247.shtml">游民星空《塞尔达传说时之笛重制版》全曲目与效果一览</a></li>
-<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全章节图文流程：路书入口（游民攻略）</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-zhang/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-zhang/</guid>
-      <pubDate>Fri, 13 Nov 2026 09:31:50 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>《塞尔达传说 时之笛》重制版的全章节图文流程，实际入口在游民路书工具页；handbook 原链会跳转到那里。静态目录目前能核到第 1 到第 11 章，最后一章是“冰之洞窟”。源码目录里未见水神殿、暗神殿、魂神殿，还不能写成已核完整通关。章节步骤以游民路书原文为准，本稿只作入口。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
-<h2>【来源】</h2>
-<ul>
-<li>原文：游民星空《塞尔达传说时之笛重制版》全章节图文流程攻略，作者 瑞破受气包，来源：游民星空[原创]，2026-11-05 19:08:41</li>
-<li>链接：<a href="https://www.gamersky.com/tools/guide-map/roadbooks/54">游民星空《塞尔达传说时之笛重制版》全章节图文流程攻略（路书）</a></li>
-<li>handbook 原链：<a href="https://www.gamersky.com/handbook/202611/2241594.shtml">游民 handbook 2241594</a>（页面会跳转至该路书工具页）</li>
-<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版易错过内容汇总（游民攻略）</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-yi-cuo-guo/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-yi-cuo-guo/</guid>
-      <pubDate>Fri, 13 Nov 2026 09:12:35 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>游民这篇汇总了会永久错过的一次性内容和限时事件，也列出可以后期补回的项目。页上特别提醒，区域间移动或解谜时会自动保存，存档位在保存 5 次后就会覆盖，更早的记录只能靠手动存档恢复。进入成年时代后，即便回到童年，海拉鲁城堡庭院也无法再进。具体条目以游民原文为准，本稿只作入口。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/></figure>
-<h2>【来源】</h2>
-<ul>
-<li>原文：游民星空《塞尔达传说时之笛重制版》易错过内容汇总，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-06 17:48:55</li>
-<li>链接：<a href="https://www.gamersky.com/handbook/202611/2242232.shtml">游民星空《塞尔达传说时之笛重制版》易错过内容汇总</a></li>
-<li>说明：本稿为短开篇导读＋原文入口；攻略步骤与数值以游民原文为准；妙游社未做本站实机通关背书</li>
-</ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/wx-164365856d-0.webp"/>
     </item>
   </channel>
 </rss>
