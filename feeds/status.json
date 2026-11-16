@@ -6,16 +6,16 @@
   "error": null,
   "items": 20,
   "newest": "2026-09-14T13:00:00Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "lol-dev",
   "title": "League of Legends · Dev News",
   "ok": true,
   "error": null,
-  "items": 20,
-  "newest": "2026-10-20T17:00:00Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "items": 22,
+  "newest": "2026-11-16T16:00:00Z",
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "gameres-25",
@@ -24,7 +24,7 @@
   "error": null,
   "items": 30,
   "newest": "2026-11-13T01:15:00Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "thepaper-tag-1909025",
@@ -33,7 +33,7 @@
   "error": null,
   "items": 10,
   "newest": "2026-08-22T03:48:13Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "kmhgame",
@@ -41,8 +41,8 @@
   "ok": true,
   "error": null,
   "items": 30,
-  "newest": "2026-11-16T05:39:04Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "newest": "2026-11-16T16:34:32Z",
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "jamesclear-3-2-1",
@@ -51,7 +51,7 @@
   "error": null,
   "items": 18,
   "newest": "2026-11-12T14:00:00Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "checked_at": "2026-11-16T22:18:28Z"
  },
  {
   "id": "gamersky-review",
@@ -60,6 +60,6 @@
   "error": null,
   "items": 23,
   "newest": "2026-11-15T12:34:05Z",
-  "checked_at": "2026-11-16T11:43:15Z"
+  "checked_at": "2026-11-16T22:18:28Z"
  }
 ]

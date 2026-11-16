@@ -8,12 +8,31 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/lol-dev.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Tue, 20 Oct 2026 17:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 16:00:00 GMT</lastBuildDate>
     <image>
       <url>https://www.leagueoflegends.com/favicon.ico</url>
       <title>League of Legends · Dev News</title>
       <link>https://www.leagueoflegends.com/en-gb/news/dev/</link>
     </image>
+    <item>
+      <title>Dev Update: Season 1 2027</title>
+      <link>https://www.youtube.com/watch?v=Uo_SyjdVz9s</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Uo_SyjdVz9s</guid>
+      <pubDate>Mon, 16 Nov 2026 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p><iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/Uo_SyjdVz9s" width="640"></iframe></p><p>Pabro and Meddler talk gameplay changes to Summoner's Rift, Mayhem, and Ranked in January 2027.</p><p><a href="https://www.youtube.com/watch?v=Uo_SyjdVz9s">▶ Watch on YouTube</a></p>]]></description>
+      <media:thumbnail url="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/5e953669d4bd920a821caa10516f51b87205039a-1280x720.jpg?accountingTag=LoL"/>
+    </item>
+    <item>
+      <title>TL;DW: Season 1 2027 Dev Update</title>
+      <link>https://www.leagueoflegends.com/en-gb/news/dev/tldw-season-1-2027-dev-update---lol-website-article-lollol27-s1225r001</link>
+      <guid isPermaLink="true">https://www.leagueoflegends.com/en-gb/news/dev/tldw-season-1-2027-dev-update---lol-website-article-lollol27-s1225r001</guid>
+      <pubDate>Mon, 16 Nov 2026 16:00:00 GMT</pubDate>
+      <dc:creator>Meddler</dc:creator>
+      <description><![CDATA[<p><em>A short rundown of changes from today’s Dev Update.</em></p>
+<figure><img alt="" src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/84fbc0e4be52a8b62971ac58f3857eb79de03cba-1920x1080.png?accountingTag=LoL"/></figure>
+<p>Hey everyone, Pabro and Meddler here with a quick TL;DW of today’s <a href="https://www.youtube.com/watch?v=Uo_SyjdVz9s">Dev Update</a>:</p><ul><li>We’ll be doing a full reveal of New Dawn in January, in place of our Season Start moment.</li><li>We’re going to pair the season start cinematic with New Dawn’s launch later next year.</li><li>We’ll start playtesting shortly after the reveal to get your feedback. Sign up to learn more on the <a href="https://www.leagueoflegends.com/en-us/new-dawn/">New Dawn website</a>.</li><li>The gameplay changes for January are focused on both short term health for League as well as changes that can be carried over into New Dawn.</li><li>We’re bringing back Kleptomancy as a Keystone Rune, which has a new unique loot reward that gives a small discount to items in the store.</li><li>We’re adding a new Keystone, Titanborn, that grants ramping armor and magic resist while in champion combat, and unleashes a shockwave when at max stacks.</li><li>We’re overhauling the on-hit item system to give on-hit users more options to create a full build.</li><li>Terminus will become more clearly about piercing through foes, rather than granting armor and magic resist.</li><li>Wit’s End is being updated into a go-to move speed item against magical opponents.</li><li>Blade of the Ruined King’s percent health damage is being bugged with its slow removed.</li><li>Fatetaker is a new on-hit item that grants attack speed, armor, and has a three-hit passive. It also inherits Blade of the Ruined King’s slow without a cooldown.</li><li>We’re reworking Riftmaker’s stats and uniques.</li><li>There’s a new AP item called Lifebloom Crown that grants onmivamp and allows overhealing.</li><li>Gravescourge is a new Lethality item that summons Mistwraiths to chase down nearby enemies.</li><li>Faelights are being removed.</li><li>We’re trying something new next season called “Ranked Rush.”</li><li>In January <i><strong>everybody’s</strong></i> visual rank will reset to Iron IV, but MMR will be the same to ensure match quality.</li><li>Everyone will climb from Iron IV together with massive LP increases.</li><li>You can earn Timeless Tokens to unlock Timeless Victorious skins—which are variants of previous Victorious skins.</li><li>You can unlock Timeless Victorious skins immediately, no need to wait until the end of the year.</li><li>In January we’ll have an update for ARAM: Mayhem that’s about breaking more of League’s rules than normal.</li><li>Augments can become overloaded and do things like increase inventory size.</li><li>We’re also doing community voting to bring back old Mayhem Augments, with the first coming shortly after the update.</li></ul>]]></description>
+      <media:thumbnail url="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/84fbc0e4be52a8b62971ac58f3857eb79de03cba-1920x1080.png?accountingTag=LoL"/>
+    </item>
     <item>
       <title>/dev: Mel Midscope</title>
       <link>https://www.leagueoflegends.com/en-gb/news/dev/dev-mel-midscope</link>
