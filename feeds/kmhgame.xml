@@ -8,7 +8,187 @@
     <atom:link href="https://raw.githubusercontent.com/neilliu77/rss-feeds-Claude-Opus-5.5/main/feeds/kmhgame.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <generator>rssgen (GitHub Actions)</generator>
-    <lastBuildDate>Tue, 17 Nov 2026 13:56:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 01:17:54 GMT</lastBuildDate>
+    <item>
+      <title>Codex 越改越乱，一个 Thread 只做一件事</title>
+      <link>https://www.kmhgame.com/codex-yue-gai-yue-luan-yi-ge-thread-zhi-zuo-yi-jian-shi/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/codex-yue-gai-yue-luan-yi-ge-thread-zhi-zuo-yi-jian-shi/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:17:54 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>最省事的用法是在同一个会话里一路追加需求：先做首页，再加登录，顺手改个按钮，最后补个 README。十几轮下来你会发现它越来越「笨」，甚至把之前写好的代码改坏了。</p>
+<p>这篇教程把 Codex 当工程师而不是聊天机器人来看。原文有个说法很到位：ChatGPT 擅长回答问题，Codex 擅长完成任务。真正拉开差距的往往不是模型，而是工程工作流。（原文有删节）</p>
+
+<h2>它启动后第一件事是读项目</h2>
+<p>第一次运行 codex 会停一下，那不是在等你，它在读 package.json 和依赖、README、目录结构与核心源码，还有当前 Git 状态，判断这是 React、Next.js、Vue 还是 Python 项目，然后才拆任务。</p>
+<p>所以别一上来就写「帮我优化一下」。改成先探索后行动：让它读当前项目、理解整体结构、先不要改任何文件，总结出架构、核心模块和启动方式。</p>
+<p>启动位置也别随便。Codex 把当前终端目录当成整个工作区，在桌面或用户根目录下启动，它就把那里当项目来扫。先建一个专门的项目目录，进去再启动。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-03-b1.webp"/></figure>
+<h2>一个 Thread 只做一件事</h2>
+<p>开头那个问题，根子在上下文开始乱了：每次请求拖着越来越长的历史 token，不同任务的指令还会互相干扰。</p>
+<p>先把两件事分清楚。Project 是你的代码仓库或独立目录，是它的工作现场。Thread 是今天的具体任务单。</p>
+<p>一个项目拆成多个任务，每个任务开一个 Thread，一个 Thread 只负责一个独立目标。作者的习惯是把 Thread 和 Git Branch 一一对应，登录逻辑一个分支对一个 Thread，导航栏修复一个，支付重构一个。</p>
+<p>这样做的好处很实在：上下文干净、省 token，中断后回来能立刻接上，改动范围集中、code review 轻松，也不会出现「昨天在修接口 bug，今天顺手把全局 CSS 改乱了」这种事。</p>
+<p>标准动作是开 Thread A，完成单一任务，审查提交，归档，再开 Thread B。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-03-b2.webp"/></figure>
+<h2>复杂任务先开计划模式</h2>
+<p>打开 Codex 直接输入「重构整个项目」然后干等，是最不建议的做法。复杂任务先进入 Plan Mode。</p>
+<p>提示词一句话就够：请不要修改代码，先读整个项目，给我一个排查计划，等我确认以后再动手。命令行里也可以直接敲 /plan。</p>
+<p>这时它不改文件，先输出方案：准备检查哪些文件、预计执行哪几步。你在这一步判断思路对不对，比它埋头改一半再返工划算得多。很多时候你会发现它第一步就理解偏了。</p>
+<h2>给它画边界，别让它自由发挥</h2>
+<p>在软件工程里，限制越多、边界越清晰，它的表现越可靠。</p>
+<p>提示词里写清目标、限制和验收标准。比如修首页加载性能：不修改后端调用逻辑、不新增第三方依赖、不改现有视觉样式，验收是消除无效重渲染并把 Lighthouse 性能分提到 90 以上。</p>
+<p>再明确可改文件的白名单和黑名单：只允许改哪两个文件，package.json、API 目录、数据库配置不许碰。作者用得最多的一句是「只允许最小修改，不要重构，不要调整项目结构」。</p>
+<h2>沙箱为什么老在等你批准</h2>
+<p>工作到一半突然停住，界面上写 Waiting for approval，那不是卡死，是在等你批权限。</p>
+<p>沙箱控制它能读写哪些文件、能不能碰项目外的目录、能不能联网、能不能执行 shell 命令。在工作区内改 index.html、App.tsx 通常畅通；一旦要访问桌面、读外部目录、装新依赖、联网或删文件，就会被拦下来等你确认。</p>
+<p>别为了省事开 danger-full-access。默认的安全组合是 workspace-write + on-request：允许读写当前项目目录，涉及系统、网络或高风险的操作必须先申请。</p>
+<p>遇到 git reset –hard 或者带 rm -rf 的命令别急着点 Allow，先让它解释为什么需要这条命令、风险是什么、有没有更安全可逆的替代。</p>
+<h2>文字总结会骗人，Diff 不会</h2>
+<p>看到它输出一句「已完成修改」就直接 commit，是危险的坏习惯。</p>
+<p>每次任务完成，第一件事是在 CLI 里敲 /diff，看清这次到底新增了哪些行、删了哪些、动了哪几个文件。完整的审查流是完成任务、看 /diff 变更、人工 review、终端再确认一次 git diff，测试通过再提交。</p>
+<h2>一分钟速查</h2>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-03-b3.webp"/></figure>
+<h2>常见问题</h2>
+<p>问：为什么同一个会话里越用越乱？</p>
+<p>答：不同任务的指令互相干扰，历史 token 也越拖越长。一个 Thread 只做一个目标，做完就归档。</p>
+<p>问：什么任务该开 Plan Mode？</p>
+<p>答：改动大、涉及多个文件的任务。先让它出方案，确认思路再执行。</p>
+<p>问：它一直停在 Waiting for approval？</p>
+<p>答：那是沙箱在等授权。先看清它要执行的命令是什么，确认安全再批准。</p>
+<p>问：怎么防止它顺手改坏别的文件？</p>
+<p>答：在提示词里写清可改文件的白名单和禁止触碰的黑名单，再加一句「最小修改、不要重构」。</p>
+<h2>来源与编译</h2>
+<p>本文转载自腾讯云开发者社区（AI调研官） 《从 Chat 到 Agent：Codex 保姆级教程，一篇文章教会你怎样用 Codex 做项目》，原文链接：<a href="https://developer.cloud.tencent.com/article/2777541">https://developer.cloud.tencent.com/article/2777541</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-03-768x432.webp"/>
+    </item>
+    <item>
+      <title>Claude Code Skill 装了不生效，先查三件事</title>
+      <link>https://www.kmhgame.com/claude-code-skill-zhuang-liao-bu-sheng-xiao-xian-cha-san/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/claude-code-skill-zhuang-liao-bu-sheng-xiao-xian-cha-san/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:17:53 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>我随手把技能目录命名成 my-skill-v1，里面 SKILL.md 的 name 字段写的却是 code-review，装完怎么都不对，折腾了小半天才定位到是命名不一致。</p>
+<p>这篇整理的是作者从 beta 期就一路装过、跑过、在真实项目里用过的 17 个 Claude Code Skill。下面挑装和用最容易踩的地方讲。（原文有删节）</p>
+
+<h2>Skill 到底固化了什么</h2>
+<p>普通 Prompt 是一次性的。你问「这段代码有什么问题」，它看完答完对话就结束，下次同样的事还得重新说一遍，表述稍微变一点，输出还会飘。</p>
+<p>Skill 把一组执行流程固化成一个文件包，里面有任务拆解步骤、工具调用规则、输出模板和质检项。Claude Code 先读 SKILL.md 的 description 字段，判断当前任务匹配哪个技能，再按里面的流程一步步走。</p>
+<p>作者挂了代码评审 Skill 之后，评审报告从随想变成了固定格式的问题清单加修改建议，稳定性和可复用性完全是另一个级别。</p>
+<h2>Skill 和 MCP 分工在哪</h2>
+<p>把插件生态比作厨房，MCP 解决的是能不能碰到外部工具，比如查数据库、操作浏览器、调第三方 API；Skill 解决的是拿到工具之后怎么干活。</p>
+<p>两者是配合关系。Skill 配置里有一个 allowed-tools 字段，声明这个技能运行期间允许调用哪些工具，其中就包括 MCP Server 暴露出来的能力。一个「运营周报」Skill，可以先通过 MCP 拉数据库里的业务数据，再按固定模板生成周报。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-02-b1.webp"/></figure>
+<h2>三条安装路径，按环境挑</h2>
+<p>终端最通用。机器上有 Node.js 18 以上，执行 npm install -g @anthropic-ai/claude-code，装完敲 claude –version，看到版本号就成了。Windows 下 CMD 和 Git Bash 都能跑，终端编码偶尔乱码，把代码页切到 UTF-8 就行。</p>
+<p>主力在 VSCode 的就再装官方扩展。在 settings.json 里指定 claude-code.path 指向全局的 claude，插件模式会跟着当前工作区走，打开哪个项目就加载哪个项目的 .claude/skills，在多项目之间切换省事。</p>
+<p>不熟命令行的可以用桌面版，走官方渠道下载安装包。作者实测遇到下载失败，多是网络波动或本地安全软件拦截。市面上打着「加速下载」「一键破解」旗号的包别碰，这类东西风险极高。</p>
+<h2>装完没生效，先查这三件事</h2>
+<p>这一条作者踩得最久。</p>
+<p>第一看目录位置。全局技能放 ~/.claude/skills/，项目级的放项目根目录下的 .claude/skills/。层级放错，它就不在对应的加载范围里。</p>
+<p>第二看 SKILL.md 的文件名和大小写是否准确。</p>
+<p>第三看 YAML frontmatter 有没有语法错误。按作者的说法，这三处的出错概率占九成以上。</p>
+<p>还有一个容易忽略的点。Claude Code 加载技能时会检查目录名和 SKILL.md 里的 name 字段是否一致。不一致虽然理论上也能加载，但触发和调用的成功率会明显下降。作者就是把目录命名成 my-skill-v1、name 写成 code-review，卡在这儿半天。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-02-b2.webp"/></figure>
+<h2>验证有没有加载，有三种问法</h2>
+<p>打开交互界面输入 / 看命令列表，已加载的技能会列在里面。也可以直接问一句「你现在加载了哪些技能」，装对了它会报出技能名和功能描述。第三种是半自动的：直接触发它的使用场景，比如说「用代码评审技能检查一下当前改动」，看它的行为是否按技能文件里定义的流程走。</p>
+<h2>自己写一个，从单个 SKILL.md 起步</h2>
+<p>标准目录结构里核心只有一个 SKILL.md，prompts/、scripts/、assets/ 都是可选的加分项。作者的建议是先写单个 SKILL.md，跑通了再拆 prompts 和 scripts。</p>
+<p>有项目级需求就别放全局，放项目根目录的 .claude/skills/，跟着 git 一提交，团队其他人拉下来自动就能用，适合把团队级的标准流程沉淀下来。</p>
+<p>那 17 个技能里，开发提效类的用得最勤。skill-247 把大重构拆成批次，每批跑完自己检查、写进度再继续；1m-context 遇到超长文件先切片摘要和索引，再按需深入具体段落；prompt-ultra 把模糊需求改写成含角色、目标、约束、步骤和输出格式的完整模板。</p>
+<h2>一分钟速查</h2>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-02-b3.webp"/></figure>
+<h2>常见问题</h2>
+<p>问：Skill 和 MCP 是什么关系？</p>
+<p>答：MCP 解决能不能碰到外部工具，Skill 解决拿到工具之后怎么干活。Skill 用 allowed-tools 声明运行期能调哪些工具，里面就包括 MCP Server 暴露的能力。</p>
+<p>问：装到全局还是项目里？</p>
+<p>答：自己常用、跨项目都要的放 ~/.claude/skills/；团队共享、要跟着仓库走的放项目的 .claude/skills/。</p>
+<p>问：技能目录里带脚本跑不起来？</p>
+<p>答：检查脚本有没有执行权限，Linux 和 macOS 上偶尔要手动 chmod +x。</p>
+<p>问：怎么算装对了？</p>
+<p>答：输入 / 看列表，或者直接问它加载了哪些技能，装对了会报出技能名和功能描述。</p>
+<h2>来源与编译</h2>
+<p>本文转载自CSDN（weixin_29061531） 《Claude Code Skill 实战：17个亲测高效技能包与安装指南》，原文链接：<a href="https://blog.csdn.net/weixin_29061531/article/details/169758116">https://blog.csdn.net/weixin_29061531/article/details/169758116</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-02-768x432.webp"/>
+    </item>
+    <item>
+      <title>Grok Bot 剪口播，三段提示词连原片都不碰</title>
+      <link>https://www.kmhgame.com/grok-bot-jian-kou-bo-san-duan-ti-shi-ci-lian-yuan-pian-dou/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/grok-bot-jian-kou-bo-san-duan-ti-shi-ci-lian-yuan-pian-dou/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:17:52 GMT</pubDate>
+      <category>AI</category>
+      <category>使用心得</category>
+      <description><![CDATA[<p>第一版剪完在电脑上放了一遍，觉得挺顺，换到手机上再刷就露馅了：底部字幕又小又白，画面一亮点就糊成一片。</p>
+<p>孟健把同一条口播原片交给本地的 Grok Bot，全程只发了三段提示词，连原片文件都没碰。他记下的数据是剪掉约 15.05 秒停顿口误，成片 2 分 31 秒，1080×1920 竖屏，约 24.8 MB。（原文有删节）</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-01-b1.webp"/></figure>
+
+<h2>先让它把工具备齐</h2>
+<p>装好包，用符合条件（比如 Premium）的付费账号登录，它会自动建一个默认机器人。孟健机器上原本只有 FFmpeg 8.0，语音转写是缺的，第一段提示词发过去时让 Bot 自己检查、自己补齐。你机器上什么都没有也不慌，把这件事一并交给它。</p>
+<p>要自己动手的只有一处：把提示词里的原片路径换成你自己的文件位置。</p>
+<h2>第一步只读，别让它动原片</h2>
+<p>剪视频最怕两件事，AI 自作主张乱切，或者把辛苦录的原片覆盖坏。所以第一段提示词只让它读：核对本机有没有处理视频和转字幕的工具，读出原片时长和分辨率，把整段话转成带时间戳的文字稿，再把停顿、口误、重复的时段列成清单等确认。</p>
+<p>末尾一定要补一句「全程不要改动原片文件」，后面每一步都靠它兜底。</p>
+<p>这一步等了大约 2 分钟。Bot 先报本机有 FFmpeg 8.0 和 Python、缺语音转写，随后自己装了 faster-whisper，确认原片 2 分 46 秒、1920×1080，然后开始转写。</p>
+<p>转写完它列出的清单很细，从片头静音、句间长停顿，到口误的假开头和垫话，每一段都标了时间区间。</p>
+<h2>切除气口，转成竖屏</h2>
+<p>转写完会弹一张多选卡片，问你要删哪些片段。不用挨个点，直接在下面对话框里把要求和剪辑规范一次发过去。</p>
+<p>第二段提示词交代四件事：原片不动、成品另存到指定文件夹并按规则命名；剪掉刚标出的长停顿、口误和重说；转成 1080×1920 竖屏，中间放原画面、人像居中完整、不加无关贴纸；顶部加一行固定标题，底部加同步中文字幕，去掉句末标点。</p>
+<p>这一轮约 1.5 分钟。它报回的数据是剪掉约 15.05 秒，从 166.03 秒压到 150.99 秒。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-01-b2.webp"/></figure>
+<h2>手机上一看，字幕得改</h2>
+<p>第一版在电脑上没问题，人像居中、上下黑底干净，中段和结尾那些磕绊的重说也都没了。换到手机的竖屏里刷，毛病就出来了：底部字幕字号偏小、纯白没有描边，画面稍亮就看不清，顶部白字标题也不够抓人。</p>
+<p>改样式不用重新剪一遍，针对这两点单独提单就行。</p>
+<h2>顺手把封面和文案一起要出来</h2>
+<p>发一条口播视频，除了片子本身还得有封面和文案。画面都在它手里，就让第三段提示词一次打包：字幕调大一号、白字加粗带深色描边或半透明底框，顶部标题换成醒目的黄字或白底黑字，另存为第二版；从视频里挑一帧表情自然、没有闭眼的，做成 9:16 封面图并压上大字标题；再按视频里真实讲过的内容写三个备选标题、一段 150 字以内的发布文案和五个话题标签，回复里发一份、本地也存一份。</p>
+<p>这一轮等了 3 到 4 分钟。封面它截在剪辑时间轴约 5.0 秒那一帧，对应原片约 10.60 秒，眼睛是睁开的；文案全文 148 个字。</p>
+<h2>一分钟速查</h2>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-01-b3.webp"/></figure>
+<h2>常见问题</h2>
+<p>问：它会不会把原片改坏？</p>
+<p>答：在第一段和后续提示词里都写明「原片不动、成品另存」，它会把所有生成文件另存到指定文件夹，原片不进剪辑流程。</p>
+<p>问：字幕在手机上还是看不清怎么办？</p>
+<p>答：不要重剪，直接让它改字号、加粗、加描边或底框，另存一个新版本，比从头再来一遍省事。</p>
+<p>问：封面那一帧抽到闭眼怎么办？</p>
+<p>答：再提一次，要求挑表情自然、没有闭眼的帧。挑帧可以反复要求到满意。</p>
+<p>问：本地跑要不要额外付费？</p>
+<p>答：Grok Bot 在本地跑，用符合条件（比如 Premium）的付费账号登录即可，剪辑和生成不另外按次扣费。</p>
+<h2>来源与编译</h2>
+<p>本文转载自掘金（孟健AI编程） 《我用Grok Bot本地剪口播视频，3段提示词搞定气口切除、字幕与封面》，原文链接：<a href="https://juejin.cn/post/7704153929697443894">https://juejin.cn/post/7704153929697443894</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261118-0917-01-768x432.webp"/>
+    </item>
+    <item>
+      <title>Unity 收购 Synty：六万多件低多边形素材将进入还在筹备测试的 Spark</title>
+      <link>https://www.kmhgame.com/unity-shou-gou-synty-liu-wan-duo-jian-di-duo-bian-xing-su/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/unity-shou-gou-synty-liu-wan-duo-jian-di-duo-bian-xing-su/</guid>
+      <pubDate>Wed, 18 Nov 2026 00:29:21 GMT</pubDate>
+      <category>AI</category>
+      <category>AI新闻</category>
+      <description><![CDATA[<p>Unity 在东京 Unite 宣布收购 Synty。超过 6 万件低多边形素材将进入 AI 创作平台 Spark，该平台计划今年晚些时候封闭测试。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/unity-synty-cover-1024x576.webp"/></figure>
+<p>在 Unity 资源商店里混过的人，多半见过 Synty Studios 那种方块感的房子、人和树。官方把这套风格叫 POLYGON。2014 年，Mike Clephane 和 Andrew Stairs 在新西兰，用一个周末做出第一包，放到商店上。后来做成一个“超过 6 万件”的库。官方说，从第一次做游戏的人到专业工作室都在用。</p>
+<p>2026 年 11 月 17 日，两人出现在东京 Unite 的台上。Unity 的<a href="https://unity.com/blog/synty-studios-acquisition">收购说明</a>署期是 16 日。<a href="https://unity.com/blog/unite-tokyo-2026-keynote-recap">主题演讲回顾</a>把这件事写成对创作者支持的一部分：人和库一起进来。</p>
+<p>Unity 看中的不只是货架上那些包。官方把 Spark 叫“AI 原生游戏创作平台”。白话说，就是想让有游戏想法的人，用提示等方式直接做游戏。Synty 的现有库和新做的内容，会从今年晚些时候的封闭测试起，进到这个平台里。演讲回顾还写，从第一天就能在 Spark 里用到。Spark 会直接连上 Unity 资源商店，不单是 Synty 一家的东西。</p>
+<p>平台还没对所有人开放。Spark 还不能算已经能量产交付。交易金额，官方也没公布。</p>
+<p>对现在就在用 Synty 的人，官方把眼下能用的部分按住了。编辑器里已经买的包、授权和工作流继续用；免费的还是免费；Synty 自己的商店和 Synty Pass 照常开；暂时没有改价计划。已经在虚幻引擎和 Godot 上卖的包，也还会继续供货。已经买过的，不论哪个引擎，不受影响。以后要是调整引擎支持，官方说会提前通知。</p>
+<p>大部分做出这些包的艺术家会全职加入 Unity，并继续做新包。Clephane 说，加入之后，艺术家还能给现在这批用户做内容，也能通过 Spark 碰到新的创作者。</p>
+<p>这次收购，是给一个还在筹备封闭测试的 AI 做游戏平台，补上一套已经卖了十年、风格很好认的人做素材。现在的商店还在。新平台要等测试开始。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/unity-synty-cover-768x432.webp"/>
+    </item>
+    <item>
+      <title>2K证实Firaxis重组缩编，工作室负责人Heather Hazen离任</title>
+      <link>https://www.kmhgame.com/2k-zheng-shi-firaxis-chong-zu-suo-bian-gong-zuo-shi-fu-ze/</link>
+      <guid isPermaLink="true">https://www.kmhgame.com/2k-zheng-shi-firaxis-chong-zu-suo-bian-gong-zuo-shi-fu-ze/</guid>
+      <pubDate>Wed, 18 Nov 2026 00:15:06 GMT</pubDate>
+      <category>游戏产业</category>
+      <description><![CDATA[<p>2K证实旗下Firaxis正在重组缩编，工作室负责人Heather Hazen离任；彭博援引知情人士称，11月17日约裁60人，相当于约三分之一编制。</p>
+<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/firaxis-reorg-cover-1024x576.webp"/></figure>
+<p>Firaxis做《文明》和《XCOM》，隶属于Take-Two旗下的2K，工作室在美国马里兰州。<a href="https://news.bloomberglaw.com/daily-labor-report/take-twos-firaxis-video-game-studio-cuts-a-third-of-its-staff">彭博</a>11月17日报道，知情人士称，这家工作室当天裁掉约60人，大约是现有编制的三分之一。2K发言人向彭博证实了重组，也证实Hazen将离任。具体人数，2K没有确认。<a href="https://www.pcgamer.com/gaming-industry/civilization-dev-firaxis-reportedly-lays-off-a-third-of-its-staff-studio-head-departs/">PC Gamer</a>写明，发言人对报道中的具体人数不予置评。</p>
+<p>发言人的说法是：Firaxis正在重组，重新回到工作室的核心优势，也就是做世界级策略游戏，这些游戏三十年来为这个品类定下了行业标准。缩减规模，是为了把力气放在设计和技术，以及玩家体验上，“这意味着要与帮助建成Firaxis的优秀同事道别”。发言人说，这类决定从来都不容易，但对开启下一章是必要的。</p>
+<p>2K对Hazen离任的口径是：工作室进入这一轮重置，她认为现在把位置交出去是合适的，也是有意为之，好让下一位负责人从一开始就完整接手这个新阶段。继任人选，声明里没有写。</p>
+<p>彭博还引知情人士说，Firaxis在做一款尚未公布的新《XCOM》，今年夏天没达到一个重要节点；项目还会继续，但可能因这次缩编有调整。2K那份公开声明没有点名任何具体项目。</p>]]></description>
+      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/firaxis-reorg-cover-768x432.webp"/>
+    </item>
     <item>
       <title>《时之笛》到底伟大在哪？答案不只是情怀</title>
       <link>https://www.kmhgame.com/shi-zhi-di-dao-di-wei-da-zai-na-da-an-bu-zhi-shi-qing-huai/</link>
@@ -834,212 +1014,6 @@
 <p>DeepSeek 代码评审和人工评审谁也取代不了谁，能力结构互补：AI 擅长快速、稳定地兜住规范与低级缺陷，人擅长判断业务正确性与架构风险。把它放在人工 review 之前做第一道关卡，既能省时间，又能让 reviewer 聚焦真正需要判断力的地方。记住，AI 给的是线索清单，最终裁决权永远在人。</p>
 <p>本文转载自编程狮（w3cschool.cn） 《用 DeepSeek 做代码评审对比人工差在哪？该用还是别用》，原文链接：<a href="https://www.w3cschool.cn/article/18184874.html">https://www.w3cschool.cn/article/18184874.html</a>。版权归原作者所有，如需删除请联系我们。</p>]]></description>
       <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261116-1232-01-768x432.webp"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版幸福面具店</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-xing-fu-mian/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-xing-fu-mian/</guid>
-      <pubDate>Mon, 16 Nov 2026 03:50:03 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>幸福面具店这条支线要转手 4 张面具，借出 110 卢比、收回 270 卢比，净赚 160 卢比，最后换来一张真实面具。前提是把塞尔达的信交给卡卡利科村北门的守卫，否则海拉鲁城邑那家店根本不开门。下面把每张面具的借出费用、交付对象和回款一次列清，附上容量升级奖励和几个常见卡点。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
-
-<h2>一分钟速查</h2>
-<figure><table><thead><tr><th>序位</th><th>面具</th><th>交付对象</th><th>地点</th><th>借出 → 回款</th></tr></thead><tbody><tr><td>1</td><td>奇坦面具</td><td>卡卡利科村北门守卫</td><td>通往死亡之山的路上</td><td>10 → 15 卢比</td></tr><tr><td>2</td><td>骷髅面具</td><td>迷途森林骷髅小子</td><td>迷途森林入口附近</td><td>20 → 5 卢比</td></tr><tr><td>3</td><td>恐怖面具</td><td>卡卡利科村墓地小孩</td><td>墓地深处</td><td>30 → 50 卢比</td></tr><tr><td>4</td><td>兔子头箍</td><td>马拉松人</td><td>海拉鲁平原荣蓉牧场外圈</td><td>50 → 200 卢比</td></tr><tr><td>终</td><td>真实面具</td><td>自己留着</td><td>幸福面具店</td><td>任务完成奖励</td></tr><tr><td>—</td><td><strong>合计</strong></td><td></td><td></td><td><strong>借 110 / 回 270</strong></td></tr></tbody></table></figure>
-<h2>先开门，再备钱</h2>
-<p>任务触发点不在店里，而在卡卡利科村：把塞尔达的信交给北门守卫后，他提到新开了一家面具店，请你带张面具给他的孩子，支线才开始。店铺在海拉鲁城邑喷泉北侧、集市的右侧、时之神殿附近。</p>
-<p>什么时候做最划算：把信送出去后就接。这条线里有两处会顺路给你道具容量升级，早做早受益。</p>
-<p>坑点：交信之前店铺一直关着，别白跑城邑。</p>
-<h2>四张面具，一借一还的节奏</h2>
-<p>每次流程固定：去店里付钱借出面具 → 装备上让对方看到 → 交给指定的人 → 拿到对方的付款 → 回店补上租金。四张分别对应守卫、骷髅小子、墓地小孩、马拉松人。</p>
-<p>资金提示：第二张是亏的（借 20、收回 5），手头得先备足卢比；其余三张都赚。</p>
-<p>坑点：面具必须装备后再对话才生效，拿在包里没反应。</p>
-<h2>骷髅小子那一段要绕路</h2>
-<p>送骷髅面具前先拐去迷途森林的森林舞台：从入口按右、左、右、左走到大树附近，从灌木丛下的洞口跳入，和洞里的巨大德库果对话，能免费拿到德库木棒容量升级。之后故意走错路让系统把你送回起点，骷髅小子就在起点附近。</p>
-<p>什么时候做最划算：升级和送面具一次跑完，省一趟森林。</p>
-<h2>恐怖面具与兔子头箍</h2>
-<p>墓地小孩只在早晨出现——若当前是傍晚，吹太阳之歌切到早晨再去；早上墓地里站的是小孩，傍晚则是达姆佩。兔子头箍交给海拉鲁平原上绕着荣蓉牧场外围跑圈的马拉松人，装备好追上他，他会用价值 200 的金卢比买下。</p>
-<p>坑点：马拉松人一直在跑，追不上就多追一圈，别在平原上乱晃浪费时间。</p>
-<h2>拿到真实面具之后</h2>
-<p>装备真实面具回到森林舞台，进门等一小段过场后向右走，与巨大德库果互动，免费拿到德库坚果容量升级。任务结束后店里面具可免费借用，货架上还会多出格鲁德、卓拉、鼓隆三张面具。</p>
-<p>坑点：这三张面具能带到成年，但成年时间线一次只能带其中一张，想换另一张得用幼年林克把面具送回店里。</p>
-<h2>背景与版本差异</h2>
-<p>幸福面具店是《时之笛》里把交易链和道具收集绑在一起的支线，四张面具串起四个地点的 NPC，最后落到真实面具这件多功能道具上。</p>
-<p>重制版的相关变化不多，比较直观的是新增挂毯式任务日志，能随时看到支线进度；另外过场全程配音，送面具时的对话都有了语音。</p>
-<h2>常见问题</h2>
-<p>### 幸福面具店在哪？</p>
-<p>海拉鲁城邑喷泉北侧、集市右侧、时之神殿附近；把塞尔达的信交给卡卡利科村北门守卫后才会开门。</p>
-<p>### 一共几张面具？</p>
-<p>任务链共 4 张：奇坦面具、骷髅面具、恐怖面具、兔子头箍；全部完成后获得真实面具。</p>
-<p>### 会亏钱吗？</p>
-<p>整条链净赚约 160 卢比，但第二张骷髅面具是亏的（借 20 收 5），要先备好本金。</p>
-<p>### 真实面具有什么用？</p>
-<p>能去迷途森林换德库坚果容量升级，还获得与闲语石对话的能力。</p>
-<p>### 墓地里找不到小孩？</p>
-<p>小孩只在早晨出现，吹太阳之歌切换到早晨再去。</p>
-<h2>【来源】</h2>
-<ul><li>原文：游民星空《塞尔达传说时之笛重制版》幸福面具店任务流程攻略 幸福面具店怎么完成，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-07 17:34:05</li><li>链接：<a href="https://www.gamersky.com/handbook/202611/2242490.shtml">游民星空《塞尔达传说时之笛重制版》幸福面具店任务流程攻略 幸福面具店怎么完成</a></li><li>说明：本稿为妙游社整理，事实与数值以原文为准；妙游社未做本站实机通关背书</li></ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全部咕咕鸡</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-gu-gu/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-gu-gu/</guid>
-      <pubDate>Mon, 16 Nov 2026 03:39:52 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>卡卡利科村的咕咕鸡寻回小游戏一共要找回 7 只鸡，交齐后咕咕鸡姐姐给一个空瓶子——全游戏最实用的道具之一。它只在幼年开放，进村顺手就能做完；用鸡滑翔还能飞上风车旁的屋顶，从屋顶男子那儿再拿一片心之碎片。下面把全部咕咕鸡按顺手顺序排好，讲清每只的位置和围栏那段最容易绕晕的走法。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
-
-<h2>一分钟速查</h2>
-<figure><table><thead><tr><th>序位</th><th>位置</th><th>怎么拿</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>村口附近</td><td>抱到姐姐的围栏</td><td>进村先抱它，再去找姐姐可省一趟</td></tr><tr><td>2</td><td>未完工房屋</td><td>姐姐北侧建筑旁，抱进围栏</td><td>就在任务起点附近</td></tr><tr><td>3</td><td>木箱内部</td><td>村中央房屋旁的木箱，翻滚撞破</td><td>最省事的一只</td></tr><tr><td>4</td><td>瞭望塔</td><td>地图北侧哨站附近抓鸡</td><td>抓住后往地图东侧走</td></tr><tr><td>5-6</td><td>围栏区域</td><td>滑翔越栏，把两只依次扔过去</td><td>人先别自己越过围栏</td></tr><tr><td>7</td><td>风车与砖堆</td><td>爬梯子 → 风车 → 滑翔屋顶 → 砖堆顶</td><td>最难一只，留到最后</td></tr></tbody></table></figure>
-<h2>任务怎么开始</h2>
-<p>到卡卡利科村南侧找”咕咕鸡姐姐”对话，围栏就会开启。把抱在手里的鸡丢进围栏即可，7 只全到齐后再找她领报酬。</p>
-<p>什么时候做最划算：首次进村就做。这时你正好要在村里跑各处找人说话，路线重合，不用专程折返。</p>
-<p>坑点：抱着的鸡会挣扎，狂奔容易脱手，慢慢走过去丢更稳。</p>
-<h2>围栏区那一段最绕</h2>
-<p>第 5、6 只在围栏区域的内外各一只。流程是：先在北侧塔楼附近抓一只，走到地图东侧通往围栏的楼梯，滑翔越过栅栏把鸡扔到另一侧；再抓住围栏里那第二只，同样扔过去。注意此时人先别越过围栏，否则顺序会乱。</p>
-<p>坑点：单靠跳跃够不到围栏另一侧，必须借咕咕鸡滑翔。</p>
-<h2>风车和砖堆：压轴的一只</h2>
-<p>爬上围栏区域的梯子，抓住看到的鸡，朝风车走；面朝西侧，绕到风车左边滑翔到正前方房屋的屋顶，继续往西看下方的砖砌结构，鸡就在顶部。把这几只带回围栏，再回头把之前扔过栏的两只也送过去。</p>
-<p>坑点：屋顶滑翔落点偏一点就掉回地面，宁可多试一次也别硬跳。</p>
-<h2>空瓶子之外还有两样好处</h2>
-<ul><li>用鸡滑翔到风车东北侧建筑的屋顶，和坐在屋顶的男子对话，能拿一片心之碎片。</li><li>从第二次开始每次完成得 20 卢比，效率不高，拿到瓶子后不必反复刷。</li><li>想再来一次，可在夜间把鸡从围栏放出，到村外吹太阳之歌，回村即可重新收集；过一段时间它也会自行重置。第二只的位置每轮可能变，有时在骷髅蜘蛛之家旁，有时在村南旅店附近。</li></ul>
-<p>坑点：咕咕鸡小游戏只在幼年时间线开放，成年后进村做不了。</p>
-<h2>背景与版本差异</h2>
-<p>咕咕鸡寻回是《时之笛》里少见的”抱鸡滑翔”玩法，也是系列把鸡当滑翔伞这一传统的源头之一，报酬空瓶子贯穿整个收集流程。</p>
-<p>重制版的相关变化：林克有了独立跳跃键，赶路和站上高台更利索；不过那道围栏仍然要靠咕咕鸡滑翔越过，原版的核心玩法没被改动。</p>
-<h2>常见问题</h2>
-<p>### 咕咕鸡一共几只？</p>
-<p>卡卡利科村这一轮共 7 只，全部交齐后获得空瓶子。</p>
-<p>### 成年了还能做吗？</p>
-<p>不能。小游戏只在幼年时间线开放，进村找咕咕鸡姐姐即可开始。</p>
-<p>### 围栏里的鸡怎么弄过去？</p>
-<p>借助咕咕鸡滑翔越过围栏，把鸡扔到另一侧；纯跳跃过不去。</p>
-<p>### 第二次做还有奖励吗？</p>
-<p>有，每次 20 卢比；另外屋顶男子那里还有一片心之碎片可拿。</p>
-<h2>【来源】</h2>
-<ul><li>原文：游民星空《塞尔达传说时之笛重制版》全部咕咕鸡位置 7只咕咕鸡位置在哪，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-07 17:16:47</li><li>链接：<a href="https://www.gamersky.com/handbook/202611/2242480.shtml">游民星空《塞尔达传说时之笛重制版》全部咕咕鸡位置 7只咕咕鸡位置在哪</a></li><li>说明：本稿为妙游社整理，事实与数值以原文为准；妙游社未做本站实机通关背书</li></ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全部软土</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-ruan/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-ruan/</guid>
-      <pubDate>Mon, 16 Nov 2026 03:30:54 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>全游戏只有 10 处软土，却能一次解决好几个麻烦：心之碎片、黄金骷髅蜘蛛、几条抄近路的豆藤，全靠幼年提前种下的魔豆。要点就一句话——幼年种，成年收。漏种的话，成年回到同一位置只剩一块硬土，什么都长不出来。下面把全部软土按能种的时机排好，顺带说清成年后各自能换到什么。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
-
-<h2>一分钟速查</h2>
-<figure><table><thead><tr><th>区域</th><th>数量</th><th>种豆条件</th><th>成年后的回报</th></tr></thead><tbody><tr><td>科奇里森林</td><td>1</td><td>通关德库树长老（幼）</td><td>26 卢比</td></tr><tr><td>迷途森林</td><td>2</td><td>通关德库树长老（幼）</td><td>黄金骷髅蜘蛛；送怪蘑菇的捷径</td></tr><tr><td>墓地</td><td>1</td><td>通关德库树长老（幼）</td><td>心之碎片</td></tr><tr><td>格鲁德之谷</td><td>1</td><td>通关德库树长老（幼）</td><td>瀑布后方的红卢比与黄金骷髅蜘蛛</td></tr><tr><td>卓拉河</td><td>1</td><td>通关多东哥洞窟（幼）</td><td>心之碎片、黄金骷髅蜘蛛、去卓拉领地捷径</td></tr><tr><td>海利亚湖畔</td><td>1</td><td>通关多东哥洞窟（幼）</td><td>心之碎片、通往钓鱼池的捷径</td></tr><tr><td>死亡之山登山道</td><td>1</td><td>拿到鼓隆手环（幼）</td><td>心之碎片、送眼药水的捷径</td></tr><tr><td>死亡之山火山口</td><td>1</td><td>学会火之波丽露舞曲（幼）</td><td>心之碎片</td></tr><tr><td>巨大邪神像</td><td>1</td><td>学会魂之慰灵曲（幼）</td><td>心之碎片</td></tr><tr><td><strong>合计</strong></td><td><strong>10</strong></td><td></td><td></td></tr></tbody></table></figure>
-<h2>种豆的三条硬规则</h2>
-<ol><li>只能幼年种。成年回来时豆苗已长成豆叶，可以乘坐。</li><li>种下先长幼苗，成年后变成豆叶，沿固定路线带你上高处。</li><li>在软土上放虫能引出藏着的黄金骷髅蜘蛛；种了豆之后吹暴风雨之歌，还会召来妖精。</li></ol>
-<p>什么时候做最划算：幼年阶段只要路过软土就随手种，豆子便宜，成年回来就是白送的移动平台和碎片。</p>
-<p>坑点：漏种没得补。成年后回到同一处，系统只把那块土当普通空地，豆藤不会凭空出现。</p>
-<h2>前四处在幼年主线就能种</h2>
-<p>科奇里森林那处在商店正后方，德库树长老通关后即可；迷途森林有两处，第一处在向左两次、通往海拉鲁平原与科奇里森林的桥所在的区域，第二处要走右、左、右、左、右，在小贩果正后方；墓地在北墙向左走；格鲁德之谷要先抓住桥边的咕咕鸡，滑翔到河对岸桥下方，木箱旁就是。</p>
-<p>坑点：迷途森林的走法记错一步就会被传回起点，先认准小贩果和桥这两个地标再走。</p>
-<h2>需要条件解锁的中段</h2>
-<p>卓拉河那处就在卖魔豆的商人旁边，通关多东哥洞窟后能种，回报最厚——本区的心之碎片、黄金骷髅蜘蛛，外加更快进卓拉领地；海利亚湖畔在湖畔研究所西侧，通向钓鱼池；死亡之山登山道在多东哥洞窟入口旁，要等拿到鼓隆手环，成年后还能当送眼药水给大鼓隆的捷径。</p>
-<p>坑点：卓拉河那处紧挨商人，别买完豆子就走，先蹲下把土种了。</p>
-<h2>末期两处，绑着传送曲</h2>
-<p>死亡之山火山口那处在三角神力台座旁，得先学会火之波丽露舞曲，再用幼年林克传送过去；巨大邪神像那处在魂之神殿入口前的左侧，要会魂之慰灵曲。</p>
-<p>坑点：这两处都得用幼年身份才能种，成年传送过去是没法下种的。</p>
-<h2>背景与版本差异</h2>
-<p>魔豆是《时之笛》里”幼年播种、成年收获”的时间机制，10 处软土连通了碎片、蜘蛛和好几条捷径，至今仍是值得规划的路线。</p>
-<p>重制版的相关变化不大：日夜实时流转让”什么时候种”不再受昼夜限制，随手就能蹲下；新增的挂毯式任务日志，也方便对照还有哪块软土没种。</p>
-<h2>常见问题</h2>
-<p>### 一共几处软土？</p>
-<p>10 处，分布在 9 个地区，其中迷途森林有两处。</p>
-<p>### 成年还能种豆吗？</p>
-<p>不能。魔豆只在幼年有效，成年回去只是乘坐已经成型的豆叶。</p>
-<p>### 软土除了种豆还能干嘛？</p>
-<p>用装虫的瓶子可以引出藏着的黄金骷髅蜘蛛；种豆后吹暴风雨之歌还能招来妖精。</p>
-<p>### 为什么我成年回去什么都没有？</p>
-<p>幼年时没种。没种过的软土，在成年不会长出豆藤。</p>
-<h2>【来源】</h2>
-<ul><li>原文：游民星空《塞尔达传说时之笛重制版》全部软土位置和奖励一览，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-07 09:51:46</li><li>链接：<a href="https://www.gamersky.com/handbook/202611/2242333.shtml">游民星空《塞尔达传说时之笛重制版》全部软土位置和奖励一览</a></li><li>说明：本稿为妙游社整理，事实与数值以原文为准；妙游社未做本站实机通关背书</li></ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全部大妖精泉</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-da/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-da/</guid>
-      <pubDate>Mon, 16 Nov 2026 03:23:50 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>6 座大妖精泉串成一条支线，供奉金额从 25 卢比一路涨到 500 卢比，全收齐要花 1175 卢比。前 3 座幼年就能完成，后 3 座要等成年；最后一处还卡在加侬多夫城堡外，得先拿到金手套才进得去。下面把全部大妖精泉按开放顺序排好，附上每处要带什么道具、什么时候做最省事。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
-
-<h2>一分钟速查</h2>
-<figure><table><thead><tr><th>序位</th><th>地点</th><th>开放时代</th><th>供奉金额</th><th>祝福效果</th></tr></thead><tbody><tr><td>1</td><td>死亡之山登山道山顶</td><td>幼</td><td>25 卢比</td><td>迪荧之火、魔力槽</td></tr><tr><td>2</td><td>海拉鲁城堡右侧死路</td><td>幼</td><td>50 卢比</td><td>回旋斩强化</td></tr><tr><td>3</td><td>卓拉之泉南侧土地</td><td>幼</td><td>100 卢比</td><td>花柔之风</td></tr><tr><td>4</td><td>死亡之山火山口桥右侧</td><td>成</td><td>200 卢比</td><td>魔力 2 倍</td></tr><tr><td>5</td><td>巨大邪神像北部</td><td>成</td><td>300 卢比</td><td>娜如之爱</td></tr><tr><td>6</td><td>加侬多夫城堡外岔路</td><td>成</td><td>500 卢比</td><td>防御力 2 倍</td></tr><tr><td>—</td><td><strong>合计</strong></td><td></td><td><strong>1175 卢比</strong></td><td></td></tr></tbody></table></figure>
-<h2>通用流程：炸墙 → 王座前吹曲子 → 付钱</h2>
-<p>每一处都是同一套：找到看起来脆弱、带坑洞的岩壁，用炸弹炸开（通关火之神殿后也可用万吨锤敲裂缝），穿过隧道进去，在王家台座上吹塞尔达摇篮曲，大妖精现身，支付对应卢比拿到祝福。</p>
-<p>什么时候做最划算：3 座幼年泉全在主线沿路，拿到炸弹后就能顺路清掉。第 4 座要鼓隆服才能安全进火山口，第 5、6 座分别在沙漠主线末尾和最终决战前，跟着剧情走不会漏。</p>
-<p>坑点：卢比不够是最常见的卡壳。建议先攒钱——10 只金骷髅换大人钱包、30 只换巨人钱包把上限拉高，再动身。</p>
-<h2>幼年这三座，拿到炸弹就能连做</h2>
-<p>第一座在死亡之山登山道山顶，进门先炸开凯波拉·格博拉前方那面有坑的岩壁；前提是通关多东哥洞窟、拿到炸弹。第二座回海拉鲁城堡，走右侧的死路再炸一面墙。第三座在卓拉河任务途中，到卓拉之泉后向南走，炸开岩壁即到，花柔之风也在这里学。</p>
-<p>坑点：第二座别一头扎进树篱迷宫，死路在迷宫右手边。</p>
-<h2>成年三座，跟着主线卡开放</h2>
-<p>第四座在死亡之山火山口右侧的桥边，200 卢比换魔力翻倍；第五座在巨大邪神像北侧，两棵树之间炸墙，300 卢比换娜如之爱，短时间硬抗攻击；第六座在加侬多夫城堡外，过彩虹桥后走左侧岔路，用金手套举起岩石开路，500 卢比换防御翻倍。</p>
-<p>坑点：第六座必须先取得金手套，否则岩石举不起来。很多人满地找大妖精，其实卡在道具上。</p>
-<h2>顺手福利：免费治疗和补魔</h2>
-<p>受伤时找任意大妖精对话，她会帮你回血；魔力耗空时也能补充。不想浪费药水时，这是最省的一招，随时能用。</p>
-<h2>背景与版本差异</h2>
-<p>大妖精泉是《时之笛》的经典强化支线，六处泉水对应六种永久祝福，是通关后期的硬实力来源。</p>
-<p>重制版有两处相关改动值得一提：钱包上限由 99 提到 200，攒够 500 卢比供奉最后一座泉不再那么熬人；水之神殿难度下调，也让花柔之风之外的水路探索轻松一些。</p>
-<h2>常见问题</h2>
-<p>### 一共几座，要花多少卢比？</p>
-<p>6 座，依次供奉 25、50、100、200、300、500，合计 1175 卢比。</p>
-<p>### 为什么最后一处进不去？</p>
-<p>加侬多夫城堡外那座要先拿到金手套，用它将挡路的岩石举起开路。</p>
-<p>### 祝福能叠加吗？</p>
-<p>都是永久效果，各管一摊：攻击、防御、魔力、回旋斩、传送与无敌，互不冲突。</p>
-<p>### 大妖精除了给祝福还有别的用吗？</p>
-<p>有，受伤或魔力耗尽时对话可免费补满，不想用药水时很实用。</p>
-<h2>【来源】</h2>
-<ul><li>原文：游民星空《塞尔达传说时之笛重制版》全部大妖精泉位置与奖励一览，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-11 10:40:15</li><li>链接：<a href="https://www.gamersky.com/handbook/202611/2244270.shtml">游民星空《塞尔达传说时之笛重制版》全部大妖精泉位置与奖励一览</a></li><li>说明：本稿为妙游社整理，事实与数值以原文为准；妙游社未做本站实机通关背书</li></ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
-    </item>
-    <item>
-      <title>《塞尔达传说 时之笛》重制版全部黄金骷髅蜘蛛</title>
-      <link>https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-huang/</link>
-      <guid isPermaLink="true">https://www.kmhgame.com/sai-er-da-chuan-shuo-shi-zhi-di-chong-zhi-ban-quan-bu-huang/</guid>
-      <pubDate>Mon, 16 Nov 2026 03:15:16 GMT</pubDate>
-      <category>游戏攻略</category>
-      <description><![CDATA[<p>黄金骷髅蜘蛛一共 100 只，从德库树长老的树洞一直爬到加侬多夫城堡的拱门。每 10 只是一道门槛：10 只拿去卡卡利科村的骷髅蜘蛛之家换大人钱包，30 只换巨人钱包，是早期扩钱包最快的一条路。下面按实际推进顺序重排，把夜间限定、要道具、最容易漏的几处单独拎出来，照着一张表清掉全部黄金骷髅蜘蛛。</p>
-<figure><img alt="" src="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-1024x576.jpg"/></figure>
-
-<h2>一分钟速查</h2>
-<figure><table><thead><tr><th>区域（按推进顺序）</th><th>数量</th><th>主要在哪个时代</th><th>关键道具 / 要点</th></tr></thead><tbody><tr><td>德库树长老</td><td>4</td><td>幼</td><td>弹弓、德库木棒</td></tr><tr><td>海拉鲁城邑一带（含海拉鲁城堡）</td><td>3</td><td>幼</td><td>城堡护城河那只需暴风雨之歌</td></tr><tr><td>科奇里森林</td><td>3</td><td>幼 / 成</td><td>瓶装虫；成年那只夜间用钩索</td></tr><tr><td>卡卡利科村</td><td>6</td><td>幼 / 成</td><td>多为夜间；弹弓、回旋镖、钩索</td></tr><tr><td>墓地</td><td>2</td><td>幼</td><td>瓶装虫、回旋镖</td></tr><tr><td>迷途森林</td><td>3</td><td>幼 / 成</td><td>瓶装虫、魔豆</td></tr><tr><td>荣蓉牧场</td><td>3</td><td>幼</td><td>回旋镖（两只仅夜间）</td></tr><tr><td>海拉鲁平原</td><td>3</td><td>幼</td><td>炸弹、回旋镖</td></tr><tr><td>海利亚湖畔 / 海利亚湖</td><td>5</td><td>幼 / 成</td><td>瓶装虫、重铁靴、长钩索</td></tr><tr><td>死亡之山登山道</td><td>4</td><td>幼 / 成</td><td>炸弹、万吨锤</td></tr><tr><td>多东哥洞窟</td><td>5</td><td>幼 / 成</td><td>炸弹、弹弓、钩索</td></tr><tr><td>鼓隆城</td><td>2</td><td>幼 / 成</td><td>炸弹、钩索</td></tr><tr><td>死亡之山火山口</td><td>2</td><td>幼</td><td>瓶装虫、木箱</td></tr><tr><td>格鲁德之谷</td><td>4</td><td>幼 / 成</td><td>瓶装虫；两只夜间用长钩索 / 艾波娜</td></tr><tr><td>卓拉河 / 卓拉领地 / 卓拉之泉</td><td>8</td><td>幼 / 成</td><td>瓶装虫、回旋镖、钩索、银手套（多夜间）</td></tr><tr><td>加卜加卜大人腹中</td><td>4</td><td>幼</td><td>弹弓、回旋镖</td></tr><tr><td>冰之洞窟</td><td>3</td><td>成</td><td>蓝色火焰、钩索</td></tr><tr><td>森之神殿一带（含森之圣域）</td><td>6</td><td>成</td><td>钩索、稻草人之歌</td></tr><tr><td>火之神殿</td><td>5</td><td>成</td><td>炸弹、时之歌、稻草人之歌、万吨锤</td></tr><tr><td>水之神殿</td><td>5</td><td>成</td><td>炸弹、重铁靴、长钩索</td></tr><tr><td>井底</td><td>3</td><td>幼</td><td>真实眼镜、回旋镖</td></tr><tr><td>暗之神殿</td><td>5</td><td>成</td><td>真实眼镜、长钩索、重铁靴</td></tr><tr><td>格鲁德要塞 / 幻影沙漠</td><td>3</td><td>成</td><td>格鲁德讨伐证明、长钩索</td></tr><tr><td>巨大邪神像</td><td>3</td><td>幼 / 成</td><td>魂之慰灵曲、瓶装虫、魔豆</td></tr><tr><td>魂之神殿</td><td>5</td><td>幼 / 成</td><td>回旋镖、炸弹鼠、银手套、稻草人之歌</td></tr><tr><td>加侬多夫城堡</td><td>1</td><td>成</td><td>钩索</td></tr><tr><td><strong>合计</strong></td><td><strong>100</strong></td><td></td><td></td></tr></tbody></table></figure>
-<h2>幼年主线里顺手就能清的</h2>
-<p>德库树长老、海拉鲁城邑、科奇里森林、卡卡利科村、墓地、荣蓉牧场、海拉鲁平原这些地方，多数不用特殊道具：撞树、撞木箱、翻墙上、用装虫的瓶子逼出来，路过时收掉就行。德库树长老内部 4 只全在通关流程里，第 2、3、4 只都在 B1，跳下大蜘蛛网后先转身看藤蔓，能一次拿下两只。</p>
-<p>什么时候做最划算：通关德库树长老、拿到弹弓之后集中跑一圈幼年区域。这时炸弹、钩索还没齐，先把不需要道具的收了，省得以后专程绕回来。</p>
-<p>坑点：卡卡利科村那 6 只里有 5 只只在夜间出现（通往死亡之山的塔顶、西北侧房屋墙上、骷髅蜘蛛之家侧面、施工建筑砖块、英帕之家南墙），白天怎么找都没有，吹太阳之歌切到夜晚再进村。</p>
-<h2>被道具锁住的那些，拿到就回头补</h2>
-<p>不少蜘蛛被道具卡着：回旋镖（墓地、荣蓉牧场、海拉鲁平原洞窟）、炸弹（多东哥洞窟、鼓隆城、海拉鲁城堡）、钩索（成年后的卡卡利科村、森之神殿、鼓隆城、格鲁德之谷）、长钩索（水之神殿、暗之神殿、格鲁德要塞）、重铁靴（海利亚湖研究所水箱）、银手套（魂之神殿、卓拉之泉西南洞窟）。规律很简单——每拿到一件新道具，就把上一段没清掉的区域倒回去扫一遍。</p>
-<p>什么时候做最划算：钩索是分水岭。它成年前期就能入手，一拿到就值得把卡卡利科村、鼓隆城、格鲁德之谷、多东哥洞窟的存量清空，这几处的蜘蛛都挂在墙上，非它不可。</p>
-<p>坑点：海拉鲁城堡护城河拐角那只需要先吹暴风雨之歌，让痛苦之石起反应，洞口才会出现；井底那三只则要真实眼镜，其中一只还得沿着隐形通道走过去。</p>
-<h2>五座成年迷宫各藏一批</h2>
-<p>森之神殿、火之神殿、水之神殿、暗之神殿、魂之神殿各自 5 只左右，是 100 只里的硬骨头。</p>
-<ul><li><strong>火之神殿</strong>：66、67、70 三只要用炸弹或时之歌，68、69 还得对着稻草人皮埃尔吹稻草人之歌再用钩索钩过去，卡在升降台那段最容易迷路。</li><li><strong>水之神殿</strong>：75、76 用长钩索，77 要装重铁靴游到贝壳上方，78 得用炸弹炸开被堵的通道，79 在瀑布后面。</li><li><strong>魂之神殿</strong>：95 用炸弹鼠炸墙放阳光进来，96 在铁甲武士战前的走廊回头找，98 和 99 都要银手套。</li><li><strong>暗之神殿</strong>：84 到 88 全靠真实眼镜加长钩索，其中 86 在西北有风扇的走廊，不穿重铁靴会被直接吹走。</li></ul>
-<p>坑点：暗之神殿那条风扇走廊，先换鞋再看天花板钩点，顺序反了会被吹飞。</p>
-<h2>夜间限定的，一次扫一片</h2>
-<p>卓拉河、卓拉领地、格鲁德之谷、格鲁德要塞、幻影沙漠、荣蓉牧场、海利亚湖畔、卡卡利科村都有”仅夜间出现”的蜘蛛，有的地方夜里才进得去，比如卓拉领地的瀑布、卓拉之泉西南角的石柱。统一处理办法：吹太阳之歌在昼夜之间切换，一次把同一区域的夜蜘蛛扫干净，比来回跑省事。</p>
-<h2>背景与版本差异</h2>
-<p>黄金骷髅蜘蛛是《时之笛》里的经典收集物，总数 100 只，交给卡卡利科村骷髅蜘蛛之家的家族换取钱包和心之容器，也是 100% 完成度里最花时间的一项。</p>
-<p>重制版相关的变化不多，但钱包上限从 99 提到 200，意味着 10 只蜘蛛换来的人钱包起步就更宽裕，凑钱买齐道具的压力小了一截；此外新增挂毯式任务日志，能直观看到还差多少只没清。</p>
-<h2>常见问题</h2>
-<p>### 一共多少只，奖励是什么？</p>
-<p>100 只，凑够数量依次解锁大人钱包、巨人钱包等奖励，10 只和 30 只是两个关键节点。</p>
-<p>### 为什么有的蜘蛛白天看不见？</p>
-<p>部分点位夜间才刷出，例如卡卡利科村、卓拉河、格鲁德之谷。吹太阳之歌切换昼夜即可。</p>
-<p>### 必须按顺序找吗？</p>
-<p>不必，但很多点位被道具锁着。拿到一件新道具后回头补，效率最高。</p>
-<p>### 藏在软土里的蜘蛛怎么拿？</p>
-<p>对软土用装虫的瓶子，蜘蛛会自己出来。虫可以翻起石头或灌木找到，再用空瓶舀。</p>
-<h2>【来源】</h2>
-<ul><li>原文：游民星空《塞尔达传说时之笛重制版》全部黄金骷髅蜘蛛位置，作者 Game8 English，责任编辑 極56，来源：Game8 English，2026-11-12 16:31:01</li><li>链接：<a href="https://www.gamersky.com/handbook/202611/2245487.shtml">游民星空《塞尔达传说时之笛重制版》全部黄金骷髅蜘蛛位置</a></li><li>说明：本稿为妙游社整理，事实与数值以原文为准；妙游社未做本站实机通关背书</li></ul>]]></description>
-      <media:thumbnail url="https://www.kmhgame.com/wp-content/uploads/2026/11/zelda-ocarina-of-time-switch-2-official-keyart-768x432.jpg"/>
     </item>
   </channel>
 </rss>
