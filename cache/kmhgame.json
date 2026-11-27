@@ -1,6 +1,219 @@
 {
  "items": [
   {
+   "link": "https://www.kmhgame.com/gta-6-min-jian-yi-zhi-pc-chong-dao-91-taketwo-lian-ye-feng/",
+   "title": "《GTA 6》民间移植 PC 冲到 91%，Take-Two 连夜封掉 3007 个库",
+   "content": "<p>《GTA 6》主机版 11 月 19 日才刚发售，官方 PC 版连个准信都还没给，GitHub 上就已经先打完了一场攻防战。</p>\n<p>这几天，一个名叫 “Leonida” 的非官方《GTA 6》PC 移植项目连带它的所有分支，被 R 星母公司 Take-Two 一纸 DMCA 版权投诉直接清场——GitHub 一口气抹掉了整整 <strong>3007 个代码仓库</strong>，连带项目背后庞大的 Discord 社区也被限制和下线。</p>\n<p>事情的起因，是前几天那场规模空前的 Xbox 版文件泄露。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-pc-port-20261127-b1.webp\"/></figure>\n\n<h2>209GB 文件和一份 .exe，点燃了一场“移植竞速”</h2>\n<p>在此之前，网络泄露者“大葱哥”（Cyberleek）放出了体量高达 <strong>209GB</strong> 的《GTA 6》Xbox Series 版游戏文件。光有资源包还跑不起来，真正把这把火点着的，是他在 11 月 23 日前后又把原本扣留的 Xbox 版关键主程序文件（<code>.exe</code>）也公开了。</p>\n<p>这相当于把最后一块拼图递到了全球逆向工程爱好者手里。</p>\n<p>主程序一落地，开发者圈子里立刻掀起了一场非官方 PC 移植竞速：怎么通过静态重编译、模拟器或兼容层，把 Xbox 版硬生生搬到 Windows 上运行。第三方进度追踪网站 PortWatch VI 显示，相关技术方案的整体进度一度冲到了 <strong>91.3%</strong>。</p>\n<p>甚至已经有团队在社交媒体上晒出了进展：他们真的在 PC 上引导启动了游戏，屏幕上顺利跑出了 Logo、加载画面和设置菜单。虽然帧率低得离谱，离正常游玩还差着十万八千里，但对等不到 PC 版的玩家和看热闹的极客来说，“能在 Windows 上点亮《GTA 6》”这件事本身，就已经足够把话题度拉满了。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-pc-port-20261127-b2.webp\"/></figure>\n<h2>“自备游戏文件”的挡箭牌，这次没保住它</h2>\n<p>在这场竞速里，名气最大、复制量最多的，是开发者 NotRexed 牵头的开源重编译项目 <strong>“Leonida”</strong>。</p>\n<p>按照海外开源模拟器和民间移植圈的老规矩，项目方在页面上挂了一套标准的免责声明——“自备游戏文件”（Bring Your Own Files），意思是仓库里只放重编译代码，不提供任何游戏本体资源，想用得靠玩家自己去提取正版文件。</p>\n<p>这套说法以前帮不少主机模拟器逃过一劫，但这次在 Take-Two 法务面前完全没起作用。</p>\n<p>Take-Two 在发给 GitHub 的 DMCA 下架通知里直接挑明了态度：这个项目紧跟着《GTA 6》Xbox 版泄密事件冒出来，目的就是为了引导并运行未授权的《GTA 6》副本，所谓的“自备文件”只是故意误导。</p>\n<p>GitHub 接到投诉后动作非常彻底，直接顺着分支网络把整个关系链一锅端——主仓库加上全网 3000 多个 Fork 分支，一共 <strong>3007 个代码仓库</strong>一夜清空。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-pc-port-20261127-b3.webp\"/></figure>\n<h2>明面上封得干干净净，地下其实没停</h2>\n<p>在代码开源平台一口气封掉三千多个库，肯定会引来逆向社区的反弹，甚至被玩家吐槽吃相太难看。但站在 Take-Two 的账本上，这笔账其实没得选。</p>\n<p>《GTA 6》主机版才刚卖了一周多，按照 R 星一贯的节奏，PC 版迟早要再收割一遍重度玩家和 Mod 社区。如果真让一套“免费 PC 跑通方案”在首发头两周就在公开平台上跑通并流传开，伤的不只是几份盗版销量，而是未来官方 PC 版最值钱的首发预期。</p>\n<p>当然，公开仓库能删，技术本身删不掉。GitHub 这次清场之后，其余非官方模拟器和移植分支并没有就此停工，只是集体从开源广场撤了下来，转进了更隐蔽的私人社群和替代平台。</p>\n<p>只不过对绝大多数普通 PC 玩家来说，看个极客挑战极限的乐子就行，指望民间重编译能流畅玩到《GTA 6》还太早——想稳稳当当进雷奥尼达州，大概率还是得老老实实等 R 星自己把 PC 版端出来。</p>",
+   "date": "2026-11-27T02:04:42Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/gta6-pc-port-20261127-b1.webp",
+   "categories": [
+    "游戏产业",
+    "行业杂谈"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/deepseek-harness-pao-bu-qi-lai-xian-cha-zhe-ji-ge-pei-zhi/",
+   "title": "DeepSeek Harness 跑不起来，先查这几个配置",
+   "content": "<p>照着教程跑起 DeepSeek Harness（dsh），浏览器打开 http://127.0.0.1:3080 填好 API Key，结果底下的对话输入框一直是灰色的，一个字都敲不进去。好不容易把页面解锁了，换成团队自己的中转网关，又连着吃 400 和 401 报错。</p>\n<p>DeepSeek Harness 是 DeepSeek 在 2026 年 8 月以 MIT 协议开源的插件化 Agent 运行框架（Cordis 内核），目前仍处在 Developer Preview 阶段，接口与配置变化很快。下面结合原帖整理的十个高频踩坑，按从装好到接通网关的顺序过一遍最容易卡住的几关。（原文有删节）</p>\n\n<h2>安装卡住：三成新手败在 Node.js 版本</h2>\n<p>上手前先跑一句 node –version。dsh 最低要求 Node.js 22.19，推荐 24 LTS；如果是 Node 18 或 20，启动报错时提示信息并不会直接写着「版本太低」，很多人会误以为依赖坏了反复重装。</p>\n<p>新手最省事的启动方式是直接跑 npx @deepseek-ai/dsh web，不用全局装包；如果选了 npm install -g @deepseek-ai/dsh 后终端提示找不到命令，新开一个终端窗口刷新 PATH 就行。默认 WebUI 跑在 3080 端口，端口冲突时加 –port 8080 换口即可。</p>\n<h2>首次配置三步：不选工作区就只能干瞪眼</h2>\n<p>界面打开后有三步不能乱序。第一步进 Settings 里的 Models 填 Key；如果报 MISSING_CREDENTIAL，先检查粘贴时有没有多出前后空格，再去 platform.deepseek.com 看一眼账户余额是不是为零。习惯写进 settings.yaml 的话要注意，apiKeyEnv 后面填的是环境变量名（例如 DEEPSEEK_API_KEY），不是 Key 明文。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-03-b1.webp\"/></figure>\n<p>第二步也是最多人懵掉的一步：必须点击「选择工作区」绑定一个本地文件夹。没有选中工作区之前，对话输入框会保持禁用状态，建议专门建一个空文件夹测试，免得刚上手就把旧项目改乱。</p>\n<p>第三步在新建会话时选定运行模式，会话启动后就不能中途切换。日常写代码、调试和整理文档选默认的 Standard；批量重构、修类型或补测试选 PTC（代码模式）效率最高；轻量调试用 Minimal；至于 Creator（创造模式），它会暴露大量插件与底层配置项，新手不建议一上来就点。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-03-b2.webp\"/></figure>\n<h2>接自定义网关：compat 和模型 ID 漏一个都不行</h2>\n<p>把 dsh 接到非官方的 OpenAI 兼容网关、企业内网 API 或多模型聚合平台时，经常出现 Key 完全没错、请求却直接被拒的情况。问题主要出在两个协议差异上：推理模型默认用 developer role 发系统提示，不少旧网关会直接返 400 或 422；同时 dsh 默认传 max_completion_tokens，而旧版网关只认 max_tokens。</p>\n<p>统一解法是在 settings.yaml 的对应自定义网关配置下加上 compat 段，明确写上 supportsDeveloperRole: false 和 maxTokensField: max_tokens。注意 supportsDeveloperRole 不能留空或写成 null，否则会直接报 no value 错误，必须显式写 true 或 false。</p>\n<p>另一个高频误区是把 401 错当成密钥失效。很多聚合平台不开放 GET /v1/models 自动发现接口，dsh 拿不到列表就会报 401，解决办法是在配置里的 models 块手动把每个模型 ID 写全，且名称必须和提供方完全一致，不能简写。另外，手动录入的模型默认不带视觉能力，直接传图会被客户端拦在本地，确认端点支持看图后再给对应模型加上 input: [text, image]。</p>\n<h2>升级前一定备份 $DSH_HOME</h2>\n<p>框架还在快速迭代，不向下兼容的改动随时可能出现。原帖专门提到升级到 rc.8 时，由于 SQLite 存储后端改了格式，旧历史会话直接全部看不见，而且当时没有官方自动迁移工具。每次升级前先备份 $DSH_HOME 目录（默认在 ~/.dsh/）最稳妥；如果已经升上去又急着取回旧记录，只能先退回 rc.7 手动导出再重新升级。</p>\n<blockquote><p>同一个模型在不同 Agent 框架里的表现差异，往往比模型本身换代还要明显。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-03-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：WebUI 打开了，为什么底下输入框是灰的？</p>\n<p>答：还没选本地工作区。点击页面上的「选择工作区」，指定一个本地空文件夹后输入框就会解锁。</p>\n<p>问：报 MISSING_CREDENTIAL 是配置文件写错了？</p>\n<p>答：先看 Key 粘贴时有没有前后空格，再去平台确认账户余额不为零；用 YAML 注入时要确认 apiKeyEnv 写的是环境变量名而不是密钥本身。</p>\n<p>问：接第三方网关一直报 400、422 或 401 怎么办？</p>\n<p>答：400/422 多半是网关不认 developer role 或 max_completion_tokens，在 compat 里关闭前者并改用 max_tokens；401 则常见于网关不支持自动拉取模型列表，要在 models 里手动写全精确的模型 ID。</p>\n<p>问：怎么防止升级版本把历史对话弄丢？</p>\n<p>答：dsh 仍处快速演化期，每次升级前手动备份 $DSH_HOME（默认 ~/.dsh/）是最保险的做法。</p>\n<h2>来源与编译</h2>\n<p>本文节选编译自腾讯云开发者社区《DeepSeek Harness 避坑完整指南：从安装到自定义网关，10 个高频踩坑全解》（作者：ai建国），原文另含社区插件安装与最小插件编写示例。因项目处 Developer Preview 阶段，具体字段与升级迁移策略以 DeepSeek Harness 最新仓库文档为准。</p>\n<p>本文转载自腾讯云开发者社区（ai建国） 《DeepSeek Harness 避坑完整指南：从安装到自定义网关，10 个高频踩坑全解》，原文链接：<a href=\"https://developer.cloud.tencent.com/article/2731448\">https://developer.cloud.tencent.com/article/2731448</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:27:22Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-03-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/dou-bao-gong-zuo-jie-fei-shu-yun-dian-nao-he-ben-di-bie/",
+   "title": "豆包工作接飞书，云电脑和本地别选错",
+   "content": "<p>周五下午三点接到通知要交 Q3 复盘，跟聊天 AI 聊了二十分钟总算把框架理顺。接下来最磨人的一步才开始：一段一段复制进飞书云文档，标题层级全丢，表格粘进去直接错行，光收拾排版又花掉半小时。</p>\n<p>聊天框只会给你吐文字，动不了手。少数派作者「周一同学Zelina」把豆包工作和飞书打通跑了一整圈办公场景，从云文档、幻灯片、画板一直测到多维表格、日历和任务。原文很长，这里把最容易卡壳的定位差异、运行模式选择和几条高频用法抽出来讲清楚。（原文有删节）</p>\n\n<h2>先分清定位：它省掉了整套 CLI 配置墙</h2>\n<p>很多人装完桌面客户端，打开对话框敲一句「你好」，然后盯着屏幕不知道该让它干嘛。原因是豆包工作（网页端 doubao.com/work 与桌面端）本身不是拿来聊天的，而是桌面 AI 办公智能体平台。</p>\n<p>以前想让 AI 真正去操作飞书，得自己装 Node.js、全局安装 @larksuite/cli、配飞书 Skills，再一路跑 config init、auth login 和排查 PATH，大部分非技术同事走到一半就放弃了。用飞书账号登录豆包工作后，这堵配置墙直接消失，背后能直接调用飞书 CLI 归纳的 11 个业务域、100 多项技能和 2500 多个开发 API。</p>\n<h2>云电脑还是本地电脑，选错第一步就卡住</h2>\n<p>实际下单干活前，最容易踩的坑是运行模式没选对。如果任务所需的信息全部已经在当前对话上下文里，只需要调飞书接口生成文档或发消息（比如把刚贴进去的会议纪要整理成 Q3 复盘云文档），选云电脑模式就行，哪怕关掉本地电脑，任务也会在后台跑完，并在飞书客户端推消息提醒你。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-02-b1.webp\"/></figure>\n<p>反过来，只要任务需要读取你电脑硬盘里的本机素材，例如本地会议录音、Excel 原始数据表或几百页 PDF 文件，就绝对不能选云电脑，必须切成本地电脑模式，不然它根本摸不到你的本地文件。</p>\n<h2>云文档别只让它代写，试试只留划词评论</h2>\n<p>用会议纪要建飞书云文档时，在提示词里直接指定文档标题和四大固定段落（项目背景、核心成果、遇到的问题、下阶段计划），先让它搭出带要点提示的框架，往往比一口气生成长文更容易收口。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-02-b2.webp\"/></figure>\n<p>真正省心的是审稿环节。自己写完初稿拿不准哪里有硬伤，不用把全文贴到外部窗口，直接在飞书文档右上角点「问问豆包」，让它以「挑剔的资深同事」身份 review，并且明确写死一句约束：「不要直接修改，只把有问题的地方用划词评论标出来，在评论里写上具体的修改建议」。跑完后文档里会挂满批注，逻辑漏洞、表述模糊和数据缺失一目了然，你只需逐条点击接受或拒绝，始终握着终稿控制权。在飞书群聊里也能直接唤醒它搜集消息和群文件，记录和客户端同步。</p>\n<h2>做幻灯片、画板和表格，约束写细少返工</h2>\n<p>让 AI 建飞书幻灯片时，最忌讳只丢一句「帮我做个入职培训 PPT」。原帖给出了一套很稳的写法：先交代公司背景、阶段和目标受众，再把第 1 页到第 10 页每一页要放什么主题列明白，最后补上版式硬约束（例如淡色系、每页不超过 4 个要点）。生成后直接在飞书里得到可编辑幻灯片，人只需调整最后约 20% 的细节。</p>\n<p>这套「把边界写全再交给它落地」的习惯，放到另外几个飞书场景里同样管用。业务流程图在飞书画板里可以直接变成能拖动的矢量图；多维表格的数据录入、筛选查询和电子表格每周固定格式的机械整理，都能用自然语言驱动；至于日历查共同空档约会、从会议纪要直接抽待办建任务，也不必再靠人手在各个标签页之间复制粘贴。</p>\n<blockquote><p>真正有价值的部分是想清楚要说什么，排版和机械搬运本来就该交给不嫌麻烦的工具。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-02-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：还要自己装 Node.js 和飞书 CLI 吗？</p>\n<p>答：不用。用飞书账号登录豆包工作就能直接调用飞书能力，省掉了命令行安装、授权登录和排查 PATH 的过程。</p>\n<p>问：云电脑模式能不能读我桌面上的 Excel 和 PDF？</p>\n<p>答：不能。要读取电脑本机的录音、表格或 PDF 素材，必须切到本地电脑模式；只有全靠对话上下文和飞书接口的任务才适合用云电脑。</p>\n<p>问：让它审稿会不会把我的原稿改乱？</p>\n<p>答：不会乱改的前提是指令里写明「不要直接修改，只留划词评论」。这样只会挂上修改建议，是否采纳全由你逐条决定。</p>\n<p>问：生成飞书幻灯片后还能自己编辑吗？</p>\n<p>答：可以。生成的是飞书内可编辑的幻灯片框架，通常只需人工微调最后约 20% 的排版和文案细节。</p>\n<h2>来源与编译</h2>\n<p>本文节选编译自少数派文章《豆包工作+飞书，打开“松弛工作”的100种方式》（作者：周一同学Zelina），聚焦运行模式选择、云文档划词审稿与演示/表格落地流程；原文另包含内容创作系统、销售管理系统与个人知识库搭建示例，界面与功能以豆包工作及飞书最新客户端为准。</p>\n<p>本文转载自少数派（周一同学Zelina） 《豆包工作+飞书，打开“松弛工作”的100种方式》，原文链接：<a href=\"https://sspai.com/post/114245\">https://sspai.com/post/114245</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:27:21Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-02-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gemini-carbon-yi-tian-shao-diao-yi-ban-e-du-bian-jie-de/",
+   "title": "Gemini Carbon 一天烧掉一半额度，边界得先划死",
+   "content": "<p>Gemini Carbon 上线当天，原帖作者冲了 100 美金的 Ultra 打算好好测一轮，结果不到一天，周额度就只剩 48.60%。发完指令以后，它直接低头闷干半个小时甚至更久，中间几乎没有任何进度反馈，等到最后一口气把成品吐出来。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-01-b1.webp\"/></figure>\n<p>这种脾气最怕碰上需求没说死。科技媒体 Every 创始人 Dan Shipper（@danshipper）也在 X 上晒过一次翻车：同事把待办清单丢给 Carbon，它认出 6 项任务后没刹住车，顺手干完了 15 项，连旁边同事负责的活都一起改了，闷头跑了四个半小时才被叫停。结合原帖实测和谷歌随后发布的官方使用指南，这篇把几个最烧额度的坑和用法理清楚。（原文有删节）</p>\n\n<h2>先分清 Carbon 和 Argon 各自干什么</h2>\n<p>很多人的第一反应是把所有活都切到新出的旗舰上，但谷歌官方指南第一页就在劝人收手：日常绝大多数知识工作，继续用同门的 Gemini 4 Argon 就够了。两者底子一致，都能一次塞进约 100 万 token（大概六七十万汉字），长视频、录音、上千页 PDF 和 Office 原件都能直接往里拖。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-01-b2.webp\"/></figure>\n<p>真正拉开差距的是肯花多少力气较真。原帖作者拿同一道复杂题做过盲测，Carbon 后台思考量大概是 Argon 的 3 倍；在谷歌官方测试里，材料缺数据时它有 98% 的概率老实提醒，评测作弊率压到 0%。但如果在 @danshipper 团队测的改邮件、翻外文、写常规总结这类活上，两款模型几乎拉不开差距。</p>\n<p>从 Abacus.AI 创始人 Bindu Reddy（@bindureddy）公布的实测账单来看，Carbon 综合分拿到 83.5，略高于 Opus 5.5 的 83.4，单次成功任务成本约 2.02 美金，不到 Opus 5.5 的三分之一。代价就是慢，哪怕调到低档，它也比 Opus 慢大约 3 倍。官方指南划出的三类值得动用 Carbon 的重活分别是：大项目通读上千份文件排错并跑通测试、复杂长资料直接出带公式的表格或报告、给几句想法直接做交互网页与 3D 模型。</p>\n<h2>思考等级别乱降档，低档有时更烧钱</h2>\n<p>Carbon 取消了传统的温度参数，改成低、中、高三档思考等级来控制推理深度。低档几乎不多想就作答，只适合批量打标签或提取现成信息；中档是默认推荐档，速度和准确率最均衡；高档则留给几十份文档排雷或从零规划大项目。</p>\n<p>直觉上总觉得降到低档能省额度，实测结果正好反过来。在 CursorBench 测试里，默认中档 67 步就搞定任务，花销反而最低；切到低档后，因为想得太浅反复出错返工，一路跑了 124 步，最后账单比高档还要贵近三成。11 月底前 API 还处在半价期（每百万 token 输入 2 美金、输出 10 美金，12 月恢复原价），把中等难度以上的活稳在默认中档更划算。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-01-b3.webp\"/></figure>\n<h2>用好慢思考模型的五个提问习惯</h2>\n<p>面对一跑就是半小时的慢思考模型，按下回车前多花两分钟把边界划死，能省下大半返工成本。原帖结合谷歌指南整理的五个习惯，普通用户照着改就行。</p>\n<ul><li>派长活前先让它反问：别丢半截想法就开跑，先说清「我想做某件事，先别写成品，把没说清的条件列三四个问题问我，我确认后再动手」。</li><li>验收直接给硬尺子：别写客套的「仔细检查」，换成能打钩的具体指标，比如「每天换乘不超两次、预算八千内、前后数字一致，全达标再发我」。</li><li>排版视觉直接甩样板图：与其憋几百字形容词，不如拖两张顺眼的参考图进去，让它先拆解配色、字号和留白规律，再照着排你的文档。</li><li>超大工程按重轻重搭配：比如做 10 家竞品报告，先让 Carbon 定框架和核对表，切 Argon 填常规资料，最后再交回 Carbon 挑错汇总，周额度能省一截。</li><li>收尾顺手存避坑提醒：磨了好几轮才调顺的任务，关窗口前让它把走过的弯路总结成三句提醒，并画一页流程图解留作下次模板。</li></ul>\n<h2>目前从哪几个入口能用上</h2>\n<p>现在体验 Gemini 4 Carbon 主要有三个入口。最省心的是 Gemini 网页版和 App，下拉菜单直接选档，但需要开通每月 99.99 美金的 Ultra（20 美金的 Pro 只能用 Argon）。不想包月可以走 Google AI Studio 绑卡按量付费，注意 Carbon 和 Argon 都没有免费层。跑本地大工程或多智能体（/swarm）可以下 Antigravity 桌面端（高校师生可领 6 个月免费），做跨模型对比也能用 Abacus.AI 或 OpenRouter。</p>\n<blockquote><p>面对这种一头扎进去干半小时的慢思考模型，省额度就一个秘诀：按下回车前，多花两分钟把边界划死。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-01-b4.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：20 美金的 Pro 订阅能用 Carbon 吗？</p>\n<p>答：不能。网页版与 App 里只有每月 99.99 美金的 Ultra 能选 Carbon，Pro 只能用 Argon；不想包月可以在 Google AI Studio 绑卡按量调用。</p>\n<p>问：日常工作是不是全换成 Carbon 更好？</p>\n<p>答：没必要。改邮件、翻外文、常规总结上 Carbon 和 Argon 差距很小，Carbon 还会明显拖慢响应并消耗周额度，留给复杂推理和大项目排错更值。</p>\n<p>问：为了省钱把思考等级调到低档可行吗？</p>\n<p>答：只适合批量打标签和提取现成信息。复杂任务调低档容易因为想得太浅反复返工，CursorBench 实测里低档跑了 124 步，开销比中档和高档都高。</p>\n<p>问：怎么避免它跑偏连干几个小时？</p>\n<p>答：开跑前要求它先反问三四个边界问题确认范围，并在指令里写死不要碰的任务或文件，同时把验收指标量化成可核对的条件。</p>\n<h2>来源与编译</h2>\n<p>本文编译整理自腾讯云开发者社区《一天用掉一半额度，我才发现 Gemini Carbon 有这些坑｜附官方指南》，文中跑分与定价数据均出自原帖引用的 Google 官方指南、@danshipper、@bindureddy 及 CursorBench 4.0 公开记录。具体界面文案、额度与最新定价以 Google 官方页面为准。</p>\n<p>本文转载自腾讯云开发者社区（用户4447475） 《一天用掉一半额度，我才发现 Gemini Carbon 有这些坑｜附官方指南》，原文链接：<a href=\"https://developer.cloud.tencent.com/article/2782366\">https://developer.cloud.tencent.com/article/2782366</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:27:20Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0927-01-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-ufo-wai-xing-bang-jia-cai-dan-quan-liu-cheng/",
+   "title": "GTA6 UFO 外星绑架彩蛋全流程",
+   "content": "<p>《GTA6》里可以遇到 UFO 与外星人。下面这份指南讲清楚怎么遇上 UFO 与外星人、怎么从外星梦境中脱身，以及怎么找到那座秘密基地。</p>\n<p>整个彩蛋分为三个阶段：先在夜里遇上 UFO 并救下漂浮的女 NPC；随后被绑架的角色会进入外星梦境；最后按梦境里学到的方法，潜入无线电塔下的秘密基地取回外星人尸体。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-09-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>遇 UFO 前提：扮演 Jason 或 Lucia 均可，凌晨 2 点（2AM）之后</li><li>遇 UFO 位置：Kelly County 的 Starlet Motel（星尘汽车旅馆）西北方</li><li>识别信号：区域内会出现一辆尾灯闪红的废弃车，说明 UFO 就在附近</li><li>触发：沿车头灯照亮的小路深入，走向亮光，会看到一名漂浮在空中的女 NPC；靠近她触发一段事件</li><li>后续：事件后与她互动，帮她取回那辆闪红尾灯的车；一靠近车辆会再触发一段事件，解锁「The Truth is Out There」铜杯</li><li>梦境触发：继续用被绑架的角色游玩一段时间，之后睡觉即会进入梦境</li><li>梦境·蛋迷宫：沿天花板灯照亮的路走；顺着蛋与蛋之间的大缝隙前进，直到尽头的亮光</li><li>梦境·符号码：迷宫后与一颗光球互动，看到秘密基地位置；再沿天花板灯前进，按键盘上方的符号输入对应数字（每档不同，照所见输入）</li><li>梦境·控制台：先按右侧大按钮开机，再按中排小按钮，顺序为「最右、中右、最左、中右、最右」；全部亮绿灯后拉左侧拉杆，出现三道门</li><li>梦境·三道门：先进左门取桌上的牛奶，再回上一房间进右门，把牛奶投入机器即可结束梦境；不要开中门，否则会被里面的东西烧到</li><li>秘密基地位置：Hamlet 正南方，找那座高大的无线电塔</li><li>进基地：那座塔在带门的围墙里，射掉门上的挂锁、踢开门；进院后爬右侧梯子上楼顶，找到一扇打开的白地板门爬下去</li><li>基地操作：在尽头键盘输入梦境里的同一符号码；再坐电梯下到地下室，按梦境里的同一顺序按控制台，同样先从左右两门取牛奶、投入机器，取出外星人尸体</li><li>撤离：原路返回，用先前那部电梯回到一楼离开。取走外星人后会释放毒气，生命值会缓慢流失，务必迅速撤离</li></ul>\n<h2>遇到 UFO 与外星人</h2>\n<p>用 Jason 或 Lucia 都可以，在凌晨 2 点之后前往 Kelly County 的 Starlet Motel（星尘汽车旅馆）西北方。到达地点后，留意区域内一辆尾灯闪着红光的废弃车——它的出现意味着 UFO 就在附近。随后，沿着车头灯照亮的小路往前走。</p>\n<p>越往里走，越朝那团亮光靠近，你会看到一名漂浮在空中的女 NPC。靠近她会触发一段短暂的事件。</p>\n<p>事件结束后，与她互动，帮她取回她的车——正是那辆尾灯闪着红光的车。一旦你靠近那辆车，会再触发一段事件，并解锁「The Truth is Out There」铜杯。</p>\n<p>【提示】完成献祭仪式（Sacrificial Ritual）任务后，同样可以解锁「The Truth is Out There」铜杯。</p>\n<h2>外星梦境怎么过</h2>\n<p>继续用被绑架的角色游玩，等上一段时间。之后用这个角色睡觉，他就会进入一段逼真的梦境。你必须打通梦境才能醒来、回到现实世界。如果觉得太难，也可以在梦里与醒来时躺的那张床互动，选择放弃。</p>\n<h3>走通蛋迷宫</h3>\n<p>在梦里，沿天花板灯照亮的路走。第一个区域是一片外星蛋迷宫，你靠近时蛋会孵化。如果走错路，会有外星触手把你抓住、送回起点。想走到迷宫尽头，就始终从蛋与蛋之间的大缝隙穿过，直到抵达尽头那团亮光。</p>\n<h3>在键盘上输入符号码</h3>\n<p>穿过迷宫进入下一区域后，与其中一颗光球互动，就能看到你离开梦境后要去的秘密基地位置。接着沿光球之后由天花板灯照亮的路前进，观察尽头键盘上方的符号。每个符号代表一个数字，你需要把它输入键盘才能继续。注意：符号每档存档都不一样，照你看到的输入即可。</p>\n<h3>解开控制台谜题</h3>\n<p>接着进入房间，与控制台互动。先按右侧的大按钮把它打开。然后在中间的小按钮上依次按：最右、中右、最左、中右、最右。等所有灯都亮绿后，拉左侧的拉杆，就会显现三道门。</p>\n<h3>解开三道门谜题</h3>\n<p>三道门出现后，你需要拿到一瓶牛奶并把它投入机器，才能离开梦境。先进左门，取桌上的那瓶牛奶。然后回到刚才的房间，进右门，把牛奶投入机器。投入之后，梦境就会结束。不要打开中间那道门——里面的东西会把你烧到。</p>\n<h2>潜入秘密基地</h2>\n<p>从梦境醒来后，前往 Hamlet 正南方的那座秘密基地。找到区域里那座高大的无线电塔，朝它走去。由于塔位于带门的围墙内，你需要射掉门上的挂锁，再把门踢开才能进去。</p>\n<p>进入围墙后，爬上建筑物右侧的梯子。上到屋顶后，找到一扇打开的白色地板门，爬下去。</p>\n<p>进到建筑里后，沿路前行，在尽头的键盘上输入梦境里的同一个符号码。随后坐电梯下到地下室，继续沿路走到尽头的房间——也就是梦境里那间控制台房。与控制台互动，按中间按钮时使用与梦境相同的顺序。</p>\n<p>接着和梦境里一样：先进左门，取桌上那瓶牛奶；再回到上一个房间，进右门，把牛奶投入机器，外星人的尸体就会显现。最后，捡起外星人尸体，逃出基地。</p>\n<h2>取回外星人尸体并撤离</h2>\n<p>原路返回，搭乘先前用过的那部电梯回到一楼，离开建筑。要注意，你必须尽快撤离：一旦捡起外星人，基地会释放毒气，你的生命值会缓慢流失。当你离开建筑时，会触发一段过场动画。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>UFO 什么时候、在哪里出现？</h3>\n<p>凌晨 2 点之后，在 Kelly County 的 Starlet Motel 西北方。看到尾灯闪红的废弃车，就说明 UFO 在附近。</p>\n<h3>外星梦境里的控制台怎么按？</h3>\n<p>先按右侧大按钮开机，再按中排小按钮，顺序为「最右、中右、最左、中右、最右」，全部亮绿灯后拉左侧拉杆。三道门出现后，先进左门取牛奶，再进右门投入机器。</p>\n<h3>秘密基地在哪、怎么进？</h3>\n<p>在 Hamlet 正南方，找那座高大的无线电塔。射掉门上的挂锁、踢开门，爬右侧梯子到屋顶，再从打开的白地板门爬下去。</p>\n<h3>取走外星人后要注意什么？</h3>\n<p>会释放毒气，生命值缓慢流失，必须尽快原路撤离并乘电梯回到一楼离开。</p>\n<p>本文转载自Game8 《UFO and Alien Abduction》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639367\">https://game8.co/games/GTA-6/archives/639367</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:24Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-09-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-weird-al-dian-tai-ke-chuan/",
+   "title": "GTA6 Weird Al 电台客串",
+   "content": "<p>《GTA6》里，美国著名恶搞音乐人「怪人阿尔」Weird Al Yankovic 以电台主持人的身份客串登场，出现在 Vice City FM。</p>\n<p>下面说明他的出场方式与其他参与内容。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-08-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>电台：Vice City FM</li><li>角色：DJ Al（由 Weird Al Yankovic 出演）</li><li>搭档：Brigitte Nielsen 饰演 Madame Brigitte</li><li>表现：切到 Vice City FM，偶尔会听到 DJ Al 在歌曲之间插科打诨，并与搭档 Madame Brigitte 闲聊</li><li>确认方式：Weird Al 在游戏发售前后通过 Bluesky 发帖确认了自己参与本作</li><li>其他参与：他还为 GTA6 的电视与电台内容撰写了额外文案，具体范围目前未知</li></ul>\n<h2>Weird Al 的电台客串</h2>\n<p>Weird Al Yankovic（怪人阿尔）以 DJ Al 的身份，出现在 Vice City FM，与饰演 Madame Brigitte 的 Brigitte Nielsen 搭档。切到电台的 Vice City FM，你就会偶尔听到 DJ Al 在歌曲之间插科打诨，并与他的搭档 Madame Brigitte 交谈。</p>\n<p>Weird Al 在游戏发售前后通过 Bluesky 发帖，确认了自己参与本作。</p>\n<h2>他还参与了电视与电台文案</h2>\n<p>除了主持 Vice City FM，Weird Al 还为《GTA6》的电视与电台内容贡献了额外的文案撰写。不过，他具体参与了多少内容，目前尚不清楚。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>Weird Al 在游戏里以什么身份出现？</h3>\n<p>他以 DJ Al 的身份出现在 Vice City FM 电台，与饰演 Madame Brigitte 的 Brigitte Nielsen 搭档。</p>\n<h3>在哪里能听到他？</h3>\n<p>把电台切到 Vice City FM，就能偶尔听到他在歌曲之间插科打诨、与搭档闲聊。</p>\n<h3>他还参与了什么？</h3>\n<p>除了主持 Vice City FM，他还为 GTA6 的电视与电台内容提供了额外文案，具体范围未知。</p>\n<p>本文转载自Game8 《Weird Al Radio Appearance》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639321\">https://game8.co/games/GTA-6/archives/639321</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:23Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-08-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-kodak-black-dian-tai-yu-wei-zhi/",
+   "title": "GTA6 Kodak Black 电台与位置",
+   "content": "<p>在《GTA6》里，说唱歌手 Kodak Black 既以 NPC 身份在罪恶都市现身，也主掌一档属于他自己的电台节目。</p>\n<p>下面说明他的 NPC 位置，以及怎么解锁他的秘密电台。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-07-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>NPC 位置：罪恶都市的 Jack of Hearts 脱衣舞俱乐部，主线任务「Welcome to Vice City」期间</li><li>具体点：俱乐部一楼、主舞池旁的一个小 VIP 卡座</li><li>接近方式：无法靠得太近，但可以用手机相机拍到几张近照；想见到他，首次进店时接受 Dre’Quan 给的钱</li><li>电台名称：The Sniper of La Perle，位于游戏内电台</li><li>解锁条件：在 La Perle 与 Crosstown 找到并扫描 4 张 Sniper of La Perle 海报</li><li>海报 1：La Perle 的 Aunt Zola’s Soul Food，收银台旁的软木板上</li><li>海报 2：La Perle 的 TWA Ponya Tattoo 纹身店，入口旁的小桌上</li><li>海报 3：La Perle 的 Drip Drops，收银台旁</li><li>海报 4：Crosstown 的 Jack of Hearts 俱乐部二楼，一间空置录音室内（就在「Dealer’s Choice」里遇到 Dre’Quan 那间的对面）</li><li>收听方式：开车时或戴耳机时打开电台（长按方向键右），进入 On-Demand 栏目，向下滚动找到 The Sniper of La Perle</li></ul>\n<h2>Kodak Black 的 NPC 位置</h2>\n<p>在主线任务「Welcome to Vice City」期间，你可以在罪恶都市的 Jack of Hearts 脱衣舞俱乐部找到 Kodak Black。他就在俱乐部一楼、主舞池旁的一个小 VIP 卡座里。</p>\n<p>可惜你没法靠他太近，但可以用手机相机拍几张近照。想见到 Kodak Black 的玩家，记得在首次进店时接受 Dre’Quan 给的钱。</p>\n<h2>怎么解锁 Kodak Black 的电台</h2>\n<p>除了以 NPC 身份登场，Kodak Black 还会主持一档游戏内电台节目，名为 The Sniper of La Perle。想解锁它，就要在 La Perle 与 Crosstown 找到并扫描 4 张 Sniper of La Perle 海报：</p>\n<ul><li>第 1 张：在 La Perle（罪恶都市）的 Aunt Zola’s Soul Food，被钉在收银台旁的软木板上</li><li>第 2 张：在 La Perle（罪恶都市）的 TWA Ponya Tattoo 纹身店入口旁的小桌上</li><li>第 3 张：在 La Perle（罪恶都市）的 Drip Drops，收银台旁</li><li>第 4 张（最后一张）：在 Crosstown（罪恶都市）的 Jack of Hearts 俱乐部二楼，一间空置录音室内。它就在「Dealer’s Choice」里遇到 Dre’Quan 的那间录音室对面</li></ul>\n<h3>收听 The Sniper of La Perle</h3>\n<p>4 张海报全部扫描完成后，你就能在游戏内电台里找到新的 The Sniper of La Perle 歌单。开车时，或戴着耳机/耳塞时，打开电台（长按方向键右），进入 On-Demand 栏目，向下滚动，直到找到 The Sniper of La Perle 即可收听。</p>\n<h3>The Sniper of La Perle 完整歌单</h3>\n<p>Kodak Black 的 The Sniper of La Perle 歌单播放时包含以下曲目：</p>\n<ul><li>Kanpe devan’m — 5Lan featuring TonyMix</li><li>Chokola — Alan Cavé</li><li>Ou Paka Gangster — Barikad Crew</li><li>Fresh From Head To Toe — Billy Blue</li><li>Imma Zoe — Black Dada</li><li>Are You Ready — Carimi</li><li>Ou Pa Ka Fè Sa — DJ Platinum D</li><li>La Familia — Djakout</li><li>Flanm — Emeline Michel</li><li>Haiti — John Wicks ft. Kodak Black</li><li>Koul Non — King Posse</li><li>300 Blackout — Kodak Black</li><li>Haitian Scarface — Kodak Black</li><li>Jessica — Michaël Brun w/ J Balvin, SAINt JHN, Charly Black &amp; J Perry</li><li>6:45 — Naïka</li><li>Magic Gouyad #6 — R Dydy</li><li>Tranble — Roody Roodboy</li><li>Ville — Top Adlerman</li><li>Tu Me Touches — T-Vice</li><li>Guantanamera — Wyclef Jean ft. Ms. Lauryn Hill, Celia Cruz &amp; Jeni Fujita</li><li>Child Support — Zenglen</li><li>Tèt Kale Bobis — Kodak Black &amp; Michaël Brun</li></ul>\n<h2>常见问题（FAQ）</h2>\n<h3>Kodak Black 的 NPC 在哪？</h3>\n<p>在罪恶都市的 Jack of Hearts 脱衣舞俱乐部一楼、主舞池旁的小 VIP 卡座，出现在主线任务「Welcome to Vice City」期间。</p>\n<h3>怎么解锁他的电台？</h3>\n<p>在 La Perle 与 Crosstown 扫描 4 张 Sniper of La Perle 海报，完成后即可在电台的 On-Demand 栏目找到 The Sniper of La Perle。</p>\n<h3>4 张海报分别在哪？</h3>\n<p>La Perle 的 Aunt Zola’s Soul Food、TWA Ponya Tattoo、Drip Drops 各一张，Crosstown 的 Jack of Hearts 二楼空置录音室一张。</p>\n<p>本文转载自Game8 《Kodak Black Radio Station and NPC Location》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639190\">https://game8.co/games/GTA-6/archives/639190</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:22Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-07-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-de-ke-si-te-dexter-cai-dan-quan-wei-zhi/",
+   "title": "GTA6 德克斯特 Dexter 彩蛋全位置",
+   "content": "<p>《GTA6》里藏着多处向美剧《Dexter（嗜血法医）》致敬的彩蛋，分布在华盛顿岛、运河和 Key Lento 南部。下面逐一说明这三处的位置。</p>\n<p>下面我们按公寓、船、分尸间三处来讲。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-06-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>公寓：华盛顿岛北部（罪恶都市东北）的公寓群，影射剧中主角的公寓；楼侧能看到一台空调外机，是「湾港屠夫」藏纪念品的地方</li><li>公寓命名：这处公寓叫 Trinity Apartments，可能影射第四季的主要反派 Trinity Killer</li><li>公寓道具：上到屋顶，可在黄色工具箱里搜刮一把刀和现金</li><li>船：Trinity Apartments 正西方的运河上有一条船，影射主角的船 Slice of Life</li><li>分尸间：Key Lento 南部的海滨房带车库，可闯入；屋内是按剧中布置的分尸间，铺着塑料布、放着切尸工具</li><li>额外危险：车库上方有可进入的房屋，里面是一名持枪疯子，会朝你开火，务必小心</li><li>额外收获：屋内有多件武器，包括独特的 SMS-01 狙击枪、防弹衣和火箭筒</li></ul>\n<h2>德克斯特的公寓</h2>\n<p>在罪恶都市东北、华盛顿岛（Washington Island）北部，有一处公寓群影射剧中前几季里主角德克斯特的公寓。楼侧一角能看到一台空调外机——在剧里，「湾港屠夫」（Bay Harbor Butcher）就是把受害者的纪念品藏在这样的地方。</p>\n<p>另外，这处公寓名叫 Trinity Apartments，可能是在影射第四季的主要反派 Trinity Killer（三位一体杀手）。</p>\n<h3>德克斯特的工具</h3>\n<p>上到公寓屋顶，你会发现一堆德克斯特用来对付受害者的工具。你可以在黄色工具箱里搜刮到一把刀和现金。</p>\n<h2>德克斯特的船</h2>\n<p>在 Trinity Apartments 正西方的运河上，有一条船，外形影射德克斯特的船 Slice of Life。在剧里，「湾港屠夫」正是用这条船处理受害者的尸体。</p>\n<h2>德克斯特的分尸间</h2>\n<p>在 Key Lento 南部，有一栋带车库的海滨房，你可以闯进去。屋内是一间分尸间，布置与德克斯特典型的作案现场相似——铺满塑料布，还放着切割尸块的工具。</p>\n<p>顺带一提，车库上方还有一栋可以进入的房子，里面住着一名攻击性很强的持枪疯子，他会朝你开火，务必小心。屋里能找到多件武器，包括独特的 SMS-01 狙击枪、防弹衣和火箭筒。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>德克斯特彩蛋一共有几处？</h3>\n<p>主要有三处：华盛顿岛北部的公寓（含屋顶工具箱）、公寓西侧运河上的船，以及 Key Lento 南部的分尸间。</p>\n<h3>屋顶工具箱里有什么？</h3>\n<p>一把刀和现金。位置在 Trinity Apartments 的屋顶。</p>\n<h3>分尸间那边有什么要注意的？</h3>\n<p>车库上方的房屋里有一名持枪疯子会攻击你；屋内可找到独特的 SMS-01 狙击枪、防弹衣与火箭筒。</p>\n<p>本文转载自Game8 《Dexter Easter Egg Locations》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639297\">https://game8.co/games/GTA-6/archives/639297</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:21Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-06-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-jia-sui-dao-looney-tunes-cai-dan/",
+   "title": "GTA6 假隧道 Looney Tunes 彩蛋",
+   "content": "<p>《GTA6》的假隧道（Fake Tunnel）位于 Vice City（罪恶都市）的 Decor District（装饰区），藏在从罪恶都市通往 Leonard County（伦纳德县）的高架桥侧面。</p>\n<p>下面说明它的位置，以及为什么经过时要当心。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-05-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：Vice City（罪恶都市）Decor District（装饰区）</li><li>具体点：从罪恶都市通往 Leonard County 的高架桥侧面墙上</li><li>形态：一幅画得非常细致的街道壁画，伪装成一条可以开进去的隧道</li><li>危险：撞上去会严重伤害角色，抢劫过程中甚至可能直接死亡</li><li>彩蛋点：可能是对《Looney Tunes（乐一通）》经典「撞墙」桥段的致敬</li></ul>\n<h2>假隧道在哪</h2>\n<p>你可以在 Vice City（罪恶都市）的 Decor District（装饰区）找到这条假隧道。它出现在从罪恶都市通往 Leonard County（伦纳德县）的高架桥侧面。</p>\n<h2>经过时要注意什么</h2>\n<p>开车经过这条街时务必小心，撞上这面墙会大幅伤害你的角色。如果你正在做抢劫，甚至可能因为这一撞直接死亡。</p>\n<p>这条假隧道可能是对《Looney Tunes（乐一通）》里那个著名桥段的致敬——角色在追逐中一头撞进画在墙上的假通道。这面壁画把街道画得极其细致，足以骗过玩家，让人以为能直接开过去。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>假隧道在哪？</h3>\n<p>在 Vice City（罪恶都市）Decor District（装饰区），从罪恶都市通往 Leonard County 的高架桥侧面墙上。</p>\n<h3>撞上去会怎样？</h3>\n<p>会严重伤害角色，抢劫过程中甚至可能直接死亡，经过时务必当心。</p>\n<h3>它致敬的是什么？</h3>\n<p>可能是对《Looney Tunes（乐一通）》里角色在追逐中撞上假墙的经典桥段的致敬。</p>\n<p>本文转载自Game8 《Fake Tunnel Location (Looney Tunes Easter Egg)》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/640028\">https://game8.co/games/GTA-6/archives/640028</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:20Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-05-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-hong-hao-ke-hulk-chu-fa-yu-wei-zhi/",
+   "title": "GTA6 红浩克 Hulk 触发与位置",
+   "content": "<p>《GTA6》的红浩克（Red Hulk）彩蛋藏在 Frogswater 的 McKittrick Farm（麦基特里克农场），它属于一条可选任务线，需要推进 Kyle McKittrick 的剧情才会出现。</p>\n<p>下面说明红浩克的位置和触发方法。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-04-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：Frogswater 的 McKittrick Farm（麦基特里克农场）</li><li>触发前提：推进 Kyle McKittrick 的任务线</li><li>开始方式：在 Starlet Motel（星尘汽车旅馆）Linda 办公室外读那份招工启事</li><li>出现时机：第三个任务「Buddy?」中登场，Kyle 被认为因种草莓接触化学品而变异</li><li>重要提醒：任务开始前务必多存几个档——若第一个任务里 Kyle 死亡或飞机坠毁，会被软锁，收不到第二个任务的后续电话</li><li>补救办法：回到 McKittrick Farm 偷走那架飞机（问题已修复），Kyle 会发来第二个任务的细节消息，任务线即可继续</li></ul>\n<h2>红浩克在哪</h2>\n<p>红浩克出现在 Frogswater 的 McKittrick Farm（麦基特里克农场），需要推进 Kyle McKittrick 的任务线。你可以在 Starlet Motel（星尘汽车旅馆）Linda 办公室外读那份招工启事来启动这条线。红浩克会在第三个任务「Buddy?」中登场——剧情设定里，Kyle 因为给草莓施用化学品而发生了变异。</p>\n<h2>怎么触发红浩克出现</h2>\n<p>红浩克是一个需要通关 McKittrick Farm 任务线才能触发的彩蛋。开始任务之前，请务必多存几个存档：如果在第一个任务中 Kyle 死亡，或飞机坠毁，你会被软锁，之后就收不到第二个任务的后续电话。想避免这种情况，多存档就好。</p>\n<h3>回到农场偷飞机可重开任务线</h3>\n<p>有一个可用的补救办法：回到 McKittrick Farm（麦基特里克农场）偷走那架飞机（该问题已被修复）。随后 Kyle 会发来一条关于第二个任务细节的消息，让你能继续推进这条任务线。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>红浩克怎么触发？</h3>\n<p>推进 Kyle McKittrick 的任务线即可，起点是在 Starlet Motel 的 Linda 办公室外读招工启事；红浩克会在第三个任务「Buddy?」中登场。</p>\n<h3>为什么会被软锁？</h3>\n<p>如果第一个任务中 Kyle 死亡或飞机坠毁，你收不到第二个任务的电话，任务线就会卡住。建议任务前多存档。</p>\n<h3>卡住了有办法补救吗？</h3>\n<p>有。回到 McKittrick Farm 偷走那架飞机（问题已修复），Kyle 会发来第二个任务的细节消息，任务线即可继续。</p>\n<p>本文转载自Game8 《Hulk Location and How to Trigger》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639196\">https://game8.co/games/GTA-6/archives/639196</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:19Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-04-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-sheng-an-di-lie-si-zhi-wu-cai-dan-wei-zhi/",
+   "title": "GTA6 圣安地列斯之屋彩蛋位置",
+   "content": "<p>《GTA6》的圣安地列斯之屋彩蛋藏在 Leonard County（伦纳德县）的 Belville（贝尔维尔）。它是一栋奶油色的房子，前院种着两棵棕榈树——外形正好对应 2021 年被加进《GTA：圣安地列斯 决定版》（The Definitive Edition）里的一张神秘照片。</p>\n<p>下面说明它的位置和屋内能看到的东西。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-03-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：Leonard County（伦纳德县）Belville（贝尔维尔）</li><li>外观：奶油色房子，前院有两棵棕榈树</li><li>彩蛋点：与 2021 年加入《GTA：圣安地列斯 决定版》的神秘照片外形一致</li><li>进入方式：走到房子车库处，找到入口进去</li><li>屋内：阴谋论者的据点，正中黑板上写着 IT’S A SIMULATION（这是模拟世界）</li><li>可拾取：床下有一块陨石（Meteorite）</li></ul>\n<h2>圣安地列斯之屋在哪</h2>\n<p>这栋房子在 Leonard County（伦纳德县）的 Belville（贝尔维尔）。它是一栋奶油色的房子，前院种着两棵棕榈树，外观与 2021 年加入《GTA：圣安地列斯 决定版》的那张神秘照片相吻合。走到房子前，靠近车库就能找到入口。</p>\n<h2>屋内有什么</h2>\n<p>进入车库，你会发现这里是一间阴谋论者的据点，到处都是笔记、照片和图表，记录着 Leonida（里奥尼达）居民那些古怪的行为。</p>\n<p>车库正中立着一块巨大的黑板，上面醒目地写着「IT’S A SIMULATION（这是模拟世界）」。据点的主人一直在记录里奥尼达各地发生的怪事，似乎坚信周围的世界并不真实。黑板上写满了对当地居民各种局限与反常举动的观察。</p>\n<p>另外，床底下还可以捡到一块陨石（Meteorite）。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>圣安地列斯之屋在哪个位置？</h3>\n<p>在 Leonard County（伦纳德县）的 Belville（贝尔维尔），是一栋奶油色、前院有两棵棕榈树的房子。</p>\n<h3>屋里有什么值得看的？</h3>\n<p>一间阴谋论者的据点，正中黑板上写着 IT’S A SIMULATION；床下还能捡到一块陨石。</p>\n<h3>它致敬的是哪款作品？</h3>\n<p>它对应 2021 年加入《GTA：圣安地列斯 决定版》的一张神秘照片，因此被称为圣安地列斯之屋彩蛋。</p>\n<p>本文转载自Game8 《San Andreas House Easter Egg》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/640222\">https://game8.co/games/GTA-6/archives/640222</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:18Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-03-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-arthur-morgan-mao-zi-huo-qu/",
+   "title": "GTA6 Arthur Morgan 帽子获取",
+   "content": "<p>《GTA6》里藏着一顶致敬《荒野大镖客2》主角亚瑟·摩根（Arthur Morgan）的帽子。它出现在 Port Gellhorn（盖尔霍恩港）Buck’s Pawn Shop（巴克当铺）西侧的一场庭院旧货摊（yard sale）上，白色沙发顶端就能看到它。</p>\n<p>下面说明这顶 Arthur Morgan 帽子的位置和获取方法。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-02-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：Port Gellhorn（盖尔霍恩港）Buck’s Pawn Shop（巴克当铺）西侧的庭院旧货摊</li><li>具体点：旧货摊里一张白色沙发的顶端</li><li>获取：走近帽子互动，选「购买」或「买下并戴上」</li><li>游戏内名称：Genuine Cowboy Hat（正牌牛仔帽）</li><li>彩蛋点：外形与《荒野大镖客2》亚瑟·摩根的帽子几乎一模一样</li></ul>\n<h2>Arthur Morgan 帽子在哪、怎么拿</h2>\n<p>在 Port Gellhorn（盖尔霍恩港）Buck’s Pawn Shop（巴克当铺）西侧的庭院旧货摊上，你可以在白色沙发顶端找到这顶帽子。走近它互动，选择「购买」（Buy）或「买下并戴上」（Buy and Wear）即可入手。</p>\n<p>这顶帽子在游戏里叫 Genuine Cowboy Hat（正牌牛仔帽），但它的外形几乎和《荒野大镖客2》里亚瑟·摩根的帽子一模一样——算是给 R 星自家作品的一处致敬。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>这顶帽子在哪？</h3>\n<p>在 Port Gellhorn（盖尔霍恩港）Buck’s Pawn Shop（巴克当铺）西侧的庭院旧货摊，白色沙发顶端。</p>\n<h3>怎么拿到手？</h3>\n<p>走近帽子互动，选「购买」或「买下并戴上」即可。游戏内名称是 Genuine Cowboy Hat（正牌牛仔帽）。</p>\n<h3>它是哪款游戏的彩蛋？</h3>\n<p>它致敬《荒野大镖客2》的主角亚瑟·摩根，外形与他的帽子几乎完全相同。</p>\n<p>本文转载自Game8 《Arthur Morgan Hat and Yard Sale Location》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/639186\">https://game8.co/games/GTA-6/archives/639186</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:17Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-02-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/gta6-manhunt-lie-sha-dao-cai-dan-da-fa-yu-jiang-li/",
+   "title": "GTA6 Manhunt 猎杀岛彩蛋 打法与奖励",
+   "content": "<p>在《GTA6》东北部海域，藏着一个致敬《Manhunt（猎杀）》系列的彩蛋：你会被麻醉镖放倒、套上项圈，被迫在一座小岛上参加一场猎杀游戏。它就是 Hyde Island（海德岛）上的 Manhunt 任务彩蛋，玩家也常称它为「猎杀岛」彩蛋。</p>\n<p>下面我们讲清楚海德岛怎么去、这场猎杀怎么打，以及能拿到什么奖励。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-01-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：地图北部、与大陆隔海相望的小岛 Hyde Island（海德岛），朝地图东北边缘走即可找到</li><li>前往方式：从 Moreau River（莫罗河）的码头开船驶向海德岛</li><li>触发：登岛后往岛中央走，会被麻醉镖击中，醒来时人在集装箱里、脖子上套着项圈</li><li>第一把武器：集装箱门打开后，直奔点亮的第一个据点，拿手枪</li><li>弹药：第一个据点右侧树林里的补给箱可拿手枪与霰弹枪子弹；左侧带楼梯的据点有更多手枪子弹和一把霰弹枪</li><li>肾上腺素：取完弹药后往回走，附近树林里有一支肾上腺素（有灯光提示）</li><li>杀狗：用据点当掩体，让狗发现你，再立刻换霰弹枪爆头</li><li>打猎人：躲进树林，用 Focus 定位，手枪尽量打头直到他出现硬直，立刻切霰弹枪贴脸开火</li><li>逃生：击败猎人后听广播指示，打开地图找船屋，上船离岛</li><li>奖励：搜刮猎人尸体得 Island Poacher FF-50 狙击枪；船屋内船上有 2.5 万美元现金</li></ul>\n<h2>海德岛在哪、怎么去</h2>\n<p>Manhunt 彩蛋发生在 Hyde Island（海德岛）上——这是《GTA6》地图北部一座与大陆隔海相望的小岛，往地图东北边缘走就能看到它。要登岛，你可以从 Moreau River（莫罗河）的码头开船，朝海德岛驶去。上岛后往岛中央走，就会触发遭遇：你被一发麻醉镖放倒，醒来时发现自己躺在集装箱里，脖子上还多了一个项圈。</p>\n<h2>猎杀彩蛋通关流程</h2>\n<p>集装箱门一开，就赶紧朝点亮的据点和补给点跑。具体步骤如下：</p>\n<ul><li>跑向点亮的据点取补给：集装箱门打开后，直奔出现的第一个据点，拿走手枪</li><li>到右侧拿弹药：拿完手枪往右走，在离第一个据点不远、被树围住的补给箱里，拿到手枪与霰弹枪子弹</li><li>左转找带楼梯的据点：上楼梯可以拿到更多手枪子弹和一把霰弹枪；一定要捡起霰弹枪，后面的战斗要用</li><li>捡肾上腺素：取完弹药往回走，在附近树林里找那支肾上腺素，灯光会替它指路，顺便再拿点手枪子弹</li><li>到下一个据点补弹药：继续往前，把额外的手枪与霰弹枪子弹收进包里，打猎人前务必囤够</li><li>先解决狗：退到据点旁当掩体，让狗发现你，然后立刻换霰弹枪，一枪爆头把它打倒</li><li>躲进树林：狗倒下后往树林深处跑，找棵树当掩体，保持隐蔽，听猎人的脚步靠近</li><li>用手枪打出硬直：装备手枪、备好肾上腺素（能短时间强化状态、减少所受伤害），等猎人靠近就用 Focus 定位，尽量打头，一直开火直到打空手枪子弹并让他出现硬直</li><li>换霰弹枪收尾：猎人硬直后立刻切霰弹枪，尽量贴脸再开火（霰弹枪远距离无效）；别用近战，近战对他没用</li><li>去船屋离岛：击败猎人后听广播引导前往船屋，打开地图定位后过去，那里有船和现金奖励，拿上钱、开船离岛</li></ul>\n<h2>奖励</h2>\n<p>搜刮猎人的尸体，可以获得 Island Poacher FF-50 狙击枪；到达船屋后，你会在船里发现 2.5 万美元现金，这是你逃出小岛的一部分收获。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>海德岛怎么去？</h3>\n<p>从 Moreau River（莫罗河）的码头开船驶向地图北部的 Hyde Island（海德岛），登岛后往中央走即可触发彩蛋。</p>\n<h3>打猎人要用什么武器？</h3>\n<p>先用手枪尽量打头，直到猎人出现硬直；一旦硬直立刻切霰弹枪贴脸开火。霰弹枪远距离无效，也别用近战。</p>\n<h3>这个彩蛋有什么奖励？</h3>\n<p>搜刮猎人尸体可得 Island Poacher FF-50 狙击枪，另有船屋里船上的 2.5 万美元现金。</p>\n<p>本文转载自Game8 《Manhunt Mission Easter Egg Guide》，原文链接：<a href=\"https://game8.co/games/GTA-6/archives/640006\">https://game8.co/games/GTA-6/archives/640006</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-27T01:12:16Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261127-0912-01-b1.webp",
+   "categories": [
+    "游戏攻略"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/nielseniq-ying-guo-xia-dao-lie-che-shou-vi-fa-shou-zhou/",
+   "title": "NielsenIQ：英国《侠盗猎车手VI》发售周传统零售估1.42亿英镑，环比升99%",
+   "content": "<p>NielsenIQ 11月26日在<a href=\"https://nielseniq.com/global/en/news-center/2026/gta-vi-sends-uk-games-retail-sales-soaring-99-to-142m-in-launch-week/\">新闻稿</a>中估计，英国游戏传统零售在2026年第47周收入1.42亿英镑，环比上升99%。这一周从11月15日周日算到21日周六。新闻稿把《侠盗猎车手VI》在11月19日至21日的三天发售，写成当周零售走高的主要原因，并提到主机和配件也一起被带动。</p>\n<figure><img alt=\"《侠盗猎车手VI》官方宣传美术\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/nielseniq-uk-gta6-cover-1024x576.webp\"/></figure>\n<p>这组数字是 NielsenIQ 根据零售商样本，对英国传统零售市场总量作出的估计，覆盖实体软件和盒内码，也覆盖主机硬件和游戏配件，不包括 PlayStation Store、Xbox Store 和 Nintendo eShop 等数字店面。</p>\n<p>当周实体软件收入估4300万英镑，环比上升409%，是2018年圣诞周以来最大的实体游戏周。《侠盗猎车手VI》单独贡献了3200万英镑实体销售额，约占当周实体软件收入的74%；该作首周实体销售里，88%来自发售日当天。</p>\n<p>按1995年以来的统计，这作首周盒装收入排第17，更高的16款里，最近一款是2018年的《FIFA 19》。前作仍排在前面，《侠盗猎车手V》第1，《侠盗猎车手IV》第11。发售日当天（11月19日周四）在可回溯到2000年的英国游戏零售收入日记录里排第20。</p>\n<p>主机硬件环比上升38%，是2025年年末以来的最高水平。游戏配件收入2100万英镑，环比上升123%。PlayStation 5硬件环比上升46%，Xbox Series的环比升幅则是75%。手柄销量环比上升194%，其中PS5手柄上升355%。游戏耳机销量环比也升了94%。电池包与扩展坞销售环比上升69%，外置主机SSD销售环比上升30%，后者是2026年迄今最大的一周。游戏椅销量环比升幅是32%，新闻稿称与《侠盗猎车手V》2013年发售周40%的升幅大体相当。</p>\n<p>NielsenIQ高级客户洞察总监Dorian Bloch说：“实体游戏市场今天看起来已经和以往那些爆款发售很不一样，但《侠盗猎车手VI》仍然带来了很大冲击。2008年，盒装软件还占软件、硬件和游戏配件合计零售收入的一半，2026年迄今这一比例是15%。这反映市场正越来越多转向数字下载。”</p>",
+   "date": "2026-11-27T00:53:21Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/nielseniq-uk-gta6-cover-768x432.webp",
+   "categories": [
+    "游戏产业"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/yu-bi-hui-ying-li-xiang-bao-dao-xiang-mu-bu-bi-qiang-zhi/",
+   "title": "育碧回应立项报道：项目不必强制使用生成式AI",
+   "content": "<p>育碧11月26日回应称，项目不必强制使用生成式AI，由团队自行判断是否适用。该公司没有直接说明，立项时是不是必须写清理由。</p>\n<figure><img alt=\"育碧官网新闻配图\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ubisoft-genai-pitch-cover-1024x576.webp\"/></figure>\n<p>前一天，行业媒体<a href=\"https://www.verticalslice.news/ubisofts-internal-pitching-process-is-becoming-increasingly-ai-pilled/\">Vertical Slice</a>报道说，多名现任员工匿名转述：公司领导层在内部介绍里提出，新项目立项时要说明准备怎么用生成式AI来加快、精简制作；如果打算不用，就得详细说明为什么不适合。这里说的生成式AI，能按提示写出文本、做出图像或代码。消息源称，这两项在立项材料里都没写，提案将无法获批。</p>\n<p>育碧把声明交给了Vertical Slice。<a href=\"https://www.gamesindustry.biz/ubisoft-staff-must-justify-not-using-generative-ai-in-pitches-report-claims\">GamesIndustry.biz</a>在11月26日更新了原稿，<a href=\"https://www.videogameschronicle.com/news/ubisoft-denies-requiring-developers-to-use-generative-ai/\">VGC</a>也转述了同一段话。声明是这样写的：“我们鼓励团队去探索，AI能在哪些地方派上用场、给工作带来价值。这并不意味着项目必须使用生成式AI。团队需要自行判断，这些技术对想做的游戏、想带给玩家的体验，是否合适、该怎么用。”</p>\n<p>这句话把“必须用”挡了回去。原报道里更具体的那一层，它没有正面接：立项材料里到底要不要写清用法或不用的理由，不写是不是就不批。VGC也写了，这份声明回避了这一具体指控。</p>\n<p>Vertical Slice的原报道并不是公司新闻室稿。消息源是现任员工，匿名发言，说是担心遭到报复。其中一人说，领导层并没有把生成式AI写成硬性强制，但已经“all-in”，全力押在这上面；还说领导态度一变，他们就觉得整天被生成式AI逼到角落里。另一人转述内部介绍的口径：用AI能让“小而精、敏捷的团队”更快做原型，目标是快速迭代、淘汰项目，AI对维持这个速度“必不可少”，打算不用就得给出理由。还有消息源称，公司认为生成式AI已经“不可避免”，并相信大多数玩家并不介意，只是少数人反对。这些都是匿名转述，不是育碧对外公布的正式政策。</p>\n<p>公司现在的公开口径是：鼓励探索，但不要求项目必须使用。立项流程到底怎么走，这份声明没有说清楚。</p>",
+   "date": "2026-11-27T00:35:44Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ubisoft-genai-pitch-cover-768x432.webp",
+   "categories": [
+    "AI",
+    "AI新闻"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/rockstar-ying-guo-yuan-gong-tou-piao-fou-jue-iwgb-gong-hui/",
+   "title": "Rockstar英国员工投票否决IWGB工会承认协议，反对票占75.3%",
+   "content": "<p>Rockstar Games英国员工已投票否决与IWGB游戏工人工会的承认协议：1544人参加投票，投票率93.2%，反对票占75.3%，赞成票占24.7%。</p>\n<figure><img alt=\"《侠盗猎车手VI》官方封面艺术\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/rockstar-iwgb-cover-1024x576.webp\"/></figure>\n<p>投票否决的是一份承认协议。<a href=\"https://www.iwgb.org.uk/news\">IWGB新闻页</a>把结果写作25%赞成、75%反对，投票从11月12日开到26日。Rockstar Game Workers Union已是IWGB下属组织，员工还可以加入，也可以继续组织；但公司接下来没有义务定期会见工会代表，就薪酬、工时等做集体谈判。</p>\n<p><a href=\"https://www.independent.co.uk/news/business/rockstar-iwgb-edinburgh-glasgow-b3092300.html\">《独立报》</a>、<a href=\"https://www.gamesindustry.biz/staff-at-grand-theft-auto-maker-rockstar-vote-against-union-recognition-deal\">GamesIndustry.biz</a>报道了上述计票细数，并写明参加投票的包括爱丁堡、利兹、林肯和邓迪的员工，伦敦的员工也在范围内。投票期间正好赶上《侠盗猎车手VI》在11月19日发售。</p>\n<p>Rockstar发行业务负责人Jennifer Kolbe说，公司为团队和这款游戏的发售感到自豪，并认为这一结果说明团队支持继续保持直接沟通、协作和开放对话。</p>\n<p>IWGB则说，没有正式承认协议，并不妨碍继续争取改善工作条件。工会表示：“对任何相信更公平职场、更公平行业和更公平社会的Rockstar同事来说，这不是退缩的信号，而是更坚持我们立场的信号。”工会还写，数百名同事投了赞成票，但要增进理解、赢得更多同事的信任，还有工作要做。</p>\n<p>投票进行的同时，一场就业法庭还没结束。IWGB代理的23名前员工在格拉斯哥起诉公司不当解雇，称自己因工会活动被解职；公司否认，称解职与在线讨论保密信息有关。<a href=\"https://www.bbc.co.uk/news/articles/cq4gnze58gx6o\">BBC</a>报道，听证会已在11月18日结束举证，判决尚未作出。</p>",
+   "date": "2026-11-27T00:17:45Z",
+   "first_seen": "2026-11-27T02:56:13Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/rockstar-iwgb-cover-768x432.webp",
+   "categories": [
+    "游戏产业"
+   ],
+   "partial": false
+  },
+  {
    "link": "https://www.kmhgame.com/claude-code-cong-ling-shang-shou-jie-zhong-zhuan-zhi-yao-si/",
    "title": "Claude Code 从零上手，接中转只要四个变量",
    "content": "<p>装好 Claude Code 的第一晚，我直接拿它去重构一个几百行的旧模块。它一口气改了十几个文件，第二天我对着 diff 看了一上午。后来学乖了，先拿一个小需求试水。</p>\n<p>Claude Code 是 Anthropic 的官方 AI 编程工具，直接在终端里跑，能读你的代码库，能改文件、跑命令、修 bug。这篇从零开始：装好它，接上中转，跑通第一个任务，全程不用官方订阅。（原文有删节）</p>\n\n<h2>先装再验证</h2>\n<p>最稳的办法是用 npm 全局安装，前提是 Node.js 18 以上。执行 npm install -g @anthropic-ai/claude-code，装完用 claude –version 验证，能打出版本号就说明装好了。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261126-0925-03-b1.webp\"/></figure>\n<h2>接中转：四个环境变量</h2>\n<p>Claude Code 默认连 Anthropic 官方，走中转站只要改四个环境变量。ANTHROPIC_BASE_URL 填中转站地址，一般以 https:// 开头，不用加 /v1；ANTHROPIC_AUTH_TOKEN 填在中转站控制台新建的令牌；ANTHROPIC_MODEL 是默认模型，claude-opus-5-5 最强、复杂任务用它，日常改代码用 claude-sonnet-5-5 更便宜也更快；ANTHROPIC_DEFAULT_OPUS_MODEL 决定 opus 档实际调用的模型名。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261126-0925-03-b2.webp\"/></figure>\n<p>把这几行写进 ~/.bashrc 或 ~/.zshrc，以后开终端就不用重复设置。令牌按量计费，价格以站内价格页为准；有的站点还有不同价格的令牌分组，模型一样是满血原版，选的时候对照价格页确认。</p>\n<h2>跑通第一个任务</h2>\n<p>进到项目目录，直接输入 claude 启动。第一次启动会问几个配置问题，一路回车用默认就行。之后用中文提需求即可，比如让它看看这个项目是干嘛的，把 README 里缺的安装步骤补上。它会先读代码再动手，改文件前让你确认，确认之后才写盘。</p>\n<p>新手容易踩的坑有三个。第一次先提个小需求，比如加注释、写个测试，确认计费和效果正常再上大重构；令牌是按量扣费的，先充一点试水；模型要选对档，简单任务用 sonnet 或 haiku，复杂重构再上 opus，档位选错要么贵要么效果差。</p>\n<h2>日常提效的三个习惯</h2>\n<p>提需求前先说一句「先看一下相关代码」，它读完再动手，改得更准。输入 / 能看到内置命令，比如 /clear 清空对话、/cost 看本次花费。让它改完一个功能就停一下，你检查完再继续，别一口气改几十个文件。</p>\n<blockquote><p>拿一道只有真模型能答对的难题问它，答不对就换站。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261126-0925-03-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：连不上，或者报 401？</p>\n<p>答：先检查令牌有没有复制错、余额够不够、分组对不对。令牌可以在中转站控制台重新生成。</p>\n<p>问：感觉回答变笨了？</p>\n<p>答：先确认用的模型是不是满血原版。拿一道需要多步推理的难题问它，答不对就换站。价格页全公开、后台能逐条对账的站，掺水的动力本身就小。</p>\n<p>问：想换便宜模型？</p>\n<p>答：改 ANTHROPIC_MODEL 和 ANTHROPIC_DEFAULT_OPUS_MODEL 两个变量就行，不用重新装。</p>\n<p>问：第一次用要不要直接上大重构？</p>\n<p>答：不用。先提个小需求，确认计费和效果正常，再逐步放开。</p>\n<h2>来源与编译</h2>\n<p>本文转载自掘金（陈北铮） 《Claude Code 从零上手：安装、配置中转、跑通第一个项目》，原文链接：<a href=\"https://juejin.cn/post/7705866348404080649\">https://juejin.cn/post/7705866348404080649</a>。版权归原作者所有，如需删除请联系我们。</p>",
@@ -188,214 +401,6 @@
    "first_seen": "2026-11-25T05:29:13Z",
    "author": "",
    "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-09-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-su-du-yu-ji-qing-eclipse-wei-zhi-yu-shu-ju/",
-   "title": "GTA6 速度与激情 Eclipse 位置与数据",
-   "content": "<p>在 GTA6 里，如果能找到正确的地方，第一部《速度与激情》电影中 Brian O’Conner 那辆绿色三菱 Eclipse 就归你了。这辆车直接致敬了保罗·沃克所饰角色在影片开头驾驶的那台。它速度很快，能帮你快速穿越地图、甩开警察。考虑到这车这么好用，它的抢劫难度却出奇地低，因此很适合在游戏早期作为一辆特殊车辆去搞到手——前提是你有足够的钱把它留给自己。</p>\n<p>下面说明 GTA6 里 Brian 那辆绿色三菱 Eclipse 在哪。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-08-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>目标车：97 款 Maibatsu Penumbra FF，即「绿色三菱 Eclipse」</li><li>位置：Vice-Dale County 的 Vespucci Island，Vice Beach 区三座 Rialto Islands 之一，Vice City 东北</li><li>找法：从西侧过来时左转上向北的街道；街角处、一座工地对面，有一栋带白色大门的房子</li><li>进入：靠近时大门会自动打开，附近没有守卫，不用担心被发现</li><li>拿车：车库旁的门是锁的，只能砸开，动作要快——破门即刻触发警报；第二章见过 Moses 后可用 slim jim 免砸窗开门</li><li>成本：出屋后可花 6750 美元登记；卖掉只有 1100 美元，建议留着</li><li>数据：极速 7.2、加速 7.6、公路操控 5.8、越野操控 1.9、强度 3.0</li></ul>\n<h2>《速度与激情》绿色 Eclipse 在哪</h2>\n<p>要想有机会把 Brian 那辆三菱 Eclipse——也叫 97 款 Maibatsu Penumbra FF——收入收藏，你必须前往 Vice-Dale County 的 Vespucci Island。这片区域位于东海岸，Vespucci Island 是 Vice Beach 地区三座 Rialto Islands 之一，在 Vice City 东北方。</p>\n<p>到达 Vespucci Island 后，如果从西侧过来，就左转上向北的街道。就在街角处、一座工地的对面，你会看到一栋带白色大门的房子。当你靠近时，大门会自动打开。周围没有守卫，所以不用担心有 NPC 看到你进屋。</p>\n<p>走到车库旁边的那扇门。它是锁着的，你只能破门，但动作必须快，因为你一破门，警报就会响起。车库里就是你那辆绿色三菱 Eclipse。打开车库，然后上车。如果你在第二章已经见过 Moses，就可以用 slim jim 在不砸窗的情况下打开车门。</p>\n<p>从房子里出来之后，你可以花 6750 美元登记这辆车。你也可以以 1100 美元把它卖掉，但这辆车非常出色，应该考虑留着。以下是它的各项数据。</p>\n<ul><li>车型：Maibatsu ’97 Penumbra FF</li><li>极速：7.2</li><li>加速：7.6</li><li>公路操控：5.8</li><li>越野操控：1.9</li><li>强度：3.0</li></ul>\n<h2>常见问题（FAQ）</h2>\n<h3>绿色 Eclipse 在哪？</h3>\n<p>在 Vice-Dale County 的 Vespucci Island 上，从西侧过来左转上向北的街道，街角、工地对面那栋带白色大门的房子车库里。</p>\n<h3>需要多少钱？</h3>\n<p>登记要 6750 美元；卖掉只值 1100 美元，建议留着自用。</p>\n<h3>怎么进门不触发警报？</h3>\n<p>车库旁的门只能砸开且会触发警报，动作要快；若第二章已见过 Moses，可用 slim jim 免砸窗开门。</p>\n<p>本文转载自Polygon 《Where to find the Fast &amp; Furious Mitsubishi Eclipse in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-mitsubishi-eclipse-fast-and-furious-brian-oconner-car/\">https://www.polygon.com/gta-6-mitsubishi-eclipse-fast-and-furious-brian-oconner-car/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:19Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-08-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-di-yu-shi-jian-dave-yu-beelzebub-da-fa/",
-   "title": "GTA6 地狱事件 Dave 与 Beelzebub 打法",
-   "content": "<p>GTA6 的地狱事件证明，Leonida 的一个狂欢之夜能把你带到哪里，你永远不知道。在一条安静的街上，你可能会遇到 Dave 和 Beelzebub 泡在车库里听摇滚。简单聊几句后你会发现，这两人是撒旦的信徒，也是金属乐队里非人类主唱的爱好者。如果你多待一会儿，他们会邀请你参加一场特别的仪式，让你有机会开启游戏里一个独特的事件。</p>\n<p>如果你准备好探索未知之处，下面说明 GTA6 里地狱事件怎么开启，以及最终 Boss 怎么打。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-07-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>时间：第二章开始后，且必须在夜里 22 点之后（更早去车库是关着的）</li><li>地点：Port Gellhorn 北侧的车库，东北方以 Hank’s Waffles 为最近参照；墙上写着 Welcome to the Hell hole 的转角房子就是</li><li>开始：进车库与两人交谈并稍等，可接啤酒或聊音乐（非必需）；随后一辆面包车停下，在车尾找 Dave 接受仪式邀请</li><li>进入：恢复操控后走到篝火旁，按住 L2/LT 凝视火焰，即被传送到「地狱」开始小游戏</li><li>奖励：Hellspawn Comshot 独特武器（在你醒来的王座旁）、Circles of Hell 上衣、新纹身，以及永久最大生命值提升</li><li>最终 Boss：第三关出现；会从王座两侧冲出黑山羊，可选择击杀或闪避</li><li>破防关键：击碎竞技场里出现的无头双足恶魔（会爆炸，注意保持距离），Boss 血条变红时才能造成伤害，效果短暂，需重复数次</li></ul>\n<h2>地狱事件怎么开启</h2>\n<p>要开启地狱事件，你必须在 Port Gellhorn 北侧的车库与 Dave 和 Beelzebub 见面。最近的参照物是东北方的 Hank’s Waffles。当你看到街角那栋墙上写着 Welcome to the Hell hole 的房子时，就知道找对地方了。重要的是，要在第二章开始之后再前往，并且是夜里 22 点之后。就我们的经验来说，更早去的时候车库总是关着的。</p>\n<p>进车库，与两人交谈并等一会儿。你可以通过接下一杯啤酒或聊音乐来与他们互动，但这对推进事件并非必需。最终会有一辆面包车停下。Dave 会邀请你参加一场仪式，以进入撒旦的地狱领地。要接受，就到面包车尾部找 Dave 说话。</p>\n<p>等你重新获得操控后，走到篝火旁，按住 L2/LT 凝视火焰。这会把你传送到——怎么说呢——地狱，在这里你会开始玩小游戏。</p>\n<p>完成事件后，你可以收取 Hellspawn Comshot，一把独特的武器，就在你醒来时所在王座的旁边。你还会获得一款新纹身图案、Circles of Hell 上衣，以及永久的最大生命值提升。</p>\n<h2>地狱事件最终 Boss 怎么打</h2>\n<p>在地狱事件的第三关，你会遇到最终 Boss。整场战斗中，会有黑山羊从恶魔王座的两侧冲进来。你要避免被撞到，所以可以杀掉山羊，也可以闪避它们。</p>\n<p>这场战斗里，活下来并非你唯一要操心的事。你必须通过击碎竞技场中出现的无头双足恶魔，才能让 Boss 变得可以受伤。它们被击杀时会爆炸，所以务必保持距离。击杀至少一只之后，Boss 的血条会变红，表示你可以开始对它开枪了。这个效果只维持很短时间，所以你需要重复若干次才能完成事件。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>地狱事件怎么开启？</h3>\n<p>第二章开始后、夜里 22 点之后，到 Port Gellhorn 北侧车库找 Dave 与 Beelzebub，接受仪式邀请，再到篝火旁按住 L2/LT 凝视火焰。</p>\n<h3>最终 Boss 怎么造成伤害？</h3>\n<p>先击碎竞技场里出现的无头双足恶魔（会爆炸，需保持距离），Boss 血条变红后即可开枪，效果短暂，需重复若干次。</p>\n<h3>完成事件有什么奖励？</h3>\n<p>Hellspawn Comshot 独特武器、Circles of Hell 上衣、新纹身，以及永久的最大生命值提升。</p>\n<p>本文转载自Polygon 《Where to find Dave and Beelzebub for a sick boss fight in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-hell-event-port-hellhorn-circles-of-hell-hellspawn-comshot/\">https://www.polygon.com/gta-6-hell-event-port-hellhorn-circles-of-hell-hellspawn-comshot/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:18Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-07-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-bf-bandito-zen-me-tou-huang-ye-yue-ye-che/",
-   "title": "GTA6 BF Bandito 怎么偷 荒野越野车",
-   "content": "<p>在 GTA6 里，你需要找到偷走 BF Bandito 的办法来帮 Moses 一个忙。完成第一批委托后，Moses 会联系你，说他还有其他车想让你取回，其中就包括这台越野猛兽。和 Declasse Vamos 不同，你不需要琢磨怎么把 BF Bandito 弄出车库。这一次的挑战，是让目标真的停下来。</p>\n<p>下面讲 GTA6 里 BF Bandito 怎么偷。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-06-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>前置：完成 Moses 的第一批偷车委托后，等他的联系</li><li>位置：Kelly County 东南、Buckskin Swamp 北部区域绕圈行驶</li><li>识别：白色车辆，总有一辆摩托车并排跟随；相册里也能看到它的照片</li><li>难点：需要让驾驶者停车，才能把他弄下车</li><li>最稳打法：把一辆车横停在赛道中段挡住去路；没有大车也没关系，片区东侧路口有辆皮卡可开</li><li>停车后：直接开车走人，无需破门或接线；建议先解决摩托车手，他会开枪并在你抢车后追击</li><li>备选方案：追击并击杀驾驶者，但有撞车导致爆炸的风险</li><li>收益：把车开回 Moses 车库，可得 3210 美元</li></ul>\n<h2>BF Bandito 怎么偷</h2>\n<p>你会在 Buckskin Swamp 北部、Kelly County 东南侧一带发现 BF Bandito 在移动。当你靠近这片区域时，会看到几辆汽车和摩托车正绕着一圈越野赛道行驶。BF Bandito 是一辆白色的车，旁边总有一辆摩托车并行跟随。你也可以在相册里查看它的照片。</p>\n<p>偷这辆车的挑战在于，你得让它的驾驶者停下来，好把他弄下车，再把车开回 Moses 那里。这里最稳的策略很简单：挡路。把一辆车停在赛道中段、这些车辆正在竞速的地方，就能把它拦下。跑这个任务时如果你开的不是大车，也不用担心，片区东侧的路口可以找到一辆皮卡。</p>\n<p>等驾驶者把 BF Bandito 停稳后，你就可以偷走它。由于他们本来就在开这辆车，你无需破门或接线。我们建议先处理那个骑摩托车的人，因为在你把车抢走之后，他会朝你开枪并追赶你。</p>\n<p>完成这个委托的另一种方式，是追击 BF Bandito 并设法干掉驾驶者。不过这是一种危险的做法，因为有可能撞到车，而它可能因受损过重而爆炸。</p>\n<p>把 BF Bandito 开回 Moses 的车库，他会为这辆车付你 3210 美元。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>BF Bandito 在哪？</h3>\n<p>在 Kelly County 东南、Buckskin Swamp 北部绕圈行驶的一圈越野赛道上，是一辆有摩托车并排跟随的白色车。</p>\n<h3>怎么让它停下来？</h3>\n<p>最稳的办法是把一辆车横停在赛道中段挡路；片区东侧路口有辆皮卡可开。</p>\n<h3>偷到后有什么回报？</h3>\n<p>把 BF Bandito 开回 Moses 车库，可得 3210 美元。</p>\n<p>本文转载自Polygon 《How to steal the BF Bandito in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-bf-bandito-steal-how-to-moses-grand-theft-auto/\">https://www.polygon.com/gta-6-bf-bandito-steal-how-to-moses-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:17Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-06-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-yao-shi-ke-long-qi-zen-me-na-tou-wu-yao-shi-qi-che/",
-   "title": "GTA6 钥匙克隆器怎么拿 偷无钥匙汽车",
-   "content": "<p>GTA6 的钥匙克隆器能让你偷走无钥匙汽车。游戏里最贵的车往往是无钥匙的，所以解锁钥匙克隆器大概会排在你待办清单的高位，但要注意，要认识钥匙克隆器专家 Randy 需要花上一段时间。</p>\n<p>下面说明 GTA6 里钥匙克隆器在哪拿，以及怎么用。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-05-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>第一章：只能砸窗偷车，可能触发警报</li><li>第二章：遇到 Moses 后获得 slim jim，可绕过警报破门，但仍偷不了无钥匙车</li><li>前置：推进第三章（Vice City）主线，直到出现「帮 Raul 偷车」目标，任务末尾认识 Randy</li><li>关键：继续主线完成 Raul 的 Crosstown Traffic，之后不久接到 Randy 电话，开启「帮 Randy 偷 Zorrusso」</li><li>获得：在「帮 Randy 偷 Zorrusso」任务中拿到钥匙克隆器，也是你第一次偷带高级追踪器的车</li><li>识别无钥匙车：用手机上的 WAiNK 扫描器，屏幕右下角会显示 key cloner 作为车辆进入方式</li><li>用法：与车门互动选 clone key，随后转右摇杆让中心圆变粉并保持住，即可解锁开走</li><li>注意：无钥匙车多带标准或高级追踪器；高级追踪器会被警方主动追踪，只能靠高速甩开</li></ul>\n<h2>钥匙克隆器怎么拿</h2>\n<p>在 GTA6 的第一章，你只能砸碎车窗来偷车，而这可能会触发警报。第二章遇到 Moses 之后，你会获得一根 slim jim，破门时能绕过警报。不过这两种劫车方式都不足以偷走无钥匙汽车。要做到这一点，你需要钥匙克隆器。</p>\n<p>如果你还没解锁钥匙克隆器就去偷无钥匙车，仍然可以破门进去，但没法把车开走。所以先检查车辆的安全系统很重要；你可不想砸了窗、触发了警报，结果发现根本用不了这辆车。</p>\n<p>要在 GTA6 里拿到钥匙克隆器并偷无钥匙车，你必须完成以下步骤。</p>\n<ul><li>跟随第三章（Vice City）主线，直到出现「帮 Raul 偷车」目标。任务结束时你会认识 Randy。虽然 Randy 的车库此时已解锁为赃车交付点（包括带标准追踪器的车），但你还没有钥匙克隆器。</li><li>继续推进主线，直到完成 Raul 的 Crosstown Traffic。</li><li>完成 Crosstown Traffic 后不久，你会接到 Randy 的电话，开启「帮 Randy 偷 Zorrusso」任务。Randy 会在该任务中把钥匙克隆器交给你。这也是你第一次偷带高级追踪器的车。</li></ul>\n<h2>钥匙克隆器怎么用</h2>\n<p>要判断一辆车是否是无钥匙的，用你手机上的 WAiNK 扫描器（打开 WAiNK App，或按住 D-pad 的上方向键快速呼出）。屏幕右下角会显示 key cloner 作为这辆车的进入方式。</p>\n<p>想在 GTA6 里偷一辆无钥匙车，与它的某一扇前门互动，选择 clone key 选项（对非无钥匙车，这个位置显示的是 slim jim）。然后沿圆圈方向转右摇杆，直到中心的圆圈变成粉红色，再把右摇杆停在这个位置，即可解锁车辆、开车走人。</p>\n<p>注意，大多数无钥匙车都受标准或高级追踪器保护。标准追踪器问题不大（只是意味着你未登记就不能改装这辆车），但高级追踪器——就像你在帮 Randy 偷 Zorrusso 里体会到的那样——会被警方主动追踪。唯一能保持领先的办法就是开得非常快。所以，虽然钥匙克隆器两种都能偷，但偷带标准追踪器的车要轻松得多。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>钥匙克隆器怎么获得？</h3>\n<p>推进第三章主线，完成 Raul 的 Crosstown Traffic 后接到 Randy 电话，在帮 Randy 偷 Zorrusso 任务中由 Randy 交给你。</p>\n<h3>怎么判断一辆车是无钥匙的？</h3>\n<p>用手机上的 WAiNK 扫描器，屏幕右下角会把 key cloner 列为该车的进入方式。</p>\n<h3>偷了无钥匙车会被追踪吗？</h3>\n<p>多数无钥匙车带标准或高级追踪器。高级追踪器会被警方主动追踪，只能靠高速甩开。</p>\n<p>本文转载自Polygon 《How to get a key cloner in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-key-cloner-how-to-get-steal-keyless-cars-randy/\">https://www.polygon.com/gta-6-key-cloner-how-to-get-steal-keyless-cars-randy/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:16Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-05-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-port-gellhorn-lian-huan-sha-shou-you-ke-shi-zong-an/",
-   "title": "GTA6 Port Gellhorn 连环杀手 游客失踪案",
-   "content": "<p>在 GTA6 里寻找 Port Gellhorn 失踪游客和连环杀手，会带你在这座镇上走一趟扭曲的旅程，沿途几乎没什么指引，却有很多卡住的机会。这是一场病态的寻宝：只有几张照片和对周边区域的了解可依靠，尽管最后的奖励相对微薄。这个任务的回报，更多在于故事本身。</p>\n<p>下面说明 GTA6 里 Gellhorn 失踪游客的位置，以及如何完成这条连环杀手支线。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-04-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>开启时间：第二章开始后，在 Starlet Motel 办公室、Linda 办公桌旁的墙上查看寻人启事</li><li>无用线索：启事上有举报热线电话，但打过去只是语音信箱</li><li>起点位置：Moses 车库对面、踏板车店旁边的旧仓库；正面开门无效，走仓库右侧找底部破洞爬进去</li><li>中间会有一段 jumpscare，但仓库内无敌人；进入红房间与更里面的战利品房间，与照片互动</li><li>尸体一：Susanne Keeble 在市中心 Pay ‘n’ Spray 旁的废车场（粉红色汽车，开聚焦模式更易找）</li><li>尸体二：Donald Miller 在 Port Gellhorn 外 Wild Hog Point 沼泽，找中央附近那棵没叶子的树，附近水里有一辆车</li><li>尸体三：Patrick Murray 在 Port Gellhorn 最北端废弃拖车公园、水塔附近那辆蓝色拖车里，掀开门口附近的地板</li><li>结束：找齐三具后回调热线、返回仓库，剧情随是否与同伴同行略有不同；可拾取杀手的眼镜作为 Jason 的独特配件</li></ul>\n<h2>怎么开始在 Port Gellhorn 追查连环杀手</h2>\n<p>你会在第二章开始后，于 Starlet Motel 办公室第一次遇到这条探索任务。Lucia 可以查看 Linda 办公桌旁墙上的一组寻人启事。启事上有一条举报热线和一个电话号码，但打过去只会进入语音信箱。</p>\n<p>而这几乎是唯一的线索，因为启事上的信息既不提供提示，也不告诉你该往哪找。镇上某处或许还藏着别的线索，但我们没找到。我们反而是误打误撞碰到了任务的起点：Moses 车库对面、踏板车店旁边那栋像地堡一样的旧仓库。你可以在正面找到开门的提示，但按下去没有用。沿着仓库右侧往里走，找底部的破洞，爬进去。</p>\n<p>尽管这地方阴气森森，里面却没有什么会伤害你，只是中途有一段 jumpscare。进入红色房间以及更里面的战利品房间，与那里的照片互动。你会看到展示每一名失踪游客所在地点的照片；这些照片会存进你手机相册，方便日后查看。地图菜单里的任务提示也会改变，每张照片对应一条新提示。</p>\n<p>你可以按任意顺序追踪他们。我们只是按自己发现的顺序列出。建议白天做这一部分，比较容易辨认地标。</p>\n<h2>Port Gellhorn 失踪游客在哪</h2>\n<h3>废车场照片（Susanne Keeble）</h3>\n<p>废车场里能找的是 Susanne Keeble，它在市中心 Gellhorn 的 Pay ‘n’ Spray 旁边。你要找一辆粉红色的车；如果不好找，就开启聚焦模式，它是这片区域里唯一可互动的物体。找到尸体后，打电话向举报热线报告。</p>\n<h3>树照片（Donald Miller）</h3>\n<p>Donald Miller 的尸体在 Port Gellhorn 外的 Wild Hog Point 沼泽。朝沼泽中央附近那棵光秃秃的树走，在附近的水里找到一辆车。与它互动、报告尸体，然后离开。这一次有人接了电话。</p>\n<h3>拖车公园照片（Patrick Murray）</h3>\n<p>Patrick Murray 是最后一名游客，他的尸体在 Port Gellhorn 最北端一处废弃拖车公园里的拖车中，靠近一座水塔。要找的是那辆蓝色的拖车。进去后，掀开门口附近的地板，发现 Murray 的尸体。战利品房间里关于他的剪报提到，提供他的线索有奖励，不过由于你很快就会知道的原因，热线接线员并不打算付这笔钱。</p>\n<p>找到第三具尸体后，热线的男人让你返回仓库，而任务会根据你是独自前往还是与同伴同行而略有不同。我们扮演 Jason，带着 Lucia 一起去，不过谁来主导都无所谓。你的同伴会留在外面，屋内会发生紧张的剧情，之后凶手死亡、任务结束。想要的话，你可以拾取杀手的眼镜，作为 Jason 的独特「拾得」配件。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>连环杀手支线怎么开始？</h3>\n<p>第二章开始后，在 Starlet Motel 办公室查看 Linda 办公桌旁的寻人启事；随后到 Moses 车库对面、踏板车店旁的旧仓库，从右侧底部破洞爬进去。</p>\n<h3>三名失踪游客在哪？</h3>\n<p>Susanne Keeble 在市中心 Pay ‘n’ Spray 旁废车场的粉色车里；Donald Miller 在 Wild Hog Point 沼泽的枯树附近水中；Patrick Murray 在北端拖车公园那辆蓝色拖车里。</p>\n<h3>完成任务有什么奖励？</h3>\n<p>奖励相对微薄，主要是故事本身；你可以拾取杀手的眼镜作为 Jason 的独特配件。</p>\n<p>本文转载自Polygon 《Where to find the Port Gellhorn serial killer in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-port-gellhorn-missing-tourists-where-to-find-serial-killer/\">https://www.polygon.com/gta-6-port-gellhorn-missing-tourists-where-to-find-serial-killer/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:15Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-04-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-ufo-meng-jing-wu-wei-zhi-chu-fa-tiao-jian-yu-liu-cheng/",
-   "title": "GTA6 UFO 梦境屋位置 触发条件与流程",
-   "content": "<p>如果你在找 GTA6 的 UFO 梦境屋位置，说明你已经见过 UFO 一次了。这个没有标记的可选任务，起于你调查路边一辆被遗弃的汽车、顺着散落一地的衣物追踪，最后发现一名女性处境不妙、正被一道光吸上天。下次你睡觉时，会发生一段令人不安的梦境，其中一部分把 Leonida 的某个地方画在了本应是地球的星球上。</p>\n<p>想继续 UFO 剧情线，你必须找到这栋不起眼的建筑，它位于一座桥和一条简易跑道附近。如果你想知道它究竟在哪，那你运气不错：下面说明 GTA6 的 UFO 梦境屋位置。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-03-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>前置：先完成第一次 UFO 遭遇，并在睡觉后看到那段「地球」梦境</li><li>位置：地图南部、Key Lento 一带，Gambit Bay 正北、Hamlet 以南</li><li>参照物：那条南北走向、地图上可见的简易跑道东北方，一箭之遥</li><li>路线：走公路会看到 Grassrivers Pelican Valley 休闲区的棕色路牌，左转穿过到 Southpoint 机场，无视禁区告示</li><li>进门：大门锁着，绕到左侧、跳过一段顶部没有铁丝网的铁链栅栏，再绕到建筑另一侧找正门</li><li>结果：进屋后你会重历那段梦境，只是处处破败，结局颇有看头</li></ul>\n<h2>UFO 梦境屋在哪</h2>\n<p>虽然第一次 UFO 遭遇发生在 Port Gellhorn，但 UFO 梦境屋的位置在更南边、靠近游戏起点 Key Lento。具体来说，它在 Gambit Bay 正北、Hamlet 以南，就在那条南北走向、地图上可见的简易跑道东北方一箭之遥处。</p>\n<p>如果你从公路接近，会看到一块指向 Grassrivers Pelican Valley 休闲区的棕色路牌。左转穿过，来到 Southpoint 机场，别管那些禁区告示。大门是锁着的，但你可以绕到左边、跳过一段顶部没有铁丝网的铁链栅栏进去。再绕到建筑的另外一侧，就能找到正门。</p>\n<p>接下来，你会重新经历那段梦境，只是这里的一切都有些破败。这是我目前在 GTA6 里遇到的结局最有看头的遭遇之一，坐下来好好享受吧。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>梦境屋在哪里？</h3>\n<p>在地图南部、Key Lento 一带，Gambit Bay 正北、Hamlet 以南，紧邻那条南北向简易跑道的东北方。</p>\n<h3>为什么大门进不去？</h3>\n<p>大门锁着。绕到左侧跳过一段顶部无铁丝网的铁链栅栏，再绕到建筑另一侧找正门。</p>\n<h3>需要先做什么？</h3>\n<p>先完成第一次 UFO 遭遇并看到那段梦境，才能继续 UFO 剧情线并进入这栋建筑。</p>\n<p>本文转载自Polygon 《Where to find the UFO dream house in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-ufo-dream-house-location-where-to-find-grand-theft-auto/\">https://www.polygon.com/gta-6-ufo-dream-house-location-where-to-find-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:14Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-03-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-silent-hill-lyu-guan-cai-dan-yu-bao-xian-xiang-mi-ma/",
-   "title": "GTA6 Silent Hill 旅馆彩蛋 与保险箱密码",
-   "content": "<p>寂静岭旅馆是 GTA6 里你可以偶然撞见的秘密之一。就像偶遇 Dave 与 Beelzebub 一样，你也有可能错过进入这家旅馆、体验内部那场诡异事件的机会。从外面看它只是一栋普通建筑，可你走进之后，整个 Leonida 会实实在在地改变一阵子。此外，这里还有一个等你打开的保险箱和一件独特的奖励。</p>\n<p>如果你想去看看这个神秘的地方，下面告诉你 GTA6 里 Silent Hill 旅馆的位置，以及 Marbelle 旅馆保险箱密码在哪。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-02-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：Vice City 的 Crosstown，城市北侧、Bayside 西南；Pizza Pete 旁边的老旧建筑 Marbelle 旅馆</li><li>入口：走旅馆东侧的那扇门</li><li>触发方式：进门后沿楼梯一路爬到顶层，事件随之开始</li><li>注意：两人同行时只有你操控的角色会进店；离开后会收到同伴消息问你去哪了；第二次进店似乎不会再触发；事件开始后离旅馆太远，雾气会散去、城市恢复正常</li><li>保险箱奖励：234 美元 + Crowex Ambassador「Breakfast」奢华腕表</li><li>保险箱密码：955214（两处线索：触发事件的楼梯左墙手眼图上方，或屋顶西北侧地上的纸条）</li></ul>\n<h2>寂静岭旅馆在哪</h2>\n<p>在 GTA6 里，Silent Hill 事件从你造访 Vice City 的 Crosstown 的 Marbelle 旅馆开始。这片区域位于城市北侧、Bayside 的西南方。Marbelle 旅馆是 Pizza Pete 旁边的一栋老旧建筑。要进入旅馆，你必须走东侧的那扇门。</p>\n<p>在最初的房间里，你会在书桌后面看到一个保险箱，此外没什么重要的东西。继续爬楼梯，直到顶层，事件就会开始。</p>\n<p>要注意，如果你是两人同行来到旅馆，只有你操控的角色会进店；离开后你会收到同伴发来的消息，问你去哪了。另外，第二次进店似乎不会再触发事件。如果事件开始后你离旅馆太远，雾气会散去，城市会恢复正常。</p>\n<h2>Marbelle 旅馆保险箱密码在哪</h2>\n<p>就算你对超自然体验不感兴趣，也值得来 Marbelle 旅馆一趟。里面有个保险箱，装着 234 美元和 Crowex Ambassador「Breakfast」奢华腕表。要打开它，你需要一个六位数密码，可以通过两种方式找到。</p>\n<p>第一种在事件开始、墙上浮现红色符号的楼梯上。当你往上爬时，如果看向左侧的墙，会看到一幅手掌中长着眼睛的图画。在它上方，你能找到六个数字。</p>\n<p>如果你被墙上那些诡异的符号召唤得心里发毛、没留意上面写了什么，别担心。你还有一次机会：上到屋顶，在西北侧地面上找留下的纸条，读一读就能找到同样的六位数字。</p>\n<p>两处地点给出的是同一个密码：955214。回到保险箱，输入密码打开它，收下奖励。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>寂静岭旅馆在哪里？</h3>\n<p>在 Vice City 的 Crosstown，城市北侧、Bayside 西南方，Pizza Pete 旁边的 Marbelle 旅馆；从东侧门进入，爬到顶层触发事件。</p>\n<h3>保险箱密码是多少？</h3>\n<p>955214。楼梯左墙的手眼图上方，或屋顶西北侧的地上纸条都能看到。</p>\n<h3>保险箱里有什么？</h3>\n<p>234 美元现金，以及 Crowex Ambassador「Breakfast」奢华腕表。</p>\n<p>本文转载自Polygon 《Where to find the Silent Hill hotel in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-silent-hill-hotel-easter-egg-location-marbelle-hotel-safe/\">https://www.polygon.com/gta-6-silent-hill-hotel-easter-egg-location-marbelle-hotel-safe/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:13Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-02-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-vice-city-chuan-song-men-cai-dan-kai-qi-fang-fa-yu-wei/",
-   "title": "GTA6 Vice City 传送门彩蛋 开启方法与位置",
-   "content": "<p>GTA6 的 Vice City 传送门彩蛋是一项独特的事件，能让你穿越时间。它看起来也许不像，但考虑到天上出现的 UFO 和你还能造访那些被遗忘的闹鬼旅馆，Leonida 存在一扇秘密传送门其实相当说得通。</p>\n<p>要体验这个事件、打开这扇传送门，你需要完成一长串步骤。不过别担心，下面我们把 GTA6 里完成 Vice City 传送门彩蛋所需知道的一切都讲清楚。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-01-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>起点：Key Lento，Nifty Threads Island Wear 商店东北的 Badger 电台塔，进塔登顶进入控制室</li><li>第一步：把门边的拉杆拉起，再按旧电视旁面板上的按钮，电视会显示「Malibu」</li><li>第二步：按固定顺序激活全 Leonida 的 12 座 LPL 变电站；每站外墙有一到两个字母，按钮或拉杆附近的粉色胶带标出对应字符</li><li>注意：全程不能用 RydeMe 快速旅行，也不能切换角色，否则任务重置、需回电台塔重开</li><li>12 个字母拼出的信息：Life is passing me by（初代《罪恶都市》的 PC 作弊码，可加速时间）</li><li>终点：Hamlet 东边的 T. H. Power Station，19:00 至次日 06:00 之间；传送门在电站北侧</li><li>奖励：Tony Vercetti 的夏威夷衬衫、American Glory 摩托车（记得登记）、Vice Vinyl 可购买的新涂装</li></ul>\n<h2>怎么开启 Vice City 传送门彩蛋</h2>\n<p>想开启 GTA6 的 Vice City 传送门事件，你必须先前往游戏起始区域 Key Lento，找到 Nifty Threads Island Wear 商店东北方的 Badger 电台塔。进塔后一路爬到顶层，会看到一个类似控制室的房间。</p>\n<p>门边有一根拉杆。把它往上拉起，再按下旧电视旁面板上的按钮。如果操作正确，电视会亮起并显示「Malibu」这个词。之后离开电台塔，准备下一步。</p>\n<h2>12 座 LPL 变电站的位置与顺序</h2>\n<p>完成电台塔的初始步骤后，你需要按特定顺序造访 Leonida 各地的 12 座 LPL 变电站。每座变电站的外墙上都会有一个或两个字母，把 12 个字母拼起来会组成一条秘密信息。每站里都有一枚按钮或拉杆，代表一个字母或符号；为确保你操作的是正确的那一个，请查看按钮或拉杆附近的粉色胶带，上面标着它对应的字符。</p>\n<p>开始之前要记住：过程中不能使用 RydeMe App 快速旅行，也不能切换角色，否则任务会重置，你得回到电台塔重新开始。当你拉起最后一根拉杆、收到一位未知联系人发来的消息时，就说明这一步完成了。以下是必须依序造访的变电站，以及每站要操作的按钮或拉杆与对应字母。</p>\n<ul><li>第 1 站｜按钮：D｜外墙字母：L｜位置：Vice City（Vice-Dale County）市中心西南角，Zenith 健身房西南</li><li>第 2 站｜按钮：D｜外墙字母：iF｜位置：Vice City（Vice-Dale County）Balsero 西侧，Randy 商店西北</li><li>第 3 站｜按钮：点｜外墙字母：Ei｜位置：Key Lento（Mariana County）Kenton 商店西北</li><li>第 4 站｜按钮：A｜外墙字母：S｜位置：Vice Beach（Vice-Dale County）Penmarch Isle 北侧</li><li>第 5 站｜拉杆：点｜外墙字母：P｜位置：Vice City（Vice-Dale County）Bayside 西侧，Vice City 公寓西北</li><li>第 6 站｜拉杆：A｜外墙字母：A｜位置：Port Gellhorn（Kelly County）Moses 商店以北</li><li>第 7 站｜按钮：A｜外墙字母：Ss｜位置：Hamlet（Vice-Dale County）Big Shot Ammu-Nation 商店以东</li><li>第 8 站｜按钮：A｜外墙字母：iN｜位置：Vice City（Vice-Dale County）Gloriana Key 西北部</li><li>第 9 站｜拉杆：点｜外墙字母：G｜位置：Hamlet（Vice-Dale County）Hamlet 东侧，Boone Speedway 东北</li><li>第 10 站｜拉杆：W｜外墙字母：ME｜位置：Gellhorn（Kelly County）Raceway 东北</li><li>第 11 站｜拉杆：D｜外墙字母：B｜位置：Hamlet（Vice-Dale County）Hamlet 南侧，Boone Speedway 与 Pay ‘N’ Spray 东南</li><li>第 12 站｜拉杆：W｜外墙字母：Y｜位置：北 Mariana County（Mariana County）Breakwater Quarry 以南</li></ul>\n<p>把全部字母组合起来，会得到信息：Life is passing me by。这是初代《侠盗猎车手：罪恶都市》里的一条 PC 作弊码，用来加速时间。</p>\n<h2>传送门在哪、怎么用</h2>\n<p>事件的最后一步，是照你做第 12 根拉杆后收到的那条信息的指示去办：在 19:00 到次日 06:00 之间，前往 Vice-Dale County 中 Hamlet 东边的 T. H. Power Station。到达后你会找到那扇通往初代 Vice City 的传送门。</p>\n<p>传送门位于电站北侧。如果你能看到能量从传送门沿着周围的电缆流淌，就说明找对地方了。这片区域戒备森严，抵达传送门可能有点难，可以考虑乘直升机过去，或绕水游过去找一个好的切入点。</p>\n<p>找到传送门后，拉开大门左侧的拉杆，你就会被传送过去。想从初代 Vice City 回来，只要走进酒吧后面的那个房间，就会回到 GTA6 的世界。完成这个事件后，你会获得 Tony Vercetti 的夏威夷衬衫、American Glory 摩托车（别忘了登记），并在 Vice Vinyl 解锁一款可购买的新涂装。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>传送门在哪里打开？</h3>\n<p>在 Hamlet 东边的 T. H. Power Station 北侧，且必须在 19:00 至次日 06:00 之间，拉开大门左侧拉杆即可进入。</p>\n<h3>12 座变电站必须按顺序做吗？</h3>\n<p>必须。顺序错乱不会推进事件；且过程中不能快速旅行或切换角色，否则任务会重置，需回到电台塔重开。</p>\n<h3>完成彩蛋有什么奖励？</h3>\n<p>Tony Vercetti 的夏威夷衬衫、American Glory 摩托车，以及 Vice Vinyl 一款可购买的新涂装；此外还能回到初代 Vice City 游览。</p>\n<p>本文转载自Polygon 《Vice City portal Easter egg location in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-vice-city-portal-easter-egg-location-walkthrough-how-to-open/\">https://www.polygon.com/gta-6-vice-city-portal-easter-egg-location-walkthrough-how-to-open/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:52:12Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0952-01-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-quan-yan-yuan-biao-yu-pei-yin-zhen-rong/",
-   "title": "GTA6 全演员表与配音阵容",
-   "content": "<p>GTA6 拥有 GTA 系列有史以来最长的剧情，这也意味着它拥有一套极其庞大的角色阵容。在敌对派系头目、电台 DJ 和虚构说唱歌手之间，你会在 Leonida 遇到许许多多的人。而其中一些人的声音，你可能会觉得非常耳熟。</p>\n<p>完整的演员表长到足以占据 GTA6 一小时以上的片尾字幕，而下面这些是故事里分量最重的角色，包括 Jason 与 Lucia。有些人你可能在电影、甚至此前的 Rockstar 游戏里见过，另一些人则只是有些普通的电视剧履历。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-08-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>Jason Duval 由 Dylan Rourke 配音，代表作有《9-1-1：孤星》《Station 19》《实习医生格蕾》</li><li>Lucia Caminos 由 Manni L. Perez 配音，曾出演《法律与秩序：特殊受害者》《芝加哥警署》，并在 GTA5 中配过 Clubber</li><li>Cal 由 Bobby Moynihan 配音，2008–2017 年《周六夜现场》固定班底</li><li>Brian Heder 由 Stephen Root 配音，代表作《办公空间》《巴瑞》《一家之主》</li><li>Dre’Quan 由 Naiqui Macabroad 配音；Raul Bautista 由 Manny Perez 配音</li><li>完整演员表见下方清单；不打通关也能在设置里查看完整片尾字幕</li></ul>\n<h2>GTA6 主要配音</h2>\n<p>下面列出在 GTA6 中担任主要角色的全部演员，以及他们此前的代表作。</p>\n<h3>Dylan Rourke（Jason Duval）</h3>\n<p>GTA6 的演员阵容多来自电视剧背景，Jason Duval 也不例外。他的配音演员 Dylan Rourke 曾出现在《9-1-1：孤星》《Station 19》和《实习医生格蕾》等剧集中。不过除非你把他客串《摩登家庭》里「Big Guy」的角色也算作明星亮相，否则 GTA6 无疑是他迄今最知名的一份工作。</p>\n<h3>Manni L. Perez（Lucia Caminos）</h3>\n<p>为 Lucia Caminos 配音的 Manni L. Perez，演艺背景与 Dylan Rourke 相似。她曾出现在《法律与秩序：特殊受害者》《芝加哥警署》和《黑名单》中。她也是 Rockstar 的老熟人：Perez 在《侠盗猎车手 5》中为 Clubber 配音，并在 GTA Online 中为 Blackjack Dealer 配音。</p>\n<h3>Bobby Moynihan（Cal）</h3>\n<p>Jason 和 Lucia 身边这位颇具喜感的搭档，是整个阵容里最大牌的明星之一。他由 Bobby Moynihan 配音，后者在 2008 至 2017 年间是《周六夜现场》的固定班底。你可能记得他在 Weekend Update 里常驻的「Drunk Uncle」一角——那本身就很有 GTA 的味道。除此之外 Moynihan 作品众多，最近出演了《海军罪案调查处：起源》《The Fall and Rise of Reggie Dinkins》以及《Minions &amp; Monsters》。</p>\n<h3>Stephen Root（Brian Heder）</h3>\n<p>Stephen Root 为 Jason 的雇主 Brian Heder 配音，堪称整个游戏界「最不像秘密的秘密」。他几乎无需介绍：Root 是《办公空间》里的 Milton、《巴瑞》里的 Monroe Fuches、《一家之主》里的 Bill 等等角色的塑造者。有意思的是，他还在剧集《It’s Florida, Man》里被署名为「Florida Man」——很贴切，不是吗？</p>\n<h3>Naiqui Macabroad（Dre’Quan）</h3>\n<p>Dre’Quan 是阵容中相当亮眼的一位，当剧情推进到 Vice City 后，他扮演重要的配角。为他说配的是 Naiqui Macabroad，这位演员曾出现在《法律与秩序》《芝加哥警署》和《Crashing》中。Macabroad 在剧中大量与 Hood Brat、Krissy Celess 对戏——这两位是佛罗里达本地说唱歌手，也在游戏中登场。</p>\n<h3>Manny Perez（Raul Bautista）</h3>\n<p>Manny Perez 饰演 Raul Bautista——当 Jason 与 Lucia 抵达 Vice City 后，他成为主要配角之一。Perez 在影视界的配角生涯漫长而成功，曾出演《救救我》《国土安全》《卢克·凯奇》《警察世家》以及（你猜到了）《法律与秩序》。最近他在《自由之声》中担任主演，饰演 Fuego。</p>\n<h2>GTA6 完整演员表</h2>\n<ul><li>Jason Duval：Dylan Rourke</li><li>Lucia Caminos：Manni L. Perez</li><li>Donnie：Brad Carter</li><li>Cal：Bobby Moynihan</li><li>Brian Heder：Stephen Root</li><li>Lori Heder：Orlagh Cassidy</li><li>Kenton Rees：Machel Montano</li><li>Andy：Mallory Wu</li><li>Katerina Rosselli：Edwina Rai</li><li>Mattia Tauro：Massi Pregoni</li><li>Pilot Pete：Carl Palmer</li><li>Captain Aldo Méndez：Chris McKinney</li><li>Linda：Lisa Emery</li><li>Vicki：Taryn Manning</li><li>Dunk：Brad Fleischer</li><li>Moses 「Mo」 Watkins：Aaron Morton</li><li>Wyman：David Stishan</li><li>Billy：Spenser Granese</li><li>Bret Vogel：Jariko Denman</li><li>Dre’Quan：Naiqui Macabroad</li><li>Bae-Luxe：Hood Brat</li><li>Roxy Rashad：Krissy Celess</li><li>Boobie Ike：Mike Forbs</li><li>Tyrone Russo：Taylor Novak</li><li>Mia Caminos：Roselyn Sanchez</li><li>Papa Audacity：Brian Furey</li><li>Yago Jiménez：Victor Almanzar</li><li>Yasmani Cabrera：Hiram Delgado</li><li>Randy Kozlov：Serge Didenko</li><li>Benedict Halifax：Ian Scott McGregor</li><li>Karim：Rafi Silver</li><li>Raul Bautista：Manny Perez</li><li>Andrea：Christine Spang</li><li>DWNPLY：Denzel Curry</li><li>Raymond：Jaime Lincoln Smith</li><li>Felipe：Alfredo Diaz</li><li>Valentina：Josephine Phoenix</li><li>Nicole Park：Sierra Katow</li><li>Abraham Gonzalez：Nick Pupo</li><li>Francisco 「Cisco」 Delgado：Mario D’Leon</li><li>Nathan 「Nate」 Bozer：Brendan Sagalow</li><li>Raina Koleva：Oksana Grishina</li><li>Kordell Grant：Michael Jai White</li><li>Andrés de León：J. Eddie Martinez</li><li>Petra Navarro：Elaine Del Valle</li><li>César Navarro：Anthony Ruiz</li><li>Gustavo Herrera：Josue Gutierrez</li><li>KD：Jordan J. Adams</li><li>Rafa de León Navarro：Sebastian Montañez</li><li>Omar Dawoud：Barzin Akhavan</li><li>Dardan：Jake Ventimiglia</li><li>Giorgio Gallo：Sergio Castellitto</li><li>Vinny Capsik：Roger Wayne</li><li>Liz Jackson：Tifané Williams</li><li>Kevin Kueh：Abraham Lim</li><li>The Hitman：Michael Hollick</li><li>Deputy Sarah Fitzroy：Kelly Grago</li><li>Mandy：Lexie Shoaibi</li></ul>\n<h2>完整片尾字幕在哪看</h2>\n<p>如果你想看完整字幕——包括开发人员与音乐——并不需要通关 GTA6。从暂停界面进入设置菜单，切到 Account 标签，向下滚动到 Credits，就能扫描一个二维码，用浏览器查看片尾字幕。如果你想跳过这些步骤，也可以直接在网上找到片尾字幕页面。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>GTA6 主角是谁配音的？</h3>\n<p>Jason Duval 由 Dylan Rourke 配音，Lucia Caminos 由 Manni L. Perez 配音。</p>\n<h3>谁配 Cal？</h3>\n<p>Bobby Moynihan，2008–2017 年《周六夜现场》的固定班底。</p>\n<h3>不打通关能看完整字幕吗？</h3>\n<p>能。在设置菜单的 Account 标签里找到 Credits，扫描二维码即可在浏览器查看完整片尾字幕。</p>\n<p>本文转载自Polygon 《GTA 6 cast list》，原文链接：<a href=\"https://www.polygon.com/gta-6-cast-list-actors-cameos-grand-theft-auto/\">https://www.polygon.com/gta-6-cast-list-actors-cameos-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:43Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-08-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-declasse-vamos-che-ku-mi-ma-2727/",
-   "title": "GTA6 Declasse Vamos 车库密码 2727",
-   "content": "<p>Declasse Vamos 是 GTA6 里你可以替 Moses 偷的一辆车。可当你找到它时会发现，车被锁在车库里，你需要找到车库门禁密码才能拿到它。</p>\n<p>幸运的是，密码就在附近，只是不像 GTA6 里其他一些保险箱密码那样直白。你不会找到任何明确写出密码的纸条，但只要留心周围环境，就会发现一个反复出现的数字，而它恰好就是密码。</p>\n<p>下面说明 GTA6 里 Declasse Vamos 的密码是什么，以及怎么找到它。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-07-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>前置条件：先帮 Moses 偷完他最初让你留意的三辆车，之后他会给你更多目标，其中就包括这台改装版 Declasse Vamos</li><li>位置：Lummox County 的 Grayson 东侧边缘</li><li>目标：房子旁边独立车库里的 Declasse Vamos，车库西侧有门和密码盘，需要四位数</li><li>线索位置：车库西边那栋房子，屋内有几个人（我们遇到客厅有人在睡、后廊有几个人在聊天）</li><li>密码线索：墙上到处刷着同一个四位数 2727</li><li>答案：2-7-2-7</li><li>收益：把车开回给 Moses，他会付你 4135 美元</li></ul>\n<h2>Declasse Vamos 密码位置</h2>\n<p>在你能替 Moses 偷到 Declasse Vamos 之前，需要先偷到他最初让你留意的三辆车。之后 Moses 会陆续给你更多要偷的车，其中就包括这台动力强劲的 Declasse Vamos。这台 Declasse Vamos 位于 Lummox County 的 Grayson 东侧边缘。</p>\n<p>你需要替 Moses 偷的这台 Declasse Vamos 被锁在房子旁的独立车库里。在车库西侧，你会找到一扇门和一个需要四位数密码的密码盘。</p>\n<p>要找密码，你得进入车库西边的那栋房子，但要注意屋里有几个人。在我们的经历里，客厅里有人在睡觉，后廊还有几个人在聊天。你可以直接火力开路，也可以潜行潜入。</p>\n<p>这里没有哪张纸条会明确写着「这就是车库密码」。相反，你需要去找一个可能作为密码的四位数。幸运的是，这栋房子的墙上到处都刷着同一个数字：2727。</p>\n<h2>GTA6 里 Declasse Vamos 密码是多少</h2>\n<p>车库的密码盘密码是 2-7-2-7。输入密码，车库门就会解锁。进屋后，记得按下车库门右侧的按钮把门打开。</p>\n<p>接下来你就可以上车直接开走了。屋里的人会发觉你在偷他们的车并试图开枪，但只要开得够快，他们追不了多久。把车开回去交给 Moses，他会付你 4135 美元。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>Declasse Vamos 车库密码是多少？</h3>\n<p>2727（2-7-2-7）。</p>\n<h3>密码在哪儿找？</h3>\n<p>在车库西边那栋房子的墙上，反复刷着四位数 2727。</p>\n<h3>偷到车有什么回报？</h3>\n<p>把车交给 Moses，他会付给你 4135 美元。</p>\n<p>本文转载自Polygon 《Declasse Vamos code location in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-declasse-vamos-code-car-location/\">https://www.polygon.com/gta-6-declasse-vamos-code-car-location/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:42Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-07-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-ju-xing-pang-xie-bao-xian-xiang-yu-vf5-chong-feng-qiang/",
-   "title": "GTA6 巨型螃蟹保险箱与 VF5 冲锋枪",
-   "content": "<p>GTA6 里有一只盘踞沼泽的巨型螃蟹，更重要的是有一把螃蟹主题的枪——Crabshack VF5 冲锋枪，助你今后的「职业发展」。这一切都属于一个名叫 Pelican Valley Outpost 的可选事件，你会去收拾某连锁商店所进行的一批可疑实验留下的残局。这趟麻烦很值得，且不说那把出挑的武器，还有一笔现金帮你冲刺下一个家庭基金目标，外加一辆免费的水上摩托。最妙的是，只要别惹上当地的鳄鱼，这段探险完全安全。</p>\n<p>下面介绍在 GTA6 里到哪儿找那只巨型螃蟹，好让你清掉 Pelican Valley Outpost 并拿到 Crabshack VF5 冲锋枪。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-06-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：地图上「Pelican Valley」标签西南方向的一座中型岛屿，开图后可见是当地少数有建筑的岛屿之一</li><li>前往方式：开 Jason 家里的船过去，千万别游泳，鳄鱼太多</li><li>码头：在船屋停船，沿栈道走到研究设施；船屋是锁着的，但离开前你会进去</li><li>通电：第一间小屋没电，绕到屋后蓝色蟹笼附近的电闸箱互动通电</li><li>电脑登录密码：对面小卧室地板上那块小木片，翻看选项，最新一条是 CLEAVES</li><li>保险箱线索：电脑里绿色单元格的备注写着「Safe code = Double Success」</li><li>保险箱密码：实验 36 号是唯一成功案例，把 36 翻倍得 0072</li><li>船屋密码：保险箱内纸条「Emergency go protocol: 0212」</li><li>奖励：Crabshack VF5 冲锋枪 + 现金（约 1107 美元）+ 标记钞票 + 免费水上摩托</li></ul>\n<h2>巨型螃蟹保险箱密码在哪</h2>\n<p>Pelican Valley Outpost 里就是那只巨型螃蟹的研究设施，在拿到那把出挑武器之前，你需要在沿途找到好几个密码。它位于地图上「Pelican Valley」标签西南方向的一座中型岛屿。清掉该区域地图的迷雾后，你会发现它是当地少数有建筑的岛屿之一。</p>\n<p>开上 Jason 家里的船出发。即便你已经在附近，也绝对不要游泳过去——鳄鱼太多，这不是安全选项。把船停在船屋，沿栈道走到研究设施本体。船屋是锁着的，但离开前你会从里面进去。</p>\n<p>园区里有好几栋建筑，但如果你先进第一间小屋，会注意到断电了。你仍可以探索，只是无法使用研究员的那台电脑，而它是清掉这个据点的关键。走到屋外，绕到建筑后方蓝色蟹笼旁边，与电闸箱互动接通电源，再回到屋内。先别管电脑，往右转。厨房里有一袋薯片，想让 Jason 补充点卡路里可以拿；而电脑的登录密码就在厨房对面的小卧室里。查看地板上那块小木片就能看到全部选项，其中最新的一条是「CLEAVES」。</p>\n<p>与电脑互动，按方向键左键输入 CLEAVES。你可以在屏幕上翻阅几页信息，但重要的是绿色单元格里的那条备注：「Safe code = Double Success」。看完后离开。</p>\n<p>报告里的那只巨型螃蟹 Karkinos 会在一段短过场中扑向你，但你并不需要和它打。按下屏幕提示的按键把它推开，它就会消失在沼泽里。</p>\n<p>如果你想自己推出巨型螃蟹的保险箱密码，接下来去小屋后面的研究实验室。那里有一张放着创伤包和一些 Zombix 的桌子，挺实用；在标本室里你会找到 Karkinos 曾经的住处以及一份实验清单。其中只有一例成功，编号是 36。密码「double success」指的是把成功实验的编号翻倍，因此密码为 0072。</p>\n<p>回到小屋里，在保险箱上输入 0072。里面有一叠钱（我们这边是 1107 美元），还有一张纸条，上面写着「Emergency go protocol: 0212」。</p>\n<h2>怎么拿到 Crabshack VF5 冲锋枪</h2>\n<p>这条应急协议就是船屋的密码。离开研究园区，返回船屋，在密码盘上输入 0212。门会打开。Karkinos 的看护人可没 Jason 这么幸运，但他们的损失就是你的收获。从尸体旁捡起 Crabshack VF5 冲锋枪，还能顺手拿走一袋标记钞票，日后送去 Brian 的仓库。</p>\n<p>你可以原路离开园区，也可以跳上水上摩托，一路开回家。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>巨型螃蟹保险箱密码是多少？</h3>\n<p>0072。线索是电脑里「Safe code = Double Success」与实验编号 36，把 36 翻倍即为答案。</p>\n<h3>电脑登录密码是什么？</h3>\n<p>CLEAVES。就在厨房对面小卧室地板上的小木片里。</p>\n<h3>船屋密码是多少？</h3>\n<p>0212。写在保险箱内那张「Emergency go protocol」纸条上。</p>\n<p>本文转载自Polygon 《Giant crab safe code and Crabshack VF5 SMG location in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-giant-crab-safe-code-crabshack-vf5-smg-how-to-get-pelican-valley-outpost/\">https://www.polygon.com/gta-6-giant-crab-safe-code-crabshack-vf5-smg-how-to-get-pelican-valley-outpost/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:41Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-06-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-bao-ling-qiu-guan-bao-xian-xiang-mi-ma-0300/",
-   "title": "GTA6 保龄球馆保险箱密码 0300",
-   "content": "<p>GTA6 里 Kingpin 保龄球馆的保险箱密码，令人恼火的是，并不在这家保龄球馆本身。想要光明正大地拿到它，你需要先洗劫另一处 Kolt &amp; Associates 的非法据点——那里基本算是这个帮派的总部，可以一次性拿到多个保险箱密码。但当你身处保龄球馆后方的办公室、被几十个愤怒的帮派成员开枪追打时，这些都帮不上忙。</p>\n<p>所以，如果你想在 GTA6 里正当地拿到 Kingpin 保龄球馆的保险箱密码，我们可以告诉你去哪儿；如果你只想知道密码、跳过这些跑腿，我们也替你准备好了。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-05-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>密码来源：Port Gellhorn 西北的 Brooks Boatworks 非法据点</li><li>路线：从正门沿土路往右走，翻过锈迹斑斑的铁链门，栅栏上有个洞可以钻进去</li><li>目标建筑：防水布下的船正前方、右侧那栋不与主仓库相连的小灰屋，旁边是蓝色集装箱</li><li>操作：进屋，在戴墨镜猫咪日历上方查看 Port Gellhorn 地图（按 L2/LT），三个保险箱密码会写入笔记</li><li>三个密码分别对应：Brooks Boatworks 本人所在点、西海岸更远处的 La Cascara Motel、以及 Kingpin 保龄球馆</li><li>顺手：建议先在 Brooks Boatworks 洗劫并开箱，能拿到约 5000 美元</li><li>答案：Kingpin 保龄球馆保险箱密码为 0300，箱内是几千美元现金</li></ul>\n<h2>保龄球馆保险箱密码位置</h2>\n<p>Kingpin 保龄球馆的保险箱密码可以在 Port Gellhorn 西北的 Brooks Boatworks 非法据点找到。这里塞满了 Kolt &amp; Associates 的帮派成员，除非你潜行技术极佳，否则要做好交火的准备。</p>\n<p>从正门出发，如果你沿土路向右走，再翻过锈迹斑斑的铁链门，栅栏上有一个洞可以钻进去。你正前方是一艘盖着防水布的船；右侧则是一栋不与主仓库相连的小灰屋，旁边是蓝色集装箱。</p>\n<p>走进这栋灰屋，墙上一张戴墨镜猫咪日历的上方，挂着一幅 Port Gellhorn 地图。用 L2/LT 查看它，你就会获得三个写入笔记的保险箱密码。一个属于 Brooks Boatworks 的保险箱（也就是你当前所在处），一个属于沿海岸线更靠南的 La Cascara Motel，第三个则属于 Kingpin 保龄球馆。</p>\n<p>拿到保龄球馆的保险箱密码后，你只需回到那里使用即可——当你站在保险箱旁时，游戏会提醒你这个密码是什么。不过在回去之前，我建议先把 Brooks Boatworks 洗劫一遍并打开那里的保险箱，因为一趟下来你能带走约 5000 美元。</p>\n<h2>保龄球馆保险箱密码是多少</h2>\n<p>只想跳过 Brooks Boatworks、直接开箱？GTA6 中 Kingpin 保龄球馆保险箱的密码是 0300。只要你能安全脱身，就能拿到一笔可观的现金。</p>\n<p>打开保险箱后，里面只有现金，但数额能达到几千美元。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>保龄球馆保险箱密码是多少？</h3>\n<p>0300。</p>\n<h3>密码在哪儿找？</h3>\n<p>在 Port Gellhorn 西北的 Brooks Boatworks 据点，那栋小灰屋里 Port Gellhorn 地图上（按 L2/LT 查看）会给出三个密码。</p>\n<h3>打开保险箱能得到什么？</h3>\n<p>只有现金，但有两三千美元上下。</p>\n<p>本文转载自Polygon 《Bowling alley safe code location in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-kingpin-bowling-alley-safe-code-location-grand-theft-auto/\">https://www.polygon.com/gta-6-kingpin-bowling-alley-safe-code-location-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:40Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-05-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-auntie-s-place-wei-zhi-yu-che-ku-mi-ma/",
-   "title": "GTA6 Auntie’s Place 位置与车库密码",
-   "content": "<p>Auntie’s Place 是 GTA6 里的一家餐厅，同时也是公寓笔记本里指向另一处地点的线索。遗憾的是，Auntie’s Place 极难找到——因为它并没有标注在地图上。我们只知道它在 La Perle，而 La Perle 是相当大的一个区域。然而你必须找到它，因为餐厅旁边就藏着一份相当值得的奖励。</p>\n<p>下面给出 GTA6 中 La Perle 区 Auntie’s Place 的确切位置，让你能用上那个代码，换来一辆漂亮的新座驾和一个免费车库。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-04-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>位置：南 La Perle，Del Rio Blvd 边上的餐厅</li><li>参照物：Aline’s Thrift Store 东南、TWA Ponya Tattoo 以东</li><li>注意别走错：附近西南方向还有一家名字相近的 Aunt Zola’s Soul Food</li><li>奖励入口：餐厅沿路再往前走一点，有一间白色车库，门口右侧的密码盘上方有粉色小丝带涂鸦</li><li>密码：92665，输入后车库门打开</li><li>奖励：一辆粉红色的 Vanessa’s Growler（Pfister Growler），并解锁一个可免费存车的车库</li></ul>\n<h2>Auntie’s Place 位置</h2>\n<p>Auntie’s Place 是南 La Perle 一家紧邻 Del Rio Blvd 的餐厅。它同时位于 Aline’s Thrift Store 的东南方、TWA Ponya Tattoo 的东边。这里其实还有一家名字相近、位于西南方向的餐厅叫 Aunt Zola’s Soul Food，所以务必确认你没走错地方。</p>\n<p>找到 Auntie’s Place 之后，沿路再往前走一点，你会看到一间白色的车库。在车库门右侧，你会找到一个密码盘，其上方有一小段粉色丝带的涂鸦。</p>\n<p>在密码盘上输入 92665 代码，车库门就会打开——于是你就得到了属于自己的 Vanessa’s Growler，一辆粉红色的 Pfister Growler。这是一辆相当出挑的车，收藏再加一辆。更棒的是，这里还会成为你能用来存车的又一个车库，且分文不花。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>Auntie’s Place 在哪里？</h3>\n<p>在南 La Perle、Del Rio Blvd 边上，位于 Aline’s Thrift Store 东南、TWA Ponya Tattoo 以东；注意别和西南边的 Aunt Zola’s Soul Food 搞混。</p>\n<h3>车库密码是多少？</h3>\n<p>92665。输入后白色车库门打开。</p>\n<h3>打开车库能得到什么？</h3>\n<p>一辆粉红色的 Vanessa’s Growler（Pfister Growler），并解锁一个免费存车的车库。</p>\n<p>本文转载自Polygon 《Where to find Auntie’s Place in La Perle in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-aunties-place-la-perle-location-code-grand-theft-auto/\">https://www.polygon.com/gta-6-aunties-place-la-perle-location-code-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:39Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-04-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-bi-ji-ben-mi-ma-shi-duo-shao/",
-   "title": "GTA6 笔记本密码是多少",
-   "content": "<p>在 GTA6 第三章的公寓卧室里，有一台需要密码的笔记本。当你尝试使用它时，游戏会让你从几个选项里挑一个密码，但一开始似乎哪个都不对。事实上，你需要先在公寓里四处调查，正确选项才会出现。好在密码线索离你很近，而笔记本里的内容会把你引向一份不错的奖励。</p>\n<p>下面说明 GTA6 的笔记本密码该怎么推出来；如果你只想直接知道答案，我们也把密码本身写出来了。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-03-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>笔记本位置：第三章公寓的卧室</li><li>线索一：走廊小桌上的狗相框，狗叫 Muffins，拿起查看后再放回</li><li>线索二：床边梳妆台、照片墙前的便签，背面写着「Class of ’15 reunion next Friday」</li><li>密码构成：狗的名字 + 它的身份 + 毕业年份</li><li>答案：MuffinsQueen15</li><li>解锁后可看：Vanessa 留下的 WhatUp 对话（其中一条指向 Auntie’s Place）、相册，以及她的 PeekHole 对话</li></ul>\n<h2>GTA6 笔记本密码位置</h2>\n<p>要推出 GTA6 的笔记本密码，你需要在公寓里检查两件物品。第一件在走廊的小桌上：一个专门纪念一只叫 Muffins 的狗的相框。拿起它查看，然后放回原处。</p>\n<p>接着查看床边梳妆台、照片墙前的便签。拿起后你会看到一幅画：Muffins 慵懒地坐在宝座上，头戴小皇冠，手里还端着一杯饮料。把纸翻到背面，上面写着「Class of ’15 reunion next Friday」。</p>\n<p>做完这些，你就可以与笔记本互动，看到真正的密码选项了。你需要用刚才获得的信息来推出笔记本密码。密码由狗的名字、它的身份（画里的宝座与皇冠暗示了 Queen）以及毕业年份组成。</p>\n<h2>GTA6 笔记本密码是什么</h2>\n<p>GTA6 中这台笔记本的密码是 MuffinsQueen15。解锁后，你可以翻阅公寓前住户 Vanessa 留下来的那些窗口：其中包括五段 WhatUp 对话（其中一条会带你找到 Auntie’s Place）、一个照片相册，以及她的 PeekHole 对话——那是 GTA6 对 OnlyFans 的恶搞。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>笔记本密码是多少？</h3>\n<p>MuffinsQueen15。</p>\n<h3>密码怎么推出来？</h3>\n<p>先查看走廊桌上的 Muffins 狗相框，再看床边便签背面的 Class of ’15；密码 = 狗名 + 身份（Queen）+ 年份（15）。</p>\n<h3>解锁笔记本有什么用？</h3>\n<p>可以看到前住户 Vanessa 留下的 WhatUp 对话、相册和 PeekHole 对话，其中一条 WhatUp 对话会指向 Auntie’s Place。</p>\n<p>本文转载自Polygon 《What is the laptop password in GTA 6?》，原文链接：<a href=\"https://www.polygon.com/gta-6-laptop-password-apartment-grand-theft-auto/\">https://www.polygon.com/gta-6-laptop-password-apartment-grand-theft-auto/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:38Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-03-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-yi-guo-dong-wu-dian-qiang-jie-xian-jin-cang-na/",
-   "title": "GTA6 异国动物店抢劫 现金藏哪",
-   "content": "<p>在 GTA6 里抢劫异国动物店不只是拿枪就行，你还得「和动物对话」。这场位于 Key Lento 的抢劫乍看很简单，真正的挑战是在警察赶到前尽快找到现金并逃掉。</p>\n<p>下面说明在 GTA6 里异国动物店的现金藏在哪，以及完整的抢劫流程。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-02-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>地点：Key Lento 的 Three Sheets Liquor 酒铺（Pay ‘N Spray 旁边）</li><li>开启方式：替邻居 Shirley 取朗姆酒时顺路，或直接到店里问店员「鸟叫声」</li><li>入口：从酒铺与 Pay ‘N Spray 之间的小路翻墙进去，比正面硬闯更快</li><li>打法：先短暂露面把匪徒引出来，再躲到集装箱后掩护清场，不必强求潜入</li><li>关键：问中间笼子里的红色鹦鹉两次，它会说 generator，现金藏在发电机旁的小通风口里</li><li>逃脱：拿钱后再次翻墙，往正南直线跑、连续翻栅栏，直到警察放弃</li><li>收益：成功一次超过 1000 美元，记得存进 BuckMe 账户</li></ul>\n<h2>怎么开始这场抢劫</h2>\n<p>异国动物店抢劫大概是你在 GTA6 开放世界里最早遇到的探索活动之一。你随时可以前往 Key Lento 的 Three Sheets Liquor 酒铺（紧邻 Pay ‘N Spray），在后屋发现那些异国动物贩子来开启它。</p>\n<p>不过你平时并没什么理由去那儿，更可能的触发方式是答应帮邻居 Shirley 弄点朗姆酒。到了店里，向店员询问「鸟叫声」，抢劫机会就会在地图上标出。</p>\n<p>如果你不想马上动手，可以之后再回来。但只要开始了抢劫、还没拿到奖励就中途放弃，这个抢劫机会会在一段时间内不可用。</p>\n<h2>现金在哪</h2>\n<p>与其从店里正面冲进去，最省事的做法是走到室外，从酒铺和 Pay ‘N Spray 之间的小路翻墙进去。先短暂露个面把匪徒引出来，再躲到附近的集装箱后把他们逐个解决。想完全无声几乎不可能——他们都带枪，一发现你就会开火——所以别纠结近战，直接开枪更稳妥。</p>\n<p>真正的麻烦从这里开始：几乎在你击毙最后一名匪徒的同时，警察就会赶到，这意味着你找钱的时间非常有限。关键在于去问中间笼子里的那只红色鹦鹉现金藏在哪里。问第二遍时，它会说出「generator」这个词。发电机就在红色鹦鹉身后的角落里，但现金其实藏在这台发电机旁边的一个小通风口里。</p>\n<p>拿到现金后再次翻墙逃走。朝正南方向直线狂奔，一路翻越栅栏，直到警察放弃为止。选好逃脱路线非常重要，一旦被抓住就会丢掉这笔钱。一次成功的异国动物店抢劫收益超过 1000 美元。别忘了把它藏好，或存进你的 BuckMe 账户。</p>\n<h2>常见问题（FAQ）</h2>\n<h3>异国动物店抢劫怎么开启？</h3>\n<p>到 Key Lento 的 Three Sheets Liquor 酒铺，向店员询问鸟叫声即可；替邻居 Shirley 取朗姆酒时也能顺带发现。</p>\n<h3>现金藏在哪里？</h3>\n<p>问中间笼子里的红色鹦鹉两次，它会说 generator。现金藏在发电机旁的小通风口里。</p>\n<h3>为什么总被警察抓到？</h3>\n<p>击毙最后一名匪徒后警察几乎立刻赶到，找钱时间很短。拿钱后往正南直线跑、连续翻栅栏逃脱，被抓就会失去现金。</p>\n<p>本文转载自Polygon 《How to rob the Exotic Animal Front in GTA 6》，原文链接：<a href=\"https://www.polygon.com/gta-6-grand-theft-auto-how-to-rob-exotic-animal-front-cash-location/\">https://www.polygon.com/gta-6-grand-theft-auto-how-to-rob-exotic-animal-front-cash-location/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:37Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-02-b1.webp",
-   "categories": [
-    "游戏攻略"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/gta6-peggy-de-fen-se-ta-ban-che-gai-bu-gai-tou/",
-   "title": "GTA6 Peggy 的粉色踏板车该不该偷",
-   "content": "<p>在 GTA6 里，替邻居 Shirley 去偷一辆踏板车听起来挺有趣，但在道德上大概站不住脚——当然，这一点从来拦不住你。不过你也许会好奇：如果真把一位老太太心爱的粉色踏板车弄走，会发生什么？这真能治好她的抑郁吗？</p>\n<p>下面说明在 GTA6 里偷走 Peggy 的踏板车后会怎样。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-01-b1.webp\"/></figure>\n\n<h2>一分钟速查表</h2>\n<ul><li>触发时机：第一章「Down to Earth」任务前后，路过 Key Lento 的 Shirley 家门口时她会叫住你</li><li>Shirley 的说法：朋友 Peggy 因为那辆粉色踏板车而抑郁，想请你把车偷走</li><li>Peggy 的家在 Shirley 家后方、隔着水的对岸；她常在阳台，等她离开再动手，否则她会报警</li><li>把踏板车骑到 Shirley 家即完成目标</li><li>奖励：可以随时取用 Shirley 那辆闪粉色轿车</li><li>约一天后用手机 Snapmatic 查看，会看到 Peggy 与 Shirley 一起狂欢的照片</li></ul>\n<h2>偷 Peggy 的踏板车会怎样</h2>\n<p>故事进行到比较早的阶段时，你在 Key Lento 路过 Shirley 家门口，她会把你叫住。时间点大约在你完成「Down to Earth」主线任务前后。Shirley 解释说，她的朋友 Peggy 正饱受抑郁折磨，而病因是那辆粉色踏板车——按她的说法，自从骑上踏板车，Peggy 就对生活失去了希望，所以她希望 Jason 把车偷走。</p>\n<p>Peggy 的家在 Shirley 家后方、隔着水的对岸。不过 Peggy 常在阳台上，所以最好等她离开再下手，不然她会报警。把踏板车骑回 Shirley 家，作为回报，她允许你随时取用她的轿车（那辆闪闪闪的粉色车）。</p>\n<p>到这里，GTA6 的「偷走 Peggy 的踏板车」目标就算完成了，但最关键的问题还没有答案：这次偷车真的治好了 Peggy 的抑郁吗？想过一天左右，然后打开手机上的 Snapmatic App。你会看到一张 Shirley 和 Peggy 一起狂欢的照片——事实证明 Shirley 说对了：踏板车确实导致了 Peggy 的抑郁，如今车没了，她又开心起来了。</p>\n<h2>怎么做最稳</h2>\n<ul><li>等 Peggy 离开阳台再动手，避免她报警</li><li>骑踏板车回 Shirley 家即可，途中别惹通缉</li><li>完成后约一天，用 Snapmatic 查看后续彩蛋照片</li></ul>\n<h2>常见问题（FAQ）</h2>\n<h3>偷 Peggy 的踏板车会治好她的抑郁吗？</h3>\n<p>会。约一天后在手机 Snapmatic 里能看到 Peggy 与 Shirley 一起狂欢的照片，说明 Shirley 说对了，Peggy 重新开心了起来。</p>\n<h3>被 Peggy 发现会怎样？</h3>\n<p>她会报警。她常待在阳台上，建议等她离开再动手。</p>\n<h3>奖励是什么？</h3>\n<p>Shirley 会允许你随时取用她那辆闪粉色轿车。</p>\n<p>本文转载自Polygon 《Should you steal Peggy’s scooter in GTA 6?》，原文链接：<a href=\"https://www.polygon.com/gta-6-grand-theft-auto-steal-the-scooter-shirley-peggy/\">https://www.polygon.com/gta-6-grand-theft-auto-steal-the-scooter-shirley-peggy/</a>。版权归原作者所有，如需删除请联系我们。</p>",
-   "date": "2026-11-25T01:45:36Z",
-   "first_seen": "2026-11-25T05:29:13Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261125-0945-01-b1.webp",
    "categories": [
     "游戏攻略"
    ],
