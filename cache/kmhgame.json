@@ -1,6 +1,75 @@
 {
  "items": [
   {
+   "link": "https://www.kmhgame.com/claude-code-tuan-dui-nei-bu-shi-zhao-git-gong-zuo-shu-zui/",
+   "title": "Claude Code 团队内部十招，git 工作树最提效",
+   "content": "<p>在单个终端里敲下需求，眼睁睁看着 Claude Code 跑上好几分钟，手头只能干等；好不容易调通交卷，过两天开新任务，它又在同一个项目约定上再错一遍。</p>\n<p>Claude Code 创始人 Boris Cherny 公开过一份团队内部的十条实战经验，里面全是他们自己每天在真实项目里跑出来的做法，甚至团队成员常用的习惯和创始人本人也不完全一样。下面把这十招按上手顺序串起来。（原文有删节）</p>\n\n<h2>提效最大的一招：同时开 3 到 5 个 git 工作树</h2>\n<p>团队公认生产力提升最大的一步，不是把提示词写得多华丽，而是用 git 工作树（worktree）同时拉起 3 到 5 个互不干扰的本地工作区，每个目录各跑一个独立的 Claude 会话。虽然 Boris 本人更习惯开多个 git 检出，但团队里多数工程师都偏爱工作树方式，切来切去不会打架。</p>\n<p>多窗口一开起来，终端和状态提示就得跟上。团队里不少人喜欢 Ghostty 终端的同步渲染与完整色彩表现，再配上 /statusline 自定义状态栏，把当前上下文占用比例和所在 git 分支一直挂在眼前，切窗时不容易发错指令。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-03-b1.webp\"/></figure>\n<h2>先规划再动手，让它自己把教训写进 CLAUDE.md</h2>\n<p>碰到稍复杂的改动，团队一律从计划模式起手，把精力压在动手之前，争取一次性实现到位。高阶一点的做法，是先让第一个 Claude 写开发计划，再另开第二个 Claude 以资深工程师的身份挑毛病，两遍过关后再写代码。</p>\n<p>每次纠正完 Claude 的错误后，别直接关闭对话，顺手在结尾补上一句：「更新你的 CLAUDE.md，避免再犯相同错误」。它在给自己写避坑规则这件事上表现很稳定，团队会像维护代码一样持续且无情地修剪这份规则文件。另外，只要某个操作每天执行超过一次，就写成自定义技能或斜杠命令提交进 git 全员共用——比如专门建一个 /techdebt 命令，每次会话收尾顺手运行，把新增的重复代码清掉。</p>\n<h2>把排错和验收交给它，别做微观管理者</h2>\n<p>很多时候效率慢，是因为人把步骤拆得太碎、一直在微操。接上 Slack MCP 之后，团队碰到线上问题直接把报错讨论串贴进去只说「修复」，或者直接让它「去修复失败的 CI 测试」、把 Docker 日志路径指给它，它自己就会顺着线索查到根因。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-03-b2.webp\"/></figure>\n<p>验收阶段同样可以反向给它加压，要求它「严格审查这些更改，直到我通过你的测试才能提 PR」，或者直接说「证明给我看这个能工作」，让它自己对比主分支和功能分支的实际行为差异。遇到需要大量探索的任务，在请求末尾加一句「使用子代理」，把脏活放进独立上下文里跑，再用钩子把权限请求路由到 Opus 4.5，主会话就能一直保持干净。</p>\n<h2>不只是写代码：拉数据与可视化讲解</h2>\n<p>除了改仓库代码，团队还把 BigQuery 技能检进了代码库，直接在 Claude Code 里调 bq CLI 实时拉取并分析业务指标。接手不熟悉的模块时，在 /config 里把输出样式切到「解释性」或「学习」模式，让它讲清每次改动背后的原因，甚至直接要求它生成一份可视化 HTML 演示文稿，比硬啃源码快得多。</p>\n<blockquote><p>没有唯一正确的使用方法，重要的是拿真实项目去试，把有效动作沉淀进团队自己的工作流程和 CLAUDE.md 里。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-03-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：开多个 git 工作树会不会把本地环境搞乱？</p>\n<p>答：不会。每个工作树对应独立目录和分支，互不覆盖改动；搭配 /statusline 显示当前分支和上下文用量，切换窗口时不容易弄混。</p>\n<p>问：CLAUDE.md 让它自己改，会不会越写越长？</p>\n<p>答：会，所以团队强调要「无情地编辑」它——每次纠错先让它追加避坑规则，定期人工精简过时或冗余条目，只留关键约束。</p>\n<p>问：什么时候值得把一段提示词做成自定义技能？</p>\n<p>答：团队的判断标准很简单：只要一个动作每天做超过一次（例如会话结束查重复代码的 /techdebt），就写进仓库技能目录共享。</p>\n<p>问：子代理什么时候该在提示词里显式加上？</p>\n<p>答：当某个搜索、分析或验证任务需要消耗较多上下文但你只想拿结论时，在请求后追加「使用子代理」，能保住主会话的上下文窗口。</p>\n<h2>来源与编译</h2>\n<p>本文编译整理自腾讯云开发者社区《Claude Code创始人内部分享：10个实战技巧》（原分享人：Boris Cherny 及其团队）。具体斜杠命令、子代理路由及模型版本参数以 Anthropic Claude Code 官方最新文档为准。</p>\n<p>本文转载自腾讯云开发者社区（用户11563501） 《Claude Code创始人内部分享：10个实战技巧》，原文链接：<a href=\"https://developer.cloud.tencent.com/article/2695812\">https://developer.cloud.tencent.com/article/2695812</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-28T03:01:02Z",
+   "first_seen": "2026-11-28T03:59:12Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-03-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/codex-bie-si-ke-yi-ge-chuang-fork-he-jiao-jie-wen-dang-zui/",
+   "title": "Codex 别死磕一个窗，/fork 和交接文档最省心",
+   "content": "<p>在一个 Codex 窗口里连续干到大半夜，258k 上下文来回压缩几次后，界面开始一顿一顿地卡死。咬牙重开一个新窗口，前一天敲定的目录约束和避坑规则全被忘干净，又得从头把背景贴一遍。</p>\n<p>Codex 不是装完就能直接发挥全力的工具，不少开关和会话机制藏在菜单或命令里。少数派作者「阿星AI工作室」按配置、会话、上下文和收尾四个阶段整理了 12 条实战经验，照着把底座和换窗习惯搭顺，后面能省掉大量反复对齐的时间。（原文有删节）</p>\n\n<h2>先把底座调好：手动开启 Luna Max</h2>\n<p>很多人不知道，Codex 默认并没有打开最强推理档。打开「设置 → 配置 → 模型功能 → 开启 Max」，同一道复杂重构题的思路会明显拉开差距：默认档跑得快但顾头不顾尾，开启 Luna Max 后拆解更稳。实际使用里没必要全程顶配，用高推理档做规划和架构判断，重复性执行任务交回快档去跑最省额度。</p>\n<h2>会话要分工：/fork、/side 和 Quick Chat 各管一段</h2>\n<p>上下文是最稀缺的资源，所有试错和临时提问全堆进主线程，窗口很快就废了。建议把会话拆成不同角色：主线只做落地，保持干净；未提交代码单独进 Review 线程审查；边做边冒出的小疑问，在对话里敲 /side 开一个 Side Chat 临时讨论，聊透了再把结论转成主线指令，不污染主上下文。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-02-b1.webp\"/></figure>\n<p>如果想验证另一种改法，或者主线程压缩次数太多快卡死了，千万别直接点新建聊天，用 /fork（命令行支持 codex fork、codex fork –last 以及 codex resume 回到旧会话）。Fork 就像给当前对话拉了一条 Git 分支，完整继承背景、约束和历史判断，同时独立开启新进程，刚好避开长任务卡死。此外，左上角加号里的 Quick Chat 可以在等长任务跑完的空档随时记录灵感，聊定后点右上角「添加任务」一键并入当前任务，而且 Quick Chat 的额度与 Codex 主额度分开计算。</p>\n<h2>258k 上下文防丢：写 HANDOFF.md 再换窗</h2>\n<p>比起其他动辄 1M 的工具，Codex 的 258k 上下文更容易触发频繁压缩。跨天推进大项目时，最轻量的交接办法是在结束当前会话前让它写一份 HANDOFF.md——提示词直接要求「请写一份交接文档存到 HANDOFF.md，写给一个完全没有上下文的新会话看」。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-02-b2.webp\"/></figure>\n<p>需要把多个窗口的进度串起来时，还可以用另外两个内置通道：一是在输入框里直接敲 @ 加关键词，跨对话甚至跨项目引用历史上下文；二是直接用跨会话发消息功能，让压缩过很多次的老窗口自己总结核心内容和交接话术，直接开新窗接着干，省去人肉复制粘贴。</p>\n<h2>用 Subagent 分治，顺手把重复动作存成 Skill</h2>\n<p>想把代码审查、背景调研和写文件彻底隔开，可以在 ~/.codex/agents/ 目录下放 TOML 配置文件定义专用 Subagent。每个子代理有独立上下文，还能按任务确定性分别指定普通模型或高推理模型，让它默认只读调查、只有明确授权才改文件，遇阻塞就停下汇报原因而非瞎猜硬走。</p>\n<p>长任务收尾前别急着关掉窗口，可以发一句「从对话里面挑出 3 个最值得封装成 Skill 的场景并选出适合的封装方向给我」，让模型从刚才的真实交互里帮你提炼重复模式。另外，右侧面板内置的 Browser 浏览器除了跑页面测试，还能配合画布直接操作，调试前端时全程不用来回切应用。</p>\n<blockquote><p>新建聊天是白纸从零开始，Fork 是背景继承加试验隔离，Side Chat 是临时插话问完就回。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-02-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：什么时候该用 /fork，什么时候直接开新对话？</p>\n<p>答：要换一种实现路线测试、主线程太长快卡死时用 /fork 继承背景；如果只是临时追问一句用 /side；彻底换到不相关的新题目才点新建线程。</p>\n<p>问：Quick Chat 会占用主力任务的额度吗？</p>\n<p>答：不会。原帖实测指出 Quick Chat 的额度与 Codex 主额度分开计算，等待长任务执行时可以用它讨论想法，确定后再点「添加任务」并入。</p>\n<p>问：HANDOFF.md 里一般要让它写哪些信息？</p>\n<p>答：明确告诉它「写给一个完全没有上下文的新会话看」，通常就能把当前阶段目标、已完成文件、踩过的坑和下一步待办交代清楚。</p>\n<p>问：Subagent 和普通主对话最大的区别是什么？</p>\n<p>答：Subagent 拥有独立上下文且可单独配置模型，审查代码或调研资料时不会把主对话塞满，还能通过配置限制为默认只读。</p>\n<h2>来源与编译</h2>\n<p>本文编译整理自少数派《12个Codex实战技巧：配置调优→会话分工→上下文防丢，一套流程吃透》（作者：阿星AI工作室）。具体设置项位置、模型名称及功能开放范围请以 OpenAI Codex 最新客户端与官方文档为准。</p>\n<p>本文转载自少数派（阿星AI工作室） 《12个Codex实战技巧：配置调优→会话分工→上下文防丢，一套流程吃透》，原文链接：<a href=\"https://sspai.com/post/113335\">https://sspai.com/post/113335</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-28T03:01:01Z",
+   "first_seen": "2026-11-28T03:59:12Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-02-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/grok-bot-bie-dang-ide-yong-san-gong-ju-jiao-jie-de-an-shun/",
+   "title": "Grok Bot 别当 IDE 用，三工具交接得按顺序",
+   "content": "<p>手里同时装着 Grok Bot、Cursor 和 Codex，不少人图快直接三个窗口一起开火。跑了十分钟回头看，两个窗口改在同一份文件上把 diff 搞得稀碎，另一个流程卡在收验证码上，连先停哪一个都不知道。</p>\n<p>原帖作者在 53AI 分享了自己长期跑通的搭配方式，核心不是堆出最强模型拼盘，而是先把各自能碰什么、不能碰什么划死。下面把这套多工具协作的硬边界、五步交接顺序和追责方法理出来。（原文有删节）</p>\n\n<h2>先立三条不能破的硬边界</h2>\n<p>多工具配合翻车，十有八九是职责混在一起。作者在实际磨合后先定了三条规矩：第一，谁负责探索、谁负责改文件、谁负责批准合并必须写死，绝对不让三个窗口同时写同一份文件；第二，可验证的目标比漂亮提示词管用，把测试命令和完成标准直接写进 AGENTS.md，不要写空泛的「请遵循最佳实践」；第三，跨网站跑流程的活留给会办事的那一层，别硬塞进只擅长改代码的编辑器里。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-01-b1.webp\"/></figure>\n<h2>Grok Bot 的真实位置：持久云电脑跑流程和杂活</h2>\n<p>Grok Bot 最容易被用偏的地方，是有人拿它当主力 IDE 写代码。它真正的长处在于每个 Bot 都带一台持久云电脑，浏览器、文件系统和终端一应俱全，合上电脑盖子也能继续在后台推进。</p>\n<p>遇到需要跨好几个网站或 App 才能走完的事，或者要收验证码、点确认、等审批，甚至账号注册、素材整理和视频协作这类杂活，交给它最顺手。但只要进入需要你盯着一段代码左右横跳、秒级看 diff 的交互修改，立刻换回编辑器。给 Grok Bot 派活还要守住一条底线：任务终点和去哪核查要交代明白，遇到外发邮件、付款或覆盖关键文件这类不可逆操作，必须停下来等人批准。</p>\n<h2>Cursor 改准，Codex 按清单收尾</h2>\n<p>Cursor 守住的是交互修改主战场。读仓库结构、在 Plan Mode 里先问清方案再写、修改一到几个文件、本地跑完测试再用肉眼审 diff，都在这一层完成；只要不是几行小修，动手前先开新分支。官方经验同样建议，复杂改动先落一份计划文件，不对就退回计划重跑，往往比在长对话里硬改更快。</p>\n<p>一旦碰到几十上百个文件的机械迁移、补单元测试或按明确规格做回归检查，再交给 Codex 收尾。用 Codex 前要把 Goal、Context、Constraints 和 Done when 四项写死；需求自己都还没理清时别直接丢给它批量开跑，否则跑偏后收拾成本更高。批完改完以后走分支检查，代理只交结果，不直接推 main。</p>\n<h2>五步交接顺序，比三个一起跑更稳</h2>\n<p>把工具串成一条短流水线，远比同时全速并发省心。第一步，先用一句话写明目标和完成标准；第二步，把注册、收件、跨站查资料和待审批杂活交给 Grok Bot，人只在确认卡弹出时点一下；第三步，回到 Cursor 处理文案、脚本、skill 和排版配置等要「看见再改」的文件；第四步，把清单清晰的批量检查、补测试和回归修补交给 Codex 跑通；第五步，合并、发布和所有对外可见动作，留给人做最后一次确认。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-01-b2.webp\"/></figure>\n<p>按这个顺序走还有个实在的好处：每个窗口只对一类失败负责。流程卡在验证码，去查流程位；diff 难看，去调编辑器；批量漏改，回头核对文件清单和 Done when，不用三个窗口一起背锅。</p>\n<blockquote><p>合并、发布和对外可见的动作必须由人亲自确认，代理再勤快，也不该替你承担发出去的责任。</p></blockquote>\n<h2>一分钟速查</h2>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-01-b3.webp\"/></figure>\n<h2>常见问题</h2>\n<p>问：只有一两个工具，不配齐三款能用吗？</p>\n<p>答：可以，但要把缺失环节的活接回自己手里。比如只用 Cursor 时跨站杂活和合盖后台任务得自己盯；只用 Codex 时探索性需求别直接批量开跑；只用 Grok Bot 则不要让它兼任主编辑器。</p>\n<p>问：让 Grok Bot 自动跑流程，哪些步骤最需要卡住审批？</p>\n<p>答：外发邮件、资金付款、修改或覆盖关键配置文件，以及对外可见的发布动作，这几类都应该默认设成人点确认才放行。</p>\n<p>问：为什么不建议三个工具同时改同一个仓库？</p>\n<p>答：多个窗口并发写同一份文件极易产生冲突和覆盖，出问题也分不清是谁改坏的。先写死目录或阶段交接顺序，反而更快。</p>\n<p>问：AGENTS.md 里最该放什么内容？</p>\n<p>答：少写抽象口号，重点写清楚本地测试命令、目录边界以及明确的 Done when 验收条件，方便工具改完后自行验证。</p>\n<h2>来源与编译</h2>\n<p>本文节选编译自 53AI 文章《Grok Bot + Cursor + Codex：王炸组合，真心建议你试试 Grok Bot》（作者：虾哥AI），聚焦三工具分工边界与五步交接流程。各工具具体订阅额度、模型版本与界面交互请以各自官方最新说明为准。</p>\n<p>本文转载自53AI（虾哥AI） 《Grok Bot + Cursor + Codex：王炸组合，真心建议你试试 Grok Bot》，原文链接：<a href=\"https://www.53ai.com/news/LargeLanguageModel/2026101734850.html\">https://www.53ai.com/news/LargeLanguageModel/2026101734850.html</a>。版权归原作者所有，如需删除请联系我们。</p>",
+   "date": "2026-11-28T03:01:00Z",
+   "first_seen": "2026-11-28T03:59:12Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ds-20261128-1100-01-768x432.webp",
+   "categories": [
+    "AI",
+    "使用心得"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/si-zhi-ge-da-dlc-mian-fei-song-team-cherry-hai-shun-shou-la/",
+   "title": "《丝之歌》大 DLC 免费送，Team Cherry 还顺手拉了三个朋友一把",
+   "content": "<p>一家只有几个人的独立工作室，熬出头之后通常会做什么？</p>\n<p>大多数团队在卖出一款几百万份的现象级作品后，要么开始扩招上百人搭建工业化管线，要么顺理成章地给第一个大型扩展包标上二三十美元的价格，再稳稳收割一轮口碑红利。</p>\n<p>《空洞骑士：丝之歌》此前销量已经突破 700 万份，按理说 Team Cherry 更有资格这么干。但昨晚（11 月 27 日）他们在自己的线上专场“Cherry Time!”里，做了两件完全反着来的事：先把《丝之歌》首个大型扩展包《悲恸之海》（Sea of Sorrow）定在 <strong>12 月 11 日免费送给所有玩家</strong>；紧接着，他们把剩下的直播聚光灯，让给了三个朋友做的小游戏。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b1.webp\"/></figure>\n\n<h2>卖爆 700 万份之后，他们还是没学会“算账”</h2>\n<p>早在《空洞骑士》初代的时候，玩家就经常调侃“花几十块钱买这么大一份游戏，感觉像抢了 Team Cherry 的钱”——那时候几个大型更新全是免费往里塞。</p>\n<p>后来《丝之歌》顶着“丝之鸽”的调侃跳票了七年，去年终于端上桌，销量一路冲破 700 万份。很多人本来以为，体量做到这一步，第一个正经大型 DLC 怎么也得按常规定价单卖了。</p>\n<p>结果昨晚端出来的《悲恸之海》，依然是<strong>拥有本体即可免费游玩</strong>。</p>\n<p>从目前放出的内容来看，这次扩展包并不是凑数的小补丁。大黄蜂将离开陆地，前往纺络（Pharloom）被遗忘的海洋，在海面上下、岛屿、要塞和幽深的海底洞穴里跑图，带着新工具对付全新的 Boss 和敌人，配乐也依旧是老搭档 Christopher Larkin 操刀。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b2.webp\"/></figure>\n<p>哪怕成了全球最赚钱的小团队之一，这几个阿德莱德的开发者在“往游戏里塞多少东西才算够”这件事上，好像还是没太学会精明算账。</p>\n<h2>从做游戏到帮朋友发游戏：“Team Cherry Presents”</h2>\n<p>除了公布《悲恸之海》的上线日期，Team Cherry 在昨晚的直播里还顺带端出了一个新厂牌——<strong>“Team Cherry Presents”</strong>。</p>\n<p>Team Cherry 宣布正式下场做发行，但他们签的不是什么商业流水线项目，而是工作室身边几位老朋友的独立作品。首批公布的三款游戏气质非常统一，全是体量不大、但风格极其鲜明的类型：</p>\n<p><strong>《The Botanist and the Translator》</strong>：作者是 <strong>Makoto Koji</strong>。老玩家对这个名字一定不陌生——她就是《空洞骑士》和《丝之歌》里大黄蜂的配音演员，那句经典的“Shaw!”就出自她口。这次她自己带队做了一款温柔的星际植物学解谜冒险，讲一位植物学家和她的翻译官在满是花粉的星球上调查的故事。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b3.webp\"/></figure>\n<p><strong>《Radio Rain》</strong>（Studio Stobie）：一款氛围感极强的废墟平台冒险游戏，玩家要带着一个灵体伙伴，在雨水打湿的破败街头里穿梭探索。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b4.webp\"/></figure>\n<p><strong>《Blokkan: Secret of the Walking City》</strong>（Rohan Fraser）：把舞台搬进一座由机器人居住的巨大“行走之城”，主打悬疑解谜与冒险。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b5.webp\"/></figure>\n<p>这三款作品目前还没有公布具体的发售日期，但借着“Cherry Time!”的直播，它们已经拿到了全网第一波关注。对这些一两个人的小团队来说，不用去和传统发行商拉扯条件，直接挂在 Team Cherry 的名下露个脸，比自己砸钱投宣传片管用得多。</p>\n<p>至于《丝之歌》的玩家，也不用再等另一个七年——12 月 11 日，《悲恸之海》就会直接免费更新到游戏库里。</p>",
+   "date": "2026-11-28T01:20:57Z",
+   "first_seen": "2026-11-28T03:59:12Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/silksong-dlc-20261128-b1.webp",
+   "categories": [
+    "游戏产业",
+    "行业杂谈"
+   ],
+   "partial": false
+  },
+  {
+   "link": "https://www.kmhgame.com/kong-dong-qi-shi-si-zhi-ge-shou-ge-da-xing-nei-rong-geng/",
+   "title": "《空洞骑士：丝之歌》首个大型内容更新 Sea of Sorrow 定档 12 月 11 日免费推出",
+   "content": "<p>11 月 27 日，Team Cherry 在<a href=\"https://www.teamcherry.com.au/blog/its-cherry-time\">官方博客</a>宣布：《空洞骑士：丝之歌》的首个大型内容更新 Sea of Sorrow，将于 12 月 11 日对所有玩家免费推出。<a href=\"https://youtu.be/M-QUgdcBpZU\">完整节目</a>和<a href=\"https://www.youtube.com/watch?v=7hj4g173FhM\">预告片</a>已经可以看，更新本身还没上线。</p>\n<figure><img alt=\"《空洞骑士：丝之歌》Sea of Sorrow Steam 新闻头图\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/cherry-time-silksong-cover-768x432.webp\"/></figure>\n<p>在 Sea of Sorrow 里，玩家会在法鲁姆那片被遗忘的海洋之上与之下航行，经过岛屿和堡垒，再进入海面下的洞穴。Team Cherry 说，他们花了一整年，把这场冒险塞得很满，里面有性格疯癫的角色，大场面的冒险，还有大 Boss。音乐由 Christopher Larkin 创作。</p>\n<p>同一场公布还亮出了三款新作：<a href=\"https://store.steampowered.com/app/5571470/Blokkan_Secret_of_the_Walking_City/\">Blokkan: Secret of the Walking City</a>、<a href=\"https://store.steampowered.com/app/4960150/Radio_Rain/\">Radio Rain</a> 和 <a href=\"https://store.steampowered.com/app/5571450/The_Botanist_and_the_Translator/\">The Botanist and the Translator</a>。它们将在新品牌 Team Cherry Presents 下发行。官方说，等这些游戏准备好就会推出，博客没有写出发售日。博客提到，朋友 Rohan、Lukas 和 Makoto 各自在做这三款，并放出了三位创作者的介绍短片。</p>\n<p>Team Cherry 此前长期是三人团队，现在加入了第四名成员 Huy Le。他的官方职务是 Team Cherry Presents 各作的 technical director，并提供持续支持。他也曾协助《丝之歌》和现在的 Sea of Sorrow。一开始是做移植，后来包括修 bug，并补上了 Autosaves、Achievements 和 HD rumble。</p>\n<p>博客里还写到，就在上周，Fangamer 公布了一批新的《空洞骑士：丝之歌》周边。Sea of Sorrow 要到 12 月 11 日才会交到玩家手里。</p>",
+   "date": "2026-11-28T00:43:45Z",
+   "first_seen": "2026-11-28T03:59:12Z",
+   "author": "",
+   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/cherry-time-silksong-cover-768x432.webp",
+   "categories": [
+    "游戏热点"
+   ],
+   "partial": false
+  },
+  {
    "link": "https://www.kmhgame.com/kakao-games-11-yue-27-ri-cheng-wei-me2on-zui-da-gu-dong/",
    "title": "Kakao Games 11月27日成为ME2ON最大股东，增资后持股39.56%",
    "content": "<p>2026年11月27日，ME2ON（미투온）向韩国金融监督院电子公示系统（<a href=\"https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261127901075\">DART</a>）提交最大股东变更公示，载明 Kakao Games 已成为该公司最大股东。变更后，Kakao Games 持有16,828,508股，占增资后发行总股数42,540,844股的39.56%。这一比例未过半数。</p>\n<figure><img alt=\"Kakao Games 官方标志\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/kakao-games-me2on-cover-1024x594.webp\"/></figure>\n<p>公示将变更日和变更确认日都记为11月27日，并写明这两日指新股股款缴纳，以及股票买卖合同项下买卖价款支付日。同日另有一份<a href=\"https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261127900882\">证券发行结果（自愿公示）</a>，写明第3方配股缴款日为11月27日。新股上市预定日是12月17日。</p>\n<p>变更前，最大股东等为 손창욱 及另外8人，合计持股7,011,390股，占当时发行总股数32,723,726股的21.43%。其中 손창욱 本人持有6,550,000股，占20.02%。变更原因是 Kakao Games 按股票转让合同受让上述旧股7,011,390股，并通过第3方配售增资认购新股9,817,118股。公示就“是否因失权股认购而变更”一项，填写为否。旧股没有义务持有限制。新股则有1年托管或转让限制。最大股东变更公示写自发行日起1年由韩国预托结算院托管并限制转让，证券发行结果公示写自股票交付日起1年保护托管。持股目的为经营参与。</p>\n<figure><table><thead><tr><th></th><th>最大股东等</th><th>持股数（股）</th><th>比例</th><th>发行总股数（股）</th></tr></thead><tbody><tr><td>变更前</td><td>손창욱及另外8人</td><td>7,011,390</td><td>21.43%</td><td>32,723,726</td></tr><tr><td>变更后</td><td>Kakao Games</td><td>16,828,508</td><td>39.56%</td><td>42,540,844（增资后）</td></tr></tbody></table></figure>\n<p>资金全部来自自有资金，合计98,014,149,356韩元，借款为0。旧股7,011,390股按每股10,000韩元受让，价款合计70,113,900,000韩元，其中定金7,011,390,000韩元已于9月15日支付，余款63,102,510,000韩元于11月27日支付。新股9,817,118股按每股2,842韩元认购，缴款27,900,249,356韩元，缴款日为11月27日。证券发行结果记载的预定发行与实际发行均为9,817,118股、27,900,249,356韩元，缴款日为11月27日，与最大股东变更公示中的新股数字相同。</p>\n<p>按股票买卖合同，除受让方指定者外，现有登记董事将辞职，受让方指定者拟在临时股东大会新任。具体日程确定后，再另作公示。卖方 손창욱、최원석 按合同在交割日起3年内，有应受让方请求继续在该公司任职的义务。</p>\n<p>本交易属于《垄断规制及公正交易法》第11条企业结合申报对象。公示记载，已于11月17日接到公正交易委员会审查结果通知。</p>",
@@ -335,74 +404,6 @@
    "categories": [
     "AI",
     "使用心得"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/bu-dong-xie-dai-ma-kao-ai-zuo-chu-bao-kuan-zhuan-yun-jun/",
-   "title": "不懂写代码靠 AI 做出爆款：《转运军团》一周卖 20 万份，但行业更焦虑了",
-   "content": "<p>11 月中旬上架 Steam 的《转运军团》（Slotbound），上线三天卖出 10 万份，首周销量直接冲破 20 万份，总收入超过 130 万美元，同时在线峰值最高摸到了 3.2 万人。</p>\n<p>放在平时，这已经是一份足够让大多数独立团队眼红的成绩单。但真正让海外开发者社区炸锅的，是作者 Min Kim（工作室 Optima Arch）公开承认的一件事：他此前根本不会写代码，也没有任何专业游戏开发经验。</p>\n<p>这款游戏的全部代码，几乎都是他用 Claude、Cursor、ChatGPT 和 Gemini 这些工具通过对话“聊”出来的，UI、美术和部分动画素材也大量借了 AI 的手。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/slotbound-ai-20261126-b1.webp\"/></figure>\n\n<h2>玩法并不新鲜，它踩中了哪根神经？</h2>\n<p>单看《转运军团》的玩法，其实没有任何晦涩的门槛。</p>\n<p>它把“3×3 老虎机”和“肉鸽塔防自走棋”硬拼在了一起：每一波敌人冲过来之前，你都要拉一下老虎机决定场上掉什么兵种；低级单位可以互相吞噬进化，再配合不同的核心、道具和羁绊，扛过一轮轮波次和 Boss 战。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/slotbound-ai-20261126-b2.webp\"/></figure>\n<p>这种“拉杆搏一搏 + 策略构筑”的组合，本质上和《幸运房东》《小丑牌》踩的是同一根神经。它的上手成本极低，一局节奏很快，既有明确的资源运营，又有强烈的随机博弈感。对玩家来说，每一回合的“出货瞬间”都是即时正反馈；对主播来说，非酋翻车和欧皇神抽天然自带节目效果，很容易在社区里滚起雪球。</p>\n<p>类似的玩法原型这两年并不少见，但真正能把节奏、数值和爽点打磨到让三万多人同时在线刷的，并不多。</p>\n<h2>“不会写代码也能做爆款”，真的这么简单吗？</h2>\n<p>新闻刚传开时，不少圈外人的第一反应是：以后是不是随便找个外行，用 AI 对话一两周就能搓出百万美元的游戏了？</p>\n<p>但拆开 Min Kim 的开发过程就会发现，事情没这么轻松。</p>\n<p>他确实不会手写底层代码，但这并不意味着他当了甩手掌柜。恰恰相反，把代码实现和基础素材交给 Claude、Cursor 这些工具之后，他把自己全部的精力都压在了三件事上：核心玩法的方向把控、数值曲线的反复平衡，以及整体游玩体验的统筹。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/slotbound-ai-20261126-b3.webp\"/></figure>\n<p>换句话说，AI 帮他抹平的是“把脑子里的点子变成可运行程序”的工程门槛，省掉了学编程、写 UI、抠基础动画的时间；但“这个老虎机到底该给几次重随机会”“第几波怪的血量会卡死玩家”“吞噬进化的数值怎么拉才让人觉得刚好差一点就能赢”，这些决定一款游戏好不好玩的东西，依然得靠人一遍遍测试、推翻、重调。</p>\n<p>以前那些有好点子、但被编程和美术卡在门外的策划或重度玩家，现在确实能绕开团队协作，一个人把游戏端上 Steam 货架了。</p>\n<h2>抵制 AI 却又为它买单：玩家到底在矛盾什么？</h2>\n<p>有意思的分裂恰恰出在玩家自己身上。</p>\n<p>就在昨天（11 月 25 日），Steam 上线了一个名叫 “Games Without AI”（无 AI 游戏展）的专题页面，96 家独立团队凑在一起立下声明：全程依靠传统手工制作，不用生成式 AI。评论区和社交平台上，无数玩家拍手叫好，甚至把它当成筛选好游戏的“良心名单”。</p>\n<p>可就在同一个星期里，同样是 Steam 玩家，却真金白银把纯 AI 写代码的《转运军团》买到了 20 万份、3.2 万人同时在线。</p>\n<p>嘴上抵制，手里买单，玩家真的这么双标吗？</p>\n<p>仔细拆解一下就会发现，玩家真正反感的，其实从来不是“代码是不是 Claude 写的”，而是两样东西：大厂的敷衍，和肉眼可见的廉价感。</p>\n<p>过去两年，玩家被商店里成千上万的“AI 换皮垃圾”恶心透了——生硬的塑料立绘、驴唇不对马嘴的机翻文案，甚至连卖两三百块的大作都开始裁掉配音和原画、拿 AI 凑数却一分钱不降。在这些场景里，AI 在玩家眼里等价于“厂商偷懒、赚黑心钱”。</p>\n<figure><img alt=\"\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/slotbound-ai-20261126-b4.webp\"/></figure>\n<p>但《转运军团》踩中了完全不同的心理账户：</p>\n<p>一方面，美术和文案的“AI 味”一眼就能触发廉价警报，可底层代码是不是 AI 写的，普通玩家在游玩过程中根本感知不到；另一方面，当一个几百人的大公司用 AI 时，玩家会觉得你在克扣诚意；可当一个连编程都不会的普通人用 AI 做出了一款几十块钱、节奏还挺上头的小游戏，很多人的抵触情绪反而变成了猎奇，甚至生出一点“小人物靠工具逆袭”的宽容。</p>\n<p>更现实的一点是，很多玩家在买单和上头的时候，压根不知道这游戏是 AI 搓出来的。等到游戏火出圈、开发背景被翻出来时，几十个小时已经刷进去了，骂也显得别扭，干脆归结为“只要玩法对味、作者又没藏着掖着，倒也不是不能接受”。</p>\n<h2>这种“温差”，让传统开发者很难办</h2>\n<p>在舆论场上，“反 AI”的声量很大；但到了商店结算页面，玩家对“几十块钱图一乐”的包容度，往往比口号宽松得多。</p>\n<p>对那些老老实实招人、花两三年死磕手绘美术和自研代码的传统中小团队来说，舆论上大家都在骂 AI，消费上却照样有人买单，这种一边骂、一边买的局面，比单纯的销量下滑更让人无所适从。</p>\n<p>《转运军团》不会是最后一个靠 AI 跑出来的黑马。当“把游戏做出来”的门槛继续往下掉，传统中小团队接下来要面对的竞争，只会比今年更直接。</p>",
-   "date": "2026-11-26T01:00:42Z",
-   "first_seen": "2026-11-26T01:50:37Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/slotbound-ai-20261126-b1.webp",
-   "categories": [
-    "游戏产业",
-    "行业杂谈"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/ea-fc-27-11-yue-26-ri-geng-xin-jia-ru-yi-gu-jie-shuo-yue/",
-   "title": "EA《FC 27》11月26日更新加入已故解说约翰·莫特森，声音来自旧录音和AI",
-   "content": "<p>EA 11月25日宣布，《FC 27》11月26日更新将把已故解说约翰·莫特森作为可选解说加回，声音来自旧录音和AI。家属已同意；也有人认为这不能代替本人授权。</p>\n<figure><img alt=\"《EA SPORTS FC 27》官方说明配图\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/ea-fc27-motson-cover-1024x576.webp\"/></figure>\n<p>这件事写在《EA SPORTS FC 27》11月25日的<a href=\"https://www.ea.com/games/ea-sports-fc/fc-27/news/fc-27-john-motson-tribute\">官方说明</a>里。同日发布的<a href=\"https://www.ea.com/games/ea-sports-fc/fc-27/news/update-v1-3-pitch-notes\">1.3.0更新说明</a>写明，更新于11月26日登陆PlayStation、Xbox、PC和Nintendo Switch。玩家要在游戏的音频设置里自己选，才会听到他。现有的解说组还在。</p>\n<p>莫特森在2023年2月去世，当时77岁。官方要补的，是旧录音里没有的词。EA Sports FC高级游戏设计总监马特·普赖尔（Mat Prior）对<a href=\"https://www.bbc.com/news/articles/c65y10j841jpo\">BBC</a>说，他们没有他谈论Bradley Barcola、Chloe Kelly这类在役球员的录音，AI“是唯一的办法”。</p>\n<p>官方把这事写成致敬。说明里写，莫特森为BBC工作了50年，转播超过2500场比赛和20个国际大赛，2018年获得英国电影和电视艺术学院（BAFTA）电视奖特别奖。1996年到2006年，他也是EA足球游戏里那一代人听熟的声音。BBC还写，这是该系列第一次加入已故解说的声音。</p>\n<p>声音怎么做出来。官方说，工作室以他“近十年”的游戏内录音为基础，借助新的AI工具，把根据他本人录音训练出的AI再现，和原始音频混在一起。BBC的报道把这件事明确写成生成式AI。具体用了哪家模型，官方没有点名。</p>\n<p>家属这边，官方写的是在家人的祝福和合作下完成。莫特森的儿子弗雷德·莫特森（Fred Motson）在官方稿里说，父亲曾经很享受当“游戏的声音”，感谢工作室用这种方式保存对他的记忆。他对BBC说，这事“意义重大”；也说父亲是最不沾技术的人，直到去世桌上还放着打字机，未必明白AI在做什么，但“绝对”会愿意参与这类项目。BBC写道，EA向家属支付了使用其形象并重现其声音的费用，具体金额公司没有透露。普赖尔说，如果家属不是完全赞成，他们无论如何都不会推进。</p>\n<p>现役解说并不都是同一个态度。盖伊·莫布雷（Guy Mowbray）长期为BBC解说足球，2023年起也给这款游戏配音。他对BBC说，他觉得这是“挺好的、不算吓人的一种AI用法”。德里克·雷（Derek Rae）已经在EA FC里解说多年。他说，更有创造性的句子还是得人来，因为要带上个性，偶尔还得在句子中间笑一声；常见姓氏则是AI大概能处理的部分。他自己如果将来也要做类似决定，还需要再想，眼下“希望离做这个决定还早”。</p>\n<p>反对意见针对的是人已经没法亲自点头。彼得·考菲尔德（Peter Caulfield）创办了倡导组织Save Our Voices Now，反对用AI克隆声音。他对BBC说，如果有人生前签过协议，允许去世后使用自己的形象，他没有意见；但无论生前还是死后，除非本人明确同意，任何形式的AI克隆都不该被允许。“身为家属，也不该自动获得这项权利。”</p>\n<p>EA强调，这不是用来替换解说的。普赖尔对BBC说，从游戏角度看，他们已经用机器学习做动作系统很多年了；“它绝不是为了以任何形式取代解说。当然也没有用AI换掉任何人的未来计划。”这是公司眼下的口径。</p>\n<p>官方已经把它写进11月26日的正式更新，作为可选解说提供。当事人在不在世、生前有没有亲自点过头，仍是这类AI声音再现争议最核心的边界。</p>",
-   "date": "2026-11-26T00:34:42Z",
-   "first_seen": "2026-11-26T01:50:37Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/ea-fc27-motson-cover-768x432.webp",
-   "categories": [
-    "AI",
-    "AI新闻"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/ka-pu-kong-xuan-bu-exoprimal-2027-nian-9-yue-30-ri-ting-zhi/",
-   "title": "卡普空宣布《Exoprimal》2027年9月30日停止运营，2027年3月31日起商店下架",
-   "content": "<p>卡普空11月25日发布停止运营公告：《Exoprimal》将于2027年9月30日11:00（北京时间）结束运营服务，之后将无法继续游玩。</p>\n<figure><img alt=\"卡普空《Exoprimal》停止运营公告配图\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/exoprimal-shutdown-notice-1024x512.webp\"/></figure>\n<p><a href=\"https://info.exoprimal.com/zh-hans/pages/important_261125_001/\">简体中文公告</a>写明，停止运营覆盖 Xbox Series X|S、Xbox One、Windows，以及 PlayStation 5、PlayStation 4 和 Steam。</p>\n<figure><table><thead><tr><th>事项</th><th>北京时间</th><th>公告原文</th></tr></thead><tbody><tr><td>生存战通行证赛季1至4高级等阶停止在各商店销售</td><td>2026年11月25日09:00</td><td>2026年11月25日01:00（UTC）</td></tr><tr><td>游戏本体、可下载内容及所有其他商品从各商店平台下架</td><td>2027年3月31日09:00</td><td>2027年3月31日01:00（UTC）</td></tr><tr><td>停止运营</td><td>2027年9月30日11:00</td><td>2027年9月30日03:00（UTC）</td></tr></tbody></table></figure>\n<p>生存战通行证高级等阶停止销售这一项，按公告时间已经发生。公告还写，游戏停止销售后、直至运营服务结束前，仍可重新下载；运营服务结束后将无法继续游玩。疑问可通过卡普空提供的<a href=\"https://c.cid.capcom.com/inquiry/exoprimal.html\">咨询入口</a>联系。</p>\n<p>《Exoprimal》2023年7月14日发售。这份公告没有说明停止运营的原因，也没有写已购内容或虚拟道具如何处理。</p>",
-   "date": "2026-11-26T00:21:47Z",
-   "first_seen": "2026-11-26T01:50:37Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/exoprimal-shutdown-cover-768x403.webp",
-   "categories": [
-    "游戏产业"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/unity-ming-ling-hang-gong-ju-kai-fang-ce-shi-an-jian-qu/",
-   "title": "Unity 命令行工具开放测试：按件取用资源商店，也可调用生成模型",
-   "content": "<p>Unity 11 月 23 日宣布，已有的命令行工具现在接上了资源商店和 60 多种生成模型，并进入开放测试。编程助手能按件取已有素材；商店里没有的，也可以先生成来用。</p>\n<figure><img alt=\"Unity 官方博文配图：编辑器中的 Asset Library 面板\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/unity-cli-cover-1024x576.webp\"/></figure>\n<p>你让助手搭一片林间空地，项目里没有松树。按 11 月 23 日<a href=\"https://unity.com/blog/unity-asset-store-ai-generators-coding-agents\">这篇官方说明</a>的写法，助手可以自己去商店里搜，找到风格对得上的树，只把这一件下载进来，不必先搬一个 2GB 的环境包，也不必自己打开浏览器。</p>\n<p>Unity 的命令行工具更早已经有了。白话说，就是在终端里用文字命令操作编辑器和资源，而不必先点一堆菜单。11 月 23 日这篇，是给它接上两个出口：资源商店，以及一批素材生成模型。官方点名可以接到 Claude Code、Codex，也可以接 Grok Build 和 Google Antigravity。</p>\n<p>同日放出的还有 Asset Library 插件，用来把过去整包下载的 .unitypackage 整包格式拆开。官方举例，只要一只木桶，不必再下一整包 650MB 的中世纪道具。免费资源，或者已经买过的付费包，可以只取其中需要的文件。插件也能用白话描述来找，并给出以前商店页不太展示的信息，比如三角面数、动画绑定，用来判断这件东西能不能直接进项目。</p>\n<p>官方文档写得比博文紧。<a href=\"https://docs.unity.com/en-us/asset-store/asset-library/cli-introduction\">Asset Library 的命令行说明</a>把它标成实验性功能，还不能当正式量产工具用，也不是商店里所有资产都能在这里找到。能搜、能看详情的，包括付费资产；真要下载或导入，只限免费资源，以及已经拥有的付费包。没买的，还是得先去商店付款。</p>\n<p>商店里没有现成的，官方说可以从当天起让编程助手调用生成模型，做精灵图和三维模型，也能做音效，以及去背景、放大这类修改。官方写的是 60 多种模型。报价免费，先看要花多少积分再生成。每个生成文件会记下模型、提示词和花费，以后有人问这张图哪来的，还能翻出来。官方自己也把它写成占位：今天先有个声音，下个月美术录了真的再换。</p>\n<p><a href=\"https://docs.unity.com/en-us/ai/generators-cli/about-generators-cli\">生成功能的说明文档</a>补了博文没写细的两点。生成结果先落到本地文件，旁边带着来源记录，不会自动进 Unity 项目，还要再导入一次。生成会消耗团队账户里的 Unity Credits，也就是 Unity 的积分；确认之后，或在事先设好的额度之内，才会扣费。Windows、macOS 和 Linux 都能跑。</p>\n<p>要用生成功能，得在付费计划里，组织开通 Unity AI，有座位和积分，并且在后台打开生成开关；命令行工具版本要在 1.0.0-beta.15 或更高。<a href=\"https://docs.unity.com/en-us/ai/generators-cli/get-started\">入门页</a>还写，推荐让这些助手来选模型和跑命令，自己在终端里敲也可以。免费资源的商店接口，官方说谁都可以用。登录仍是原来的 Unity 账号，助手用你的权限和额度去搜、去报价，不必为每个模型再开一套账户。</p>\n<p>功能已经能装、能用，官方把商店接口和生成接口都叫做开放测试。这不等于已经验证过的量产管线。文档把资源库命令行接口写成实验性，明确还没准备好用于生产。商店里已有的，按件取；没有的，可以先生成并留下记录。两件事都还在测试。</p>",
-   "date": "2026-11-26T00:08:27Z",
-   "first_seen": "2026-11-26T01:50:37Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/unity-cli-cover-768x432.webp",
-   "categories": [
-    "AI",
-    "AI新闻"
-   ],
-   "partial": false
-  },
-  {
-   "link": "https://www.kmhgame.com/bi-li-bi-li-san-ji-du-shou-you-ying-ye-e-14-1-yi-yuan-tong/",
-   "title": "哔哩哔哩三季度手游营业额14.1亿元同比降7%，净营业额83.2亿元同比增8%",
-   "content": "<p>哔哩哔哩11月24日公布<a href=\"https://www.hkexnews.hk/listedco/listconews/sehk/2026/1124/2026112400716_c.pdf\">2026年第三季度业绩</a>：净营业额总额83.2亿元，同比增加8%；移动游戏营业额14.1亿元，同比减少7%，环比增加1%。</p>\n<figure><img alt=\"《三国：谋定天下》Steam 店面背景图，16:9 中心裁切\" src=\"https://www.kmhgame.com/wp-content/uploads/2026/11/bili-q3-cover-1024x576.webp\"/></figure>\n<p>移动游戏上一季度是13.9亿元，去年同期是15.1亿元。公司写明，同比减少主要由于去年同期形成较高基数，随着《三国：谋定天下》进入更稳定的运营阶段，降幅持续收窄。</p>\n<p>广告营业额30.9亿元，同比增加20%，公司归因于广告产品供应改善及广告效益提升。增值服务营业额同比增加4%，至31.5亿元，主要来自大会员及其他增值服务。IP衍生品及其他为670.1百万元，同比增加15%，主要来自IP衍生品销售及线下活动。</p>\n<p>毛利润31.0亿元，同比增加10%，毛利率37.3%，高于去年同期的36.7%。公司写明，净营业额增幅超过营业成本增幅。营业成本52.1亿元，同比增加7%；其中收入分成成本31.1亿元，同比增加2%。</p>\n<p>经营开支总额26.3亿元，同比增加7%。销售及营销开支11.2亿元，同比增加6%；一般及行政开支510.9百万元，与去年同期相对持平；研发开支10.1亿元，同比增加11%，公司写明主要是服务器折旧相关开支增加。</p>\n<p>经营利润同比增加32%，至468.7百万元。净利润504.1百万元，同比增加7%。经调整经营利润807.4百万元，同比增加17%；经调整净利润828.2百万元，同比增加5%。按公司口径，经调整数字会剔除股权激励费用、通过业务收购获得的无形资产相关摊销等项目。</p>\n<p>用户侧，日均活跃用户1.235亿，同比增加5%；日均使用时长121分钟，用户总使用时长同比增加14%。董事长兼首席执行官陈睿在新闻稿中称，日活用户攀升至近1.24亿，月度活跃用户增至3.94亿，日均使用时长提升至121分钟，均创历史新高。</p>\n<p>截至2026年9月30日，公司现金及现金等价物、定期存款及短期投资为257.1亿元。新闻稿“近期发展”还写了两笔已完成的资本操作。2026年9月，公司完成发行本金总额5亿美元、2031年到期的零息可换股优先票据，并将约1亿美元所得款项用于同步回购6,795,540股Z类普通股。此外，腾讯控股子公司认购额外本金总额2亿美元的票据，公司同步回购价值2亿美元的Z类普通股；该项于10月28日获无利害关系股东批准，11月5日完成。两项同步回购都计入特别股份回购计划。该计划共回购20,386,630股Z类普通股，总金额3亿美元，截至公告日均已注销，已发行股份总数较实施前减少约4.9%。这一特别计划独立于董事会今年6月批准的、为期两年、金额3亿美元的股份回购计划。</p>\n<figure><table><thead><tr><th>项目</th><th>3Q2026</th><th>同比</th><th>环比参考</th></tr></thead><tbody><tr><td>净营业额总额</td><td>83.2亿元</td><td>+8%</td><td>上一季度79.4亿元</td></tr><tr><td>广告</td><td>30.9亿元</td><td>+20%</td><td>上一季度31.3亿元</td></tr><tr><td>增值服务</td><td>31.5亿元</td><td>+4%</td><td>上一季度29.7亿元</td></tr><tr><td>移动游戏</td><td>14.1亿元</td><td>-7%</td><td>上一季度13.9亿元</td></tr><tr><td>毛利润</td><td>31.0亿元</td><td>+10%</td><td>上一季度29.5亿元</td></tr><tr><td>净利润</td><td>504.1百万元</td><td>+7%</td><td>上一季度339.1百万元</td></tr></tbody></table></figure>",
-   "date": "2026-11-25T08:49:17Z",
-   "first_seen": "2026-11-25T17:24:32Z",
-   "author": "",
-   "thumb": "https://www.kmhgame.com/wp-content/uploads/2026/11/bili-q3-cover-768x432.webp",
-   "categories": [
-    "游戏产业"
    ],
    "partial": false
   }
